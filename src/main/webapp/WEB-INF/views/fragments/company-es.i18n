@@ -10,10 +10,8 @@
 
 master.company.title = La empresa
 master.company.text = \
-	Acme, Inc. es una empresa ficticia que ofrece un proyecto starter para los \ 
-	estudiantes de la asignatura Diseño y Pruebas de la titulación de \ 
-	Ingeniería del Software en la Universidad de Sevilla. 
-master.company.name = Acme, Inc.
-master.company.address = 01 Acme Drive, Wondercity, Wonderland
-master.company.phone = +1 000 111 222
-master.company.email = contact@acme.com
+	Acme One - E3.05, Inc. es una empresa ficticia creada por el grupo E3.05 para la asignatura DP2.  
+master.company.name = Acme One - E3.05, Inc.
+master.company.address = Escuela Técnica Superior de Ingeniería Informática, Universidad de Sevilla, 41012 Sevilla
+master.company.phone = +34 678 91 23 45
+master.company.email = support@acme.com
