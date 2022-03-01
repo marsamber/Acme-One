@@ -25,7 +25,6 @@
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-alvvazort" action="http://www.twitter.com/"/>
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-alvmirpoz" action="https://www.wordreference.com/"/>
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-gonmarmar5" action="https://www.chess.com/"/>	
-			<acme:menu-suboption code="master.menu.anonymous.favourite-link-marcasbon" action="https://www.wikipedia.org/"/>	
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">

@@ -1,4 +1,4 @@
-# menu-en.i18n
+# menu-es.i18n
 #
 # Copyright (C) 2012-2022 Rafael Corchuelo.
 #
@@ -8,48 +8,47 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-# master.menu #################################################################
+﻿# master.menu #################################################################
 
-master.menu.home = Home
-master.menu.sign-up = Sign up
-master.menu.sign-in = Sign in
-master.menu.sign-out = Sign out
+master.menu.home = Inicio
+master.menu.sign-up = Registrarse
+master.menu.sign-in = Entrar
+master.menu.sign-out = Salir
 
 # master.menu.anonymous #######################################################
 
-master.menu.anonymous = Anonymous
-master.menu.anonymous.favourite-link = Favourite link
+master.menu.anonymous = Anónimo
+master.menu.anonymous.favourite-link = Enlace favorito
 master.menu.anonymous.favourite-link-pedparbas = 77927669N: Parrilla Bascón, Pedro
 master.menu.anonymous.favourite-link-marsamber = 78999568L: Sampedro Bernal, Marta
 master.menu.anonymous.favourite-link-alvvazort = 07257681P: Vázquez Ortiz, Álvaro
 master.menu.anonymous.favourite-link-alvmirpoz = 53354676N: Miranda Pozo, Álvaro
 master.menu.anonymous.favourite-link-gonmarmar5 = 77928283M: Martínez Martínez, Gonzalo
-master.menu.anonymous.favourite-link-marcasbon = 49167536K: Castro Bonilla, María
 
 # master.menu.administrator ###################################################
 
-master.menu.administrator = Administrator
-master.menu.administrator.dashboard = Dashboard
-master.menu.administrator.user-accounts = User accounts
-master.menu.administrator.populate-initial = Populate DB (initial)
-master.menu.administrator.populate-sample = Populate DB (samples)
-master.menu.administrator.shut-down = Shut down
+master.menu.administrator = Administrador
+master.menu.administrator.dashboard = Panel de indicadores
+master.menu.administrator.user-accounts = Cuentas de usuario
+master.menu.administrator.populate-initial = Poblar BD (inicial)
+master.menu.administrator.populate-sample = Poblar BD (ejemplos)
+master.menu.administrator.shut-down = Parar el sistema
 
 # master.menu.provider ########################################################
 
-master.menu.provider = Provider
-master.menu.provider.favourite-link = Favourite link
+master.menu.provider = Proveedor
+master.menu.provider.favourite-link = Enlace favorito
 
 # master.menu.consumer ##########################################################
 
-master.menu.consumer = Consumer
-master.menu.consumer.favourite-link = Favourite link
+master.menu.consumer = Consumidor
+master.menu.consumer.favourite-link = Enlace favorito
 
 # master.menu.user-account ####################################################
 
-master.menu.user-account = Account
-master.menu.user-account.general-data = General data
-master.menu.user-account.provider = Provider data
-master.menu.user-account.become-provider = Become a provider
-master.menu.user-account.consumer = Consumer data
-master.menu.user-account.become-consumer = Become a consumer
+master.menu.user-account = Cuenta
+master.menu.user-account.general-data = Datos generales
+master.menu.user-account.provider = Datos de proveedor
+master.menu.user-account.become-provider = Hazte proveedor
+master.menu.user-account.consumer = Datos de consumidor
+master.menu.user-account.become-consumer = Hazte consumidor
