@@ -23,7 +23,8 @@
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-pedparbas" action="https://www.keybr.com/"/>
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-marsamber" action="https://open.spotify.com/"/>		
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-alvvazort" action="http://www.twitter.com/"/>
-			<acme:menu-suboption code="master.menu.anonymous.favourite-link-alvmirpoz" action="https://www.wordreference.com/"/>	
+			<acme:menu-suboption code="master.menu.anonymous.favourite-link-alvmirpoz" action="https://www.wordreference.com/"/>
+			<acme:menu-suboption code="master.menu.anonymous.favourite-link-gonmarmar5" action="https://www.chess.com/"/>	
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">
