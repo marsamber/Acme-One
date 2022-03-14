@@ -14,8 +14,7 @@ package acme.components;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 
@@ -27,14 +26,14 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Toolkit {
+public class Tool {
 
 	/*
-	 A toolkit is a bundle with components and tools that are expected to work as a whole.
-	  The system must store the following data about them: a code (pattern “^[A-Z]{3}-[0-9]{3}(-[A-Z])?$”, unique),
-      title (not blank, shorter than 101 characters), description (not blank, shorter than 256 characters),
-	  assembly notes (not blank, shorter than 256 characters), and an optional link with further information.
-	  A toolkit may have several instances of the same component, but only one instance of a given tool.
+	 A tool is an artefact that allows to work with components. 
+	 The system must store the following data about them: a name 
+	 (not blank, shorter than 101 characters), a code (pattern “^[A-Z]{3}-[0-9]{3}(-[A-Z])?$”, unique), 
+	 a technology (not blank, shorter than 101 characters), a description (not blank, shorter than 256 characters), 
+	 a retail price (zero or positive), and an optional link with further information.
 	 * */
 	
 	// Serialisation identifier -----------------------------------------------
@@ -43,21 +42,24 @@ public class Toolkit {
 
 	// Attributes -------------------------------------------------------------
 
+	@NotBlank
+	@Length(min=1,max=101)
+	protected String name;
+	
 	@Id
 	@Pattern(regexp = "^[A-Z]{3}-[0-9]{3}(-[A-Z])?$")
 	protected String code;
 
 	@NotBlank
 	@Length(min=1,max=101)
-	protected String title;
+	protected String technology;
 	
 	@NotBlank
 	@Length(min=1,max=256)
 	protected String description;
 	
-	@NotBlank
-	@Length(min=1,max=256)
-	protected String assemblyNotes;
+	@Min(value=0)
+	protected Integer retailPrice;
 	
 	protected String moreInfo;
 
@@ -65,7 +67,4 @@ public class Toolkit {
 	
 	// Relationships ----------------------------------------------------------
 
-	@ManyToOne
-    @JoinColumn(name="code")
-	protected Tool tool;
 }
