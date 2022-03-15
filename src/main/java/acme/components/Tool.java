@@ -26,7 +26,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Tool {
+public class Tool extends AbstractEntity {
 
 	/*
 	 A tool is an artefact that allows to work with components. 
