@@ -50,7 +50,7 @@ public class Tool extends AbstractEntity {
 	protected String code;
 
 	@NotBlank
-	@Length(min=1,max=101)
+	@Length(max=100)
 	protected String technology;
 	
 	@NotBlank
