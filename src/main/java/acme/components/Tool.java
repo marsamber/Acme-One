@@ -59,7 +59,7 @@ public class Tool extends AbstractEntity {
 	
 	@Min(value=0)
 	protected Integer retailPrice;
-	
+	@Url
 	protected String moreInfo;
 
 	// Derived attributes -----------------------------------------------------
