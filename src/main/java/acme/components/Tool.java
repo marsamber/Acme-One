@@ -46,7 +46,6 @@ public class Tool extends AbstractEntity {
 	@Length(min=1,max=101)
 	protected String name;
 	
-	@Id
 	@Pattern(regexp = "^[A-Z]{3}-[0-9]{3}(-[A-Z])?$")
 	protected String code;
 
