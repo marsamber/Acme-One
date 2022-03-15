@@ -42,11 +42,11 @@ public class Patron extends UserRole {
 	// Attributes -------------------------------------------------------------
 
 	@NotBlank
-	@Length(min=1,max=101)
+	@Length(max=100)
 	protected String company;
 
 	@NotBlank
-	@Length(min=1,max=256)
+	@Length(max=255)
 	protected String statement;
 	
 	protected String moreInfo;
