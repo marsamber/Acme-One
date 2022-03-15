@@ -14,4 +14,5 @@ public class Component extends BaseEntity {
 
 	protected static final long serialVersionUID = 1L; 
 	
+	
 }

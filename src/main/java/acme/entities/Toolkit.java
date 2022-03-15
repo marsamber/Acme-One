@@ -1,10 +1,7 @@
 package acme.entities;
 
-import java.util.Collection;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
@@ -45,9 +42,6 @@ public class Toolkit extends AbstractEntity{
 	
 	@URL
 	protected String link;
-	
-	@OneToMany
-	Collection<Component> components;
 	
 	@OneToOne(optional = true)
 	Tool tool;

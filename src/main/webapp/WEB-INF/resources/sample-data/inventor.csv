@@ -1,2 +1,3 @@
 key,key:user-account,company,statement,moreInfo
-inventor-01,user-account-administrator-01,Acme One,The first inventator of the company,https://es.wikipedia.org/wiki/Paul_Allen
+inventor-01,user-account-inventor-01,Acme One,The first inventator of the company,https://es.wikipedia.org/wiki/Paul_Allen
+inventor-02,user-account-inventor-02,Acme One,The first inventator of the company,https://es.wikipedia.org/wiki/Paul_Allen
