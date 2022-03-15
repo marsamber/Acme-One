@@ -54,7 +54,7 @@ public class Tool extends AbstractEntity {
 	protected String technology;
 	
 	@NotBlank
-	@Length(min=1,max=256)
+	@Length(max=255)
 	protected String description;
 	
 	@Min(value=0)
