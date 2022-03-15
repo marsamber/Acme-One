@@ -52,7 +52,7 @@
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.patron" access="hasRole('Patron')">
-			<acme:menu-suboption code="master.menu.patron.favourite-link" action="http://www.google.com/"/>
+			<acme:menu-suboption code="master.menu.patron.dashboards" action="http://www.google.com/"/>
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.inventor" access="hasRole('Inventor')">
