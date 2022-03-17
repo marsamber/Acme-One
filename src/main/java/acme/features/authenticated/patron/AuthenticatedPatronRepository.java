@@ -12,9 +12,12 @@
 
 package acme.features.authenticated.patron;
 
+import java.util.Collection;
+
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import acme.entities.Patronage;
 import acme.framework.entities.UserAccount;
 import acme.framework.repositories.AbstractRepository;
 import acme.roles.Patron;
@@ -22,10 +25,13 @@ import acme.roles.Patron;
 @Repository
 public interface AuthenticatedPatronRepository extends AbstractRepository {
 
-	@Query("select p from Provider p where p.userAccount.id = :id")
+	@Query("select p from Patron p where p.userAccount.id = :id")
 	Patron findOneProviderByUserAccountId(int id);
 
 	@Query("select ua from UserAccount ua where ua.id = :id")
 	UserAccount findOneUserAccountById(int id);
+	
+	@Query("select p from Patronage p where p.patron = :patron")
+	Collection<Patronage> findPatronageByPatron(Patron patron);
 
 }
