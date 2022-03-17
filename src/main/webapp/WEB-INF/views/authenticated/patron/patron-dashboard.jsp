@@ -5,7 +5,64 @@
 <link rel="stylesheet" href="css/acme.css"/>
 
 <div class="dashboard">
-	ayuda por favor <br>
-	no puedo más <br>
-	me quiero ir <br>
+	<ul class="stadistics">
+		<b>Patrocinios</b>
+		<li>
+			Propuestos: 
+		</li>
+		<li>
+			Aceptados: 
+		</li>
+		<li>
+			Denegados: 
+		</li>
+	</ul>
+	<ul class="stadistics">
+		<b>Presupuesto medio</b>
+		<li>
+			88
+		</li>
+		<li>
+			88
+		</li>
+		<li>
+			88
+		</li>
+	</ul>
+	<ul class="stadistics">
+		<b>Desviación</b>
+		<li>
+			88
+		</li>
+		<li>
+			88
+		</li>
+		<li>
+			88
+		</li>
+	</ul>
+	<ul class="stadistics">
+		<b>Máximo</b>
+		<li>
+			88
+		</li>
+		<li>
+			88
+		</li>
+		<li>
+			88
+		</li>
+	</ul>
+	<ul class="stadistics">
+		<b>Mínimo</b>
+		<li>
+			88
+		</li>
+		<li>
+			88
+		</li>
+		<li>
+			88
+		</li>
+	</ul>
 </div>

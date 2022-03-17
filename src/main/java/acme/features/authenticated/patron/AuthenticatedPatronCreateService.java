@@ -25,10 +25,11 @@ import acme.framework.entities.UserAccount;
 import acme.framework.helpers.PrincipalHelper;
 import acme.framework.roles.Authenticated;
 import acme.framework.services.AbstractCreateService;
+import acme.roles.Patron;
 import acme.roles.Provider;
 
 @Service
-public class AuthenticatedPatronCreateService implements AbstractCreateService<Authenticated, Provider> {
+public class AuthenticatedPatronCreateService implements AbstractCreateService<Authenticated, Patron> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -39,7 +40,7 @@ public class AuthenticatedPatronCreateService implements AbstractCreateService<A
 
 
 	@Override
-	public boolean authorise(final Request<Provider> request) {
+	public boolean authorise(final Request<Patron> request) {
 		assert request != null;
 
 		boolean result;
@@ -50,7 +51,7 @@ public class AuthenticatedPatronCreateService implements AbstractCreateService<A
 	}
 
 	@Override
-	public void bind(final Request<Provider> request, final Provider entity, final Errors errors) {
+	public void bind(final Request<Patron> request, final Patron entity, final Errors errors) {
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
@@ -59,7 +60,7 @@ public class AuthenticatedPatronCreateService implements AbstractCreateService<A
 	}
 
 	@Override
-	public void unbind(final Request<Provider> request, final Provider entity, final Model model) {
+	public void unbind(final Request<Patron> request, final Patron entity, final Model model) {
 		assert request != null;
 		assert entity != null;
 		assert model != null;
@@ -68,10 +69,10 @@ public class AuthenticatedPatronCreateService implements AbstractCreateService<A
 	}
 
 	@Override
-	public Provider instantiate(final Request<Provider> request) {
+	public Patron instantiate(final Request<Patron> request) {
 		assert request != null;
 
-		Provider result;
+		Patron result;
 		Principal principal;
 		int userAccountId;
 		UserAccount userAccount;
@@ -80,21 +81,21 @@ public class AuthenticatedPatronCreateService implements AbstractCreateService<A
 		userAccountId = principal.getAccountId();
 		userAccount = this.repository.findOneUserAccountById(userAccountId);
 
-		result = new Provider();
+		result = new Patron();
 		result.setUserAccount(userAccount);
 
 		return result;
 	}
 
 	@Override
-	public void validate(final Request<Provider> request, final Provider entity, final Errors errors) {
+	public void validate(final Request<Patron> request, final Patron entity, final Errors errors) {
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
 	}
 
 	@Override
-	public void create(final Request<Provider> request, final Provider entity) {
+	public void create(final Request<Patron> request, final Patron entity) {
 		assert request != null;
 		assert entity != null;
 
@@ -102,7 +103,7 @@ public class AuthenticatedPatronCreateService implements AbstractCreateService<A
 	}
 
 	@Override
-	public void onSuccess(final Request<Provider> request, final Response<Provider> response) {
+	public void onSuccess(final Request<Patron> request, final Response<Patron> response) {
 		assert request != null;
 		assert response != null;
 

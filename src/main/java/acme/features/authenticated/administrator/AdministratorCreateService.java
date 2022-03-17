@@ -1,5 +1,5 @@
 /*
- * AuthenticatedProviderUpdateService.java
+ * AuthenticatedProviderCreateService.java
  *
  * Copyright (C) 2012-2022 Rafael Corchuelo.
  *
@@ -10,7 +10,7 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.authenticated.patron;
+package acme.features.authenticated.administrator;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,31 +21,37 @@ import acme.framework.controllers.HttpMethod;
 import acme.framework.controllers.Request;
 import acme.framework.controllers.Response;
 import acme.framework.entities.Principal;
+import acme.framework.entities.UserAccount;
 import acme.framework.helpers.PrincipalHelper;
+import acme.framework.roles.Administrator;
 import acme.framework.roles.Authenticated;
-import acme.framework.services.AbstractUpdateService;
-import acme.roles.Patron;
+import acme.framework.services.AbstractCreateService;
+import acme.roles.Provider;
 
 @Service
-public class AuthenticatedPatronUpdateService implements AbstractUpdateService<Authenticated, Patron> {
+public class AdministratorCreateService implements AbstractCreateService<Authenticated, Administrator> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AuthenticatedPatronRepository repository;
+	protected AdministratorRepository repository;
 
-	// AbstractUpdateService<Authenticated, Provider> interface ---------------
+	// AbstractCreateService<Authenticated, Provider> interface ---------------
 
 
 	@Override
-	public boolean authorise(final Request<Patron> request) {
+	public boolean authorise(final Request<Administrator> request) {
 		assert request != null;
 
-		return true;
+		boolean result;
+		
+		result = !request.getPrincipal().hasRole(Provider.class); 
+
+		return result;
 	}
 
 	@Override
-	public void bind(final Request<Patron> request, final Patron entity, final Errors errors) {
+	public void bind(final Request<Administrator> request, final Administrator entity, final Errors errors) {
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
@@ -54,7 +60,7 @@ public class AuthenticatedPatronUpdateService implements AbstractUpdateService<A
 	}
 
 	@Override
-	public void unbind(final Request<Patron> request, final Patron entity, final Model model) {
+	public void unbind(final Request<Administrator> request, final Administrator entity, final Model model) {
 		assert request != null;
 		assert entity != null;
 		assert model != null;
@@ -63,30 +69,33 @@ public class AuthenticatedPatronUpdateService implements AbstractUpdateService<A
 	}
 
 	@Override
-	public Patron findOne(final Request<Patron> request) {
+	public Administrator instantiate(final Request<Administrator> request) {
 		assert request != null;
 
-		Patron result;
+		Administrator result;
 		Principal principal;
 		int userAccountId;
+		UserAccount userAccount;
 
 		principal = request.getPrincipal();
 		userAccountId = principal.getAccountId();
+		userAccount = this.repository.findOneUserAccountById(userAccountId);
 
-		result = this.repository.findOneProviderByUserAccountId(userAccountId);
+		result = new Administrator();
+		result.setUserAccount(userAccount);
 
 		return result;
 	}
 
 	@Override
-	public void validate(final Request<Patron> request, final Patron entity, final Errors errors) {
+	public void validate(final Request<Administrator> request, final Administrator entity, final Errors errors) {
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
 	}
 
 	@Override
-	public void update(final Request<Patron> request, final Patron entity) {
+	public void create(final Request<Administrator> request, final Administrator entity) {
 		assert request != null;
 		assert entity != null;
 
@@ -94,7 +103,7 @@ public class AuthenticatedPatronUpdateService implements AbstractUpdateService<A
 	}
 
 	@Override
-	public void onSuccess(final Request<Patron> request, final Response<Patron> response) {
+	public void onSuccess(final Request<Administrator> request, final Response<Administrator> response) {
 		assert request != null;
 		assert response != null;
 

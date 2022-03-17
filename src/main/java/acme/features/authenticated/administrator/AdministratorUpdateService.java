@@ -10,7 +10,7 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.authenticated.patron;
+package acme.features.authenticated.administrator;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,30 +22,30 @@ import acme.framework.controllers.Request;
 import acme.framework.controllers.Response;
 import acme.framework.entities.Principal;
 import acme.framework.helpers.PrincipalHelper;
+import acme.framework.roles.Administrator;
 import acme.framework.roles.Authenticated;
 import acme.framework.services.AbstractUpdateService;
-import acme.roles.Patron;
 
 @Service
-public class AuthenticatedPatronUpdateService implements AbstractUpdateService<Authenticated, Patron> {
+public class AdministratorUpdateService implements AbstractUpdateService<Authenticated, Administrator> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AuthenticatedPatronRepository repository;
+	protected AdministratorRepository repository;
 
 	// AbstractUpdateService<Authenticated, Provider> interface ---------------
 
 
 	@Override
-	public boolean authorise(final Request<Patron> request) {
+	public boolean authorise(final Request<Administrator> request) {
 		assert request != null;
 
 		return true;
 	}
 
 	@Override
-	public void bind(final Request<Patron> request, final Patron entity, final Errors errors) {
+	public void bind(final Request<Administrator> request, final Administrator entity, final Errors errors) {
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
@@ -54,7 +54,7 @@ public class AuthenticatedPatronUpdateService implements AbstractUpdateService<A
 	}
 
 	@Override
-	public void unbind(final Request<Patron> request, final Patron entity, final Model model) {
+	public void unbind(final Request<Administrator> request, final Administrator entity, final Model model) {
 		assert request != null;
 		assert entity != null;
 		assert model != null;
@@ -63,10 +63,10 @@ public class AuthenticatedPatronUpdateService implements AbstractUpdateService<A
 	}
 
 	@Override
-	public Patron findOne(final Request<Patron> request) {
+	public Administrator findOne(final Request<Administrator> request) {
 		assert request != null;
 
-		Patron result;
+		Administrator result;
 		Principal principal;
 		int userAccountId;
 
@@ -79,14 +79,14 @@ public class AuthenticatedPatronUpdateService implements AbstractUpdateService<A
 	}
 
 	@Override
-	public void validate(final Request<Patron> request, final Patron entity, final Errors errors) {
+	public void validate(final Request<Administrator> request, final Administrator entity, final Errors errors) {
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
 	}
 
 	@Override
-	public void update(final Request<Patron> request, final Patron entity) {
+	public void update(final Request<Administrator> request, final Administrator entity) {
 		assert request != null;
 		assert entity != null;
 
@@ -94,7 +94,7 @@ public class AuthenticatedPatronUpdateService implements AbstractUpdateService<A
 	}
 
 	@Override
-	public void onSuccess(final Request<Patron> request, final Response<Patron> response) {
+	public void onSuccess(final Request<Administrator> request, final Response<Administrator> response) {
 		assert request != null;
 		assert response != null;
 

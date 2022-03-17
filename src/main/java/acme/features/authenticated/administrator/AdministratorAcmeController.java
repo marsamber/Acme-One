@@ -10,7 +10,7 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.authenticated.patron;
+package acme.features.authenticated.administrator;
 
 import javax.annotation.PostConstruct;
 
@@ -21,20 +21,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import acme.framework.controllers.AbstractController;
+import acme.framework.roles.Administrator;
 import acme.framework.roles.Authenticated;
-import acme.roles.Patron;
 
 @Controller
-@RequestMapping("/authenticated/patron")
-public class AuthenticatedPatronController extends AbstractController<Authenticated, Patron> {
+@RequestMapping("/administrator")
+public class AdministratorAcmeController extends AbstractController<Authenticated, Administrator> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AuthenticatedPatronCreateService	createService;
+	protected AdministratorCreateService	createService;
 
 	@Autowired
-	protected AuthenticatedPatronUpdateService	updateService;
+	protected AdministratorUpdateService	updateService;
 
 	// Constructors -----------------------------------------------------------
 
@@ -50,7 +50,7 @@ public class AuthenticatedPatronController extends AbstractController<Authentica
 		ModelAndView result;
 
 		result = new ModelAndView();
-		result.setViewName("authenticated/patron/patron-dashboard");
+		result.setViewName("authenticated/administrator/administrator-dashboard");
 
 		return result;
 	}
