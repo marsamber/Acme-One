@@ -18,7 +18,8 @@ public class Patronage extends AbstractEntity {
 
 	private static final long serialVersionUID = 1L;
 	
-	private enum State {PROPOSED, ACCEPTED, DENIED};
+	private enum Status {PROPOSED, ACCEPTED, DENIED};
+
 	
 	//Attributes ---------------------------------------------
 	
