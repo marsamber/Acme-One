@@ -77,7 +77,9 @@ public class Patronage extends AbstractEntity {
 	
 	@AssertTrue(message = "The patronage should last at least for a month.")
 	private boolean isValidFinishedAt()	{
+                if(this.startedAt == null || this.finishedAt == null) return false;
 		final LocalDateTime started = LocalDateTime.from(this.startedAt.toInstant());
+
 		final LocalDateTime finishedMinusOne = LocalDateTime.from(this.finishedAt.toInstant()).minusMonths(1);
 		return finishedMinusOne.isAfter(started) || finishedMinusOne.isEqual(started);
 	}
