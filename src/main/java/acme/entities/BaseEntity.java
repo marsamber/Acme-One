@@ -2,8 +2,10 @@ package acme.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.validation.Valid;
 import javax.validation.constraints.AssertTrue;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
@@ -41,6 +43,8 @@ public class BaseEntity extends AbstractEntity {
 	@Length(max = 255)
 	protected String description;
 	
+	@NotNull
+	@Valid
 	protected Money retailPrice;
 	
 	@URL
