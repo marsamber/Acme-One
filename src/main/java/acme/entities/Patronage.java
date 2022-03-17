@@ -69,7 +69,7 @@ public class Patronage extends AbstractEntity {
 	
 	@AssertTrue(message = "The patronage should start a month after the entity is created.")
 	private boolean isValidStartedAt() {
-		if(this.startedAt == null) {	return true;	}
+		if(this.startedAt == null)	return true;
 		final LocalDateTime created = LocalDateTime.from(this.createdAt.toInstant());
 		final LocalDateTime startedMinusOne = LocalDateTime.from(this.startedAt.toInstant()).minusMonths(1);
 	    return startedMinusOne.isAfter(created) || startedMinusOne.isEqual(created);
@@ -77,9 +77,8 @@ public class Patronage extends AbstractEntity {
 	
 	@AssertTrue(message = "The patronage should last at least for a month.")
 	private boolean isValidFinishedAt()	{
-                if(this.startedAt == null || this.finishedAt == null) return false;
+        if(this.startedAt == null || this.finishedAt == null) return true;
 		final LocalDateTime started = LocalDateTime.from(this.startedAt.toInstant());
-
 		final LocalDateTime finishedMinusOne = LocalDateTime.from(this.finishedAt.toInstant()).minusMonths(1);
 		return finishedMinusOne.isAfter(started) || finishedMinusOne.isEqual(started);
 	}
