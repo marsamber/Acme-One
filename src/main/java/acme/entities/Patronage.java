@@ -24,7 +24,8 @@ public class Patronage extends AbstractEntity {
 	//Attributes ---------------------------------------------
 	
 	@NotNull
-	protected State state;
+	protected Status status;
+
 	
 	@Column(unique = true)
 	@Pattern(regexp ="^[A-Z]{3}-[0-9]{3}(-[A-Z])?$")
