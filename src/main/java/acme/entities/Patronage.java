@@ -6,6 +6,7 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.Valid;
@@ -19,6 +20,7 @@ import org.hibernate.validator.constraints.URL;
 
 import acme.framework.datatypes.Money;
 import acme.framework.entities.AbstractEntity;
+import acme.roles.Patron;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -29,7 +31,7 @@ public class Patronage extends AbstractEntity {
 
 	private static final long serialVersionUID = 1L;
 	
-	private enum Status {PROPOSED, ACCEPTED, DENIED};
+	public enum Status {PROPOSED, ACCEPTED, DENIED};
 
 	
 	//Attributes ---------------------------------------------
@@ -63,6 +65,9 @@ public class Patronage extends AbstractEntity {
 	@Temporal(TemporalType.DATE)
 	protected Date finishedAt;
 	
+	@ManyToOne
+	protected Patron patron;
+	
 	
 	//Complex constraints -------------------------------------
 	
@@ -73,6 +78,7 @@ public class Patronage extends AbstractEntity {
 	
 	@AssertTrue(message = "The patronage should start a month after the entity is created.")
 	private boolean isValidStartedAt() {
+
 		if(this.startedAt == null)	return true;
 		final LocalDate created = this.createdAt.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
 		final LocalDate startedMinusOne = this.startedAt.toInstant().atZone(ZoneId.systemDefault()).toLocalDate().minusMonths(1L);
