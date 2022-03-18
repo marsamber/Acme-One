@@ -12,14 +12,13 @@
 
 package acme.features.authenticated.administrator;
 
-import javax.annotation.PostConstruct;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import acme.entities.Patronage.Status;
 import acme.framework.controllers.AbstractController;
 import acme.framework.roles.Administrator;
 import acme.framework.roles.Authenticated;
@@ -31,27 +30,19 @@ public class AdministratorAcmeController extends AbstractController<Authenticate
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AdministratorCreateService	createService;
+	protected AdministratorService	administratorService;
 
-	@Autowired
-	protected AdministratorUpdateService	updateService;
 
 	// Constructors -----------------------------------------------------------
 
 
-	@PostConstruct
-	protected void initialise() {
-		super.addCommand("create", this.createService);
-		super.addCommand("update", this.updateService);
-	}
 	
 	@GetMapping("/dashboard")
 	public ModelAndView patronDashboardController() {
-		ModelAndView result;
-
-		result = new ModelAndView();
+		final ModelAndView result = new ModelAndView();
 		result.setViewName("authenticated/administrator/administrator-dashboard");
-
+		result.addObject("totalProposed", this.administratorService.NumberOfPatronageByStatus(Status.PROPOSED));
+		
 		return result;
 	}
 

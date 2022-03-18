@@ -18,6 +18,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import acme.entities.Patronage;
+import acme.entities.Patronage.Status;
 import acme.framework.entities.UserAccount;
 import acme.framework.repositories.AbstractRepository;
 import acme.roles.Patron;
@@ -33,5 +34,8 @@ public interface AuthenticatedPatronRepository extends AbstractRepository {
 	
 	@Query("select p from Patronage p where p.patron = :patron")
 	Collection<Patronage> findPatronageByPatron(Patron patron);
+	
+	@Query("select p from Patronage p where p.patron = :patron and p.status = :status")
+	Collection<Patronage> findPatronageByPatronAndStatus(Patron patron, Status status);
 
 }
