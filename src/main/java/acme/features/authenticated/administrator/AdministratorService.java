@@ -18,7 +18,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.Patronage;
-import acme.entities.Patronage.Status;
 import acme.framework.roles.Administrator;
 import acme.framework.roles.Authenticated;
 import acme.framework.services.AbstractService;
@@ -35,6 +34,7 @@ public class AdministratorService implements AbstractService<Authenticated, Admi
 		return this.repository.findAllPatronage();
 	}
 	
+	/*
 	public Collection<Patronage> findPatronageByStatus(Status status){
 		return this.repository.findPatronageByStatus(status);
 	}
@@ -42,6 +42,6 @@ public class AdministratorService implements AbstractService<Authenticated, Admi
 	public int NumberOfPatronageByStatus(Status status){
 		return this.repository.findPatronageByStatus(status).size();
 	}
-	
+	*/
 
 }
