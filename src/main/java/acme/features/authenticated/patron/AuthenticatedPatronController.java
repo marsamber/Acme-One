@@ -12,9 +12,6 @@
 
 package acme.features.authenticated.patron;
 
-import javax.annotation.PostConstruct;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,20 +27,21 @@ public class AuthenticatedPatronController extends AbstractController<Authentica
 
 	// Internal state ---------------------------------------------------------
 
-	@Autowired
-	protected AuthenticatedPatronCreateService	createService;
+	//@Autowired
+	//protected AuthenticatedPatronCreateService	createService;
 
-	@Autowired
-	protected AuthenticatedPatronUpdateService	updateService;
+	//@Autowired
+	//protected AuthenticatedPatronUpdateService	updateService;
 
 	// Constructors -----------------------------------------------------------
 
-
+	/*
 	@PostConstruct
 	protected void initialise() {
 		super.addCommand("create", this.createService);
 		super.addCommand("update", this.updateService);
 	}
+	*/
 	
 	@GetMapping("/dashboard")
 	public ModelAndView patronDashboardController() {
