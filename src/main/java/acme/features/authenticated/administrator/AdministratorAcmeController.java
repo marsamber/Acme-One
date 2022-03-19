@@ -10,37 +10,39 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.authenticated.provider;
-
-import javax.annotation.PostConstruct;
+package acme.features.authenticated.administrator;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import acme.framework.controllers.AbstractController;
+import acme.framework.roles.Administrator;
 import acme.framework.roles.Authenticated;
-import acme.roles.Provider;
 
 @Controller
-@RequestMapping("/authenticated/provider/")
-public class AuthenticatedProviderController extends AbstractController<Authenticated, Provider> {
+@RequestMapping("/administrator")
+public class AdministratorAcmeController extends AbstractController<Authenticated, Administrator> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AuthenticatedProviderCreateService	createService;
+	protected AdministratorService	administratorService;
 
-	@Autowired
-	protected AuthenticatedProviderUpdateService	updateService;
 
 	// Constructors -----------------------------------------------------------
 
 
-	@PostConstruct
-	protected void initialise() {
-		super.addCommand("create", this.createService);
-		super.addCommand("update", this.updateService);
+	
+	@GetMapping("/dashboard")
+	public ModelAndView patronDashboardController() {
+		final ModelAndView result = new ModelAndView();
+		result.setViewName("authenticated/administrator/administrator-dashboard");
+		//result.addObject("totalProposed", this.administratorService.NumberOfPatronageByStatus(Status.PROPOSED));
+		
+		return result;
 	}
 
 }
