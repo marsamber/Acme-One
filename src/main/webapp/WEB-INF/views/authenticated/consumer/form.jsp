@@ -16,9 +16,9 @@
 <%@taglib prefix="acme" uri="urn:jsptagdir:/WEB-INF/tags"%>
 
 <acme:form>
-	<acme:input-textbox code="authenticated.consumer.consumer.form.label.company" path="company"/>
-	<acme:input-textbox code="authenticated.consumer.consumer.form.label.sector" path="sector"/>
+	<acme:input-textbox code="authenticated.inventor.inventor.form.label.company" path="company"/>
+	<acme:input-textbox code="authenticated.inventor.inventor.form.label.sector" path="sector"/>
 	
-	<acme:submit test="${command == 'create'}" code="authenticated.consumer.consumer.form.button.create" action="/authenticated/consumer/create"/>
-	<acme:submit test="${command == 'update'}" code="authenticated.consumer.consumer.form.button.update" action="/authenticated/consumer/update"/>
+	<acme:submit test="${command == 'create'}" code="authenticated.inventor.inventor.form.button.create" action="/authenticated/inventor/create"/>
+	<acme:submit test="${command == 'update'}" code="authenticated.inventor.inventor.form.button.update" action="/authenticated/inventor/update"/>
 </acme:form>
