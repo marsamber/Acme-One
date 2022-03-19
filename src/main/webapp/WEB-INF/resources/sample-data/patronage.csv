@@ -32,8 +32,19 @@ patronage-30,ACCEPTED,SHJ-162-K,"Lorem ipsum dolor sit amet, consectetur adipisc
 patronage-31,PROPOSED,AWC-323-A,...,EUR 3,http://fdsfds.dff.fdsfd/,"2022/01/13 00:00","2022/07/22 00:00","2025/01/13 00:00",patron-01
 patronage-32,DENIED,ADD-173-A,"¿?¡!.,:;-_&%@#|ªº={}ç[]()",EUR 888.88,https://es.wikipedia.org/wiki/Mitocondria,"2022/01/13 00:00","2022/07/22 00:00","2025/01/13 00:00",patron-01
 patronage-33,PROPOSED,EBC-823-A,áéíóúü,EUR 2158.02,https://app.clockify.me/tracker,"2022/01/13 00:00","2022/07/22 00:00","2025/01/13 00:00",patron-01
-
-
-
-
-
+patronage-34,ACCEPTED,FKO-689-P,.,USD 2,null,0001/01/01 08:05,0001/02/01 06:00,2022/06/17 12:03,patron-12
+patronage-35,PROPOSED,GEA-249-F,10.5,EUR 2000,https://www.google.com/search?q=enlace+muy+largo&client=opera-gx&hs=LWQ&sxsrf=APq-WBtfxOYaHhRExUc1sSDwtwAGHEJAbw%3A1647727918485&ei=LlU2YtaiHcLSa9CLlTA&ved=0ah,0001/01/02 02:05,2022/05/14 06:00,2022/06/17 12:03,patron-01
+patronage-36,DENIED,JRA-352-W,a,GBP 10000,http://dsfkj.example.com/,0012/03/17 08:05,2020/10/14 06:00,2022/06/17 12:03,patron-11
+patronage-37,PROPOSED,NSR-869-G,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin egestas dui ac rhoncus elementum. Sed id leo congue, varius enim eu, ultrices orci. Fusce molestie non ligula id vestibulum. In ornare viverra mauris, non iaculis ipsum interdum eget. Suspen",EUR 8880000000,http://ev.us.es,2022/03/17 08:05,2022/04/17 09:00,2022/09/22 12:03,patron-11
+patronage-38,ACCEPTED,SHJ-122-K,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin egestas dui ac rhoncus elementum. Sed id leo congue, varius enim eu, ultrices orci. Fusce molestie non ligula id vestibulum. In ornare viverra mauris, non iaculis ipsum interdum eget. Suspe",EUR 100000000,http://dsfkj.example.com/,2021/06/19 08:05,2022/01/06 06:00,2022/08/29 12:03,patron-10
+patronage-39,PROPOSED,AWC-373-A,...,EUR 3,http://fdsfds.dff.fdsfd/,"2022/01/13 00:00","2022/07/22 00:00","2025/01/13 00:00",patron-09
+patronage-40,DENIED,ADD-183-A,"¿?¡!.,:;-_&%@#|ªº={}ç[]()",EUR 888.88,https://es.wikipedia.org/wiki/Mitocondria,"2022/01/13 00:00","2022/07/22 00:00","9999/01/13 00:00",patron-08
+patronage-41,PROPOSED,EBC-223-A,áéíóúü,EUR 2158.02,https://app.clockify.me/tracker,"2022/01/13 00:00","9999/01/12 00:00","9999/02/13 00:00",patron-07
+patronage-42,ACCEPTED,FKO-628-P,.,USD 2,null,0001/01/01 08:05,0001/02/01 06:00,2022/06/17 12:03,patron-06
+patronage-43,PROPOSED,GEA-149-F,10.5,EUR 2000,https://www.google.com/search?q=enlace+muy+largo&client=opera-gx&hs=LWQ&sxsrf=APq-WBtfxOYaHhRExUc1sSDwtwAGHEJAbw%3A1647727918485&ei=LlU2YtaiHcLSa9CLlTA&ved=0ah,0001/01/02 02:05,2022/05/14 06:00,2022/06/17 12:03,patron-05
+patronage-44,DENIED,JRA-312-W,a,GBP 10000,http://dsfkj.example.com/,0012/03/17 08:05,2020/10/14 06:00,2022/06/17 12:03,patron-04
+patronage-45,PROPOSED,NSR-861-G,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin egestas dui ac rhoncus elementum. Sed id leo congue, varius enim eu, ultrices orci. Fusce molestie non ligula id vestibulum. In ornare viverra mauris, non iaculis ipsum interdum eget. Suspen",EUR 8880000000,http://ev.us.es,2022/03/17 08:05,2022/04/17 09:00,2022/09/22 12:03,patron-03
+patronage-46,ACCEPTED,SHJ-121-K,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin egestas dui ac rhoncus elementum. Sed id leo congue, varius enim eu, ultrices orci. Fusce molestie non ligula id vestibulum. In ornare viverra mauris, non iaculis ipsum interdum eget. Suspe",EUR 100000000,http://dsfkj.example.com/,2021/06/19 08:05,2022/01/06 06:00,2022/08/29 12:03,patron-02
+patronage-47,PROPOSED,AWC-371-A,...,EUR 3,http://fdsfds.dff.fdsfd/,"2022/01/13 00:00","2022/07/22 00:00","2025/01/13 00:00",patron-11
+patronage-48,DENIED,ADD-181-A,"¿?¡!.,:;-_&%@#|ªº={}ç[]()",EUR 888.88,https://es.wikipedia.org/wiki/Mitocondria,"2022/01/13 00:00","2022/07/22 00:00","9999/01/13 00:00",patron-12
+patronage-49,PROPOSED,EBC-221-A,áéíóúü,EUR 2158.02,https://app.clockify.me/tracker,"2022/01/13 00:00","9999/01/12 00:00","9999/02/13 00:00",patron-10
