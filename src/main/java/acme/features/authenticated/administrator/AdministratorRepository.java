@@ -10,22 +10,31 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.authenticated.provider;
+package acme.features.authenticated.administrator;
+
+import java.util.Collection;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import acme.entities.Patronage;
 import acme.framework.entities.UserAccount;
 import acme.framework.repositories.AbstractRepository;
-import acme.roles.Provider;
+import acme.framework.roles.Administrator;
 
 @Repository
-public interface AuthenticatedProviderRepository extends AbstractRepository {
+public interface AdministratorRepository extends AbstractRepository {
 
-	@Query("select p from Provider p where p.userAccount.id = :id")
-	Provider findOneProviderByUserAccountId(int id);
+	@Query("select a from Administrator a where a.userAccount.id = :id")
+	Administrator findOneProviderByUserAccountId(int id);
 
 	@Query("select ua from UserAccount ua where ua.id = :id")
 	UserAccount findOneUserAccountById(int id);
+	
+	@Query("select p from Patronage p")
+	Collection<Patronage> findAllPatronage();
+	
+	//@Query("select p from Patronage p and p.status = :status")
+	//Collection<Patronage> findPatronageByStatus(Status status);
 
 }

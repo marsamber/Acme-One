@@ -1,5 +1,5 @@
 /*
- * AuthenticatedConsumerCreateService.java
+ * AuthenticatedProviderUpdateService.java
  *
  * Copyright (C) 2012-2022 Rafael Corchuelo.
  *
@@ -10,7 +10,7 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.authenticated.consumer;
+package acme.features.authenticated.patron;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,43 +21,31 @@ import acme.framework.controllers.HttpMethod;
 import acme.framework.controllers.Request;
 import acme.framework.controllers.Response;
 import acme.framework.entities.Principal;
-import acme.framework.entities.UserAccount;
 import acme.framework.helpers.PrincipalHelper;
 import acme.framework.roles.Authenticated;
-import acme.framework.services.AbstractCreateService;
-import acme.roles.Consumer;
+import acme.framework.services.AbstractUpdateService;
+import acme.roles.Patron;
 
 @Service
-public class AuthenticatedConsumerCreateService implements AbstractCreateService<Authenticated, Consumer> {
+public class AuthenticatedPatronUpdateService implements AbstractUpdateService<Authenticated, Patron> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AuthenticatedConsumerRepository repository;
+	protected AuthenticatedPatronRepository repository;
 
-	// AbstractCreateService<Authenticated, Consumer> ---------------------------
+	// AbstractUpdateService<Authenticated, Provider> interface ---------------
 
 
 	@Override
-	public boolean authorise(final Request<Consumer> request) {
+	public boolean authorise(final Request<Patron> request) {
 		assert request != null;
-		
-		boolean result;
-		
-		result = !request.getPrincipal().hasRole(Consumer.class); 
 
-		return result;
+		return true;
 	}
 
 	@Override
-	public void validate(final Request<Consumer> request, final Consumer entity, final Errors errors) {
-		assert request != null;
-		assert entity != null;
-		assert errors != null;
-	}
-
-	@Override
-	public void bind(final Request<Consumer> request, final Consumer entity, final Errors errors) {
+	public void bind(final Request<Patron> request, final Patron entity, final Errors errors) {
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
@@ -66,7 +54,7 @@ public class AuthenticatedConsumerCreateService implements AbstractCreateService
 	}
 
 	@Override
-	public void unbind(final Request<Consumer> request, final Consumer entity, final Model model) {
+	public void unbind(final Request<Patron> request, final Patron entity, final Model model) {
 		assert request != null;
 		assert entity != null;
 		assert model != null;
@@ -75,26 +63,30 @@ public class AuthenticatedConsumerCreateService implements AbstractCreateService
 	}
 
 	@Override
-	public Consumer instantiate(final Request<Consumer> request) {
+	public Patron findOne(final Request<Patron> request) {
 		assert request != null;
 
-		Consumer result;
+		Patron result;
 		Principal principal;
 		int userAccountId;
-		UserAccount userAccount;
 
 		principal = request.getPrincipal();
 		userAccountId = principal.getAccountId();
-		userAccount = this.repository.findOneUserAccountById(userAccountId);
 
-		result = new Consumer();
-		result.setUserAccount(userAccount);
+		result = this.repository.findOneProviderByUserAccountId(userAccountId);
 
 		return result;
 	}
 
 	@Override
-	public void create(final Request<Consumer> request, final Consumer entity) {
+	public void validate(final Request<Patron> request, final Patron entity, final Errors errors) {
+		assert request != null;
+		assert entity != null;
+		assert errors != null;
+	}
+
+	@Override
+	public void update(final Request<Patron> request, final Patron entity) {
 		assert request != null;
 		assert entity != null;
 
@@ -102,7 +94,7 @@ public class AuthenticatedConsumerCreateService implements AbstractCreateService
 	}
 
 	@Override
-	public void onSuccess(final Request<Consumer> request, final Response<Consumer> response) {
+	public void onSuccess(final Request<Patron> request, final Response<Patron> response) {
 		assert request != null;
 		assert response != null;
 

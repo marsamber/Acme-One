@@ -1,5 +1,5 @@
 /*
- * AuthenticatedConsumerRepository.java
+ * AuthenticatedProviderRepository.java
  *
  * Copyright (C) 2012-2022 Rafael Corchuelo.
  *
@@ -10,22 +10,32 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.authenticated.consumer;
+package acme.features.authenticated.patron;
+
+import java.util.Collection;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import acme.entities.Patronage;
+import acme.entities.Patronage.Status;
 import acme.framework.entities.UserAccount;
 import acme.framework.repositories.AbstractRepository;
-import acme.roles.Consumer;
+import acme.roles.Patron;
 
 @Repository
-public interface AuthenticatedConsumerRepository extends AbstractRepository {
+public interface AuthenticatedPatronRepository extends AbstractRepository {
+
+	@Query("select p from Patron p where p.userAccount.id = :id")
+	Patron findOneProviderByUserAccountId(int id);
 
 	@Query("select ua from UserAccount ua where ua.id = :id")
 	UserAccount findOneUserAccountById(int id);
-
-	@Query("select c from Consumer c where c.userAccount.id = :id")
-	Consumer findOneConsumerByUserAccountId(int id);
+	
+	@Query("select p from Patronage p where p.patron = :patron")
+	Collection<Patronage> findPatronageByPatron(Patron patron);
+	
+	@Query("select p from Patronage p where p.patron = :patron and p.status = :status")
+	Collection<Patronage> findPatronageByPatronAndStatus(Patron patron, Status status);
 
 }

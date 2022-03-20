@@ -8,11 +8,11 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-authenticated.consumer.consumer.form.title.create = Become a worker
-authenticated.consumer.consumer.form.title.update = Update your worker data
+authenticated.inventor.inventor.form.title.create = Become an inventor
+authenticated.inventor.inventor.form.title.update = Update your inventor data
 
-authenticated.consumer.consumer.form.label.company = Company
-authenticated.consumer.consumer.form.label.sector = Sector
+authenticated.inventor.inventor.form.label.company = Company
+authenticated.inventor.inventor.form.label.sector = Sector
 
-authenticated.consumer.consumer.form.button.create = Register
-authenticated.consumer.consumer.form.button.update = Update
+authenticated.inventor.inventor.form.button.create = Register
+authenticated.inventor.inventor.form.button.update = Update
