@@ -2,7 +2,6 @@ package acme.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 
@@ -43,6 +42,4 @@ public class Toolkit extends AbstractEntity{
 	@URL
 	protected String link;
 	
-	@ManyToMany
-	protected Item item;
 }
