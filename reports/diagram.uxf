@@ -697,12 +697,12 @@ PatronageReport
     <panel_attributes>&lt;&lt;Form&gt;&gt;
 /AdministratorDashboard/
 --
-+ TotalComponents: Long
++ TotalComponents: Integer
 + retailPriceComponentsAverage: Map&lt;Pair&lt;String,String&gt;,Double&gt;
 + retailPriceComponentsDeviation: Map&lt;Pair&lt;String,String&gt;,Double&gt;
 + retailPriceComponentsMinimum: Map&lt;Pair&lt;String,String&gt;,Double&gt;
 + retailPriceComponentsMaximum: Map&lt;Pair&lt;String,String&gt;,Double&gt;
-+ TotalTools: Long
++ TotalTools: Integer
 + retailPriceToolsAverage: Map&lt;String,Double&gt;
 + retailPriceToolsDeviation: Map&lt;String,Double&gt;
 + retailPriceToolsMinimum: Map&lt;String,Double&gt;
