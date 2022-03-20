@@ -13,6 +13,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.AssertTrue;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
@@ -56,6 +57,7 @@ public class Patronage extends AbstractEntity {
 	protected String link;
 	
 	@NotNull
+	@Past
 	@Temporal(TemporalType.DATE)
 	protected Date createdAt;
 	
