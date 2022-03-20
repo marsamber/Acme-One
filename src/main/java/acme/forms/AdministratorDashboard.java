@@ -8,10 +8,9 @@ import java.util.OptionalDouble;
 
 import org.springframework.data.util.Pair;
 
-import acme.entities.Component;
+import acme.entities.Item;
 import acme.entities.Patronage;
 import acme.entities.Patronage.Status;
-import acme.entities.Tool;
 
 public class AdministratorDashboard {
 	
@@ -46,14 +45,14 @@ public class AdministratorDashboard {
 	public Map<Pair<Status,String>,Double> patronagesMinimum;
 	public Map<Pair<Status,String>,Double> patronagesMaximum;
 	
-	public AdministratorDashboard() {
+	public AdministratorDashboard() {		
 		this.generateComponentsData();
 		this.generateToolsData();
 		this.generatePatronagesData();
 	}
 
 	public void generateComponentsData() {
-		Collection<Component> components=null; // TODO Llamada a la funcion servicio que recoja los componentes
+		Collection<Item> components=null; // TODO Llamada a la funcion servicio que recoja los componentes
 		
 		this.totalComponents= components.size();
 		
@@ -61,7 +60,7 @@ public class AdministratorDashboard {
 		
 	}
 
-	private void generateComponentsStats(Collection<Component> components) {
+	private void generateComponentsStats(Collection<Item> components) {
 		
 		String[] technologies= this.getAllTechnologies(components);
 		String[] currencies= new String[] {"EUR","USD","GBP"};
@@ -109,14 +108,14 @@ public class AdministratorDashboard {
 		}		
 	}
 	public void generateToolsData() {
-		Collection<Tool> tools=null; // TODO Llamada a la funcion servicio que recoja los componentes
+		Collection<Item> tools=null; // TODO Llamada a la funcion servicio que recoja los componentes
 		
 		this.totalComponents= tools.size();
 		
 		this.generateToolsStats(tools);
 	}
 
-	private void generateToolsStats(Collection<Tool> tools) {
+	private void generateToolsStats(Collection<Item> tools) {
 		String[] currencies= new String[] {"EUR","USD","GBP"};
 		
 		Double total;
@@ -169,10 +168,10 @@ public class AdministratorDashboard {
 		this.generatePatronagesStats(patronagesByStatus);
 	}
 	
-	private String[] getAllTechnologies(Collection<Component> components){
+	private String[] getAllTechnologies(Collection<Item> components){
 		
 		List<String> technologies= new ArrayList<String>();
-		List<Component> componentsList= new ArrayList<Component>(components);
+		List<Item> componentsList= new ArrayList<Item>(components);
 		
 		for(int i=0; i<componentsList.size(); i++) {
 			if(technologies.contains(componentsList.get(i).getTechnology()))
