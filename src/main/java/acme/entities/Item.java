@@ -19,7 +19,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class BaseEntity extends AbstractEntity {
+public class Item extends AbstractEntity {
 
 	//Serialisation identifier ------------------------------
 
@@ -35,6 +35,9 @@ public class BaseEntity extends AbstractEntity {
 	@Pattern(regexp ="^[A-Z]{3}-[0-9]{3}(-[A-Z])?$")
 	protected String code;
 	
+	@NotNull
+	protected enum type{Tool,Component}
+	
 	@NotBlank
 	@Length(max = 100)
 	protected String technology;
@@ -49,7 +52,7 @@ public class BaseEntity extends AbstractEntity {
 	
 	@URL
 	protected String link;
-		
+			
 		
 	@AssertTrue(message="Retail price must be positive")
 	private boolean isMoneyPositive() {
