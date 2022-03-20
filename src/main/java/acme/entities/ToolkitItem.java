@@ -1,6 +1,7 @@
 package acme.entities;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
@@ -21,9 +22,11 @@ public class ToolkitItem extends AbstractEntity{
 	//Attributes ---------------------------------------------
 	
 	@NotBlank
+	@ManyToOne
 	protected Toolkit toolkit;
 	
 	@NotBlank
+	@ManyToOne
 	protected Item item;
 	
 	@NotBlank
