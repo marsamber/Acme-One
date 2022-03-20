@@ -1,0 +1,50 @@
+key,key:patronage,seq-number,memorandum,link,creation-moment
+patronage-report-01,patronage-01,FKO-619-P:0001,.,null,2022/03/17 08:05
+patronage-report-02,patronage-02,GEA-259-F:0001,10.5,http://example.com/,2020/08/17 08:05
+patronage-report-03,patronage-03,JRA-342-W:0001,a,null,2020/03/17 08:05
+patronage-report-04,patronage-04,NSR-239-G:0001,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin egestas dui ac rhoncus elementum. Sed id leo congue, varius enim eu, ultrices orci. Fusce molestie non ligula id vestibulum. In ornare viverra mauris, non iaculis ipsum interdum eget. Suspen",http://example.com/,2022/03/17 08:05
+patronage-report-05,patronage-05,SHJ-362-K:0001,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin egestas dui ac rhoncus elementum. Sed id leo congue, varius enim eu, ultrices orci. Fusce molestie non ligula id vestibulum. In ornare viverra mauris, non iaculis ipsum interdum eget. Suspe",null,2020/06/19 08:05
+patronage-report-06,patronage-06,AWC-123-A:0001,...,https://www.fcbarcelona.es/es/club/noticias/2535530/el-fc-barcelona-y-spotify-firman-una-colaboracion-estrategica-a-largo-plazo-en-deporte-y-entretenimiento,2022/01/13 00:00
+patronage-report-07,patronage-07,ADD-123-A:0001,"¿?¡!.,:;-_&%@#|ªº={}ç[]()",https://www.fcbarcelona.es/es/club/noticias/2535530/el-fc-barcelona-y-spotify-firman-una-colaboracion-estrategica-a-largo-plazo-en-deporte-y-entretenimiento,2022/01/13 00:00
+patronage-report-08,patronage-08,EBC-123-A:0001,áéíóúü,https://www.fcbarcelona.es/es/club/noticias/2535530/el-fc-barcelona-y-spotify-firman-una-colaboracion-estrategica-a-largo-plazo-en-deporte-y-entretenimiento,2022/01/13 00:00
+patronage-report-09,patronage-09,FKK-619-P:0001,.,null,2022/03/17 08:05
+patronage-report-10,patronage-10,GEE-259-F:0001,10.5,http://example.com/,2020/08/17 08:05
+patronage-report-11,patronage-11,JRO-342-W:0001,a,null,2020/03/17 08:05
+patronage-report-12,patronage-12,NSA-239-G:0001,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin egestas dui ac rhoncus elementum. Sed id leo congue, varius enim eu, ultrices orci. Fusce molestie non ligula id vestibulum. In ornare viverra mauris, non iaculis ipsum interdum eget. Suspen",http://example.com/,2022/03/17 08:05
+patronage-report-13,patronage-13,SSJ-362-K:0001,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin egestas dui ac rhoncus elementum. Sed id leo congue, varius enim eu, ultrices orci. Fusce molestie non ligula id vestibulum. In ornare viverra mauris, non iaculis ipsum interdum eget. Suspe",null,2021/06/19 08:05
+patronage-report-14,patronage-14,AGC-123-A:0001,...,https://www.fcbarcelona.es/es/club/noticias/2535530/el-fc-barcelona-y-spotify-firman-una-colaboracion-estrategica-a-largo-plazo-en-deporte-y-entretenimiento,2022/01/13 00:00
+patronage-report-15,patronage-15,AAD-223-A:0001,"¿?¡!.,:;-_&%@#|ªº={}ç[]()",https://www.fcbarcelona.es/es/club/noticias/2535530/el-fc-barcelona-y-spotify-firman-una-colaboracion-estrategica-a-largo-plazo-en-deporte-y-entretenimiento,2022/01/13 00:00
+patronage-report-16,patronage-16,EBC-523-A:0001,áéíóúü,https://www.fcbarcelona.es/es/club/noticias/2535530/el-fc-barcelona-y-spotify-firman-una-colaboracion-estrategica-a-largo-plazo-en-deporte-y-entretenimiento,2022/01/13 00:00
+patronage-report-17,patronage-17,EBC-623-A:0001,áéíóúü,http://example.com/,2022/01/13 00:00
+patronage-report-18,patronage-18,FKO-719-P:0001,.,null,2022/03/17 08:05
+patronage-report-19,patronage-19,GEA-859-F:0001,10.5,https://www.google.com/,2020/08/17 08:05
+patronage-report-20,patronage-20,JRA-349-W:0001,a,http://dsfkj.example.com/,2020/03/17 08:05
+patronage-report-21,patronage-21,NSR-339-G:0001,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin egestas dui ac rhoncus elementum. Sed id leo congue, varius enim eu, ultrices orci. Fusce molestie non ligula id vestibulum. In ornare viverra mauris, non iaculis ipsum interdum eget. Suspen",http://ev.us.es,2022/03/17 08:05
+patronage-report-22,patronage-22,SHJ-262-K:0001,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin egestas dui ac rhoncus elementum. Sed id leo congue, varius enim eu, ultrices orci. Fusce molestie non ligula id vestibulum. In ornare viverra mauris, non iaculis ipsum interdum eget. Suspe",http://dsfkj.example.com/,2021/06/19 08:05
+patronage-report-23,patronage-23,AWC-523-A:0001,...,http://fdsfds.dff.fdsfd/,2022/01/13 00:00
+patronage-report-24,patronage-24,ADD-153-A:0001,"¿?¡!.,:;-_&%@#|ªº={}ç[]()",https://es.wikipedia.org/wiki/Mitocondria,2022/01/13 00:00
+patronage-report-25,patronage-25,EBC-153-A:0001,áéíóúü,https://app.clockify.me/tracker,2022/01/13 00:00
+patronage-report-26,patronage-26,FKO-669-P:0001,.,null,0001/01/01 08:05
+patronage-report-27,patronage-27,GEA-269-F:0001,10.5,https://www.google.com/search?q=enlace+muy+largo&client=opera-gx&hs=LWQ&sxsrf=APq-WBtfxOYaHhRExUc1sSDwtwAGHEJAbw%3A1647727918485&ei=LlU2YtaiHcLSa9CLlTA&ved=0ah,0001/01/02 02:05
+patronage-report-28,patronage-28,JRA-372-W:0001,a,http://dsfkj.example.com/,0012/03/17 08:05
+patronage-report-29,patronage-29,NSR-839-G:0001,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin egestas dui ac rhoncus elementum. Sed id leo congue, varius enim eu, ultrices orci. Fusce molestie non ligula id vestibulum. In ornare viverra mauris, non iaculis ipsum interdum eget. Suspen",http://ev.us.es,2022/03/17 08:05
+patronage-report-30,patronage-30,SHJ-162-K:0001,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin egestas dui ac rhoncus elementum. Sed id leo congue, varius enim eu, ultrices orci. Fusce molestie non ligula id vestibulum. In ornare viverra mauris, non iaculis ipsum interdum eget. Suspe",http://dsfkj.example.com/,2021/06/19 08:05
+patronage-report-31,patronage-31,AWC-323-A:0001,...,http://fdsfds.dff.fdsfd/,2022/01/13 00:00
+patronage-report-32,patronage-32,ADD-173-A:0001,"¿?¡!.,:;-_&%@#|ªº={}ç[]()",https://es.wikipedia.org/wiki/Mitocondria,2022/01/13 00:00
+patronage-report-33,patronage-33,EBC-823-A:0001,áéíóúü,https://app.clockify.me/tracker,2022/01/13 00:00
+patronage-report-34,patronage-34,FKO-689-P:0001,.,null,0001/01/01 08:05
+patronage-report-35,patronage-35,GEA-249-F:0001,10.5,https://www.google.com/search?q=enlace+muy+largo&client=opera-gx&hs=LWQ&sxsrf=APq-WBtfxOYaHhRExUc1sSDwtwAGHEJAbw%3A1647727918485&ei=LlU2YtaiHcLSa9CLlTA&ved=0ah,0001/01/02 02:05
+patronage-report-36,patronage-36,JRA-352-W:0001,a,http://dsfkj.example.com/,0012/03/17 08:05
+patronage-report-37,patronage-37,NSR-869-G:0001,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin egestas dui ac rhoncus elementum. Sed id leo congue, varius enim eu, ultrices orci. Fusce molestie non ligula id vestibulum. In ornare viverra mauris, non iaculis ipsum interdum eget. Suspen",http://ev.us.es,2022/03/17 08:05
+patronage-report-38,patronage-38,SHJ-122-K:0001,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin egestas dui ac rhoncus elementum. Sed id leo congue, varius enim eu, ultrices orci. Fusce molestie non ligula id vestibulum. In ornare viverra mauris, non iaculis ipsum interdum eget. Suspe",http://dsfkj.example.com/,2021/06/19 08:05
+patronage-report-39,patronage-39,AWC-373-A:0001,...,http://fdsfds.dff.fdsfd/,2022/01/13 00:00
+patronage-report-40,patronage-40,ADD-183-A:0001,"¿?¡!.,:;-_&%@#|ªº={}ç[]()",https://es.wikipedia.org/wiki/Mitocondria,2022/01/13 00:00
+patronage-report-41,patronage-41,EBC-223-A:0001,áéíóúü,https://app.clockify.me/tracker,2022/01/13 00:00
+patronage-report-42,patronage-42,FKO-628-P:0001,.,null,0001/01/01 08:05
+patronage-report-43,patronage-43,GEA-149-F:0001,10.5,https://www.google.com/search?q=enlace+muy+largo&client=opera-gx&hs=LWQ&sxsrf=APq-WBtfxOYaHhRExUc1sSDwtwAGHEJAbw%3A1647727918485&ei=LlU2YtaiHcLSa9CLlTA&ved=0ah,0001/01/02 02:05
+patronage-report-44,patronage-44,JRA-312-W:0001,a,http://dsfkj.example.com/,0012/03/17 08:05
+patronage-report-45,patronage-45,NSR-861-G:0001,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin egestas dui ac rhoncus elementum. Sed id leo congue, varius enim eu, ultrices orci. Fusce molestie non ligula id vestibulum. In ornare viverra mauris, non iaculis ipsum interdum eget. Suspen",http://ev.us.es,2022/03/17 08:05
+patronage-report-46,patronage-46,SHJ-121-K:0001,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin egestas dui ac rhoncus elementum. Sed id leo congue, varius enim eu, ultrices orci. Fusce molestie non ligula id vestibulum. In ornare viverra mauris, non iaculis ipsum interdum eget. Suspe",http://dsfkj.example.com/,2021/06/19 08:05
+patronage-report-47,patronage-47,AWC-371-A:0001,...,http://fdsfds.dff.fdsfd/,2022/01/13 00:00
+patronage-report-48,patronage-48,ADD-181-A:0001,"¿?¡!.,:;-_&%@#|ªº={}ç[]()",https://es.wikipedia.org/wiki/Mitocondria,2022/01/13 00:00
+patronage-report-49,patronage-49,EBC-221-A:0001,áéíóúü,https://app.clockify.me/tracker,2022/01/13 00:00
