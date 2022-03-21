@@ -30,6 +30,7 @@ public class Chirp extends AbstractEntity{
 	@Temporal(TemporalType.TIMESTAMP)
 	@Past
 	@NotNull
+	@Past
 	protected Date creationMoment;
 	
 	@NotBlank
