@@ -21,6 +21,8 @@ import lombok.Setter;
 @Setter
 public class Item extends AbstractEntity {
 
+	public enum Type{TOOL, COMPONENT}
+	
 	//Serialisation identifier ------------------------------
 
 	protected static final long serialVersionUID = 1L;
@@ -34,10 +36,8 @@ public class Item extends AbstractEntity {
 	@Column(unique = true)
 	@Pattern(regexp ="^[A-Z]{3}-[0-9]{3}(-[A-Z])?$")
 	protected String code;
-	
 	@NotNull
-	protected enum type{Tool,Component}
-	
+	protected Type type;
 	@NotBlank
 	@Length(max = 100)
 	protected String technology;

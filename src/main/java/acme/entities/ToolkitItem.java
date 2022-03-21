@@ -29,6 +29,7 @@ public class ToolkitItem extends AbstractEntity{
 	@ManyToOne
 	protected Item item;
 	
+	@NotNull
 	@Min(value = 1,message = "Value should be greater or equal to 1")
 	@Max(value = 1000,message = "Value should be less or equal to 1000")
 	protected Integer units;
