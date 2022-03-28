@@ -18,6 +18,10 @@
 
 <acme:menu-bar code="master.menu.home">
 	<acme:menu-left>
+	
+		<acme:menu-option code="master.menu.tools" action="/tools">
+		</acme:menu-option>
+		
 		<acme:menu-option code="master.menu.anonymous" access="isAnonymous()">
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link" action="http://www.example.com/"/>
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-pedparbas" action="https://www.keybr.com/"/>
@@ -38,7 +42,7 @@
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.shut-down" action="/administrator/shut-down"/>
 		</acme:menu-option>
-		
+			
 		<acme:menu-option code="master.menu.patron" access="hasRole('Patron')">
 			<acme:menu-suboption code="master.menu.patron.dashboard" action="/authenticated/patron/dashboard"/>
 		</acme:menu-option>
@@ -47,6 +51,7 @@
 			<acme:menu-suboption code="master.menu.inventor.favourite-link" action="http://www.wikipedia.com/"/>
 		</acme:menu-option>
 	</acme:menu-left>
+
 
 	<acme:menu-right>
 		<acme:menu-option code="master.menu.sign-up" action="/anonymous/user-account/create" access="isAnonymous()"/>
