@@ -66,6 +66,7 @@ public class AuthenticatedPatronController extends AbstractController<Authentica
 		patronages.add(patronagesByPatronAndAccepted);
 		patronages.add(patronagesByPatronAndDennied);
 		//PatronDashboard patronDashboard= new PatronDashboard(patronages);
+		
 		//result.addObject("dashboard", patronDashboard);
 		
 		return result;

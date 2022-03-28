@@ -27,11 +27,11 @@ public class PatronDashboard {
 	
 	public Map<Pair<Status,String>,Double> patronagesMaximum;
 	
-	public PatronDashboard() {
+	public PatronDashboard(List<Collection<Patronage>> patronages) {
 
-		Collection<Patronage> patronagesByPatronAndProposed=null; // TODO Llamada a la funcion servicio que recoja los patrocinios propuestos de este patrocinador
-		Collection<Patronage> patronagesByPatronAndAccepted=null; // TODO Llamada a la funcion servicio que recoja los patrocinios aceptados de este patrocinador
-		Collection<Patronage> patronagesByPatronAndDennied=null; // TODO Llamada a la funcion servicio que recoja los patrocinios denegados de este patrocinador
+		Collection<Patronage> patronagesByPatronAndProposed=patronages.get(0);
+		Collection<Patronage> patronagesByPatronAndAccepted=patronages.get(1); 
+		Collection<Patronage> patronagesByPatronAndDennied=patronages.get(2);
 		
 		this.patronagesProposed=patronagesByPatronAndProposed.size();
 		this.patronagesAccepted=patronagesByPatronAndAccepted.size(); 
