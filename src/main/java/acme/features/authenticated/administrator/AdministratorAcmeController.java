@@ -29,7 +29,7 @@ public class AdministratorAcmeController extends AbstractController<Authenticate
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AdministratorService	administratorService;
+	protected AdministratorShowService	administratorService;
 
 
 	// Constructors -----------------------------------------------------------

@@ -27,7 +27,7 @@ import acme.framework.services.AbstractUpdateService;
 import acme.roles.Patron;
 
 @Service
-public class AuthenticatedPatronUpdateService implements AbstractUpdateService<Authenticated, Patron> {
+public class AuthenticatedPatronShowService implements AbstractUpdateService<Authenticated, Patron> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -77,7 +77,7 @@ public class AuthenticatedPatronUpdateService implements AbstractUpdateService<A
 
 		return result;
 	}
-
+	
 	@Override
 	public void validate(final Request<Patron> request, final Patron entity, final Errors errors) {
 		assert request != null;
