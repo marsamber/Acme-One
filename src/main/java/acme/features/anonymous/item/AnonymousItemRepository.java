@@ -12,7 +12,7 @@ import acme.framework.repositories.AbstractRepository;
 public interface AnonymousItemRepository extends AbstractRepository {
 
 	@Query("select i from Item i where i.id = :id")
-	Item findOneItemById(int id);
+	Item findById(int id);
 	
 	@Query("select i from Item i where i.type = 'TOOL'")
 	Collection<Item> findAllTools();

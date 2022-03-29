@@ -34,7 +34,7 @@ public class AnonymousItemShowService implements AbstractShowService<Anonymous, 
 		int id;
 
 		id = request.getModel().getInteger("id");
-		result = this.repository.findOneItemById(id);
+		result = this.repository.findById(id);
 
 		return result;
 	}
@@ -45,8 +45,7 @@ public class AnonymousItemShowService implements AbstractShowService<Anonymous, 
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "title","name", "code", "technology", "description", "retailPrice", "link","type");
-		model.setAttribute("confirmation", false);
+		request.unbind(entity, model,"name", "code", "technology", "description", "retailPrice", "link","type");
 		model.setAttribute("readonly", true);
 	}
 	
