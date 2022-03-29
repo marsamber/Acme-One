@@ -5,7 +5,6 @@
 
 <acme:form readonly="${readonly}">
 
-	<!--  "title","name", "code", "technology", "description", "retailPrice", "link","type" -->
 	<acme:input-textbox code="authenticated.item.form.label.title" path="title"/>	
 	<acme:input-textbox code="authenticated.item.form.label.name" path="name"/>
 	<acme:input-textbox code="authenticated.item.form.label.code" path="code"/>		
