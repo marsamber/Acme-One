@@ -12,8 +12,6 @@ import acme.framework.roles.Anonymous;
 @Controller
 public class AnonymousItemController extends AbstractController<Anonymous, Item> {
 
-	// Internal state ---------------------------------------------------------
-
 	@Autowired
 	protected AnonymousItemListAllService		listAllService;
 
@@ -21,7 +19,7 @@ public class AnonymousItemController extends AbstractController<Anonymous, Item>
 	protected AnonymousItemShowService			showService;
 
 
-	// Constructors -----------------------------------------------------------
+	// Constructors 
 
 
 	@PostConstruct

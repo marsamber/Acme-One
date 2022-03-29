@@ -14,12 +14,11 @@ import acme.framework.services.AbstractListService;
 @Service
 public class AnonymousItemListAllService implements AbstractListService<Anonymous, Item> {
 
-	// Internal state ---------------------------------------------------------
 
 	@Autowired
 	protected AnonymousItemRepository repository;
 
-	// AbstractListService<Anonymous, Item> interface --------------
+	// Interface 
 
 
 	@Override

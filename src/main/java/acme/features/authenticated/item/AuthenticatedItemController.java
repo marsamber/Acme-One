@@ -12,8 +12,6 @@ import acme.framework.roles.Authenticated;
 @Controller
 public class AuthenticatedItemController extends AbstractController<Authenticated, Item> {
 
-	// Internal state ---------------------------------------------------------
-
 	@Autowired
 	protected AuthenticatedItemListAllService		listAllService;
 
@@ -21,7 +19,7 @@ public class AuthenticatedItemController extends AbstractController<Authenticate
 	protected AuthenticatedItemShowService			showService;
 
 
-	// Constructors -----------------------------------------------------------
+	// Constructors 
 
 
 	@PostConstruct
