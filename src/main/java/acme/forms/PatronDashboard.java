@@ -2,6 +2,7 @@ package acme.forms;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.OptionalDouble;
@@ -10,14 +11,18 @@ import org.springframework.data.util.Pair;
 
 import acme.entities.Patronage;
 import acme.entities.Patronage.Status;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 public class PatronDashboard {
 	
 	public Integer patronagesProposed;
 	
 	public Integer patronagesAccepted;
 	
-	public Integer patronagesDennied;
+	public Integer patronagesDenied;
 	
 	public Map<Pair<Status,String>,Double> patronagesAverage;
 	
@@ -31,16 +36,21 @@ public class PatronDashboard {
 
 		Collection<Patronage> patronagesByPatronAndProposed=patronages.get(0);
 		Collection<Patronage> patronagesByPatronAndAccepted=patronages.get(1); 
-		Collection<Patronage> patronagesByPatronAndDennied=patronages.get(2);
+		Collection<Patronage> patronagesByPatronAndDenied=patronages.get(2);
 		
 		this.patronagesProposed=patronagesByPatronAndProposed.size();
 		this.patronagesAccepted=patronagesByPatronAndAccepted.size(); 
-		this.patronagesDennied=patronagesByPatronAndDennied.size(); 
+		this.patronagesDenied=patronagesByPatronAndDenied.size(); 
+		
+		this.patronagesAverage = new HashMap<Pair<Status,String>, Double>();
+		this.patronagesDeviation = new HashMap<Pair<Status,String>, Double>();
+		this.patronagesMinimum = new HashMap<Pair<Status,String>, Double>();
+		this.patronagesMaximum = new HashMap<Pair<Status,String>, Double>();
 		
 		List<Collection<Patronage>> patronagesByStatus= new ArrayList<Collection<Patronage>>();
 		patronagesByStatus.add(patronagesByPatronAndProposed);
 		patronagesByStatus.add(patronagesByPatronAndAccepted);
-		patronagesByStatus.add(patronagesByPatronAndDennied);
+		patronagesByStatus.add(patronagesByPatronAndDenied);
 		
 		this.generatePatronagesStats(patronagesByStatus);
 		
@@ -55,6 +65,7 @@ public class PatronDashboard {
 		Long numberOfPatronagesByCurrency;
 		OptionalDouble minimum;
 		OptionalDouble maximum;
+		System.out.println("patronagesByStatus: "+patronagesByStatus.get(0));
 
 		for(int i=0;i<patronagesByStatus.size(); i++) { // Recorremos estado a estado
 			Collection<Patronage> patronages=patronagesByStatus.get(i);
@@ -63,15 +74,19 @@ public class PatronDashboard {
 				//Average
 				int index=j;
 				OptionalDouble average= patronages.stream().filter(x -> x.getBudget().getCurrency().equals(currencies[index])).mapToDouble(x -> x.getBudget().getAmount()).average();
+
 				if(average.isPresent())
 					this.patronagesAverage.put(Pair.of(status[i], currencies[j]), average.getAsDouble());
 				
 				//Deviation
 				numberOfPatronagesByCurrency = patronages.stream().filter(x -> x.getBudget().getCurrency().equals(currencies[index])).count();
 				total = patronages.stream().filter(x -> x.getBudget().getCurrency().equals(currencies[index])).mapToDouble(x -> (x.getBudget().getAmount()-average.getAsDouble())).sum();
+				System.out.println("total: "+total);
+				System.out.println("numberOfPatronagesByCurrency: "+numberOfPatronagesByCurrency);
 				deviation = total/numberOfPatronagesByCurrency;
+				System.out.println("deviation: "+deviation);
 				this.patronagesDeviation.put(Pair.of(status[i], currencies[j]), deviation);
-				
+
 				//Minimum
 				minimum= patronages.stream().filter(x -> x.getBudget().getCurrency().equals(currencies[index])).mapToDouble(x -> x.getBudget().getAmount()).min();
 				if(minimum.isPresent())

@@ -73,9 +73,12 @@ public class AuthenticatedPatronShowService implements AbstractUpdateService<Aut
 		principal = request.getPrincipal();
 		userAccountId = principal.getAccountId();
 
-		result = this.repository.findOneProviderByUserAccountId(userAccountId);
+		result = this.repository.findOnePatronByUserAccountId(userAccountId);
 
 		return result;
+	}
+	public Patron findOnePatronByUserAccountId(int userAccountId) {
+		return this.repository.findOnePatronByUserAccountId(userAccountId);
 	}
 	
 	@Override

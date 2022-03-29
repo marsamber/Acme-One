@@ -23,7 +23,7 @@ import acme.roles.Patron;
 public interface AuthenticatedPatronRepository extends AbstractRepository {
 
 	@Query("select p from Patron p where p.userAccount.id = :id")
-	Patron findOneProviderByUserAccountId(int id);
+	Patron findOnePatronByUserAccountId(int id);
 
 	@Query("select ua from UserAccount ua where ua.id = :id")
 	UserAccount findOneUserAccountById(int id);

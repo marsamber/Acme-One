@@ -1,4 +1,4 @@
-<%@page language="java"%>
+<%@page language="java" import="java.util.HashMap"%>
 
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="acme" uri="urn:jsptagdir:/WEB-INF/tags"%>
@@ -8,25 +8,25 @@
 	<ul class="stadistics">
 		<b>Patrocinios</b>
 		<li>
-			Propuestos: 
+			Propuestos: <acme:print value="${dashboard.getPatronagesProposed()}"/>
 		</li>
 		<li>
-			Aceptados: 
+			Aceptados: <acme:print value="${dashboard.getPatronagesAccepted()}"/>
 		</li>
 		<li>
-			Denegados: 
+			Denegados: <acme:print value="${dashboard.getPatronagesDenied()}"/>
 		</li>
 	</ul>
 	<ul class="stadistics">
 		<b>Presupuesto medio</b>
 		<li>
-			88
+			<acme:print value="${dashboard.getPatronagesAverage().get(Pair.of(Status.PROPOSED,\"EUR\"))}"/>
 		</li>
 		<li>
-			88
+			s<acme:print value="${dashboard.getPatronagesAverage().get(Pair.of(Status.ACCEPTED,\"EUR\"))}"/>
 		</li>
 		<li>
-			88
+			s<acme:print value="${dashboard.getPatronagesAverage().get(Pair.of(Status.DENIED,\"EUR\"))}"/>
 		</li>
 	</ul>
 	<ul class="stadistics">
