@@ -1,4 +1,4 @@
-package acme.features.inventor.item;
+package acme.features.authenticated.item;
 
 import javax.annotation.PostConstruct;
 
@@ -7,18 +7,18 @@ import org.springframework.stereotype.Controller;
 
 import acme.entities.Item;
 import acme.framework.controllers.AbstractController;
-import acme.roles.Inventor;
+import acme.framework.roles.Authenticated;
 
 @Controller
-public class InventorItemController extends AbstractController<Inventor, Item> {
+public class AuthenticatedItemController extends AbstractController<Authenticated, Item> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected InventorItemListAllService		listAllService;
+	protected AuthenticatedItemListAllService		listAllService;
 
 	@Autowired
-	protected InventorItemShowService			showService;
+	protected AuthenticatedItemShowService			showService;
 
 
 	// Constructors -----------------------------------------------------------

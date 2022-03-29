@@ -1,4 +1,4 @@
-package acme.features.administrator.item;
+package acme.features.authenticated.item;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -6,18 +6,18 @@ import org.springframework.stereotype.Service;
 import acme.entities.Item;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
-import acme.framework.roles.Administrator;
+import acme.framework.roles.Authenticated;
 import acme.framework.services.AbstractShowService;
 
 @Service
-public class AdministratorItemShowService implements AbstractShowService<Administrator, Item> {
+public class AuthenticatedItemShowService implements AbstractShowService<Authenticated, Item> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AdministratorItemRepository repository;
+	protected AuthenticatedItemRepository repository;
 
-	// AbstractShowService<Administrator, Item> interface --------------
+	// AbstractShowService<Authenticated, Item> interface --------------
 
 
 	@Override
