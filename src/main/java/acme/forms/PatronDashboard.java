@@ -77,25 +77,28 @@ public class PatronDashboard {
 
 				if(average.isPresent())
 					this.patronagesAverage.put(Pair.of(status[i], currencies[j]), average.getAsDouble());
+				else
+					this.patronagesAverage.put(Pair.of(status[i], currencies[j]), 0.);
 				
 				//Deviation
 				numberOfPatronagesByCurrency = patronages.stream().filter(x -> x.getBudget().getCurrency().equals(currencies[index])).count();
 				total = patronages.stream().filter(x -> x.getBudget().getCurrency().equals(currencies[index])).mapToDouble(x -> (x.getBudget().getAmount()-average.getAsDouble())).sum();
-				System.out.println("total: "+total);
-				System.out.println("numberOfPatronagesByCurrency: "+numberOfPatronagesByCurrency);
 				deviation = total/numberOfPatronagesByCurrency;
-				System.out.println("deviation: "+deviation);
 				this.patronagesDeviation.put(Pair.of(status[i], currencies[j]), deviation);
 
 				//Minimum
 				minimum= patronages.stream().filter(x -> x.getBudget().getCurrency().equals(currencies[index])).mapToDouble(x -> x.getBudget().getAmount()).min();
 				if(minimum.isPresent())
 					this.patronagesMinimum.put(Pair.of(status[i], currencies[j]), minimum.getAsDouble());
+				else
+					this.patronagesMinimum.put(Pair.of(status[i], currencies[j]), 0.);
 				
 				//Maximum
 				maximum= patronages.stream().filter(x -> x.getBudget().getCurrency().equals(currencies[index])).mapToDouble(x -> x.getBudget().getAmount()).max();
 				if(maximum.isPresent())
 					this.patronagesMaximum.put(Pair.of(status[i], currencies[j]), maximum.getAsDouble());
+				else
+					this.patronagesMaximum.put(Pair.of(status[i], currencies[j]), 0.);
 			}
 		}
 	}

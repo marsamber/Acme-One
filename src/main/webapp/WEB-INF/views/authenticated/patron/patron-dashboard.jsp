@@ -20,49 +20,47 @@
 	<ul class="stadistics">
 		<b>Presupuesto medio</b>
 		<li>
-			<acme:print value="${dashboard.getPatronagesAverage().get(Pair.of(Status.PROPOSED,\"EUR\"))}"/>
+			<acme:print value="${averageProposedEUR} € / ${averageProposedUSD} $ / ${averageProposedGBP} £"/>
 		</li>
 		<li>
-			s<acme:print value="${dashboard.getPatronagesAverage().get(Pair.of(Status.ACCEPTED,\"EUR\"))}"/>
+			<acme:print value="${averageAcceptedEUR} € / ${averageAcceptedUSD} $ / ${averageAcceptedGBP} £"/>
 		</li>
 		<li>
-			s<acme:print value="${dashboard.getPatronagesAverage().get(Pair.of(Status.DENIED,\"EUR\"))}"/>
+			<acme:print value="${averageDeniedEUR} € / ${averageDeniedUSD} $ / ${averageDeniedGBP} £"/>
 		</li>
 	</ul>
 	<ul class="stadistics">
-		<b>Desviaci�n</b>
+		<b>Desviación</b>
 		<li>
-			88
+			<acme:print value="${deviationProposedEUR} € / ${deviationProposedUSD} $ / ${deviationProposedGBP} £"/>
 		</li>
 		<li>
-			88
+			<acme:print value="${deviationAcceptedEUR} € / ${deviationAcceptedUSD} $ / ${deviationAcceptedGBP} £"/>
 		</li>
 		<li>
-			88
-		</li>
-	</ul>
-	<ul class="stadistics">
-		<b>M�ximo</b>
-		<li>
-			88
-		</li>
-		<li>
-			88
-		</li>
-		<li>
-			88
+			<acme:print value="${deviationDeniedEUR} € / ${deviationDeniedUSD} $ / ${deviationDeniedGBP} £"/>
 		</li>
 	</ul>
 	<ul class="stadistics">
-		<b>M�nimo</b>
+		<b>Máximo</b>
 		<li>
-			88
+			<acme:print value="${maxProposedEUR} € / ${maxProposedUSD} $ / ${maxProposedGBP} £"/>
 		</li>
 		<li>
-			88
+			<acme:print value="${maxAcceptedEUR} € / ${maxAcceptedUSD} $ / ${maxAcceptedGBP} £"/>
 		</li>
 		<li>
-			88
+			<acme:print value="${maxDeniedEUR} € / ${maxDeniedUSD} $ / ${maxDeniedGBP} £"/>
+	</ul>
+	<ul class="stadistics">
+		<b>Mínimo</b>
+		<li>
+			<acme:print value="${minProposedEUR} € / ${minProposedUSD} $ / ${minProposedGBP} £"/>
 		</li>
+		<li>
+			<acme:print value="${minAcceptedEUR} € / ${minAcceptedUSD} $ / ${minAcceptedGBP} £"/>
+		</li>
+		<li>
+			<acme:print value="${minDeniedEUR} € / ${minDeniedUSD} $ / ${minDeniedGBP} £"/>
 	</ul>
 </div>

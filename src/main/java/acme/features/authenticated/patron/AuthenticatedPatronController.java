@@ -71,6 +71,52 @@ public class AuthenticatedPatronController extends AbstractController<Authentica
 		return patronDashboard;
 	}
 	
+	public ModelAndView addStatsToModel(ModelAndView result,PatronDashboard patronDashboard) {
+		
+		result.addObject("dashboard", patronDashboard);
+		//Average
+		result.addObject("averageAcceptedEUR",patronDashboard.getPatronagesAverage().get(Pair.of(Status.ACCEPTED,"EUR")));
+		result.addObject("averageAcceptedUSD",patronDashboard.getPatronagesAverage().get(Pair.of(Status.ACCEPTED,"USD")));
+		result.addObject("averageAcceptedGBP",patronDashboard.getPatronagesAverage().get(Pair.of(Status.ACCEPTED,"GBP")));
+		result.addObject("averageProposedEUR",patronDashboard.getPatronagesAverage().get(Pair.of(Status.PROPOSED,"EUR")));
+		result.addObject("averageProposedUSD",patronDashboard.getPatronagesAverage().get(Pair.of(Status.PROPOSED,"USD")));
+		result.addObject("averageProposedGBP",patronDashboard.getPatronagesAverage().get(Pair.of(Status.PROPOSED,"GBP")));
+		result.addObject("averageDeniedEUR",patronDashboard.getPatronagesAverage().get(Pair.of(Status.DENIED,"EUR")));
+		result.addObject("averageDeniedUSD",patronDashboard.getPatronagesAverage().get(Pair.of(Status.DENIED,"USD")));
+		result.addObject("averageDeniedGBP",patronDashboard.getPatronagesAverage().get(Pair.of(Status.DENIED,"GBP")));
+		//Deviation
+		result.addObject("deviationAcceptedEUR",patronDashboard.getPatronagesDeviation().get(Pair.of(Status.ACCEPTED,"EUR")));
+		result.addObject("deviationAcceptedUSD",patronDashboard.getPatronagesDeviation().get(Pair.of(Status.ACCEPTED,"USD")));
+		result.addObject("deviationAcceptedGBP",patronDashboard.getPatronagesDeviation().get(Pair.of(Status.ACCEPTED,"GBP")));
+		result.addObject("deviationProposedEUR",patronDashboard.getPatronagesDeviation().get(Pair.of(Status.PROPOSED,"EUR")));
+		result.addObject("deviationProposedUSD",patronDashboard.getPatronagesDeviation().get(Pair.of(Status.PROPOSED,"USD")));
+		result.addObject("deviationProposedGBP",patronDashboard.getPatronagesDeviation().get(Pair.of(Status.PROPOSED,"GBP")));
+		result.addObject("deviationDeniedEUR",patronDashboard.getPatronagesDeviation().get(Pair.of(Status.DENIED,"EUR")));
+		result.addObject("deviationDeniedUSD",patronDashboard.getPatronagesDeviation().get(Pair.of(Status.DENIED,"USD")));
+		result.addObject("deviationDeniedGBP",patronDashboard.getPatronagesDeviation().get(Pair.of(Status.DENIED,"GBP")));
+		//Max
+		result.addObject("maxAcceptedEUR",patronDashboard.getPatronagesMaximum().get(Pair.of(Status.ACCEPTED,"EUR")));
+		result.addObject("maxAcceptedUSD",patronDashboard.getPatronagesMaximum().get(Pair.of(Status.ACCEPTED,"USD")));
+		result.addObject("maxAcceptedGBP",patronDashboard.getPatronagesMaximum().get(Pair.of(Status.ACCEPTED,"GBP")));
+		result.addObject("maxProposedEUR",patronDashboard.getPatronagesMaximum().get(Pair.of(Status.PROPOSED,"EUR")));
+		result.addObject("maxProposedUSD",patronDashboard.getPatronagesMaximum().get(Pair.of(Status.PROPOSED,"USD")));
+		result.addObject("maxProposedGBP",patronDashboard.getPatronagesMaximum().get(Pair.of(Status.PROPOSED,"GBP")));
+		result.addObject("maxDeniedEUR",patronDashboard.getPatronagesMaximum().get(Pair.of(Status.DENIED,"EUR")));
+		result.addObject("maxDeniedUSD",patronDashboard.getPatronagesMaximum().get(Pair.of(Status.DENIED,"USD")));
+		result.addObject("maxDeniedGBP",patronDashboard.getPatronagesMaximum().get(Pair.of(Status.DENIED,"GBP")));
+		//Min
+		result.addObject("minAcceptedEUR",patronDashboard.getPatronagesMinimum().get(Pair.of(Status.ACCEPTED,"EUR")));
+		result.addObject("minAcceptedUSD",patronDashboard.getPatronagesMinimum().get(Pair.of(Status.ACCEPTED,"USD")));
+		result.addObject("minAcceptedGBP",patronDashboard.getPatronagesMinimum().get(Pair.of(Status.ACCEPTED,"GBP")));
+		result.addObject("minProposedEUR",patronDashboard.getPatronagesMinimum().get(Pair.of(Status.PROPOSED,"EUR")));
+		result.addObject("minProposedUSD",patronDashboard.getPatronagesMinimum().get(Pair.of(Status.PROPOSED,"USD")));
+		result.addObject("minProposedGBP",patronDashboard.getPatronagesMinimum().get(Pair.of(Status.PROPOSED,"GBP")));
+		result.addObject("minDeniedEUR",patronDashboard.getPatronagesMinimum().get(Pair.of(Status.DENIED,"EUR")));
+		result.addObject("minDeniedUSD",patronDashboard.getPatronagesMinimum().get(Pair.of(Status.DENIED,"USD")));
+		result.addObject("minDeniedGBP",patronDashboard.getPatronagesMinimum().get(Pair.of(Status.DENIED,"GBP")));
+		return result;
+	}
+	
 	@GetMapping("/dashboard")
 	public ModelAndView patronDashboardController() {
 		ModelAndView result;
@@ -84,8 +130,8 @@ public class AuthenticatedPatronController extends AbstractController<Authentica
 		System.out.println("patron: "+patron);
 		System.out.println("PatronId: "+patron.getId());
 		PatronDashboard patronDashboard= this.createPatronDashboard(patron);
-		result.addObject("dashboard", patronDashboard);
-		System.out.println(patronDashboard.getPatronagesAverage().get(Pair.of(Status.ACCEPTED,"EUR")));
+		
+		this.addStatsToModel(result, patronDashboard);
 		
 		return result;
 	}
