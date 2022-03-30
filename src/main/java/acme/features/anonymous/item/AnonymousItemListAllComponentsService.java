@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.Item;
+import acme.entities.Item.Type;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
 import acme.framework.roles.Anonymous;
@@ -33,8 +34,9 @@ public class AnonymousItemListAllComponentsService implements AbstractListServic
 		assert request != null;
 
 		Collection<Item> result;
-
-		result = this.repository.findAllComponents();
+		final Type type = Type.COMPONENT;
+		
+		result = this.repository.findAllComponents(type);
 		
 		return result;
 	}
