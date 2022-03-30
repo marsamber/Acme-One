@@ -1,4 +1,4 @@
-package acme.features.anonymous.item;
+package acme.features.authenticated.item;
 
 import java.util.Collection;
 
@@ -8,15 +8,15 @@ import org.springframework.stereotype.Service;
 import acme.entities.Item;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
-import acme.framework.roles.Anonymous;
+import acme.framework.roles.Authenticated;
 import acme.framework.services.AbstractListService;
 
 @Service
-public class AnonymousItemListAllComponentsService implements AbstractListService<Anonymous, Item> {
+public class AuthenticatedItemListAllComponentsService implements AbstractListService<Authenticated, Item> {
 
 
 	@Autowired
-	protected AnonymousItemRepository repository;
+	protected AuthenticatedItemRepository repository;
 
 	// Interface 
 
