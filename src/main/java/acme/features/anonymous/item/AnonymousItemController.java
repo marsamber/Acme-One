@@ -17,6 +17,9 @@ public class AnonymousItemController extends AbstractController<Anonymous, Item>
 
 	@Autowired
 	protected AnonymousItemShowService			showService;
+	
+	@Autowired
+	protected AnonymousItemListService 			listService;
 
 
 	// Constructors 
@@ -25,6 +28,7 @@ public class AnonymousItemController extends AbstractController<Anonymous, Item>
 	@PostConstruct
 	protected void initialise() {
 		super.addCommand("show", this.showService);
+		super.addCommand("list", this.listService);
 		super.addCommand("list-all-tools", "list", this.listAllService);
 	}
 

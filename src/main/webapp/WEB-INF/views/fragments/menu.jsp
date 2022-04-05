@@ -29,6 +29,8 @@
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-marcasbon" action="https://www.wikipedia.org/"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.anonymous.item.list-all-tools" action="/anonymous/item/list-all-tools"/>
+			<acme:menu-suboption code="master.menu.anonymous.toolkit.list-all-toolkits" action="/anonymous/toolkit/list-all-toolkits"/>
+			
 			<acme:menu-separator/>	
 		</acme:menu-option>
 
