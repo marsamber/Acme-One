@@ -1,4 +1,4 @@
-package acme.features.anonymous.toolkit;
+package acme.features.any.toolkit;
 
 import java.util.Collection;
 
@@ -9,7 +9,7 @@ import acme.entities.Toolkit;
 import acme.framework.repositories.AbstractRepository;
 
 @Repository
-public interface AnonymousToolkitRepository extends AbstractRepository {
+public interface AnyToolkitRepository extends AbstractRepository {
 
 	@Query("select t from Toolkit t where t.id = :id")
 	Toolkit findById(int id);

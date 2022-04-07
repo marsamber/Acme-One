@@ -28,9 +28,7 @@
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-gonmarmar5" action="https://www.chess.com/"/>	
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-marcasbon" action="https://www.wikipedia.org/"/>
 			<acme:menu-separator/>
-			<acme:menu-suboption code="master.menu.anonymous.item.list-all-tools" action="/anonymous/item/list-all-tools"/>
-			<acme:menu-suboption code="master.menu.anonymous.toolkit.list-all-toolkits" action="/anonymous/toolkit/list-all-toolkits"/>
-			
+				<acme:menu-suboption code="master.menu.anonymous.item.list-all-tools" action="/anonymous/item/list-all-tools"/>
 			<acme:menu-separator/>	
 		</acme:menu-option>
 
@@ -40,9 +38,13 @@
 			<acme:menu-suboption code="master.menu.administrator.populate-initial" action="/administrator/populate-initial"/>
 			<acme:menu-suboption code="master.menu.administrator.populate-sample" action="/administrator/populate-sample"/>			
 			<acme:menu-separator/>
-			<acme:menu-suboption code="master.menu.administrator.dashboard" action="/administrator/dashboard"/>			
+				<acme:menu-suboption code="master.menu.administrator.dashboard" action="/administrator/dashboard"/>			
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.shut-down" action="/administrator/shut-down"/>
+		</acme:menu-option>
+		
+		<acme:menu-option code="master.menu.any" access="hasRole('Any')">
+			<acme:menu-suboption code="master.menu.any.toolkit.list-all-toolkits" action="/any/toolkit/list-all-toolkits"/>
 		</acme:menu-option>
 			
 		<acme:menu-option code="master.menu.patron" access="hasRole('Patron')">
