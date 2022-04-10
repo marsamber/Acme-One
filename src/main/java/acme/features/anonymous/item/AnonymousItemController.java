@@ -13,11 +13,13 @@ import acme.framework.roles.Anonymous;
 public class AnonymousItemController extends AbstractController<Anonymous, Item> {
 
 	@Autowired
-	protected AnonymousItemListAllService		listAllService;
+	protected AnonymousItemListAllService listAllService;
 
 	@Autowired
-	protected AnonymousItemShowService			showService;
-
+	protected AnonymousItemListAllComponentsService listAllComponentsService;
+	
+	@Autowired
+	protected AnonymousItemShowService showService;
 
 	// Constructors 
 
@@ -26,6 +28,8 @@ public class AnonymousItemController extends AbstractController<Anonymous, Item>
 	protected void initialise() {
 		super.addCommand("show", this.showService);
 		super.addCommand("list-all-tools", "list", this.listAllService);
+		super.addCommand("list-all-components", "list", this.listAllComponentsService);
+
 	}
 
 }

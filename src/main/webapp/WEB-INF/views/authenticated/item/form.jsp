@@ -10,8 +10,8 @@
 	<acme:input-textbox code="authenticated.item.form.label.technology" path="technology"/>	
 	<acme:input-textbox code="authenticated.item.form.label.description" path="description"/>
 	<acme:input-select code="authenticated.item.form.label.type" path="type">
-		<acme:input-option code="TOOL" value="TOOL" selected="${status == 'TOOL'}"/>
-		<acme:input-option code="COMPONENT" value="COMPONENT" selected="${status == 'COMPONENT'}"/>
+		<acme:input-option code="TOOL" value="TOOL" selected="${type == 'TOOL'}"/>
+		<acme:input-option code="COMPONENT" value="COMPONENT" selected="${type == 'COMPONENT'}"/>
 	</acme:input-select>
 	<acme:input-money code="authenticated.item.form.label.retailPrice" path="retailPrice"/>
 	<acme:input-url code="authenticated.item.form.label.link" path="link"/>	

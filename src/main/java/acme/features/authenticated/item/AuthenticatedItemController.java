@@ -13,10 +13,13 @@ import acme.framework.roles.Authenticated;
 public class AuthenticatedItemController extends AbstractController<Authenticated, Item> {
 
 	@Autowired
-	protected AuthenticatedItemListAllService		listAllService;
+	protected AuthenticatedItemListAllService listAllService;
+	
+	@Autowired
+	protected AuthenticatedItemListAllComponentsService listAllComponentsService;
 
 	@Autowired
-	protected AuthenticatedItemShowService			showService;
+	protected AuthenticatedItemShowService showService;
 
 
 	// Constructors 
@@ -26,6 +29,7 @@ public class AuthenticatedItemController extends AbstractController<Authenticate
 	protected void initialise() {
 		super.addCommand("show", this.showService);
 		super.addCommand("list-all-tools", "list", this.listAllService);
+		super.addCommand("list-all-components", "list", this.listAllComponentsService);
 	}
 
 }
