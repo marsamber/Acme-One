@@ -126,9 +126,6 @@ public class AuthenticatedPatronController extends AbstractController<Authentica
 		
 		
 		Patron patron=this.patronShowService.findOnePatronByUserAccountId(PrincipalHelper.get().getAccountId());
-		System.out.println("Id: "+PrincipalHelper.get().getAccountId());
-		System.out.println("patron: "+patron);
-		System.out.println("PatronId: "+patron.getId());
 		PatronDashboard patronDashboard= this.createPatronDashboard(patron);
 		
 		this.addStatsToModel(result, patronDashboard);

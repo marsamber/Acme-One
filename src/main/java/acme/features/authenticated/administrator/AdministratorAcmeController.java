@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import acme.forms.AdministratorDashboard;
 import acme.framework.controllers.AbstractController;
 import acme.framework.roles.Administrator;
 import acme.framework.roles.Authenticated;
@@ -40,9 +41,16 @@ public class AdministratorAcmeController extends AbstractController<Authenticate
 	public ModelAndView patronDashboardController() {
 		final ModelAndView result = new ModelAndView();
 		result.setViewName("authenticated/administrator/administrator-dashboard");
-		//result.addObject("totalProposed", this.administratorService.NumberOfPatronageByStatus(Status.PROPOSED));
+		AdministratorDashboard administratorDashboard= new AdministratorDashboard();
 		
+		this.addStatsToModel(result,administratorDashboard);
 		return result;
+	}
+
+
+	private void addStatsToModel(ModelAndView result, AdministratorDashboard administratorDashboard) {
+		
+		
 	}
 
 }
