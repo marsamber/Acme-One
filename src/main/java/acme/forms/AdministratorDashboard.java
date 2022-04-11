@@ -11,7 +11,11 @@ import org.springframework.data.util.Pair;
 import acme.entities.Item;
 import acme.entities.Patronage;
 import acme.entities.Patronage.Status;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 public class AdministratorDashboard {
 	
 	// COMPONENTS
@@ -45,22 +49,15 @@ public class AdministratorDashboard {
 	public Map<Pair<Status,String>,Double> patronagesMinimum;
 	public Map<Pair<Status,String>,Double> patronagesMaximum;
 	
-	public AdministratorDashboard() {		
-		this.generateComponentsData();
-		this.generateToolsData();
-		this.generatePatronagesData();
-	}
-
-	public void generateComponentsData() {
-		Collection<Item> components=null; // TODO Llamada a la funcion servicio que recoja los componentes
-		
-		this.totalComponents= components.size();
-		
+	public AdministratorDashboard(List<Collection<Patronage>> patronages, Collection<Item> components) {		
 		this.generateComponentsStats(components);
-		
+		this.generateToolsData();
+		this.generatePatronagesStats(patronages);
 	}
 
 	private void generateComponentsStats(Collection<Item> components) {
+		
+		this.totalComponents= components.size();
 		
 		String[] technologies= this.getAllTechnologies(components);
 		String[] currencies= new String[] {"EUR","USD","GBP"};
@@ -95,7 +92,8 @@ public class AdministratorDashboard {
 					
 				if(minimum.isPresent())
 					this.retailPriceComponentsMinimum.put(Pair.of(technologies[j], currencies[i]), minimum.getAsDouble());
-				
+				else
+					this.retailPriceComponentsMinimum.put(Pair.of(technologies[j], currencies[i]), 0.);
 				//Maximum
 				OptionalDouble maximum =components.stream().filter(x -> x.getRetailPrice().getCurrency().equals(currencies[currencyIndex])
 					&& x.getTechnology().equals(technologies[technologyIndex]))
@@ -103,6 +101,8 @@ public class AdministratorDashboard {
 					
 				if(maximum.isPresent())
 					this.retailPriceComponentsMaximum.put(Pair.of(technologies[j], currencies[i]), maximum.getAsDouble());
+				else 
+					this.retailPriceComponentsMaximum.put(Pair.of(technologies[j], currencies[i]), 0.);
 					
 			}
 		}		
@@ -151,22 +151,6 @@ public class AdministratorDashboard {
 
 	}
 
-	public void generatePatronagesData(){
-		Collection<Patronage> patronagesProposed=null; // TODO Llamada a la funcion servicio que recoja los patrocinios propuestos
-		Collection<Patronage> patronagesAccepted=null; // TODO Llamada a la funcion servicio que recoja los patrocinios aceptados
-		Collection<Patronage> patronagesDennied=null;  // TODO Llamada a la funcion servicio que recoja los patrocinios denegados
-		
-		this.patronagesProposed=patronagesProposed.size();
-		this.patronagesAccepted=patronagesAccepted.size(); 
-		this.patronagesDennied=patronagesDennied.size(); 
-		
-		List<Collection<Patronage>> patronagesByStatus= new ArrayList<Collection<Patronage>>();
-		patronagesByStatus.add(patronagesProposed);
-		patronagesByStatus.add(patronagesAccepted);
-		patronagesByStatus.add(patronagesDennied);
-		
-		this.generatePatronagesStats(patronagesByStatus);
-	}
 	
 	private String[] getAllTechnologies(Collection<Item> components){
 		
@@ -186,7 +170,12 @@ public class AdministratorDashboard {
 	private void generatePatronagesStats(List<Collection<Patronage>> patronagesByStatus) {
 		Status[] status= new Status[] {Status.PROPOSED,Status.ACCEPTED,Status.DENIED};
 		String[] currencies= new String[] {"EUR","USD","GBP"};
-	
+		
+		this.patronagesProposed=patronagesByStatus.get(0).size();
+		this.patronagesAccepted=patronagesByStatus.get(1).size(); 
+		this.patronagesDennied=patronagesByStatus.get(2).size(); 
+		
+		
 		Double total;
 		Double deviation;
 		Long numberOfPatronagesByCurrency;
@@ -200,12 +189,15 @@ public class AdministratorDashboard {
 				//Average
 				int index=j;
 				OptionalDouble average= patronages.stream().filter(x -> x.getBudget().getCurrency().equals(currencies[index])).mapToDouble(x -> x.getBudget().getAmount()).average();
+				
 				if(average.isPresent())
 					this.patronagesAverage.put(Pair.of(status[i], currencies[j]), average.getAsDouble());
+				else
+					this.patronagesAverage.put(Pair.of(status[i], currencies[j]), 0.);
 				
 				//Deviation
 				numberOfPatronagesByCurrency = patronages.stream().filter(x -> x.getBudget().getCurrency().equals(currencies[index])).count();
-				total = patronages.stream().filter(x -> x.getBudget().getCurrency().equals(currencies[index])).mapToDouble(x -> (x.getBudget().getAmount()-average.getAsDouble())).sum();
+				total = patronages.stream().filter(x -> x.getBudget().getCurrency().equals(currencies[index])).mapToDouble(x -> Math.pow((x.getBudget().getAmount()-average.getAsDouble()),2)).sum();
 				deviation = total/numberOfPatronagesByCurrency;
 				this.patronagesDeviation.put(Pair.of(status[i], currencies[j]), deviation);
 				
@@ -213,11 +205,15 @@ public class AdministratorDashboard {
 				minimum= patronages.stream().filter(x -> x.getBudget().getCurrency().equals(currencies[index])).mapToDouble(x -> x.getBudget().getAmount()).min();
 				if(minimum.isPresent())
 					this.patronagesMinimum.put(Pair.of(status[i], currencies[j]), minimum.getAsDouble());
+				else
+					this.patronagesMinimum.put(Pair.of(status[i], currencies[j]), 0.);
 				
 				//Maximum
 				maximum= patronages.stream().filter(x -> x.getBudget().getCurrency().equals(currencies[index])).mapToDouble(x -> x.getBudget().getAmount()).max();
 				if(maximum.isPresent())
 					this.patronagesMaximum.put(Pair.of(status[i], currencies[j]), maximum.getAsDouble());
+				else
+					this.patronagesMaximum.put(Pair.of(status[i], currencies[j]), 0.);
 			}
 		}
 	}

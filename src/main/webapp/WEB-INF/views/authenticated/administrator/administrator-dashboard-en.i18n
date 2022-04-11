@@ -8,12 +8,12 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-patron.dashboard.proposed = Proposed
-patron.dashboard.accepted = Accepted
-patron.dashboard.denied = Denied
+administrator.dashboard.proposed = Proposed
+administrator.dashboard.accepted = Accepted
+administrator.dashboard.denied = Denied
 
-patron.dashboard.patronage = Patronages 
-patron.dashboard.average = Average budget
-patron.dashboard.deviation = Deviation
-patron.dashboard.max = Maximum
-patron.dashboard.min = Minimum
+administrator.dashboard.patronage = Patronages 
+administrator.dashboard.average = Average budget
+administrator.dashboard.deviation = Deviation
+administrator.dashboard.max = Maximum
+administrator.dashboard.min = Minimum

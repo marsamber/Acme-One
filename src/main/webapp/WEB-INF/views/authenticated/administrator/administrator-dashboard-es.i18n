@@ -8,12 +8,12 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-patron.dashboard.proposed = Propuestos
-patron.dashboard.accepted = Aceptados
-patron.dashboard.denied = Denegados
+administrator.dashboard.proposed = Propuestos
+administrator.dashboard.accepted = Aceptados
+administrator.dashboard.denied = Denegados
 
-patron.dashboard.patronage = Patroncinios 
-patron.dashboard.average = Presupuesto Medio
-patron.dashboard.deviation = Desviación
-patron.dashboard.max = Máximo
-patron.dashboard.min = Mínimo
+administrator.dashboard.patronage = Patroncinios 
+administrator.dashboard.average = Presupuesto Medio
+administrator.dashboard.deviation = Desviación
+administrator.dashboard.max = Máximo
+administrator.dashboard.min = Mínimo

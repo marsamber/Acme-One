@@ -41,6 +41,10 @@ public class AnonymousItemListAllComponentsService implements AbstractListServic
 		return result;
 	}
 	
+	public Collection<Item> findItemsByType(Type type) {
+		return this.repository.findAllComponents(type);
+	}
+	
 	@Override
 	public void unbind(final Request<Item> request, final Item entity, final Model model) {
 		assert request != null;
