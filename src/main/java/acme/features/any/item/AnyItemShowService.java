@@ -1,4 +1,4 @@
-package acme.features.authenticated.item;
+package acme.features.any.item;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -6,16 +6,18 @@ import org.springframework.stereotype.Service;
 import acme.entities.Item;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
-import acme.framework.roles.Authenticated;
+import acme.framework.roles.Any;
 import acme.framework.services.AbstractShowService;
 
 @Service
-public class AuthenticatedItemShowService implements AbstractShowService<Authenticated, Item> {
+public class AnyItemShowService implements AbstractShowService<Any, Item> {
+
 
 	@Autowired
-	protected AuthenticatedItemRepository repository;
+	protected AnyItemRepository repository;
 
 	// Interface 
+
 
 	@Override
 	public boolean authorise(final Request<Item> request) {
@@ -44,6 +46,7 @@ public class AuthenticatedItemShowService implements AbstractShowService<Authent
 		assert model != null;
 
 		request.unbind(entity, model,"name", "code", "technology", "description", "retailPrice", "link","type");
+		model.setAttribute("confirmation", false);
 		model.setAttribute("readonly", true);
 	}
 	

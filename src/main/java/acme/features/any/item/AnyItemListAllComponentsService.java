@@ -1,4 +1,4 @@
-package acme.features.anonymous.item;
+package acme.features.any.item;
 
 import java.util.Collection;
 
@@ -9,15 +9,15 @@ import acme.entities.Item;
 import acme.entities.Item.Type;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
-import acme.framework.roles.Anonymous;
+import acme.framework.roles.Any;
 import acme.framework.services.AbstractListService;
 
 @Service
-public class AnonymousItemListAllComponentsService implements AbstractListService<Anonymous, Item> {
+public class AnyItemListAllComponentsService implements AbstractListService<Any, Item> {
 
 
 	@Autowired
-	protected AnonymousItemRepository repository;
+	protected AnyItemRepository repository;
 
 	// Interface 
 

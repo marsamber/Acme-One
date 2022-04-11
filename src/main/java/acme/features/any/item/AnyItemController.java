@@ -1,4 +1,4 @@
-package acme.features.anonymous.item;
+package acme.features.any.item;
 
 import javax.annotation.PostConstruct;
 
@@ -7,20 +7,20 @@ import org.springframework.stereotype.Controller;
 
 import acme.entities.Item;
 import acme.framework.controllers.AbstractController;
-import acme.framework.roles.Anonymous;
+import acme.framework.roles.Any;
 
 
 @Controller
-public class AnonymousItemController extends AbstractController<Anonymous, Item> {
+public class AnyItemController extends AbstractController<Any, Item> {
 
 	@Autowired
-	protected AnonymousItemListAllService listAllService;
+	protected AnyItemListAllService listAllService;
 
 	@Autowired
-	protected AnonymousItemListAllComponentsService listAllComponentsService;
+	protected AnyItemListAllComponentsService listAllComponentsService;
 	
 	@Autowired
-	protected AnonymousItemShowService showService;
+	protected AnyItemShowService showService;
 
 	// Constructors 
 
