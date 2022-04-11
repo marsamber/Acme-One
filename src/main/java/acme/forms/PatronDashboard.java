@@ -65,7 +65,7 @@ public class PatronDashboard {
 		Long numberOfPatronagesByCurrency;
 		OptionalDouble minimum;
 		OptionalDouble maximum;
-		System.out.println("patronagesByStatus: "+patronagesByStatus.get(0));
+
 
 		for(int i=0;i<patronagesByStatus.size(); i++) { // Recorremos estado a estado
 			Collection<Patronage> patronages=patronagesByStatus.get(i);
