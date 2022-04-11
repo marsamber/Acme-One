@@ -88,68 +88,68 @@ public class AdministratorAcmeController extends AbstractController<Authenticate
 	
 	private void addToolsStats(ModelAndView result, AdministratorDashboard administratorDashboard) {
 		// Average
-		result.addObject("toolsAverageAcceptedEUR",administratorDashboard.getRetailPriceToolsAverage().get("EUR"));
-		result.addObject("toolsAverageAcceptedUSD",administratorDashboard.getRetailPriceToolsAverage().get("USD"));
-		result.addObject("toolsAverageAcceptedGBP",administratorDashboard.getRetailPriceToolsAverage().get("GBP"));
+		result.addObject("toolsAverageEUR",administratorDashboard.getRetailPriceToolsAverage().get("EUR"));
+		result.addObject("toolsAverageUSD",administratorDashboard.getRetailPriceToolsAverage().get("USD"));
+		result.addObject("toolsAverageGBP",administratorDashboard.getRetailPriceToolsAverage().get("GBP"));
 
 		// Deviation
-		result.addObject("toolsDeviationAcceptedEUR",administratorDashboard.getRetailPriceToolsDeviation().get("EUR"));
-		result.addObject("toolsDeviationAcceptedUSD",administratorDashboard.getRetailPriceToolsDeviation().get("USD"));
-		result.addObject("toolsDeviationAcceptedGBP",administratorDashboard.getRetailPriceToolsDeviation().get("GBP"));
+		result.addObject("toolsDeviationEUR",administratorDashboard.getRetailPriceToolsDeviation().get("EUR"));
+		result.addObject("toolsDeviationUSD",administratorDashboard.getRetailPriceToolsDeviation().get("USD"));
+		result.addObject("toolsDeviationGBP",administratorDashboard.getRetailPriceToolsDeviation().get("GBP"));
 
 		// Max
-		result.addObject("toolsMaxAcceptedEUR",administratorDashboard.getRetailPriceToolsMaximum().get("EUR"));
-		result.addObject("toolsMaxAcceptedUSD",administratorDashboard.getRetailPriceToolsMaximum().get("USD"));
-		result.addObject("toolsMaxAcceptedGBP",administratorDashboard.getRetailPriceToolsMaximum().get("GBP"));
+		result.addObject("toolsMaxEUR",administratorDashboard.getRetailPriceToolsMaximum().get("EUR"));
+		result.addObject("toolsMaxUSD",administratorDashboard.getRetailPriceToolsMaximum().get("USD"));
+		result.addObject("toolsMaxGBP",administratorDashboard.getRetailPriceToolsMaximum().get("GBP"));
 		
 		// Min
-		result.addObject("toolsMinAcceptedEUR",administratorDashboard.getRetailPriceToolsMinimum().get("EUR"));
-		result.addObject("toolsMinAcceptedUSD",administratorDashboard.getRetailPriceToolsMinimum().get("USD"));
-		result.addObject("toolsMinAcceptedGBP",administratorDashboard.getRetailPriceToolsMinimum().get("GBP"));
+		result.addObject("toolsMinEUR",administratorDashboard.getRetailPriceToolsMinimum().get("EUR"));
+		result.addObject("toolsMinUSD",administratorDashboard.getRetailPriceToolsMinimum().get("USD"));
+		result.addObject("toolsMinGBP",administratorDashboard.getRetailPriceToolsMinimum().get("GBP"));
 		
 	}
 
 	private void addComponentsStats(ModelAndView result, AdministratorDashboard administratorDashboard) {
 		//Average
-		result.addObject("componentsAverageAcceptedEUR",administratorDashboard.getRetailPriceComponentsAverage().get(Pair.of(Status.ACCEPTED,"EUR")));
-		result.addObject("componentsAverageAcceptedUSD",administratorDashboard.getRetailPriceComponentsAverage().get(Pair.of(Status.ACCEPTED,"USD")));
-		result.addObject("componentsAverageAcceptedGBP",administratorDashboard.getRetailPriceComponentsAverage().get(Pair.of(Status.ACCEPTED,"GBP")));
-		result.addObject("componentsAverageProposedEUR",administratorDashboard.getRetailPriceComponentsAverage().get(Pair.of(Status.PROPOSED,"EUR")));
-		result.addObject("componentsAverageProposedUSD",administratorDashboard.getRetailPriceComponentsAverage().get(Pair.of(Status.PROPOSED,"USD")));
-		result.addObject("componentsAverageProposedGBP",administratorDashboard.getRetailPriceComponentsAverage().get(Pair.of(Status.PROPOSED,"GBP")));
-		result.addObject("componentsAverageDeniedEUR",administratorDashboard.getRetailPriceComponentsAverage().get(Pair.of(Status.DENIED,"EUR")));
-		result.addObject("componentsAverageDeniedUSD",administratorDashboard.getRetailPriceComponentsAverage().get(Pair.of(Status.DENIED,"USD")));
-		result.addObject("componentsAverageDeniedGBP",administratorDashboard.getRetailPriceComponentsAverage().get(Pair.of(Status.DENIED,"GBP")));
+		result.addObject("componentsAverageAcceptedEUR",administratorDashboard.getRetailPriceComponentsAverage().get(Pair.of("Energy","EUR")));
+		result.addObject("componentsAverageAcceptedUSD",administratorDashboard.getRetailPriceComponentsAverage().get(Pair.of("Energy","USD")));
+		result.addObject("componentsAverageAcceptedGBP",administratorDashboard.getRetailPriceComponentsAverage().get(Pair.of("Energy","GBP")));
+		result.addObject("componentsAverageProposedEUR",administratorDashboard.getRetailPriceComponentsAverage().get(Pair.of("Electrical","EUR")));
+		result.addObject("componentsAverageProposedUSD",administratorDashboard.getRetailPriceComponentsAverage().get(Pair.of("Electrical","USD")));
+		result.addObject("componentsAverageProposedGBP",administratorDashboard.getRetailPriceComponentsAverage().get(Pair.of("Electrical","GBP")));
+		result.addObject("componentsAverageDeniedEUR",administratorDashboard.getRetailPriceComponentsAverage().get(Pair.of("T","EUR")));
+		result.addObject("componentsAverageDeniedUSD",administratorDashboard.getRetailPriceComponentsAverage().get(Pair.of("T","USD")));
+		result.addObject("componentsAverageDeniedGBP",administratorDashboard.getRetailPriceComponentsAverage().get(Pair.of("T","GBP")));
 		//Deviation
-		result.addObject("componentsDeviationAcceptedEUR",administratorDashboard.getRetailPriceComponentsDeviation().get(Pair.of(Status.ACCEPTED,"EUR")));
-		result.addObject("componentsDeviationAcceptedUSD",administratorDashboard.getRetailPriceComponentsDeviation().get(Pair.of(Status.ACCEPTED,"USD")));
-		result.addObject("componentsDeviationAcceptedGBP",administratorDashboard.getRetailPriceComponentsDeviation().get(Pair.of(Status.ACCEPTED,"GBP")));
-		result.addObject("componentsDeviationProposedEUR",administratorDashboard.getRetailPriceComponentsDeviation().get(Pair.of(Status.PROPOSED,"EUR")));
-		result.addObject("componentsDeviationProposedUSD",administratorDashboard.getRetailPriceComponentsDeviation().get(Pair.of(Status.PROPOSED,"USD")));
-		result.addObject("componentsDeviationProposedGBP",administratorDashboard.getRetailPriceComponentsDeviation().get(Pair.of(Status.PROPOSED,"GBP")));
-		result.addObject("componentsDeviationDeniedEUR",administratorDashboard.getRetailPriceComponentsDeviation().get(Pair.of(Status.DENIED,"EUR")));
-		result.addObject("componentsDeviationDeniedUSD",administratorDashboard.getRetailPriceComponentsDeviation().get(Pair.of(Status.DENIED,"USD")));
-		result.addObject("componentsDeviationDeniedGBP",administratorDashboard.getRetailPriceComponentsDeviation().get(Pair.of(Status.DENIED,"GBP")));
+		result.addObject("componentsDeviationAcceptedEUR",administratorDashboard.getRetailPriceComponentsDeviation().get(Pair.of("Energy","EUR")));
+		result.addObject("componentsDeviationAcceptedUSD",administratorDashboard.getRetailPriceComponentsDeviation().get(Pair.of("Energy","USD")));
+		result.addObject("componentsDeviationAcceptedGBP",administratorDashboard.getRetailPriceComponentsDeviation().get(Pair.of("Energy","GBP")));
+		result.addObject("componentsDeviationProposedEUR",administratorDashboard.getRetailPriceComponentsDeviation().get(Pair.of("Electrical","EUR")));
+		result.addObject("componentsDeviationProposedUSD",administratorDashboard.getRetailPriceComponentsDeviation().get(Pair.of("Electrical","USD")));
+		result.addObject("componentsDeviationProposedGBP",administratorDashboard.getRetailPriceComponentsDeviation().get(Pair.of("Electrical","GBP")));
+		result.addObject("componentsDeviationDeniedEUR",administratorDashboard.getRetailPriceComponentsDeviation().get(Pair.of("T","EUR")));
+		result.addObject("componentsDeviationDeniedUSD",administratorDashboard.getRetailPriceComponentsDeviation().get(Pair.of("T","USD")));
+		result.addObject("componentsDeviationDeniedGBP",administratorDashboard.getRetailPriceComponentsDeviation().get(Pair.of("T","GBP")));
 		//Max
-		result.addObject("componentsMaxAcceptedEUR",administratorDashboard.getRetailPriceComponentsMaximum().get(Pair.of(Status.ACCEPTED,"EUR")));
-		result.addObject("componentsMaxAcceptedUSD",administratorDashboard.getRetailPriceComponentsMaximum().get(Pair.of(Status.ACCEPTED,"USD")));
-		result.addObject("componentsMaxAcceptedGBP",administratorDashboard.getRetailPriceComponentsMaximum().get(Pair.of(Status.ACCEPTED,"GBP")));
-		result.addObject("componentsMaxProposedEUR",administratorDashboard.getRetailPriceComponentsMaximum().get(Pair.of(Status.PROPOSED,"EUR")));
-		result.addObject("componentsMaxProposedUSD",administratorDashboard.getRetailPriceComponentsMaximum().get(Pair.of(Status.PROPOSED,"USD")));
-		result.addObject("componentsMaxProposedGBP",administratorDashboard.getRetailPriceComponentsMaximum().get(Pair.of(Status.PROPOSED,"GBP")));
-		result.addObject("componentsMaxDeniedEUR",administratorDashboard.getRetailPriceComponentsMaximum().get(Pair.of(Status.DENIED,"EUR")));
-		result.addObject("componentsMaxDeniedUSD",administratorDashboard.getRetailPriceComponentsMaximum().get(Pair.of(Status.DENIED,"USD")));
-		result.addObject("componentsMaxDeniedGBP",administratorDashboard.getRetailPriceComponentsMaximum().get(Pair.of(Status.DENIED,"GBP")));
+		result.addObject("componentsMaxAcceptedEUR",administratorDashboard.getRetailPriceComponentsMaximum().get(Pair.of("Energy","EUR")));
+		result.addObject("componentsMaxAcceptedUSD",administratorDashboard.getRetailPriceComponentsMaximum().get(Pair.of("Energy","USD")));
+		result.addObject("componentsMaxAcceptedGBP",administratorDashboard.getRetailPriceComponentsMaximum().get(Pair.of("Energy","GBP")));
+		result.addObject("componentsMaxProposedEUR",administratorDashboard.getRetailPriceComponentsMaximum().get(Pair.of("Electrical","EUR")));
+		result.addObject("componentsMaxProposedUSD",administratorDashboard.getRetailPriceComponentsMaximum().get(Pair.of("Electrical","USD")));
+		result.addObject("componentsMaxProposedGBP",administratorDashboard.getRetailPriceComponentsMaximum().get(Pair.of("Electrical","GBP")));
+		result.addObject("componentsMaxDeniedEUR",administratorDashboard.getRetailPriceComponentsMaximum().get(Pair.of("T","EUR")));
+		result.addObject("componentsMaxDeniedUSD",administratorDashboard.getRetailPriceComponentsMaximum().get(Pair.of("T","USD")));
+		result.addObject("componentsMaxDeniedGBP",administratorDashboard.getRetailPriceComponentsMaximum().get(Pair.of("T","GBP")));
 		//Min
-		result.addObject("componentsMinAcceptedEUR",administratorDashboard.getRetailPriceComponentsMinimum().get(Pair.of(Status.ACCEPTED,"EUR")));
-		result.addObject("componentsMinAcceptedUSD",administratorDashboard.getRetailPriceComponentsMinimum().get(Pair.of(Status.ACCEPTED,"USD")));
-		result.addObject("componentsMinAcceptedGBP",administratorDashboard.getRetailPriceComponentsMinimum().get(Pair.of(Status.ACCEPTED,"GBP")));
-		result.addObject("componentsMinProposedEUR",administratorDashboard.getRetailPriceComponentsMinimum().get(Pair.of(Status.PROPOSED,"EUR")));
-		result.addObject("componentsMinProposedUSD",administratorDashboard.getRetailPriceComponentsMinimum().get(Pair.of(Status.PROPOSED,"USD")));
-		result.addObject("componentsMinProposedGBP",administratorDashboard.getRetailPriceComponentsMinimum().get(Pair.of(Status.PROPOSED,"GBP")));
-		result.addObject("componentsMinDeniedEUR",administratorDashboard.getRetailPriceComponentsMinimum().get(Pair.of(Status.DENIED,"EUR")));
-		result.addObject("componentsMinDeniedUSD",administratorDashboard.getRetailPriceComponentsMinimum().get(Pair.of(Status.DENIED,"USD")));
-		result.addObject("componentsMinDeniedGBP",administratorDashboard.getRetailPriceComponentsMinimum().get(Pair.of(Status.DENIED,"GBP")));
+		result.addObject("componentsMinAcceptedEUR",administratorDashboard.getRetailPriceComponentsMinimum().get(Pair.of("Energy","EUR")));
+		result.addObject("componentsMinAcceptedUSD",administratorDashboard.getRetailPriceComponentsMinimum().get(Pair.of("Energy","USD")));
+		result.addObject("componentsMinAcceptedGBP",administratorDashboard.getRetailPriceComponentsMinimum().get(Pair.of("Energy","GBP")));
+		result.addObject("componentsMinProposedEUR",administratorDashboard.getRetailPriceComponentsMinimum().get(Pair.of("Electrical","EUR")));
+		result.addObject("componentsMinProposedUSD",administratorDashboard.getRetailPriceComponentsMinimum().get(Pair.of("Electrical","USD")));
+		result.addObject("componentsMinProposedGBP",administratorDashboard.getRetailPriceComponentsMinimum().get(Pair.of("Electrical","GBP")));
+		result.addObject("componentsMinDeniedEUR",administratorDashboard.getRetailPriceComponentsMinimum().get(Pair.of("T","EUR")));
+		result.addObject("componentsMinDeniedUSD",administratorDashboard.getRetailPriceComponentsMinimum().get(Pair.of("T","USD")));
+		result.addObject("componentsMinDeniedGBP",administratorDashboard.getRetailPriceComponentsMinimum().get(Pair.of("T","GBP")));
 		
 	}
 

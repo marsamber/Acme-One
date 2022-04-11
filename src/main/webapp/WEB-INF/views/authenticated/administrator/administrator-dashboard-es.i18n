@@ -12,8 +12,10 @@ administrator.dashboard.proposed = Propuestos
 administrator.dashboard.accepted = Aceptados
 administrator.dashboard.denied = Denegados
 
-administrator.dashboard.patronage = Patroncinios 
+administrator.dashboard.patronage = Patrocinios 
 administrator.dashboard.average = Presupuesto Medio
 administrator.dashboard.deviation = Desviación
 administrator.dashboard.max = Máximo
 administrator.dashboard.min = Mínimo
+
+administrator.dashboard.tools = Herramientas 

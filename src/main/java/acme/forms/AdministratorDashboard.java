@@ -2,6 +2,7 @@ package acme.forms;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.OptionalDouble;
@@ -41,7 +42,7 @@ public class AdministratorDashboard {
 	// PATRONAGES
 	public Integer patronagesProposed;
 	public Integer patronagesAccepted;
-	public Integer patronagesDennied;
+	public Integer patronagesDenied;
 	
 	// Agrupado por estado y divisa
 	public Map<Pair<Status,String>,Double> patronagesAverage;
@@ -59,6 +60,11 @@ public class AdministratorDashboard {
 		
 		this.totalComponents= components.size();
 		
+		this.retailPriceComponentsAverage= new HashMap<Pair<String,String>, Double>();
+		this.retailPriceComponentsDeviation= new HashMap<Pair<String,String>, Double>();
+		this.retailPriceComponentsMinimum= new HashMap<Pair<String,String>, Double>();
+		this.retailPriceComponentsMaximum= new HashMap<Pair<String,String>, Double>();
+		
 		String[] technologies= this.getAllTechnologies(components);
 		String[] currencies= new String[] {"EUR","USD","GBP"};
 		
@@ -66,7 +72,7 @@ public class AdministratorDashboard {
 			for(int j =0;j<technologies.length;j++) {
 				int currencyIndex=i;
 				int technologyIndex=j;
-				
+
 				//Average
 				OptionalDouble average= components.stream().filter(x -> x.getRetailPrice().getCurrency().equals(currencies[currencyIndex])
 					&& x.getTechnology().equals(technologies[technologyIndex]))
@@ -119,6 +125,11 @@ public class AdministratorDashboard {
 		
 		this.totalComponents= tools.size();
 		
+		this.retailPriceToolsAverage= new HashMap<String, Double>();
+		this.retailPriceToolsDeviation= new HashMap<String, Double>();
+		this.retailPriceToolsMinimum= new HashMap<String, Double>();
+		this.retailPriceToolsMaximum= new HashMap<String, Double>();
+		
 		Double total;
 		Double deviation;
 		Long numberOfComponentsByCurrency;
@@ -137,8 +148,10 @@ public class AdministratorDashboard {
 			
 			//Deviation
 			numberOfComponentsByCurrency = tools.stream().filter(x -> x.getRetailPrice().getCurrency().equals(currencies[index])).count();
-			total = tools.stream().filter(x -> x.getRetailPrice().getCurrency().equals(currencies[index])).mapToDouble(x -> (x.getRetailPrice().getAmount()-average.getAsDouble())).sum();
-			
+			if(average.isPresent())
+				total = tools.stream().filter(x -> x.getRetailPrice().getCurrency().equals(currencies[index])).mapToDouble(x -> (x.getRetailPrice().getAmount()-average.getAsDouble())).sum();
+			else
+				total=0.;
 			if(numberOfComponentsByCurrency != 0)
 				deviation = total/numberOfComponentsByCurrency;
 			else
@@ -167,13 +180,14 @@ public class AdministratorDashboard {
 		
 		List<String> technologies= new ArrayList<String>();
 		List<Item> componentsList= new ArrayList<Item>(components);
-		
 		for(int i=0; i<componentsList.size(); i++) {
-			if(technologies.contains(componentsList.get(i).getTechnology()))
-				technologies.add(componentsList.get(i).getTechnology());
+			String tecnology=componentsList.get(i).getTechnology();
+			if(!technologies.contains(tecnology))
+				technologies.add(tecnology);
 		}
+
 		
-		return (String[]) technologies.toArray();
+		return technologies.toArray(new String[0]);
 	}
 	
 	
@@ -184,7 +198,12 @@ public class AdministratorDashboard {
 		
 		this.patronagesProposed=patronagesByStatus.get(0).size();
 		this.patronagesAccepted=patronagesByStatus.get(1).size(); 
-		this.patronagesDennied=patronagesByStatus.get(2).size(); 
+		this.patronagesDenied=patronagesByStatus.get(2).size(); 
+		
+		this.patronagesAverage= new HashMap<Pair<Status,String>, Double>();
+		this.patronagesDeviation= new HashMap<Pair<Status,String>, Double>();
+		this.patronagesMinimum= new HashMap<Pair<Status,String>, Double>();
+		this.patronagesMaximum= new HashMap<Pair<Status,String>, Double>();
 		
 		
 		Double total;

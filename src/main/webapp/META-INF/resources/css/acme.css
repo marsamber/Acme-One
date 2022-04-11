@@ -11,3 +11,8 @@ ul.stadistics{
 	display: inline-block;
 
 }
+
+.center{
+	text-align: center;
+	padding-left:45%;
+}

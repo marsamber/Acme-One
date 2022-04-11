@@ -5,7 +5,7 @@
 <%@taglib prefix="acme" uri="urn:jsptagdir:/WEB-INF/tags"%>
 <link rel="stylesheet" href="css/acme.css"/>
 
-
+<b class="center"><acme:message code="administrator.dashboard.patronage"/></b>
 <div class="dashboard">
 	<ul class="stadistics">
 		<b><acme:message code="administrator.dashboard.patronage"/></b>
@@ -22,49 +22,81 @@
 	<ul class="stadistics">
 		<b><acme:message code="administrator.dashboard.average"/></b>
 		<li>
-			<fmt:formatNumber type="number" maxFractionDigits="2" value="${averageProposedEUR}"/> &euro; / <fmt:formatNumber type="number" maxFractionDigits="2" value="${averageProposedUSD}"/> $ / <fmt:formatNumber type="number" maxFractionDigits="2" value="${averageProposedGBP}"/> &#163;
+			<fmt:formatNumber type="number" maxFractionDigits="2" value="${patronagesAverageAcceptedEUR}"/> &euro; / <fmt:formatNumber type="number" maxFractionDigits="2" value="${patronagesAverageProposedUSD}"/> $ / <fmt:formatNumber type="number" maxFractionDigits="2" value="${patronagesAverageProposedGBP}"/> &#163;
 		</li>
 		<li>
-			<fmt:formatNumber type="number" maxFractionDigits="2" value="${averageAcceptedEUR}"/> &euro; / <fmt:formatNumber type="number" maxFractionDigits="2" value="${averageAcceptedUSD}"/> $ / <fmt:formatNumber type="number" maxFractionDigits="2" value="${averageAcceptedGBP}"/> &#163;
+			<fmt:formatNumber type="number" maxFractionDigits="2" value="${patronagesAverageAcceptedEUR}"/> &euro; / <fmt:formatNumber type="number" maxFractionDigits="2" value="${patronagesAverageAcceptedUSD}"/> $ / <fmt:formatNumber type="number" maxFractionDigits="2" value="${patronagesAverageAcceptedGBP}"/> &#163;
 		</li>
 		<li>
-			<fmt:formatNumber type="number" maxFractionDigits="2" value="${averageDeniedEUR}"/> &euro; / <fmt:formatNumber type="number" maxFractionDigits="2" value="${averageDeniedUSD}"/> $ / <fmt:formatNumber type="number" maxFractionDigits="2" value="${averageDeniedGBP}"/> &#163;
+			<fmt:formatNumber type="number" maxFractionDigits="2" value="${patronagesAverageDeniedEUR}"/> &euro; / <fmt:formatNumber type="number" maxFractionDigits="2" value="${patronagesAverageDeniedUSD}"/> $ / <fmt:formatNumber type="number" maxFractionDigits="2" value="${patronagesAverageDeniedGBP}"/> &#163;
 		</li>
 	</ul>
 	<ul class="stadistics">
 		<b><acme:message code="administrator.dashboard.deviation"/></b>
 		<li>
-			<fmt:formatNumber type="number" maxFractionDigits="2" value="${deviationProposedEUR}"/> &euro; / <fmt:formatNumber type="number" maxFractionDigits="2" value="${deviationProposedUSD}"/> $ / <fmt:formatNumber type="number" maxFractionDigits="2" value="${deviationProposedGBP}"/> &#163;
+			<fmt:formatNumber type="number" maxFractionDigits="2" value="${patronagesDeviationProposedEUR}"/> &euro; / <fmt:formatNumber type="number" maxFractionDigits="2" value="${patronagesDeviationProposedUSD}"/> $ / <fmt:formatNumber type="number" maxFractionDigits="2" value="${deviationProposedGBP}"/> &#163;
 		</li>
 		<li>
-			<fmt:formatNumber type="number" maxFractionDigits="2" value="${deviationAcceptedEUR}"/> &euro; / <fmt:formatNumber type="number" maxFractionDigits="2" value="${deviationAcceptedUSD}"/> $ / <fmt:formatNumber type="number" maxFractionDigits="2" value="${deviationAcceptedGBP}"/> &#163;
+			<fmt:formatNumber type="number" maxFractionDigits="2" value="${patronagesDeviationAcceptedEUR}"/> &euro; / <fmt:formatNumber type="number" maxFractionDigits="2" value="${patronagesDeviationAcceptedUSD}"/> $ / <fmt:formatNumber type="number" maxFractionDigits="2" value="${deviationAcceptedGBP}"/> &#163;
 		</li>
 		<li>
-			<fmt:formatNumber type="number" maxFractionDigits="2" value="${deviationDeniedEUR}"/> &euro; / <fmt:formatNumber type="number" maxFractionDigits="2" value="${deviationDeniedUSD}"/> $ / <fmt:formatNumber type="number" maxFractionDigits="2" value="${deviationDeniedGBP}"/> &#163;
+			<fmt:formatNumber type="number" maxFractionDigits="2" value="${patronagesDeviationDeniedEUR}"/> &euro; / <fmt:formatNumber type="number" maxFractionDigits="2" value="${patronagesDeviationDeniedUSD}"/> $ / <fmt:formatNumber type="number" maxFractionDigits="2" value="${patronagesDeviationDeniedGBP}"/> &#163;
 		</li>
 	</ul>
 	<ul class="stadistics">
 		<b><acme:message code="administrator.dashboard.max"/></b>
 		<li>
-			<fmt:formatNumber type="number" maxFractionDigits="2" value="${maxProposedEUR}"/> &euro; / <fmt:formatNumber type="number" maxFractionDigits="2" value="${maxProposedUSD}"/> $ / <fmt:formatNumber type="number" maxFractionDigits="2" value="${maxProposedGBP}"/> &#163;
+			<fmt:formatNumber type="number" maxFractionDigits="2" value="${patronagesMaxProposedEUR}"/> &euro; / <fmt:formatNumber type="number" maxFractionDigits="2" value="${patronagesMaxProposedUSD}"/> $ / <fmt:formatNumber type="number" maxFractionDigits="2" value="${patronagesMaxProposedGBP}"/> &#163;
 		</li>
 		<li>
-			<fmt:formatNumber type="number" maxFractionDigits="2" value="${maxAcceptedEUR}"/> &euro; / <fmt:formatNumber type="number" maxFractionDigits="2" value="${maxAcceptedUSD}"/> $ / <fmt:formatNumber type="number" maxFractionDigits="2" value="${maxAcceptedGBP}"/> &#163;
+			<fmt:formatNumber type="number" maxFractionDigits="2" value="${patronagesMaxAcceptedEUR}"/> &euro; / <fmt:formatNumber type="number" maxFractionDigits="2" value="${patronagesMaxAcceptedUSD}"/> $ / <fmt:formatNumber type="number" maxFractionDigits="2" value="${patronagesMaxAcceptedGBP}"/> &#163;
 		</li>
 		<li>
-			<fmt:formatNumber type="number" maxFractionDigits="2" value="${maxDeniedEUR}"/> &euro; / <fmt:formatNumber type="number" maxFractionDigits="2" value="${maxDeniedUSD}"/> $ / <fmt:formatNumber type="number" maxFractionDigits="2" value="${maxDeniedGBP}"/> &#163;
+			<fmt:formatNumber type="number" maxFractionDigits="2" value="${patronagesMaxDeniedEUR}"/> &euro; / <fmt:formatNumber type="number" maxFractionDigits="2" value="${patronagesMaxDeniedUSD}"/> $ / <fmt:formatNumber type="number" maxFractionDigits="2" value="${patronagesMaxDeniedGBP}"/> &#163;
 		</li>
 	</ul>
 	<ul class="stadistics">
 		<b><acme:message code="administrator.dashboard.min"/></b>
 		<li>
-			<fmt:formatNumber type="number" maxFractionDigits="2" value="${minProposedEUR}"/> &euro; / <fmt:formatNumber type="number" maxFractionDigits="2" value="${minProposedUSD}"/> $ / <fmt:formatNumber type="number" maxFractionDigits="2" value="${minProposedGBP}"/> &#163;
+			<fmt:formatNumber type="number" maxFractionDigits="2" value="${patronagesMinProposedEUR}"/> &euro; / <fmt:formatNumber type="number" maxFractionDigits="2" value="${patronagesMinProposedUSD}"/> $ / <fmt:formatNumber type="number" maxFractionDigits="2" value="${patronagesMinProposedGBP}"/> &#163;
 		</li>
 		<li>
-			<fmt:formatNumber type="number" maxFractionDigits="2" value="${minAcceptedEUR}"/> &euro; / <fmt:formatNumber type="number" maxFractionDigits="2" value="${minAcceptedUSD}"/> $ / <fmt:formatNumber type="number" maxFractionDigits="2" value="${minAcceptedGBP}"/> &#163;
+			<fmt:formatNumber type="number" maxFractionDigits="2" value="${patronagesMinAcceptedEUR}"/> &euro; / <fmt:formatNumber type="number" maxFractionDigits="2" value="${patronagesMinAcceptedUSD}"/> $ / <fmt:formatNumber type="number" maxFractionDigits="2" value="${patronagesMinAcceptedGBP}"/> &#163;
 		</li>
 		<li>
-			<fmt:formatNumber type="number" maxFractionDigits="2" value="${minDeniedEUR}"/> &euro; / <fmt:formatNumber type="number" maxFractionDigits="2" value="${minDeniedUSD}"/> $ / <fmt:formatNumber type="number" maxFractionDigits="2" value="${minDeniedGBP}"/> &#163;
+			<fmt:formatNumber type="number" maxFractionDigits="2" value="${patronagesMinDeniedEUR}"/> &euro; / <fmt:formatNumber type="number" maxFractionDigits="2" value="${patronagesMinDeniedUSD}"/> $ / <fmt:formatNumber type="number" maxFractionDigits="2" value="${patronagesMinDeniedGBP}"/> &#163;
 		</li>
+	</ul>
+</div>
+<br/>
+<b class="center"><acme:message code="administrator.dashboard.tools"/></b>
+<div class="dashboard">
+	<ul class="stadistics">
+		<b><acme:message code="administrator.dashboard.average"/></b>
+		<li>
+			<fmt:formatNumber type="number" maxFractionDigits="2" value="${toolsAverageEUR}"/> &euro; / <fmt:formatNumber type="number" maxFractionDigits="2" value="${toolsAverageUSD}"/> $ / <fmt:formatNumber type="number" maxFractionDigits="2" value="${toolsAverageGBP}"/> &#163;
+		</li>
+
+	</ul>
+	<ul class="stadistics">
+		<b><acme:message code="administrator.dashboard.deviation"/></b>
+		<li>
+			<fmt:formatNumber type="number" maxFractionDigits="2" value="${toolsDeviationEUR}"/> &euro; / <fmt:formatNumber type="number" maxFractionDigits="2" value="${toolsDeviationUSD}"/> $ / <fmt:formatNumber type="number" maxFractionDigits="2" value="${toolsDeviationGBP}"/> &#163;
+		</li>
+
+	</ul>
+	<ul class="stadistics">
+		<b><acme:message code="administrator.dashboard.max"/></b>
+		<li>
+			<fmt:formatNumber type="number" maxFractionDigits="2" value="${toolsMaxEUR}"/> &euro; / <fmt:formatNumber type="number" maxFractionDigits="2" value="${toolsMaxUSD}"/> $ / <fmt:formatNumber type="number" maxFractionDigits="2" value="${toolsMaxGBP}"/> &#163;
+		</li>
+
+	</ul>
+	<ul class="stadistics">
+		<b><acme:message code="administrator.dashboard.min"/></b>
+		<li>
+			<fmt:formatNumber type="number" maxFractionDigits="2" value="${toolsMinEUR}"/> &euro; / <fmt:formatNumber type="number" maxFractionDigits="2" value="${toolsMinUSD}"/> $ / <fmt:formatNumber type="number" maxFractionDigits="2" value="${toolsMinGBP}"/> &#163;
+		</li>
+
 	</ul>
 </div>

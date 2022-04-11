@@ -17,3 +17,5 @@ administrator.dashboard.average = Average budget
 administrator.dashboard.deviation = Deviation
 administrator.dashboard.max = Maximum
 administrator.dashboard.min = Minimum
+
+administrator.dashboard.tools = Tools 
