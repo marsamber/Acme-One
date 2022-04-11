@@ -83,7 +83,10 @@ public class PatronDashboard {
 				//Deviation
 				numberOfPatronagesByCurrency = patronages.stream().filter(x -> x.getBudget().getCurrency().equals(currencies[index])).count();
 				total = patronages.stream().filter(x -> x.getBudget().getCurrency().equals(currencies[index])).mapToDouble(x -> Math.pow((x.getBudget().getAmount()-average.getAsDouble()),2)).sum();
-				deviation = total/numberOfPatronagesByCurrency;
+				if(numberOfPatronagesByCurrency != 0)
+					deviation = total/numberOfPatronagesByCurrency;
+				else
+					deviation = 0.;
 				this.patronagesDeviation.put(Pair.of(status[i], currencies[j]), deviation);
 
 				//Minimum
