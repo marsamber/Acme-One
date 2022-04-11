@@ -60,7 +60,7 @@ public class PatronDashboard {
 		Long numberOfPatronagesByCurrency;
 		OptionalDouble minimum;
 		OptionalDouble maximum;
-		System.out.println("patronagesByStatus: "+patronagesByStatus.get(0));
+
 
 		for(int i=0;i<patronagesByStatus.size(); i++) { // Recorremos estado a estado
 			Collection<Patronage> patronages=patronagesByStatus.get(i);
@@ -78,7 +78,10 @@ public class PatronDashboard {
 				//Deviation
 				numberOfPatronagesByCurrency = patronages.stream().filter(x -> x.getBudget().getCurrency().equals(currencies[index])).count();
 				total = patronages.stream().filter(x -> x.getBudget().getCurrency().equals(currencies[index])).mapToDouble(x -> Math.pow((x.getBudget().getAmount()-average.getAsDouble()),2)).sum();
-				deviation = total/numberOfPatronagesByCurrency;
+				if(numberOfPatronagesByCurrency != 0)
+					deviation = total/numberOfPatronagesByCurrency;
+				else
+					deviation = 0.;
 				this.patronagesDeviation.put(Pair.of(status[i], currencies[j]), deviation);
 
 				//Minimum
