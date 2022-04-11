@@ -36,7 +36,7 @@ public class AnonymousItemListAllComponentsService implements AbstractListServic
 		Collection<Item> result;
 		final Type type = Type.COMPONENT;
 		
-		result = this.repository.findAllComponents(type);
+		result = this.repository.findAllItemsByType(type);
 		
 		return result;
 	}

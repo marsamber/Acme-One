@@ -15,11 +15,8 @@ public interface AnonymousItemRepository extends AbstractRepository {
 	@Query("select i from Item i where i.id = :id")
 	Item findById(int id);
 	
-	@Query("select i from Item i where i.type = 'TOOL'")
-	Collection<Item> findAllTools();
-	
 	@Query("select i from Item i where i.type = :type")
-	Collection<Item> findAllComponents(Type type);
+	Collection<Item> findAllItemsByType(Type type);
 
 
 }
