@@ -49,9 +49,9 @@ public class AdministratorDashboard {
 	public Map<Pair<Status,String>,Double> patronagesMinimum;
 	public Map<Pair<Status,String>,Double> patronagesMaximum;
 	
-	public AdministratorDashboard(List<Collection<Patronage>> patronages, Collection<Item> components) {		
+	public AdministratorDashboard(List<Collection<Patronage>> patronages,Collection<Item> tools, Collection<Item> components) {		
 		this.generateComponentsStats(components);
-		this.generateToolsData();
+		this.generateToolsStats(tools);
 		this.generatePatronagesStats(patronages);
 	}
 
@@ -73,6 +73,8 @@ public class AdministratorDashboard {
 					.mapToDouble(x -> x.getRetailPrice().getAmount()).average();
 				if(average.isPresent())
 					this.retailPriceComponentsAverage.put(Pair.of(technologies[j], currencies[i]), average.getAsDouble());
+				else
+					this.retailPriceComponentsAverage.put(Pair.of(technologies[j], currencies[i]), 0.);
 				
 				//Deviation
 				Long numberOfComponentsByCurrency = components.stream().filter(x -> x.getRetailPrice().getCurrency().equals(currencies[currencyIndex])
@@ -82,7 +84,11 @@ public class AdministratorDashboard {
 					&& x.getTechnology().equals(technologies[technologyIndex]))
 					.mapToDouble(x -> x.getRetailPrice().getAmount()).sum();
 				
-				Double deviation = total/numberOfComponentsByCurrency;
+				Double deviation;
+				if(numberOfComponentsByCurrency != 0)
+					deviation = total/numberOfComponentsByCurrency;
+				else
+					deviation = 0.;
 				this.retailPriceComponentsDeviation.put(Pair.of(technologies[j], currencies[i]), deviation);
 				
 				//Minimum
@@ -107,20 +113,15 @@ public class AdministratorDashboard {
 			}
 		}		
 	}
-	public void generateToolsData() {
-		Collection<Item> tools=null; // TODO Llamada a la funcion servicio que recoja los componentes
-		
-		this.totalComponents= tools.size();
-		
-		this.generateToolsStats(tools);
-	}
-
+	
 	private void generateToolsStats(Collection<Item> tools) {
 		String[] currencies= new String[] {"EUR","USD","GBP"};
 		
+		this.totalComponents= tools.size();
+		
 		Double total;
 		Double deviation;
-		Long numberOfPatronagesByCurrency;
+		Long numberOfComponentsByCurrency;
 		OptionalDouble minimum;
 		OptionalDouble maximum;
 
@@ -131,22 +132,32 @@ public class AdministratorDashboard {
 			OptionalDouble average= tools.stream().filter(x -> x.getRetailPrice().getCurrency().equals(currencies[index])).mapToDouble(x -> x.getRetailPrice().getAmount()).average();
 			if(average.isPresent())
 				this.retailPriceToolsAverage.put(currencies[i], average.getAsDouble());
+			else
+				this.retailPriceToolsAverage.put(currencies[i], 0.);
 			
 			//Deviation
-			numberOfPatronagesByCurrency = tools.stream().filter(x -> x.getRetailPrice().getCurrency().equals(currencies[index])).count();
+			numberOfComponentsByCurrency = tools.stream().filter(x -> x.getRetailPrice().getCurrency().equals(currencies[index])).count();
 			total = tools.stream().filter(x -> x.getRetailPrice().getCurrency().equals(currencies[index])).mapToDouble(x -> (x.getRetailPrice().getAmount()-average.getAsDouble())).sum();
-			deviation = total/numberOfPatronagesByCurrency;
+			
+			if(numberOfComponentsByCurrency != 0)
+				deviation = total/numberOfComponentsByCurrency;
+			else
+				deviation = 0.;
 			this.retailPriceToolsDeviation.put(currencies[i], deviation);
 			
 			//Minimum
 			minimum= tools.stream().filter(x -> x.getRetailPrice().getCurrency().equals(currencies[index])).mapToDouble(x -> x.getRetailPrice().getAmount()).min();
 			if(minimum.isPresent())
 				this.retailPriceToolsMinimum.put(currencies[i], minimum.getAsDouble());
+			else
+				this.retailPriceToolsMinimum.put(currencies[i], 0.);
 			
 			//Maximum
 			maximum= tools.stream().filter(x -> x.getRetailPrice().getCurrency().equals(currencies[index])).mapToDouble(x -> x.getRetailPrice().getAmount()).max();
 			if(maximum.isPresent())
 				this.retailPriceToolsMaximum.put(currencies[i], maximum.getAsDouble());
+			else
+				this.retailPriceToolsMaximum.put(currencies[i], 0.);
 		}
 
 	}
@@ -198,7 +209,10 @@ public class AdministratorDashboard {
 				//Deviation
 				numberOfPatronagesByCurrency = patronages.stream().filter(x -> x.getBudget().getCurrency().equals(currencies[index])).count();
 				total = patronages.stream().filter(x -> x.getBudget().getCurrency().equals(currencies[index])).mapToDouble(x -> Math.pow((x.getBudget().getAmount()-average.getAsDouble()),2)).sum();
-				deviation = total/numberOfPatronagesByCurrency;
+				if(numberOfPatronagesByCurrency != 0)
+					deviation = total/numberOfPatronagesByCurrency;
+				else
+					deviation = 0.;
 				this.patronagesDeviation.put(Pair.of(status[i], currencies[j]), deviation);
 				
 				//Minimum
