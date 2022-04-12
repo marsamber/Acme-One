@@ -28,14 +28,14 @@
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-gonmarmar5" action="https://www.chess.com/"/>	
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-marcasbon" action="https://www.wikipedia.org/"/>
 			<acme:menu-separator/>
-			<acme:menu-suboption code="master.menu.any.item.list-all-tools" action="/any/item/list-all-tools"/>
-			<acme:menu-suboption code="master.menu.any.item.list-all-components" action="/any/item/list-all-components"/>
 			<acme:menu-separator/>	
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.any" access="hasRole('Any')">
 			<acme:menu-suboption code="master.menu.any.inventor.list-all-inventors" action="/any/inventor/list-all-inventors"/>
 			<acme:menu-suboption code="master.menu.any.patron.list-all-patrons" action="/any/patron/list-all-patrons"/>
+			<acme:menu-suboption code="master.menu.any.item.list-all-tools" action="/any/item/list-all-tools"/>
+			<acme:menu-suboption code="master.menu.any.item.list-all-components" action="/any/item/list-all-components"/>
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">
@@ -65,8 +65,6 @@
 		<acme:menu-option code="master.menu.sign-in" action="/master/sign-in" access="isAnonymous()"/>
 
 		<acme:menu-option code="master.menu.user-account" access="isAuthenticated()">
-			<acme:menu-suboption code="master.menu.any.item.list-all-tools" action="/any/item/list-all-tools"/>
-			<acme:menu-suboption code="master.menu.any.item.list-all-components" action="/any/item/list-all-components"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.user-account.general-data" action="/authenticated/user-account/update"/>
 			<acme:menu-suboption code="master.menu.user-account.become-patron" action="/authenticated/patron/create" access="!hasRole('Patron')"/>
