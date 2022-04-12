@@ -55,9 +55,8 @@
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.inventor" access="hasRole('Inventor')">
-			<acme:menu-suboption code="master.menu.inventor.favourite-link" action="http://www.wikipedia.com/"/>
-		</acme:menu-option>
-	</acme:menu-left>
+            <acme:menu-suboption code="master.menu.inventor.item.list-all-mine-components" action="/inventor/item/list-all-mine-components"/>		</acme:menu-option>
+		</acme:menu-left>
 
 
 	<acme:menu-right>
