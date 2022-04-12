@@ -40,6 +40,7 @@ master.menu.administrator.shut-down = Parar el sistema
 master.menu.any = Cualquiera
 master.menu.any.inventor.list-all-inventors = Listar todos los inventores
 master.menu.any.patron.list-all-patrons = Listar todos los patrones
+master.menu.any.toolkit.list-all-toolkits = Listar todas las cajas de herramientas
 
 # master.menu.patron ########################################################
 

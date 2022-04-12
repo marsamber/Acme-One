@@ -9,7 +9,6 @@ import acme.entities.Item;
 import acme.framework.controllers.AbstractController;
 import acme.framework.roles.Any;
 
-
 @Controller
 public class AnyItemController extends AbstractController<Any, Item> {
 
@@ -18,19 +17,21 @@ public class AnyItemController extends AbstractController<Any, Item> {
 
 	@Autowired
 	protected AnyItemListAllComponentsService listAllComponentsService;
+
+	@Autowired
+	protected AnyItemShowService			showService;
 	
 	@Autowired
-	protected AnyItemShowService showService;
+	protected AnyItemListService 			listService;
 
 	// Constructors 
-
 
 	@PostConstruct
 	protected void initialise() {
 		super.addCommand("show", this.showService);
 		super.addCommand("list-all-tools", "list", this.listAllService);
 		super.addCommand("list-all-components", "list", this.listAllComponentsService);
-
+		super.addCommand("list", this.listService);
 	}
 
 }

@@ -12,12 +12,10 @@ import acme.framework.services.AbstractShowService;
 @Service
 public class AnyItemShowService implements AbstractShowService<Any, Item> {
 
-
 	@Autowired
 	protected AnyItemRepository repository;
 
 	// Interface 
-
 
 	@Override
 	public boolean authorise(final Request<Item> request) {
