@@ -50,6 +50,7 @@ master.menu.patron.dashboard = Dashboard
 
 master.menu.inventor = Inventor
 master.menu.inventor.favourite-link = Favourite link
+master.menu.inventor.toolkit.list-my-toolkits = List My Toolkits
 
 
 # master.menu.user-account ####################################################

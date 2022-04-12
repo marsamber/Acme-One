@@ -51,6 +51,7 @@ master.menu.patron.dashboard = Panel de indicadores
 
 master.menu.inventor = Inventor
 master.menu.inventor.favourite-link = Enlace favorito
+master.menu.inventor.toolkit.list-my-toolkits = Listar mis cajas de herramientas
 
 
 # master.menu.user-account ####################################################
