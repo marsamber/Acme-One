@@ -1,21 +1,26 @@
-package acme.features.authenticated.item;
+package acme.features.any.item;
+
+import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.Item;
+import acme.entities.Item.Type;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
-import acme.framework.roles.Authenticated;
-import acme.framework.services.AbstractShowService;
+import acme.framework.roles.Any;
+import acme.framework.services.AbstractListService;
 
 @Service
-public class AuthenticatedItemShowService implements AbstractShowService<Authenticated, Item> {
+public class AnyItemListAllService implements AbstractListService<Any, Item> {
+
 
 	@Autowired
-	protected AuthenticatedItemRepository repository;
+	protected AnyItemRepository repository;
 
 	// Interface 
+
 
 	@Override
 	public boolean authorise(final Request<Item> request) {
@@ -25,26 +30,24 @@ public class AuthenticatedItemShowService implements AbstractShowService<Authent
 	}
 
 	@Override
-	public Item findOne(final Request<Item> request) {
+	public Collection<Item> findMany(final Request<Item> request) {
 		assert request != null;
 
-		Item result;
-		int id;
-
-		id = request.getModel().getInteger("id");
-		result = this.repository.findById(id);
-
+		Collection<Item> result;
+		final Type type = Type.TOOL;
+		
+		result = this.repository.findAllItemsByType(type);
+		
 		return result;
 	}
-
+	
 	@Override
 	public void unbind(final Request<Item> request, final Item entity, final Model model) {
 		assert request != null;
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model,"name", "code", "technology", "description", "retailPrice", "link","type");
-		model.setAttribute("readonly", true);
+		request.unbind(entity, model, "name", "code", "type");
 	}
-	
+
 }
