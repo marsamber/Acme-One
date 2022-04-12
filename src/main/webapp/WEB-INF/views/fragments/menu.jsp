@@ -58,7 +58,8 @@
 			<acme:menu-separator/>
 				<acme:menu-suboption code="master.menu.inventor.toolkit.list-my-toolkits" action="/inventor/toolkit/list-mine"/>
 			<acme:menu-separator/>	
-			<acme:menu-suboption code="master.menu.inventor.item.list-all-mine-components" action="/inventor/item/list-all-mine-components"/>		</acme:menu-option>
+			<acme:menu-suboption code="master.menu.inventor.item.list-all-mine-components" action="/inventor/item/list-all-mine-components"/>		
+		</acme:menu-option>
 		
 	</acme:menu-left>
 

@@ -9,7 +9,6 @@ import acme.entities.Item;
 import acme.entities.Item.Type;
 import acme.entities.Toolkit;
 import acme.framework.repositories.AbstractRepository;
-import acme.roles.Inventor;
 
 @Repository
 public interface InventorItemRepository extends AbstractRepository {
@@ -23,10 +22,7 @@ public interface InventorItemRepository extends AbstractRepository {
 	@Query("select ti.item from ToolkitItem ti where ti.toolkit.id=:toolkitId")
 	Collection<Item> findManyItemsByToolkitId(int toolkitId);
 	
-	@Query("select i from Inventor where i.id = :id")
-	Inventor findIventorById(Integer id);
-	
-	@Query("select i from Item i where i.inventor = :inventor and i.type = :type")
-	Collection<Item> findItemsByInventorIdAndType(Inventor inventor, Type type);
+	@Query("select i from Item i where i.inventor.id = :inventor and i.type = :type")
+	Collection<Item> findItemsByInventorIdAndType(int inventorId, Type type);
 
 }

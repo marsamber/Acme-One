@@ -41,12 +41,11 @@ public class InventorComponentListMineService implements AbstractListService<Inv
 		principal = request.getPrincipal();
 		
 		
-		final int principalId = principal.getActiveRoleId();
-		final Inventor inventor = this.repository.findIventorById(principalId);
+		final int inventorId = principal.getActiveRoleId();
 		final Type type = Type.COMPONENT;
 		
 		
-		result = this.repository.findItemsByInventorIdAndType(inventor,type);
+		result = this.repository.findItemsByInventorIdAndType(inventorId,type);
 
 		return result;
 	}
