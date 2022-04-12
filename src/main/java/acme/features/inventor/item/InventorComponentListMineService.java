@@ -1,4 +1,4 @@
-package acme.features.authenticated.inventor.item;
+package acme.features.inventor.item;
 
 import java.util.Collection;
 
@@ -39,11 +39,14 @@ public class InventorComponentListMineService implements AbstractListService<Inv
 		Principal principal;
 
 		principal = request.getPrincipal();
-		final int inventor = principal.getActiveRoleId();
+		
+		
+		final int principalId = principal.getActiveRoleId();
+		final Inventor inventor = this.repository.findIventorById(principalId);
 		final Type type = Type.COMPONENT;
 		
 		
-		result = this.repository.findItemsByInventorIdAndType(,type);
+		result = this.repository.findItemsByInventorIdAndType(inventor,type);
 
 		return result;
 	}
