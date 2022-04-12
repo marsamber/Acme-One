@@ -2,6 +2,7 @@ package acme.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.validation.Valid;
 import javax.validation.constraints.AssertTrue;
 import javax.validation.constraints.NotBlank;
@@ -13,6 +14,7 @@ import org.hibernate.validator.constraints.URL;
 
 import acme.framework.datatypes.Money;
 import acme.framework.entities.AbstractEntity;
+import acme.roles.Inventor;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -54,6 +56,9 @@ public class Item extends AbstractEntity {
 	
 	@URL
 	protected String link;
+	
+	@ManyToOne
+	protected Inventor inventor;
 			
 		
 	@AssertTrue(message="Retail price must be positive")
