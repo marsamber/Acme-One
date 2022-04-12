@@ -32,6 +32,11 @@
 			<acme:menu-suboption code="master.menu.any.item.list-all-components" action="/any/item/list-all-components"/>
 			<acme:menu-separator/>	
 		</acme:menu-option>
+		
+		<acme:menu-option code="master.menu.any" access="hasRole('Any')">
+			<acme:menu-suboption code="master.menu.any.inventor.list-all-inventors" action="/any/inventor/list-all-inventors"/>
+			<acme:menu-suboption code="master.menu.any.patron.list-all-patrons" action="/any/patron/list-all-patrons"/>
+		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">
 			<acme:menu-suboption code="master.menu.administrator.user-accounts" action="/administrator/user-account/list"/>
