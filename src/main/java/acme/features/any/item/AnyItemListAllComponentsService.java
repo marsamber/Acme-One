@@ -1,4 +1,4 @@
-package acme.features.authenticated.item;
+package acme.features.any.item;
 
 import java.util.Collection;
 
@@ -6,17 +6,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.Item;
+import acme.entities.Item.Type;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
-import acme.framework.roles.Authenticated;
+import acme.framework.roles.Any;
 import acme.framework.services.AbstractListService;
 
 @Service
-public class AuthenticatedItemListAllService implements AbstractListService<Authenticated, Item> {
+public class AnyItemListAllComponentsService implements AbstractListService<Any, Item> {
 
 
 	@Autowired
-	protected AuthenticatedItemRepository repository;
+	protected AnyItemRepository repository;
 
 	// Interface 
 
@@ -33,9 +34,10 @@ public class AuthenticatedItemListAllService implements AbstractListService<Auth
 		assert request != null;
 
 		Collection<Item> result;
-
-		result = this.repository.findAllTools();
-
+		final Type type = Type.COMPONENT;
+		
+		result = this.repository.findAllItemsByType(type);
+		
 		return result;
 	}
 	

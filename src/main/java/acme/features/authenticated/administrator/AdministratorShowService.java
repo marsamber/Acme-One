@@ -12,28 +12,22 @@
 
 package acme.features.authenticated.administrator;
 
-import java.util.Collection;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.Patronage;
 import acme.framework.roles.Administrator;
 import acme.framework.roles.Authenticated;
 import acme.framework.services.AbstractService;
 
 @Service
-public class AdministratorService implements AbstractService<Authenticated, Administrator> {
+public class AdministratorShowService implements AbstractService<Authenticated, Administrator> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
 	protected AdministratorRepository repository;
 
-	public Collection<Patronage> findAllPatronage(){
-		return this.repository.findAllPatronage();
-	}
-	
+
 	/*
 	public Collection<Patronage> findPatronageByStatus(Status status){
 		return this.repository.findPatronageByStatus(status);

@@ -1,4 +1,4 @@
-package acme.features.anonymous.item;
+package acme.features.any.item;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -6,15 +6,15 @@ import org.springframework.stereotype.Service;
 import acme.entities.Item;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
-import acme.framework.roles.Anonymous;
+import acme.framework.roles.Any;
 import acme.framework.services.AbstractShowService;
 
 @Service
-public class AnonymousItemShowService implements AbstractShowService<Anonymous, Item> {
+public class AnyItemShowService implements AbstractShowService<Any, Item> {
 
 
 	@Autowired
-	protected AnonymousItemRepository repository;
+	protected AnyItemRepository repository;
 
 	// Interface 
 
@@ -46,6 +46,7 @@ public class AnonymousItemShowService implements AbstractShowService<Anonymous, 
 		assert model != null;
 
 		request.unbind(entity, model,"name", "code", "technology", "description", "retailPrice", "link","type");
+		model.setAttribute("confirmation", false);
 		model.setAttribute("readonly", true);
 	}
 	
