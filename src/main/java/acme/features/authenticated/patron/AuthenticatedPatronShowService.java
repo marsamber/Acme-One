@@ -27,7 +27,7 @@ import acme.framework.services.AbstractUpdateService;
 import acme.roles.Patron;
 
 @Service
-public class AuthenticatedPatronUpdateService implements AbstractUpdateService<Authenticated, Patron> {
+public class AuthenticatedPatronShowService implements AbstractUpdateService<Authenticated, Patron> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -73,11 +73,14 @@ public class AuthenticatedPatronUpdateService implements AbstractUpdateService<A
 		principal = request.getPrincipal();
 		userAccountId = principal.getAccountId();
 
-		result = this.repository.findOneProviderByUserAccountId(userAccountId);
+		result = this.repository.findOnePatronByUserAccountId(userAccountId);
 
 		return result;
 	}
-
+	public Patron findOnePatronByUserAccountId(int userAccountId) {
+		return this.repository.findOnePatronByUserAccountId(userAccountId);
+	}
+	
 	@Override
 	public void validate(final Request<Patron> request, final Patron entity, final Errors errors) {
 		assert request != null;
