@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import acme.entities.Item;
+import acme.entities.Item.Type;
 import acme.entities.Toolkit;
 import acme.framework.repositories.AbstractRepository;
 
@@ -20,5 +21,8 @@ public interface InventorItemRepository extends AbstractRepository {
 	
 	@Query("select ti.item from ToolkitItem ti where ti.toolkit.id=:toolkitId")
 	Collection<Item> findManyItemsByToolkitId(int toolkitId);
+	
+	@Query("select i from Item i where i.inventor.id = :inventorId and i.type = :type")
+	Collection<Item> findItemsByInventorIdAndType(int inventorId, Type type);
 
 }
