@@ -111,46 +111,25 @@ public class AdministratorAcmeController extends AbstractController<Authenticate
 
 	private void addComponentsStats(ModelAndView result, AdministratorDashboard administratorDashboard) {
 		//Average
-		result.addObject("componentsAverageAcceptedEUR",administratorDashboard.getRetailPriceComponentsAverage().get(Pair.of("Energy","EUR")));
-		result.addObject("componentsAverageAcceptedUSD",administratorDashboard.getRetailPriceComponentsAverage().get(Pair.of("Energy","USD")));
-		result.addObject("componentsAverageAcceptedGBP",administratorDashboard.getRetailPriceComponentsAverage().get(Pair.of("Energy","GBP")));
-		result.addObject("componentsAverageProposedEUR",administratorDashboard.getRetailPriceComponentsAverage().get(Pair.of("Electrical","EUR")));
-		result.addObject("componentsAverageProposedUSD",administratorDashboard.getRetailPriceComponentsAverage().get(Pair.of("Electrical","USD")));
-		result.addObject("componentsAverageProposedGBP",administratorDashboard.getRetailPriceComponentsAverage().get(Pair.of("Electrical","GBP")));
-		result.addObject("componentsAverageDeniedEUR",administratorDashboard.getRetailPriceComponentsAverage().get(Pair.of("T","EUR")));
-		result.addObject("componentsAverageDeniedUSD",administratorDashboard.getRetailPriceComponentsAverage().get(Pair.of("T","USD")));
-		result.addObject("componentsAverageDeniedGBP",administratorDashboard.getRetailPriceComponentsAverage().get(Pair.of("T","GBP")));
-		//Deviation
-		result.addObject("componentsDeviationAcceptedEUR",administratorDashboard.getRetailPriceComponentsDeviation().get(Pair.of("Energy","EUR")));
-		result.addObject("componentsDeviationAcceptedUSD",administratorDashboard.getRetailPriceComponentsDeviation().get(Pair.of("Energy","USD")));
-		result.addObject("componentsDeviationAcceptedGBP",administratorDashboard.getRetailPriceComponentsDeviation().get(Pair.of("Energy","GBP")));
-		result.addObject("componentsDeviationProposedEUR",administratorDashboard.getRetailPriceComponentsDeviation().get(Pair.of("Electrical","EUR")));
-		result.addObject("componentsDeviationProposedUSD",administratorDashboard.getRetailPriceComponentsDeviation().get(Pair.of("Electrical","USD")));
-		result.addObject("componentsDeviationProposedGBP",administratorDashboard.getRetailPriceComponentsDeviation().get(Pair.of("Electrical","GBP")));
-		result.addObject("componentsDeviationDeniedEUR",administratorDashboard.getRetailPriceComponentsDeviation().get(Pair.of("T","EUR")));
-		result.addObject("componentsDeviationDeniedUSD",administratorDashboard.getRetailPriceComponentsDeviation().get(Pair.of("T","USD")));
-		result.addObject("componentsDeviationDeniedGBP",administratorDashboard.getRetailPriceComponentsDeviation().get(Pair.of("T","GBP")));
-		//Max
-		result.addObject("componentsMaxAcceptedEUR",administratorDashboard.getRetailPriceComponentsMaximum().get(Pair.of("Energy","EUR")));
-		result.addObject("componentsMaxAcceptedUSD",administratorDashboard.getRetailPriceComponentsMaximum().get(Pair.of("Energy","USD")));
-		result.addObject("componentsMaxAcceptedGBP",administratorDashboard.getRetailPriceComponentsMaximum().get(Pair.of("Energy","GBP")));
-		result.addObject("componentsMaxProposedEUR",administratorDashboard.getRetailPriceComponentsMaximum().get(Pair.of("Electrical","EUR")));
-		result.addObject("componentsMaxProposedUSD",administratorDashboard.getRetailPriceComponentsMaximum().get(Pair.of("Electrical","USD")));
-		result.addObject("componentsMaxProposedGBP",administratorDashboard.getRetailPriceComponentsMaximum().get(Pair.of("Electrical","GBP")));
-		result.addObject("componentsMaxDeniedEUR",administratorDashboard.getRetailPriceComponentsMaximum().get(Pair.of("T","EUR")));
-		result.addObject("componentsMaxDeniedUSD",administratorDashboard.getRetailPriceComponentsMaximum().get(Pair.of("T","USD")));
-		result.addObject("componentsMaxDeniedGBP",administratorDashboard.getRetailPriceComponentsMaximum().get(Pair.of("T","GBP")));
-		//Min
-		result.addObject("componentsMinAcceptedEUR",administratorDashboard.getRetailPriceComponentsMinimum().get(Pair.of("Energy","EUR")));
-		result.addObject("componentsMinAcceptedUSD",administratorDashboard.getRetailPriceComponentsMinimum().get(Pair.of("Energy","USD")));
-		result.addObject("componentsMinAcceptedGBP",administratorDashboard.getRetailPriceComponentsMinimum().get(Pair.of("Energy","GBP")));
-		result.addObject("componentsMinProposedEUR",administratorDashboard.getRetailPriceComponentsMinimum().get(Pair.of("Electrical","EUR")));
-		result.addObject("componentsMinProposedUSD",administratorDashboard.getRetailPriceComponentsMinimum().get(Pair.of("Electrical","USD")));
-		result.addObject("componentsMinProposedGBP",administratorDashboard.getRetailPriceComponentsMinimum().get(Pair.of("Electrical","GBP")));
-		result.addObject("componentsMinDeniedEUR",administratorDashboard.getRetailPriceComponentsMinimum().get(Pair.of("T","EUR")));
-		result.addObject("componentsMinDeniedUSD",administratorDashboard.getRetailPriceComponentsMinimum().get(Pair.of("T","USD")));
-		result.addObject("componentsMinDeniedGBP",administratorDashboard.getRetailPriceComponentsMinimum().get(Pair.of("T","GBP")));
-		
+		Double[][] componentsAverage= new Double[administratorDashboard.getTechnologiesOfComponents().length][3];
+		Double[][] componentsDeviation= new Double[administratorDashboard.getTechnologiesOfComponents().length][3];
+		Double[][] componentsMax= new Double[administratorDashboard.getTechnologiesOfComponents().length][3];
+		Double[][] componentsMin= new Double[administratorDashboard.getTechnologiesOfComponents().length][3];
+		String[] technologies=administratorDashboard.getTechnologiesOfComponents();
+		String[] currencies= new String[] {"EUR","USD","GBP"};
+		for(int i=0; i<technologies.length; i++) {
+			for(int j=0; j<currencies.length;j++) {
+				componentsAverage[i][j]=administratorDashboard.getRetailPriceComponentsAverage().get(Pair.of(technologies[i],currencies[j]));
+				componentsDeviation[i][j]=administratorDashboard.getRetailPriceComponentsDeviation().get(Pair.of(technologies[i],currencies[j]));
+				componentsMax[i][j]=administratorDashboard.getRetailPriceComponentsMaximum().get(Pair.of(technologies[i],currencies[j]));
+				componentsMin[i][j]=administratorDashboard.getRetailPriceComponentsMinimum().get(Pair.of(technologies[i],currencies[j]));
+			}
+		}
+		result.addObject("technologies", technologies);
+		result.addObject("componentsAverage",componentsAverage);
+		result.addObject("componentsDeviation",componentsDeviation);
+		result.addObject("componentsMax",componentsMax);
+		result.addObject("componentsMin",componentsMin);
 	}
 
 	private void addPatronagesStats(ModelAndView result,AdministratorDashboard administratorDashboard) {

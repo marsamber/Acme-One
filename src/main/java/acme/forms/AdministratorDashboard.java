@@ -22,6 +22,7 @@ public class AdministratorDashboard {
 	// COMPONENTS
 	
 	public Integer totalComponents;
+	public String[] technologiesOfComponents;
 	
 	// Agrupado por tecnología y divisa
 	public Map<Pair<String,String>,Double> retailPriceComponentsAverage;
@@ -66,6 +67,7 @@ public class AdministratorDashboard {
 		this.retailPriceComponentsMaximum= new HashMap<Pair<String,String>, Double>();
 		
 		String[] technologies= this.getAllTechnologies(components);
+		this.technologiesOfComponents= technologies;
 		String[] currencies= new String[] {"EUR","USD","GBP"};
 		
 		for(int i =0; i<currencies.length;i++) {

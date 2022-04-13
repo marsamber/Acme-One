@@ -20,3 +20,5 @@ administrator.dashboard.min = Minimum
 
 administrator.dashboard.tools = Tools 
 administrator.dashboard.components = Components 
+
+administrator.dashboard.technologies= Technology
