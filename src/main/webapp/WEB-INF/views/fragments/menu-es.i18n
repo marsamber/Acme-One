@@ -54,6 +54,7 @@ master.menu.inventor = Inventor
 master.menu.inventor.favourite-link = Enlace favorito
 master.menu.inventor.toolkit.list-my-toolkits = Listar mis cajas de herramientas
 master.menu.inventor.item.list-all-mine-components = Listar todos mis componentes
+master.menu.inventor.item.list-all-mine-tools = Listar todos mis herramientas
 
 
 # master.menu.user-account ####################################################
