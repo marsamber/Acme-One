@@ -30,6 +30,7 @@
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.any" access="hasRole('Any')">
+			<acme:menu-suboption code="master.menu.any.list-chirps" action="/any/chirp/list"/>	
 			<acme:menu-suboption code="master.menu.any.inventor.list-all-inventors" action="/any/inventor/list-all-inventors"/>
 			<acme:menu-suboption code="master.menu.any.patron.list-all-patrons" action="/any/patron/list-all-patrons"/>
 			<acme:menu-suboption code="master.menu.any.toolkit.list-all-toolkits" action="/any/toolkit/list-all-toolkits"/>

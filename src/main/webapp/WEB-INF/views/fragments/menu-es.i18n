@@ -68,3 +68,12 @@ master.menu.user-account.become-inventor = Hazte inventor
 
 master.menu.any.item.list-all-tools = Listar todas las herramientas
 master.menu.any.item.list-all-components = Listar todos los componentes
+
+# master.menu.any ###################################################
+
+master.menu.any.list-chirps = Listar Chirps
+
+# master.menu.chirps ##########################################################
+
+master.menu.chirps = Chirps
+
