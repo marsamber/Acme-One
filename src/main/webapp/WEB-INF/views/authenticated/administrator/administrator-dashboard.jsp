@@ -34,10 +34,10 @@
 	<ul class="stadistics">
 		<b><acme:message code="administrator.dashboard.deviation"/></b>
 		<li>
-			<fmt:formatNumber type="number" maxFractionDigits="2" value="${patronagesDeviationProposedEUR}"/> &euro; / <fmt:formatNumber type="number" maxFractionDigits="2" value="${patronagesDeviationProposedUSD}"/> $ / <fmt:formatNumber type="number" maxFractionDigits="2" value="${deviationProposedGBP}"/> &#163;
+			<fmt:formatNumber type="number" maxFractionDigits="2" value="${patronagesDeviationProposedEUR}"/> &euro; / <fmt:formatNumber type="number" maxFractionDigits="2" value="${patronagesDeviationProposedUSD}"/> $ / <fmt:formatNumber type="number" maxFractionDigits="2" value="${patronagesDeviationProposedGBP}"/> &#163;
 		</li>
 		<li>
-			<fmt:formatNumber type="number" maxFractionDigits="2" value="${patronagesDeviationAcceptedEUR}"/> &euro; / <fmt:formatNumber type="number" maxFractionDigits="2" value="${patronagesDeviationAcceptedUSD}"/> $ / <fmt:formatNumber type="number" maxFractionDigits="2" value="${deviationAcceptedGBP}"/> &#163;
+			<fmt:formatNumber type="number" maxFractionDigits="2" value="${patronagesDeviationAcceptedEUR}"/> &euro; / <fmt:formatNumber type="number" maxFractionDigits="2" value="${patronagesDeviationAcceptedUSD}"/> $ / <fmt:formatNumber type="number" maxFractionDigits="2" value="${patronagesDeviationAcceptedGBP}"/> &#163;
 		</li>
 		<li>
 			<fmt:formatNumber type="number" maxFractionDigits="2" value="${patronagesDeviationDeniedEUR}"/> &euro; / <fmt:formatNumber type="number" maxFractionDigits="2" value="${patronagesDeviationDeniedUSD}"/> $ / <fmt:formatNumber type="number" maxFractionDigits="2" value="${patronagesDeviationDeniedGBP}"/> &#163;
