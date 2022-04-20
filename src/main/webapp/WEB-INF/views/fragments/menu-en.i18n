@@ -25,7 +25,6 @@ master.menu.anonymous.favourite-link-alvvazort = 07257681P: Vázquez Ortiz, Álv
 master.menu.anonymous.favourite-link-alvmirpoz = 53354676N: Miranda Pozo, Álvaro
 master.menu.anonymous.favourite-link-gonmarmar5 = 77928283M: Martínez Martínez, Gonzalo
 master.menu.anonymous.favourite-link-marcasbon = 49167536K: Castro Bonilla, María
-master.menu.anonymous.item.list-all-tools = List All Tools
 
 # master.menu.administrator ###################################################
 
@@ -36,6 +35,13 @@ master.menu.administrator.populate-initial = Populate DB (initial)
 master.menu.administrator.populate-sample = Populate DB (samples)
 master.menu.administrator.shut-down = Shut down
 
+# master.menu.any ############################################################
+
+master.menu.any = Any
+master.menu.any.inventor.list-all-inventors = List All Inventors
+master.menu.any.patron.list-all-patrons = List All Patrons
+master.menu.any.toolkit.list-all-toolkits = List All Toolkits
+
 # master.menu.patron ########################################################
 
 master.menu.patron = Patron
@@ -45,7 +51,9 @@ master.menu.patron.dashboard = Dashboard
 
 master.menu.inventor = Inventor
 master.menu.inventor.favourite-link = Favourite link
-
+master.menu.inventor.toolkit.list-my-toolkits = List My Toolkits
+master.menu.inventor.item.list-all-mine-components = List All Mine Components
+master.menu.inventor.item.list-all-mine-tools = List All Mine Tools
 
 # master.menu.user-account ####################################################
 
@@ -55,4 +63,9 @@ master.menu.user-account.patron = Patron data
 master.menu.user-account.become-patron = Become a patron
 master.menu.user-account.inventor = Inventor data
 master.menu.user-account.become-inventor = Become a inventor
-master.menu.user-account.item.list-all-tools = List All Tools
+
+# master.menu.any ####################################################
+
+master.menu.any.item.list-all-tools = List All Tools
+master.menu.any.item.list-all-components = List All Components
+

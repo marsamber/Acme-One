@@ -27,9 +27,14 @@
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-alvmirpoz" action="https://www.wordreference.com/"/>
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-gonmarmar5" action="https://www.chess.com/"/>	
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-marcasbon" action="https://www.wikipedia.org/"/>
-			<acme:menu-separator/>
-			<acme:menu-suboption code="master.menu.anonymous.item.list-all-tools" action="/anonymous/item/list-all-tools"/>
-			<acme:menu-separator/>	
+		</acme:menu-option>
+		
+		<acme:menu-option code="master.menu.any" access="hasRole('Any')">
+			<acme:menu-suboption code="master.menu.any.inventor.list-all-inventors" action="/any/inventor/list-all-inventors"/>
+			<acme:menu-suboption code="master.menu.any.patron.list-all-patrons" action="/any/patron/list-all-patrons"/>
+			<acme:menu-suboption code="master.menu.any.item.list-all-tools" action="/any/item/list-all-tools"/>
+			<acme:menu-suboption code="master.menu.any.item.list-all-components" action="/any/item/list-all-components"/>
+			<acme:menu-suboption code="master.menu.any.toolkit.list-all-toolkits" action="/any/toolkit/list-all-toolkits"/>
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">
@@ -38,7 +43,7 @@
 			<acme:menu-suboption code="master.menu.administrator.populate-initial" action="/administrator/populate-initial"/>
 			<acme:menu-suboption code="master.menu.administrator.populate-sample" action="/administrator/populate-sample"/>			
 			<acme:menu-separator/>
-			<acme:menu-suboption code="master.menu.administrator.dashboard" action="/administrator/dashboard"/>			
+				<acme:menu-suboption code="master.menu.administrator.dashboard" action="/administrator/dashboard"/>			
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.shut-down" action="/administrator/shut-down"/>
 		</acme:menu-option>
@@ -50,8 +55,15 @@
 		
 		<acme:menu-option code="master.menu.inventor" access="hasRole('Inventor')">
 			<acme:menu-suboption code="master.menu.inventor.favourite-link" action="http://www.wikipedia.com/"/>
+			<acme:menu-separator/>
+				<acme:menu-suboption code="master.menu.inventor.toolkit.list-my-toolkits" action="/inventor/toolkit/list-mine"/>
+			<acme:menu-separator/>	
+			<acme:menu-suboption code="master.menu.inventor.item.list-all-mine-components" action="/inventor/item/list-all-mine-components"/>		
+			<acme:menu-suboption code="master.menu.inventor.item.list-all-mine-tools" action="/inventor/item/list-all-mine-tools"/>	
 		</acme:menu-option>
+		
 	</acme:menu-left>
+
 
 
 	<acme:menu-right>
@@ -59,8 +71,6 @@
 		<acme:menu-option code="master.menu.sign-in" action="/master/sign-in" access="isAnonymous()"/>
 
 		<acme:menu-option code="master.menu.user-account" access="isAuthenticated()">
-			<acme:menu-suboption code="master.menu.user-account.item.list-all-tools" action="/authenticated/item/list-all-tools"/>
-			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.user-account.general-data" action="/authenticated/user-account/update"/>
 			<acme:menu-suboption code="master.menu.user-account.become-patron" action="/authenticated/patron/create" access="!hasRole('Patron')"/>
 			<acme:menu-suboption code="master.menu.user-account.provider" action="/authenticated/patron/update" access="hasRole('Patron')"/>
