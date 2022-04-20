@@ -27,7 +27,7 @@ import acme.entities.Item;
 import acme.entities.Item.Type;
 import acme.entities.Patronage;
 import acme.entities.Patronage.Status;
-import acme.features.anonymous.item.AnonymousItemListAllComponentsService;
+import acme.features.any.item.AnyItemListAllComponentsService;
 import acme.forms.AdministratorDashboard;
 import acme.framework.controllers.AbstractController;
 import acme.framework.roles.Administrator;
@@ -40,12 +40,11 @@ public class AdministratorAcmeController extends AbstractController<Authenticate
 
 	// Internal state ---------------------------------------------------------
 
-	@Autowired
-	protected AdministratorShowService	administratorService;
+	
 	@Autowired
 	protected PatronageShowService	patronageService;
 	@Autowired
-	protected AnonymousItemListAllComponentsService	componentsService;
+	protected AnyItemListAllComponentsService componentsService;
 
 
 	// Constructors -----------------------------------------------------------

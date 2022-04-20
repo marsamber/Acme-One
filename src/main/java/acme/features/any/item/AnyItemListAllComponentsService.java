@@ -42,7 +42,7 @@ public class AnyItemListAllComponentsService implements AbstractListService<Any,
 	}
 	
 	public Collection<Item> findItemsByType(Type type) {
-		return this.repository.findAllComponents(type);
+		return this.repository.findAllItemsByType(type);
 	}
 	
 	@Override
