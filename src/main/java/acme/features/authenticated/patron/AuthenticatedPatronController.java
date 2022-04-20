@@ -57,9 +57,9 @@ public class AuthenticatedPatronController extends AbstractController<Authentica
 	*/
 	private PatronDashboard createPatronDashboard(Patron patron) {
 		
-		Collection<Patronage> patronagesByPatronAndProposed=this.patronageService.findPatronagesByPatronAndStatus(patron, Status.PROPOSED); // TODO Llamada a la funcion servicio que recoja los patrocinios propuestos de este patrocinador
-		Collection<Patronage> patronagesByPatronAndAccepted=this.patronageService.findPatronagesByPatronAndStatus(patron, Status.ACCEPTED);; // TODO Llamada a la funcion servicio que recoja los patrocinios aceptados de este patrocinador
-		Collection<Patronage> patronagesByPatronAndDenied=this.patronageService.findPatronagesByPatronAndStatus(patron, Status.DENIED);;
+		Collection<Patronage> patronagesByPatronAndProposed=this.patronageService.findPatronagesByPatronAndStatus(patron, Status.PROPOSED); 
+		Collection<Patronage> patronagesByPatronAndAccepted=this.patronageService.findPatronagesByPatronAndStatus(patron, Status.ACCEPTED);
+		Collection<Patronage> patronagesByPatronAndDenied=this.patronageService.findPatronagesByPatronAndStatus(patron, Status.DENIED);
 		
 		List<Collection<Patronage>> patronages= new ArrayList<Collection<Patronage>>();
 		
