@@ -1,11 +1,35 @@
 <%@page language="java" import="java.util.HashMap"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="acme" uri="urn:jsptagdir:/WEB-INF/tags"%>
 <link rel="stylesheet" href="css/acme.css"/>
 
-<b class="center"><acme:message code="administrator.dashboard.patronage"/></b>
+<acme:form readonly="true">
+	<b class="center"><acme:message code="administrator.dashboard.patronage"/></b>
+	
+	<div class="dashboard-row">
+	   <div class="dashboard-column">
+	      <acme:message code="administrator.dashboard.average"/>
+	      <canvas id="average-patronages-canvas"></canvas>
+	   </div>
+	   <div class="dashboard-column">
+	      <acme:message code="administrator.dashboard.deviation"/>
+	      <canvas id="deviation-patronages-canvas"></canvas>
+	   </div>
+	</div>
+   <br>
+   <div class="dashboard-row">
+	   <div class="dashboard-column">
+	      <acme:message code="administrator.dashboard.max"/>
+	      <canvas id="maximum-patronages-canvas"></canvas>
+	   </div>
+	   <div class="dashboard-column">
+	      <acme:message code="administrator.dashboard.min"/>
+	      <canvas id="minimum-patronages-canvas"></canvas>
+	   </div>
+  </div>
+
 <div class="dashboard">
 	<ul class="stadistics">
 		<b><acme:message code="administrator.dashboard.patronage"/></b>
@@ -69,7 +93,29 @@
 	</ul>
 </div>
 <br/>
-<b class="center"><acme:message code="administrator.dashboard.components"/></b>
+<b class="center"><acme:message code="administrator.dashboard.tools"/></b>
+<div class="dashboard-row">
+	   <div class="dashboard-column">
+	      <acme:message code="administrator.dashboard.average"/>
+	      <canvas id="average-tools-canvas"></canvas>
+	   </div>
+	   <div class="dashboard-column">
+	      <acme:message code="administrator.dashboard.deviation"/>
+	      <canvas id="deviation-tools-canvas"></canvas>
+	   </div>
+	</div>
+   <br>
+   <div class="dashboard-row">
+	   <div class="dashboard-column">
+	      <acme:message code="administrator.dashboard.max"/>
+	      <canvas id="maximum-tools-canvas"></canvas>
+	   </div>
+	   <div class="dashboard-column">
+	      <acme:message code="administrator.dashboard.min"/>
+	      <canvas id="minimum-tools-canvas"></canvas>
+	   </div>
+  </div>
+
 <div class="dashboard">
 	<ul class="stadistics">
 		<b><acme:message code="administrator.dashboard.average"/></b>
@@ -102,46 +148,398 @@
 </div>
 <br/>
 <b class="center"><acme:message code="administrator.dashboard.components"/></b>
+<div class="dashboard-row">
+	   <div class="dashboard-column">
+	      <acme:message code="administrator.dashboard.average"/>
+	      <canvas id="average-components-canvas"></canvas>
+	   </div>
+	   <div class="dashboard-column">
+	      <acme:message code="administrator.dashboard.deviation"/>
+	      <canvas id="deviation-components-canvas"></canvas>
+	   </div>
+	</div>
+   <br>
+   <div class="dashboard-row">
+	   <div class="dashboard-column">
+	      <acme:message code="administrator.dashboard.max"/>
+	      <canvas id="maximum-components-canvas"></canvas>
+	   </div>
+	   <div class="dashboard-column">
+	      <acme:message code="administrator.dashboard.min"/>
+	      <canvas id="minimum-components-canvas"></canvas>
+	   </div>
+  </div>
 <div class="dashboard">
 	<ul class="stadistics">
 		<b><acme:message code="administrator.dashboard.technologies"/></b>
-		<c:forEach items="${technologies}" var="technology">
+		<jstl:forEach items="${technologies}" var="technology">
 			<li>
 				<acme:print value="${technology}"/>
 			</li>
-		</c:forEach>
+		</jstl:forEach>
 	</ul>
 	<ul class="stadistics">
 		<b><acme:message code="administrator.dashboard.average"/></b>
-		<c:forEach items="${componentsAverage}" var="average">
+		<jstl:forEach items="${componentsAverage}" var="average">
 			<li>
 				<fmt:formatNumber type="number" maxFractionDigits="2" value="${average[0]}"/> &euro; / <fmt:formatNumber type="number" maxFractionDigits="2" value="${average[1]}"/> $ / <fmt:formatNumber type="number" maxFractionDigits="2" value="${average[2]}"/> &#163;
 			</li>
-		</c:forEach>
+		</jstl:forEach>
 
 	</ul>
 	<ul class="stadistics">
 		<b><acme:message code="administrator.dashboard.deviation"/></b>
-		<c:forEach items="${componentsDeviation}" var="deviation">
+		<jstl:forEach items="${componentsDeviation}" var="deviation">
 			<li>
 				<fmt:formatNumber type="number" maxFractionDigits="2" value="${deviation[0]}"/> &euro; / <fmt:formatNumber type="number" maxFractionDigits="2" value="${deviation[1]}"/> $ / <fmt:formatNumber type="number" maxFractionDigits="2" value="${deviation[2]}"/> &#163;
 			</li>
-		</c:forEach>
+		</jstl:forEach>
 	</ul>
 	<ul class="stadistics">
 		<b><acme:message code="administrator.dashboard.max"/></b>
-		<c:forEach items="${componentsMax}" var="max">
+		<jstl:forEach items="${componentsMax}" var="max">
 			<li>
 				<fmt:formatNumber type="number" maxFractionDigits="2" value="${max[0]}"/> &euro; / <fmt:formatNumber type="number" maxFractionDigits="2" value="${max[1]}"/> $ / <fmt:formatNumber type="number" maxFractionDigits="2" value="${max[2]}"/> &#163;
 			</li>
-		</c:forEach>
+		</jstl:forEach>
 	</ul>
 	<ul class="stadistics">
 		<b><acme:message code="administrator.dashboard.min"/></b>
-		<c:forEach items="${componentsMax}" var="min">
+		<jstl:forEach items="${componentsMax}" var="min">
 			<li>
 				<fmt:formatNumber type="number" maxFractionDigits="2" value="${min[0]}"/> &euro; / <fmt:formatNumber type="number" maxFractionDigits="2" value="${min[1]}"/> $ / <fmt:formatNumber type="number" maxFractionDigits="2" value="${min[2]}"/> &#163;
 			</li>
-		</c:forEach>
+		</jstl:forEach>
 	</ul>
 </div>
+</acme:form>
+<script type="text/javascript">
+	var backgroundColor= [
+  	  'rgb(44, 243, 125)',
+      'rgb(239, 49, 221)',
+      'rgb(237, 239, 49)',
+      'rgb(44, 192, 182)',
+      'rgb(59, 162, 22)',
+      'rgb(22, 100, 252)',
+      'rgb(202, 22, 203)',
+      'rgb(239, 82, 49)',
+      'rgb(82, 239, 49)'
+    ];
+	
+	displayPatronagesAverage();
+	displayPatronagesDeviation();
+	displayPatronagesMaximum();
+	displayPatronagesMinimum();
+	
+	function displayPatronagesAverage(){
+		var averagePatronages = {
+		   	   	<jstl:forEach items="${dashboard.getPatronagesAverage()}" var="item" varStatus="loop">
+		   	   	      "${item.key}": '${item.value}' ${not loop.last ? ',' : ''}
+		   	   	</jstl:forEach>
+		   	   };
+		   
+		   const averageValues = {
+		    labels: Object.keys(averagePatronages),
+		    datasets: [{
+		      data: Object.values(averagePatronages),
+		      backgroundColor: backgroundColor
+		    }]
+		   };
+		   
+		   var canvas = document.getElementById("average-patronages-canvas");
+		   var context = canvas.getContext("2d");
+		   new Chart(context, {
+		   	type : "pie",
+		   	data : averageValues,
+		   });
+	}
+	
+	function displayPatronagesDeviation(){
+		var deviationPatronages = {
+		   	   	<jstl:forEach items="${dashboard.getPatronagesDeviation()}" var="item" varStatus="loop">
+		   	   	      "${item.key}": '${item.value}' ${not loop.last ? ',' : ''}
+		   	   	</jstl:forEach>
+		   	   };
+		   
+		   const deviationValues = {
+		    labels: Object.keys(deviationPatronages),
+		    datasets: [{
+		      data: Object.values(deviationPatronages),
+		      backgroundColor: backgroundColor
+		    }]
+		   };
+		   
+		   var canvas = document.getElementById("deviation-patronages-canvas");
+		   var context = canvas.getContext("2d");
+		   new Chart(context, {
+		   	type : "pie",
+		   	data : deviationValues,
+		   });
+	}
+	
+	function displayPatronagesMaximum(){
+		var maximumPatronages = {
+		   	   	<jstl:forEach items="${dashboard.getPatronagesMaximum()}" var="item" varStatus="loop">
+		   	   	      "${item.key}": '${item.value}' ${not loop.last ? ',' : ''}
+		   	   	</jstl:forEach>
+		   	   };
+		   
+		   const maximumValues = {
+		    labels: Object.keys(maximumPatronages),
+		    datasets: [{
+		      data: Object.values(maximumPatronages),
+		      backgroundColor: backgroundColor
+		    }]
+		   };
+		   
+		   var canvas = document.getElementById("maximum-patronages-canvas");
+		   var context = canvas.getContext("2d");
+		   new Chart(context, {
+		   	type : "pie",
+		   	data : maximumValues,
+		   });
+	}
+	
+	function displayPatronagesMinimum(){
+		var minimumPatronages = {
+		   	   	<jstl:forEach items="${dashboard.getPatronagesMinimum()}" var="item" varStatus="loop">
+		   	   	      "${item.key}": '${item.value}' ${not loop.last ? ',' : ''}
+		   	   	</jstl:forEach>
+		   	   };
+		   
+		   const minimumValues = {
+		    labels: Object.keys(minimumPatronages),
+		    datasets: [{
+		      data: Object.values(minimumPatronages),
+		      backgroundColor: backgroundColor
+		    }]
+		   };
+		   
+		   var canvas = document.getElementById("minimum-patronages-canvas");
+		   var context = canvas.getContext("2d");
+		   new Chart(context, {
+		   	type : "pie",
+		   	data : minimumValues,
+		   });
+	}
+</script>
+<script type="text/javascript">
+	var backgroundColor= [
+  	  'rgb(44, 243, 125)',
+      'rgb(239, 49, 221)',
+      'rgb(237, 239, 49)',
+      'rgb(44, 192, 182)',
+      'rgb(59, 162, 22)',
+      'rgb(22, 100, 252)',
+      'rgb(202, 22, 203)',
+      'rgb(239, 82, 49)',
+      'rgb(82, 239, 49)'
+    ];
+	
+	displayToolsAverage();
+	displayToolsDeviation();
+	displayToolsMaximum();
+	displayToolsMinimum();
+	
+	function displayToolsAverage(){
+		var averageTools = {
+		   	   	<jstl:forEach items="${dashboard.getRetailPriceToolsAverage()}" var="item" varStatus="loop">
+		   	   	      "${item.key}": '${item.value}' ${not loop.last ? ',' : ''}
+		   	   	</jstl:forEach>
+		   	   };
+		   
+		   const averageValues = {
+		    labels: Object.keys(averageTools),
+		    datasets: [{
+		      data: Object.values(averageTools),
+		      backgroundColor: backgroundColor
+		    }]
+		   };
+		   
+		   var canvas = document.getElementById("average-tools-canvas");
+		   var context = canvas.getContext("2d");
+		   new Chart(context, {
+		   	type : "pie",
+		   	data : averageValues,
+		   });
+	}
+	
+	function displayToolsDeviation(){
+		var deviationTools = {
+		   	   	<jstl:forEach items="${dashboard.getRetailPriceToolsDeviation()}" var="item" varStatus="loop">
+		   	   	      "${item.key}": '${item.value}' ${not loop.last ? ',' : ''}
+		   	   	</jstl:forEach>
+		   	   };
+		   
+		   const deviationValues = {
+		    labels: Object.keys(deviationTools),
+		    datasets: [{
+		      data: Object.values(deviationTools),
+		      backgroundColor: backgroundColor
+		    }]
+		   };
+		   
+		   var canvas = document.getElementById("deviation-tools-canvas");
+		   var context = canvas.getContext("2d");
+		   new Chart(context, {
+		   	type : "pie",
+		   	data : deviationValues,
+		   });
+	}
+	
+	function displayToolsMaximum(){
+		var maximumTools = {
+		   	   	<jstl:forEach items="${dashboard.getRetailPriceToolsMaximum()}" var="item" varStatus="loop">
+		   	   	      "${item.key}": '${item.value}' ${not loop.last ? ',' : ''}
+		   	   	</jstl:forEach>
+		   	   };
+		   
+		   const maximumValues = {
+		    labels: Object.keys(maximumTools),
+		    datasets: [{
+		      data: Object.values(maximumTools),
+		      backgroundColor: backgroundColor
+		    }]
+		   };
+		   
+		   var canvas = document.getElementById("maximum-tools-canvas");
+		   var context = canvas.getContext("2d");
+		   new Chart(context, {
+		   	type : "pie",
+		   	data : maximumValues,
+		   });
+	}
+	
+	function displayToolsMinimum(){
+		var minimumTools = {
+		   	   	<jstl:forEach items="${dashboard.getRetailPriceToolsMinimum()}" var="item" varStatus="loop">
+		   	   	      "${item.key}": '${item.value}' ${not loop.last ? ',' : ''}
+		   	   	</jstl:forEach>
+		   	   };
+		   
+		   const minimumValues = {
+		    labels: Object.keys(minimumTools),
+		    datasets: [{
+		      data: Object.values(minimumTools),
+		      backgroundColor: backgroundColor
+		    }]
+		   };
+		   
+		   var canvas = document.getElementById("minimum-tools-canvas");
+		   var context = canvas.getContext("2d");
+		   new Chart(context, {
+		   	type : "pie",
+		   	data : minimumValues,
+		   });
+	}
+</script>
+<script type="text/javascript">
+	var backgroundColor= [
+  	  'rgb(44, 243, 125)',
+      'rgb(239, 49, 221)',
+      'rgb(237, 239, 49)',
+      'rgb(44, 192, 182)',
+      'rgb(59, 162, 22)',
+      'rgb(22, 100, 252)',
+      'rgb(202, 22, 203)',
+      'rgb(239, 82, 49)',
+      'rgb(82, 239, 49)'
+    ];
+	
+	displayComponentsAverage();
+	displayComponentsDeviation();
+	displayComponentsMaximum();
+	displayComponentsMinimum();
+	
+	function displayComponentsAverage(){
+		var averageComponents = {
+		   	   	<jstl:forEach items="${dashboard.getRetailPriceComponentsAverage()}" var="item" varStatus="loop">
+		   	   	      "${item.key}": '${item.value}' ${not loop.last ? ',' : ''}
+		   	   	</jstl:forEach>
+		   	   };
+		   
+		   const averageValues = {
+		    labels: Object.keys(averageComponents),
+		    datasets: [{
+		      data: Object.values(averageComponents),
+		      backgroundColor: backgroundColor
+		    }]
+		   };
+		   
+		   var canvas = document.getElementById("average-components-canvas");
+		   var context = canvas.getContext("2d");
+		   new Chart(context, {
+		   	type : "pie",
+		   	data : averageValues,
+		   });
+	}
+	
+	function displayComponentsDeviation(){
+		var deviationComponents = {
+		   	   	<jstl:forEach items="${dashboard.getRetailPriceComponentsDeviation()}" var="item" varStatus="loop">
+		   	   	      "${item.key}": '${item.value}' ${not loop.last ? ',' : ''}
+		   	   	</jstl:forEach>
+		   	   };
+		   
+		   const deviationValues = {
+		    labels: Object.keys(deviationComponents),
+		    datasets: [{
+		      data: Object.values(deviationComponents),
+		      backgroundColor: backgroundColor
+		    }]
+		   };
+		   
+		   var canvas = document.getElementById("deviation-components-canvas");
+		   var context = canvas.getContext("2d");
+		   new Chart(context, {
+		   	type : "pie",
+		   	data : deviationValues,
+		   });
+	}
+	
+	function displayComponentsMaximum(){
+		var maximumComponents = {
+		   	   	<jstl:forEach items="${dashboard.getRetailPriceComponentsMaximum()}" var="item" varStatus="loop">
+		   	   	      "${item.key}": '${item.value}' ${not loop.last ? ',' : ''}
+		   	   	</jstl:forEach>
+		   	   };
+		   
+		   const maximumValues = {
+		    labels: Object.keys(maximumComponents),
+		    datasets: [{
+		      data: Object.values(maximumComponents),
+		      backgroundColor: backgroundColor
+		    }]
+		   };
+		   
+		   var canvas = document.getElementById("maximum-components-canvas");
+		   var context = canvas.getContext("2d");
+		   new Chart(context, {
+		   	type : "pie",
+		   	data : maximumValues,
+		   });
+	}
+	
+	function displayComponentsMinimum(){
+		var minimumComponents = {
+		   	   	<jstl:forEach items="${dashboard.getRetailPriceComponentsMinimum()}" var="item" varStatus="loop">
+		   	   	      "${item.key}": '${item.value}' ${not loop.last ? ',' : ''}
+		   	   	</jstl:forEach>
+		   	   };
+		   
+		   const minimumValues = {
+		    labels: Object.keys(minimumComponents),
+		    datasets: [{
+		      data: Object.values(minimumComponents),
+		      backgroundColor: backgroundColor
+		    }]
+		   };
+		   
+		   var canvas = document.getElementById("minimum-components-canvas");
+		   var context = canvas.getContext("2d");
+		   new Chart(context, {
+		   	type : "pie",
+		   	data : minimumValues,
+		   });
+	}
+</script>
