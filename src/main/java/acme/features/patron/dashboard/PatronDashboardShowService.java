@@ -1,4 +1,4 @@
-package acme.features.authenticated.patron.dashboard;
+package acme.features.patron.dashboard;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -9,33 +9,37 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.Patronage;
 import acme.entities.Patronage.Status;
-import acme.features.authenticated.patron.AuthenticatedPatronShowService;
 import acme.forms.PatronDashboard;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
 import acme.framework.helpers.PrincipalHelper;
 import acme.framework.services.AbstractShowService;
 import acme.roles.Patron;
-import acme.services.PatronageShowService;
 
 @Service
 public class PatronDashboardShowService implements AbstractShowService<Patron, PatronDashboard>{
 	
+	/*
 	@Autowired
 	protected PatronageShowService	patronageService;
 	@Autowired
 	protected AuthenticatedPatronShowService	patronShowService;
+	*/
+	@Autowired
+	protected PatronDashboardRepository patronDashboardRepository;
 	
 	@Override
 	public boolean authorise(Request<PatronDashboard> request) {
-		// TODO Auto-generated method stub
-		return false;
+		assert request != null;
+
+		return true;
 	}
+	
 	private PatronDashboard createPatronDashboard(Patron patron) {
 		
-		Collection<Patronage> patronagesByPatronAndProposed=this.patronageService.findPatronagesByPatronAndStatus(patron, Status.PROPOSED); // TODO Llamada a la funcion servicio que recoja los patrocinios propuestos de este patrocinador
-		Collection<Patronage> patronagesByPatronAndAccepted=this.patronageService.findPatronagesByPatronAndStatus(patron, Status.ACCEPTED);; // TODO Llamada a la funcion servicio que recoja los patrocinios aceptados de este patrocinador
-		Collection<Patronage> patronagesByPatronAndDenied=this.patronageService.findPatronagesByPatronAndStatus(patron, Status.DENIED);;
+		Collection<Patronage> patronagesByPatronAndProposed=this.patronDashboardRepository.findPatronagesByPatronAndStatus(patron, Status.PROPOSED);
+		Collection<Patronage> patronagesByPatronAndAccepted=this.patronDashboardRepository.findPatronagesByPatronAndStatus(patron, Status.ACCEPTED);
+		Collection<Patronage> patronagesByPatronAndDenied=this.patronDashboardRepository.findPatronagesByPatronAndStatus(patron, Status.DENIED);
 		
 		List<Collection<Patronage>> patronages= new ArrayList<Collection<Patronage>>();
 		
@@ -46,13 +50,14 @@ public class PatronDashboardShowService implements AbstractShowService<Patron, P
 		
 		return patronDashboard;
 	}
-
+	
 	@Override
 	public PatronDashboard findOne(Request<PatronDashboard> request) {
-
-		Patron patron=this.patronShowService.findOnePatronByUserAccountId(PrincipalHelper.get().getAccountId());
-		PatronDashboard patronDashboard= this.createPatronDashboard(patron);
 		
+		Patron patron=this.patronDashboardRepository.findOnePatronByUserAccountId(PrincipalHelper.get().getAccountId());
+		PatronDashboard patronDashboard= this.createPatronDashboard(patron);
+		System.out.println("findOne");
+
 		return patronDashboard;
 	}
 
@@ -62,7 +67,7 @@ public class PatronDashboardShowService implements AbstractShowService<Patron, P
 		assert request != null;
 		assert entity != null;
 		assert model != null;
-		
+		System.out.println("unbind");
 		request.unbind(entity, model, 
 			"patronagesProposed", 
 			"patronagesAccepted",

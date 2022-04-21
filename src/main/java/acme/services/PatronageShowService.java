@@ -50,7 +50,6 @@ public class PatronageShowService implements AbstractListService<Authenticated, 
 		return this.repository.findPatronageByPatron(patron);
 	}
 	public Collection<Patronage> findPatronagesByPatronAndStatus(Patron patron,final Status status) {
-		System.out.println("PatronId: "+ patron.getId());
 		return this.repository.findPatronageByPatronAndStatus(patron,status);
 	}
 	public Collection<Patronage> findPatronagesByStatus(final Status status) {

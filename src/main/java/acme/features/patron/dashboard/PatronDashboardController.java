@@ -1,4 +1,4 @@
-package acme.features.authenticated.patron.dashboard;
+package acme.features.patron.dashboard;
 
 import javax.annotation.PostConstruct;
 
@@ -18,5 +18,6 @@ public class PatronDashboardController extends AbstractController<Patron, Patron
 	@PostConstruct
 	protected void initialise() {
 		super.addCommand("show", this.showService);
+		
 	}
 }
