@@ -21,6 +21,7 @@ import org.hibernate.validator.constraints.URL;
 
 import acme.framework.datatypes.Money;
 import acme.framework.entities.AbstractEntity;
+import acme.roles.Inventor;
 import acme.roles.Patron;
 import lombok.Getter;
 import lombok.Setter;
@@ -71,6 +72,9 @@ public class Patronage extends AbstractEntity {
 	
 	@ManyToOne
 	protected Patron patron;
+	
+	@ManyToOne
+	protected Inventor inventor;
 	
 	
 	//Complex constraints -------------------------------------
