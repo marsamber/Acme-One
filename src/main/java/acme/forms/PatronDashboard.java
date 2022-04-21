@@ -1,6 +1,5 @@
 package acme.forms;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
@@ -47,12 +46,8 @@ public class PatronDashboard {
 		this.patronagesMinimum = new HashMap<Pair<Status,String>, Double>();
 		this.patronagesMaximum = new HashMap<Pair<Status,String>, Double>();
 		
-		List<Collection<Patronage>> patronagesByStatus= new ArrayList<Collection<Patronage>>();
-		patronagesByStatus.add(patronagesByPatronAndProposed);
-		patronagesByStatus.add(patronagesByPatronAndAccepted);
-		patronagesByStatus.add(patronagesByPatronAndDenied);
 		
-		this.generatePatronagesStats(patronagesByStatus);
+		this.generatePatronagesStats(patronages);
 		
 	}
 	
