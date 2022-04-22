@@ -40,6 +40,21 @@ public class AnyChirpListTest extends TestHarness{
 		super.checkColumnHasValue(recordIndex, 4, email);
 		super.signOut();
 	}
+	
+	@ParameterizedTest	
+	@CsvFileSource(resources = "/any/chirp/list-chirp.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@Order(20)
+	public void positiveTestInventorChirp(final int recordIndex, final String creationMoment, final String title, final String author, final String body, final String email) {
+
+		super.signIn("inventor1", "inventor1");
+		super.clickOnMenu("Any", "List Chirps");
+		super.checkColumnHasValue(recordIndex, 0, creationMoment);
+		super.checkColumnHasValue(recordIndex, 1, title);
+		super.checkColumnHasValue(recordIndex, 2, author);
+		super.checkColumnHasValue(recordIndex, 3, body);
+		super.checkColumnHasValue(recordIndex, 4, email);
+		super.signOut();
+	}
 } 
 	
 
