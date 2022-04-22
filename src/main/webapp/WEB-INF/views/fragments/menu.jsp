@@ -50,7 +50,7 @@
 			
 		<acme:menu-option code="master.menu.patron" access="hasRole('Patron')">
 			<acme:menu-suboption code="master.menu.patron.dashboard" action="/authenticated/patron/dashboard"/>
-			
+			<acme:menu-suboption code="master.menu.patron.patronages" action="/patron/patronage/list"/>
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.inventor" access="hasRole('Inventor')">

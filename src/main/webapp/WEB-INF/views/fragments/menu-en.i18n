@@ -46,6 +46,7 @@ master.menu.any.toolkit.list-all-toolkits = List All Toolkits
 
 master.menu.patron = Patron
 master.menu.patron.dashboard = Dashboard
+master.menu.patron.patronages = List my Patronages
 
 # master.menu.inventor ########################################################
 
