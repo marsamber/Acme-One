@@ -3,6 +3,7 @@ package acme.features.inventor.patronages;
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import acme.entities.Patronage;
 import acme.framework.components.models.Model;
@@ -10,6 +11,7 @@ import acme.framework.controllers.Request;
 import acme.framework.services.AbstractListService;
 import acme.roles.Inventor;
 
+@Service
 public class InventorPatronageListService implements AbstractListService<Inventor, Patronage>{
 
 	@Autowired 
@@ -18,26 +20,23 @@ public class InventorPatronageListService implements AbstractListService<Invento
 	@Override
 	public boolean authorise(final Request<Patronage> request) {
 		assert request !=null;
-		
-		final boolean result;
-		int inventorId;
-		final Inventor inventor;
-		
-		inventorId = request.getModel().getInteger("inventorId");
-		inventor
-		return false;
+		return true;
 	}
 
 	@Override
 	public Collection<Patronage> findMany(final Request<Patronage> request) {
-		// TODO Auto-generated method stub
-		return null;
+		assert request !=null;
+		final int inventorId = request.getPrincipal().getActiveRoleId();
+		return this.repository.findAllInventorPatronagesByInventorId(inventorId);
 	}
 
 	@Override
 	public void unbind(final Request<Patronage> request, final Patronage entity, final Model model) {
-		// TODO Auto-generated method stub
+		assert request != null;
+		assert request != null;
+		assert request != null;
 		
+		request.unbind(entity, model, "status", "code", "link");
 	}
 
 }

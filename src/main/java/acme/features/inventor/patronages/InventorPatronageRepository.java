@@ -3,16 +3,18 @@ package acme.features.inventor.patronages;
 import java.util.Collection;
 
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
 
+import acme.entities.Patronage;
 import acme.framework.repositories.AbstractRepository;
-import acme.roles.Inventor;
 
+@Repository
 public interface InventorPatronageRepository extends AbstractRepository {
 
-	@Query("select p from Patronages p where p.id = :id")
-	Inventor findById(int id);
+	@Query("select p from Patronage p where p.id = :id")
+	Patronage findById(int id);
 	
 	@Query("select p from Patronage p where p.inventor.id = :id")
-	Collection<Inventor> findAllInventorPatronagesByInventorId(int id);
+	Collection<Patronage> findAllInventorPatronagesByInventorId(int id);
 	
 }

@@ -18,4 +18,10 @@
 	<acme:input-moment code="inventor.patronage.form.label.startedAt" path="startedAt"/>
 	<acme:input-moment code="inventor.patronage.form.label.finishedAt" path="finishedAt"/>
 	
+	<h2><acme:message code="inventor.patronage.section.patron"/></h2>
+	<acme:input-textbox code="inventor.patronage.form.label.patron.username" path="username"/>
+	<acme:input-textbox code="inventor.patronage.form.label.patron.company" path="company"/>
+	<acme:input-textarea code="inventor.patronage.form.label.patron.statement" path="statement"/>
+	<acme:input-url code="inventor.patronage.form.label.patron.info" path="patronLink"/>
+	
 </acme:form>

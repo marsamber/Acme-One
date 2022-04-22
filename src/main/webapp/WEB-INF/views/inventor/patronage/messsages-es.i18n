@@ -15,8 +15,13 @@ inventor.patronage.form.label.budget = Presupuesto:
 inventor.patronage.form.label.link = Enlace:
 inventor.patronage.form.label.createdAt = Fecha de creación:
 inventor.patronage.form.label.startedAt = Fecha de comienzo:
-inventor.patronage.from.label.finishedAt = Fecha de finalización:
+inventor.patronage.form.label.finishedAt = Fecha de finalización:
 
+inventor.patronage.section.patron = Detalles del Mecenas:
+inventor.patronage.form.label.patron.username = Mecenas:
+inventor.patronage.form.label.patron.company = Compañía:
+inventor.patronage.form.label.patron.statement = Declaración:
+inventor.patronage.form.label.patron.info = Más información:
 
 inventor.patronage.list.label.status = Estatus
 inventor.patronage.list.label.code = Código

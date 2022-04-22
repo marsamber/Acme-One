@@ -15,8 +15,13 @@ inventor.patronage.form.label.budget = Budget:
 inventor.patronage.form.label.link = Link:
 inventor.patronage.form.label.createdAt = Created at:
 inventor.patronage.form.label.startedAt = Started at:
-inventor.patronage.from.label.finishedAt = Finished at:
+inventor.patronage.form.label.finishedAt = Finished at:
 
+inventor.patronage.section.patron = Patron Details:
+inventor.patronage.form.label.patron.username = Patron:
+inventor.patronage.form.label.patron.company = Company:
+inventor.patronage.form.label.patron.statement = Statement:
+inventor.patronage.form.label.patron.info = More Info:
 
 inventor.patronage.list.label.status = Status
 inventor.patronage.list.label.code = Code

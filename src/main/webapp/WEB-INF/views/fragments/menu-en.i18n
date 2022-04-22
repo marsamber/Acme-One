@@ -52,8 +52,9 @@ master.menu.patron.dashboard = Dashboard
 master.menu.inventor = Inventor
 master.menu.inventor.favourite-link = Favourite link
 master.menu.inventor.toolkit.list-my-toolkits = List My Toolkits
-master.menu.inventor.item.list-all-mine-components = List All Mine Components
-master.menu.inventor.item.list-all-mine-tools = List All Mine Tools
+master.menu.inventor.item.list-all-mine-components = List My Components
+master.menu.inventor.item.list-all-mine-tools = List My Tools
+master.menu.inventor.patronage.list-all-my-patronages = List my Patronages
 
 # master.menu.user-account ####################################################
 

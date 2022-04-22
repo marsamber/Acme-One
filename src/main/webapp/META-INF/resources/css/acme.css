@@ -16,3 +16,13 @@ ul.stadistics{
 	text-align: center;
 	padding-left:45%;
 }
+
+.dashboard-column {
+  float: left;
+  width: 50%;
+}
+.dashboard-row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
