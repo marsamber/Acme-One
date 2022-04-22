@@ -38,7 +38,7 @@ public class AnyChirpListAllService implements AbstractListService<Any, Chirp> {
 		calendar = Calendar.getInstance();
 		calendar.add(Calendar.MONTH, -1);
 		deadline = calendar.getTime();
-		result = this.repository.findRecentChirps(deadline);
+		result = this.repository.findLastMonthChirps(deadline);
 		return result;
 	}
 

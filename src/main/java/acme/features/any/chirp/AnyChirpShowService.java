@@ -41,7 +41,7 @@ public class AnyChirpShowService implements AbstractShowService<Any, Chirp> {
 		int id;
 
 		id = request.getModel().getInteger("id");
-		result = this.repository.findOneChirpById(id);
+		result = this.repository.findChirpById(id);
 
 		return result;
 	}
