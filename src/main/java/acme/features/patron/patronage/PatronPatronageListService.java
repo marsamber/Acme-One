@@ -29,7 +29,7 @@ public class PatronPatronageListService implements AbstractListService<Patron, P
 	public Collection<Patronage> findMany(final Request<Patronage> request) {
 		assert request != null;
 		
-		final int patronId = request.getPrincipal().getAccountId();
+		final int patronId = request.getPrincipal().getActiveRoleId();
 		return this.repo.findPatronagesByPatronId(patronId);
 	}
 
@@ -39,7 +39,7 @@ public class PatronPatronageListService implements AbstractListService<Patron, P
 		assert entity != null;
 		assert model != null;
 		
-		request.unbind(entity, model, "name", "code", "type");	
+		request.unbind(entity, model, "status", "code", "link");	
 	}
 	
 	
