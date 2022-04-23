@@ -4,7 +4,7 @@
 <%@taglib prefix="acme" uri="urn:jsptagdir:/WEB-INF/tags"%>
 
 <acme:list>
-	<acme:list-column code="patron.patronage.list.label.status" path="status" width="30%"/>
-	<acme:list-column code="patron.patronage.list.label.code" path="code" width="30%"/>
-	<acme:list-column code="patron.patronage.list.label.link" path="link" width="40%"/>
+	<acme:list-column code="patron.patronage.list.label.status" path="status" width=""/>
+	<acme:list-column code="patron.patronage.list.label.code" path="code" width=""/>
+	<acme:list-column code="patron.patronage.list.label.link" path="link" width=""/>
 </acme:list>
