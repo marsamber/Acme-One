@@ -54,6 +54,7 @@ master.menu.inventor.favourite-link = Favourite link
 master.menu.inventor.toolkit.list-my-toolkits = List My Toolkits
 master.menu.inventor.item.list-all-mine-components = List My Components
 master.menu.inventor.item.list-all-mine-tools = List My Tools
+master.menu.inventor.patronage.list-all-my-patronages = List my Patronages
 master.menu.inventor.patronageReport.list-mine = List My Patronage Reports
 
 # master.menu.user-account ####################################################

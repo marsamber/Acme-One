@@ -59,6 +59,7 @@
 				<acme:menu-suboption code="master.menu.inventor.toolkit.list-my-toolkits" action="/inventor/toolkit/list-mine"/>
 				<acme:menu-suboption code="master.menu.inventor.item.list-all-mine-components" action="/inventor/item/list-all-mine-components"/>		
 				<acme:menu-suboption code="master.menu.inventor.item.list-all-mine-tools" action="/inventor/item/list-all-mine-tools"/>
+				<acme:menu-suboption code="master.menu.inventor.patronage.list-all-my-patronages" action="/inventor/patronage/list"/>
 				<acme:menu-suboption code="master.menu.inventor.patronageReport.list-mine" action="/inventor/patronage-report/list-mine"/>
 		</acme:menu-option>
 		
