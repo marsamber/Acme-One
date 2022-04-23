@@ -30,6 +30,7 @@ master.menu.anonymous.favourite-link-marcasbon = 49167536K: Castro Bonilla, Mar√
 
 master.menu.administrator = Administrator
 master.menu.administrator.dashboard = Dashboard
+master.menu.administrator.systemConfiguration = System configuration
 master.menu.administrator.user-accounts = User accounts
 master.menu.administrator.populate-initial = Populate DB (initial)
 master.menu.administrator.populate-sample = Populate DB (samples)
