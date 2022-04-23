@@ -1,4 +1,4 @@
-package acme.features.inventor.patronages;
+package acme.features.patron.patronage;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,28 +11,25 @@ import acme.roles.Inventor;
 import acme.roles.Patron;
 
 @Service
-public class InventorPatronageShowService implements AbstractShowService<Inventor, Patronage> {
+public class PatronPatronageShowService implements AbstractShowService<Patron, Patronage> {
 
 	@Autowired
-	protected InventorPatronageRepository repo;
+	protected PatronPatronageRepository repo;
 
 	@Override
 	public boolean authorise(final Request<Patronage> request) {
 		assert request != null;
-<<<<<<< HEAD
 		
 		final int id = request.getModel().getInteger("id");
 		final Patronage p = this.repo.findById(id);
-		
-		return p != null && p.getInventor().getId() == request.getPrincipal().getActiveRoleId();
-=======
-		return true;
->>>>>>> refs/remotes/origin/Task-052
+
+		return p != null && p.getPatron().getId() == request.getPrincipal().getActiveRoleId();
 	}
 
 	@Override
 	public Patronage findOne(final Request<Patronage> request) {
 		assert request != null;
+		
 		final int patronageId = request.getModel().getInteger("id");
 		return this.repo.findById(patronageId);
 	}
@@ -40,19 +37,20 @@ public class InventorPatronageShowService implements AbstractShowService<Invento
 	@Override
 	public void unbind(final Request<Patronage> request, final Patronage entity, final Model model) {
 		assert request != null;
-		assert request != null;
-		assert request != null;
+		assert entity != null;
+		assert model != null;
 		
-		final Patron patron = entity.getPatron();
+		final Inventor inventor = entity.getInventor();
 		
 		request.unbind(entity, model, "status", "code",
 			"legalStuff", "budget", "link", "createdAt",
 			"startedAt", "finishedAt", "patron", "inventor");
-		request.unbind(patron, model, "company", "statement");
-		request.unbind(patron.getUserAccount(), model, "username");
-		model.setAttribute("patronLink", patron.getMoreInfo());
-		
+		request.unbind(inventor, model, "company", "statement");
+		request.unbind(inventor.getUserAccount(), model, "username");
+		model.setAttribute("inventorLink", inventor.getMoreInfo());
 		
 	}
+	
+	
 	
 }
