@@ -1,22 +1,22 @@
-package acme.features.any.item;
+package acme.features.any.toolkitItem;
 
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
-import acme.entities.Item;
+import acme.entities.ToolkitItem;
 import acme.framework.controllers.AbstractController;
 import acme.framework.roles.Any;
 
 @Controller
-public class AnyItemController extends AbstractController<Any, Item> {
+public class AnyToolkitItemController extends AbstractController<Any, ToolkitItem> {
 
 	@Autowired
-	protected AnyItemShowService			showService;
+	protected AnyToolkitItemShowService			showService;
 	
 	@Autowired
-	protected AnyItemListService 			listService;
+	protected AnyToolkitItemListService 			listService;
 
 
 	// Constructors 
