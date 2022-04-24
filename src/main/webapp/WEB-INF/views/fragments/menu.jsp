@@ -20,6 +20,8 @@
 	<acme:menu-left>
 		
 		<acme:menu-option code="master.menu.anonymous" access="isAnonymous()">
+		
+			<acme:menu-suboption code="master.menu.any.list-chirps" action="/any/chirp/list"/>	
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link" action="http://www.example.com/"/>
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-pedparbas" action="https://www.keybr.com/"/>
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-marsamber" action="https://open.spotify.com/"/>		
@@ -37,6 +39,8 @@
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">
+		
+			<acme:menu-suboption code="master.menu.any.list-chirps" action="/any/chirp/list"/>	
 			<acme:menu-suboption code="master.menu.administrator.user-accounts" action="/administrator/user-account/list"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.populate-initial" action="/administrator/populate-initial"/>
@@ -48,11 +52,15 @@
 		</acme:menu-option>
 			
 		<acme:menu-option code="master.menu.patron" access="hasRole('Patron')">
+		
+			<acme:menu-suboption code="master.menu.any.list-chirps" action="/any/chirp/list"/>	
 			<acme:menu-suboption code="master.menu.patron.dashboard" action="/authenticated/patron/dashboard"/>
 			
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.inventor" access="hasRole('Inventor')">
+		
+			<acme:menu-suboption code="master.menu.any.list-chirps" action="/any/chirp/list"/>	
 			<acme:menu-suboption code="master.menu.inventor.favourite-link" action="http://www.wikipedia.com/"/>
 			<acme:menu-separator/>
 				<acme:menu-suboption code="master.menu.inventor.toolkit.list-my-toolkits" action="/inventor/toolkit/list-mine"/>
