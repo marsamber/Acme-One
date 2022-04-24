@@ -18,13 +18,7 @@ master.menu.sign-out = Salir
 # master.menu.anonymous #######################################################
 
 master.menu.anonymous = Anónimo
-master.menu.anonymous.favourite-link = Enlace favorito
-master.menu.anonymous.favourite-link-pedparbas = 77927669N: Parrilla Bascón, Pedro
-master.menu.anonymous.favourite-link-marsamber = 78999568L: Sampedro Bernal, Marta
-master.menu.anonymous.favourite-link-alvvazort = 07257681P: Vázquez Ortiz, Álvaro
-master.menu.anonymous.favourite-link-alvmirpoz = 53354676N: Miranda Pozo, Álvaro
-master.menu.anonymous.favourite-link-gonmarmar5 = 77928283M: Martínez Martínez, Gonzalo
-master.menu.anonymous.favourite-link-marcasbon = 49167536K: Castro Bonilla, María
+master.menu.anonymous.user-account.list-all-user-accounts = Listar todos los usuarios
 
 # master.menu.administrator ###################################################
 
@@ -38,8 +32,6 @@ master.menu.administrator.shut-down = Parar el sistema
 # master.menu.any ############################################################
 
 master.menu.any = Cualquiera
-master.menu.any.inventor.list-all-inventors = Listar todos los inventores
-master.menu.any.patron.list-all-patrons = Listar todos los patrones
 master.menu.any.toolkit.list-all-toolkits = Listar todas las cajas de herramientas
 
 # master.menu.patron ########################################################
@@ -56,9 +48,8 @@ master.menu.inventor.favourite-link = Enlace favorito
 master.menu.inventor.toolkit.list-my-toolkits = Listar mis cajas de herramientas
 master.menu.inventor.item.list-all-mine-components = Listar mis componentes
 master.menu.inventor.item.list-all-mine-tools = Listar mis herramientas
-master.menu.inventor.patronageReport.list-mine = Listar mis informes de patrocinios
 master.menu.inventor.patronage.list-all-my-patronages = Listar mis Patrocinios
-
+master.menu.inventor.patronageReport.list-mine = Listar mis informes de patrocinios
 
 # master.menu.user-account ####################################################
 

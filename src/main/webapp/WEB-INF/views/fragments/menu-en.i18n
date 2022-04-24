@@ -18,13 +18,7 @@ master.menu.sign-out = Sign out
 # master.menu.anonymous #######################################################
 
 master.menu.anonymous = Anonymous
-master.menu.anonymous.favourite-link = Favourite link
-master.menu.anonymous.favourite-link-pedparbas = 77927669N: Parrilla Bascón, Pedro
-master.menu.anonymous.favourite-link-marsamber = 78999568L: Sampedro Bernal, Marta
-master.menu.anonymous.favourite-link-alvvazort = 07257681P: Vázquez Ortiz, Álvaro
-master.menu.anonymous.favourite-link-alvmirpoz = 53354676N: Miranda Pozo, Álvaro
-master.menu.anonymous.favourite-link-gonmarmar5 = 77928283M: Martínez Martínez, Gonzalo
-master.menu.anonymous.favourite-link-marcasbon = 49167536K: Castro Bonilla, María
+master.menu.anonymous.user-account.list-all-user-accounts = List All User Accounts
 
 # master.menu.administrator ###################################################
 
@@ -38,8 +32,6 @@ master.menu.administrator.shut-down = Shut down
 # master.menu.any ############################################################
 
 master.menu.any = Any
-master.menu.any.inventor.list-all-inventors = List All Inventors
-master.menu.any.patron.list-all-patrons = List All Patrons
 master.menu.any.toolkit.list-all-toolkits = List All Toolkits
 
 # master.menu.patron ########################################################
