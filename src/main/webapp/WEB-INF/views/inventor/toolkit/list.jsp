@@ -5,8 +5,7 @@
 
 <acme:list>
 
-	<acme:list-column code="inventor.toolkit.list.label.title" path="title" width="10%"/>
-	<acme:list-column code="inventor.toolkit.list.label.code" path="code" width="33%"/>
-	<acme:list-column code="inventor.toolkit.list.label.description" path="description" width="56%"/>	
+	<acme:list-column code="inventor.toolkit.list.label.title" path="title" width="50%"/>
+	<acme:list-column code="inventor.toolkit.list.label.code" path="code" width="50%"/>
 	
 </acme:list>
