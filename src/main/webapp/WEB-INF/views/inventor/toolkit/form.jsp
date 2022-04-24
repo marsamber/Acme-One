@@ -13,6 +13,6 @@
 	<acme:input-textarea code="inventor.toolkit.form.label.assemblyNotes" path="assemblyNotes"/>
 	<acme:input-url code="inventor.toolkit.form.label.link" path="link"/>	
 	
-	<acme:button code="inventor.toolkit.form.button.items" action="/inventor/item/list?toolkitId=${id}"/>
+	<acme:button code="inventor.toolkit.form.button.items" action="/inventor/toolkit-item/list?toolkitId=${id}"/>
 
 </acme:form>

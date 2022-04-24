@@ -13,9 +13,6 @@ import acme.roles.Inventor;
 public class InventorItemController extends AbstractController<Inventor, Item> {
 
 	@Autowired
-	protected InventorItemListService		    listService;
-
-	@Autowired
 	protected InventorItemShowService			showService;
 
 	@Autowired
@@ -30,7 +27,6 @@ public class InventorItemController extends AbstractController<Inventor, Item> {
 	@PostConstruct
 	protected void initialise() {
 		super.addCommand("show", this.showService);
-		super.addCommand("list", this.listService);
 		super.addCommand("list-all-mine-components", "list", this.componentListMineService);
 		super.addCommand("list-all-mine-tools", "list", this.toolListMineService);
 

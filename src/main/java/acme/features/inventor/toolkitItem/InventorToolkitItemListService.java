@@ -1,29 +1,29 @@
-package acme.features.inventor.item;
+package acme.features.inventor.toolkitItem;
 
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.Item;
 import acme.entities.Toolkit;
+import acme.entities.ToolkitItem;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
 import acme.framework.services.AbstractListService;
 import acme.roles.Inventor;
 
 @Service
-public class InventorItemListService implements AbstractListService<Inventor, Item> {
+public class InventorToolkitItemListService implements AbstractListService<Inventor, ToolkitItem> {
 
 
 	@Autowired
-	protected InventorItemRepository repository;
+	protected InventorToolkitItemRepository repository;
 
 	// Interface 
 
 
 	@Override
-	public boolean authorise(final Request<Item> request) {
+	public boolean authorise(final Request<ToolkitItem> request) {
 		assert request != null;
 		
 		boolean result;
@@ -38,10 +38,10 @@ public class InventorItemListService implements AbstractListService<Inventor, It
 	}
 
 	@Override
-	public Collection<Item> findMany(final Request<Item> request) {
+	public Collection<ToolkitItem> findMany(final Request<ToolkitItem> request) {
 		assert request != null;
 
-		Collection<Item> result;
+		Collection<ToolkitItem> result;
 		int toolkitId;
 		
 		toolkitId = request.getModel().getInteger("toolkitId");
@@ -49,13 +49,14 @@ public class InventorItemListService implements AbstractListService<Inventor, It
 
 		return result;
 	}
+	
 	@Override
-	public void unbind(final Request<Item> request, final Item entity, final Model model) {
+	public void unbind(final Request<ToolkitItem> request, final ToolkitItem entity, final Model model) {
 		assert request != null;
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "name", "code", "type");
+		request.unbind(entity, model, "item.name", "item.code", "item.type","units");
 	}
 
 }
