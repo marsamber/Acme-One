@@ -8,14 +8,15 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-anonymous.inventor.form.label.userAccount.identity.name = Nombre:
-anonymous.inventor.form.label.userAccount.identity.surname = Apellidos:
-anonymous.inventor.form.label.userAccount.identity.email = Email:
-anonymous.inventor.form.label.company = Compañía:
-anonymous.inventor.form.label.statement = Puesto:
-anonymous.inventor.form.label.userAccount.username = Usuario:
-anonymous.inventor.form.label.moreInfo = Más información:
+any.user-account.form.label.identity.name = Nombre:
+any.user-account.form.label.identity.surname = Apellidos:
+any.user-account.form.label.identity.email = Email:
+any.user-account.form.label.company = Compañía:
+any.user-account.form.label.statement = Puesto:
+any.user-account.form.label.userAccount.username = Usuario:
+any.user-account.form.label.moreInfo = Más Información:
 
-anonymous.inventor.list.label.userAccount.identity.name = Nombre
-anonymous.inventor.list.label.userAccount.identity.surname = Apellidos
-anonymous.inventor.list.label.userAccount.identity.email = Email
+any.user-account.list.label.identity.name = Nombre
+any.user-account.list.label.identity.surname = Apellidos
+any.user-account.list.label.identity.email = Email
+any.user-account.list.label.roles = Roles

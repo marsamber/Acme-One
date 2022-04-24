@@ -5,12 +5,12 @@
 
 <acme:form readonly="${readonly}">
 
-	<acme:input-textbox code="anonymous.inventor.form.label.userAccount.identity.name" path="userAccount.identity.name"/>
-	<acme:input-textbox code="anonymous.inventor.form.label.userAccount.identity.surname" path="userAccount.identity.surname"/>
-	<acme:input-textbox code="anonymous.inventor.form.label.userAccount.identity.email" path="userAccount.identity.email"/>
-	<acme:input-textbox code="anonymous.inventor.form.label.company" path="company"/>
-	<acme:input-textbox code="anonymous.inventor.form.label.statement" path="statement"/>	
-	<acme:input-textbox code="anonymous.inventor.form.label.userAccount.username" path="userAccount.username"/>
-	<acme:input-textbox code="anonymous.inventor.form.label.moreInfo" path="moreInfo"/>
+	<acme:input-textbox code="any.user-account.form.label.identity.name" path="identity.name"/>
+	<acme:input-textbox code="any.user-account.form.label.identity.surname" path="identity.surname"/>
+	<acme:input-textbox code="any.user-account.form.label.identity.email" path="identity.email"/>
+	<acme:input-textbox code="any.user-account.form.label.company" path="company"/>
+	<acme:input-textbox code="any.user-account.form.label.statement" path="statement"/>	
+	<acme:input-textbox code="any.user-account.form.label.userAccount.username" path="username"/>
+	<acme:input-textbox code="any.user-account.form.label.moreInfo" path="moreInfo"/>
 		
 </acme:form>

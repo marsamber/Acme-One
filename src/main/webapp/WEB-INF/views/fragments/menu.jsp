@@ -24,9 +24,6 @@
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.any" access="hasRole('Any')">
-			<acme:menu-suboption code="master.menu.any.inventor.list-all-inventors" action="/any/inventor/list-all-inventors"/>
-			<acme:menu-suboption code="master.menu.any.patron.list-all-patrons" action="/any/patron/list-all-patrons"/>
-			<acme:menu-suboption code="master.menu.any.user-account.list-all-user-accounts" action="/any/user-account/list-all-user-accounts"/>
 			<acme:menu-suboption code="master.menu.any.item.list-all-tools" action="/any/item/list-all-tools"/>
 			<acme:menu-suboption code="master.menu.any.item.list-all-components" action="/any/item/list-all-components"/>
 			<acme:menu-suboption code="master.menu.any.toolkit.list-all-toolkits" action="/any/toolkit/list-all-toolkits"/>
