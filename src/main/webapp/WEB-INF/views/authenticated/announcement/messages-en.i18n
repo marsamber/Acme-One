@@ -1,0 +1,13 @@
+
+authenticated.announcement.form.label.creationMoment = Creation Moment:
+authenticated.announcement.form.label.title = Title:
+authenticated.announcement.form.label.body = Body:
+authenticated.announcement.form.label.criticalFlag = Critical Flag:
+authenticated.announcement.form.label.link = Link:
+
+authenticated.announcement.form.label.true = Yes
+authenticated.announcement.form.label.false = No
+
+
+authenticated.announcement.list.label.creationMoment = Creation Moment
+authenticated.announcement.list.label.title = Title
