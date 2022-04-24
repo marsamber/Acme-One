@@ -71,7 +71,7 @@ public class AuthenticatedPatronController extends AbstractController<Authentica
 		return patronDashboard;
 	}
 	
-	public ModelAndView addStatsToModel(ModelAndView result,PatronDashboard patronDashboard) {
+	private void addStatsToModel(ModelAndView result,PatronDashboard patronDashboard) {
 		
 		result.addObject("dashboard", patronDashboard);
 		//Average
@@ -114,7 +114,6 @@ public class AuthenticatedPatronController extends AbstractController<Authentica
 		result.addObject("minDeniedEUR",patronDashboard.getPatronagesMinimum().get(Pair.of(Status.DENIED,"EUR")));
 		result.addObject("minDeniedUSD",patronDashboard.getPatronagesMinimum().get(Pair.of(Status.DENIED,"USD")));
 		result.addObject("minDeniedGBP",patronDashboard.getPatronagesMinimum().get(Pair.of(Status.DENIED,"GBP")));
-		return result;
 	}
 	
 	@GetMapping("/dashboard")

@@ -5,7 +5,30 @@
 <%@taglib prefix="acme" uri="urn:jsptagdir:/WEB-INF/tags"%>
 <link rel="stylesheet" href="css/acme.css"/>
 
+<acme:form readonly="true">
 
+	<div class="dashboard-row">
+	   <div class="dashboard-column">
+	      <acme:message code="administrator.dashboard.average"/>
+	      <canvas id="average-canvas"></canvas>
+	   </div>
+	   <div class="dashboard-column">
+	      <acme:message code="administrator.dashboard.deviation"/>
+	      <canvas id="deviation-canvas"></canvas>
+	   </div>
+	</div>
+   <br>
+   <div class="dashboard-row">
+	   <div class="dashboard-column">
+	      <acme:message code="administrator.dashboard.max"/>
+	      <canvas id="maximum-canvas"></canvas>
+	   </div>
+	   <div class="dashboard-column">
+	      <acme:message code="administrator.dashboard.min"/>
+	      <canvas id="minimum-canvas"></canvas>
+	   </div>
+  </div>
+  
 <div class="dashboard">
 	<ul class="stadistics">
 		<b><acme:message code="patron.dashboard.patronage"/></b>
@@ -68,3 +91,115 @@
 		</li>
 	</ul>
 </div>
+</acme:form>
+
+<script type="text/javascript">
+	var backgroundColor= [
+  	  'rgb(44, 243, 125)',
+      'rgb(239, 49, 221)',
+      'rgb(237, 239, 49)',
+      'rgb(44, 192, 182)',
+      'rgb(59, 162, 22)',
+      'rgb(22, 100, 252)',
+      'rgb(202, 22, 203)',
+      'rgb(239, 82, 49)',
+      'rgb(82, 239, 49)'
+    ];
+	
+	displayPatronagesAverage();
+	displayPatronagesDeviation();
+	displayPatronagesMaximum();
+	displayPatronagesMinimum();
+	
+	function displayPatronagesAverage(){
+		var averagePatronages = {
+		   	   	<jstl:forEach items="${dashboard.getPatronagesAverage()}" var="item" varStatus="loop">
+		   	   	      "${item.key}": '${item.value}' ${not loop.last ? ',' : ''}
+		   	   	</jstl:forEach>
+		   	   };
+		   
+		   const averageValues = {
+		    labels: Object.keys(averagePatronages),
+		    datasets: [{
+		      data: Object.values(averagePatronages),
+		      backgroundColor: backgroundColor
+		    }]
+		   };
+		   
+		   var canvas = document.getElementById("average-canvas");
+		   var context = canvas.getContext("2d");
+		   new Chart(context, {
+		   	type : "pie",
+		   	data : averageValues,
+		   });
+	}
+	
+	function displayPatronagesDeviation(){
+		var deviationPatronages = {
+		   	   	<jstl:forEach items="${dashboard.getPatronagesDeviation()}" var="item" varStatus="loop">
+		   	   	      "${item.key}": '${item.value}' ${not loop.last ? ',' : ''}
+		   	   	</jstl:forEach>
+		   	   };
+		   
+		   const deviationValues = {
+		    labels: Object.keys(deviationPatronages),
+		    datasets: [{
+		      data: Object.values(deviationPatronages),
+		      backgroundColor: backgroundColor
+		    }]
+		   };
+		   
+		   var canvas = document.getElementById("deviation-canvas");
+		   var context = canvas.getContext("2d");
+		   new Chart(context, {
+		   	type : "pie",
+		   	data : deviationValues,
+		   });
+	}
+	
+	function displayPatronagesMaximum(){
+		var maximumPatronages = {
+		   	   	<jstl:forEach items="${dashboard.getPatronagesMaximum()}" var="item" varStatus="loop">
+		   	   	      "${item.key}": '${item.value}' ${not loop.last ? ',' : ''}
+		   	   	</jstl:forEach>
+		   	   };
+		   
+		   const maximumValues = {
+		    labels: Object.keys(maximumPatronages),
+		    datasets: [{
+		      data: Object.values(maximumPatronages),
+		      backgroundColor: backgroundColor
+		    }]
+		   };
+		   
+		   var canvas = document.getElementById("maximum-canvas");
+		   var context = canvas.getContext("2d");
+		   new Chart(context, {
+		   	type : "pie",
+		   	data : maximumValues,
+		   });
+	}
+	
+	function displayPatronagesMinimum(){
+		var minimumPatronages = {
+		   	   	<jstl:forEach items="${dashboard.getPatronagesMinimum()}" var="item" varStatus="loop">
+		   	   	      "${item.key}": '${item.value}' ${not loop.last ? ',' : ''}
+		   	   	</jstl:forEach>
+		   	   };
+		   
+		   const minimumValues = {
+		    labels: Object.keys(minimumPatronages),
+		    datasets: [{
+		      data: Object.values(minimumPatronages),
+		      backgroundColor: backgroundColor
+		    }]
+		   };
+		   
+		   var canvas = document.getElementById("minimum-canvas");
+		   var context = canvas.getContext("2d");
+		   new Chart(context, {
+		   	type : "pie",
+		   	data : minimumValues,
+		   });
+	}
+</script>
