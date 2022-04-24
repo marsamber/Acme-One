@@ -1,29 +1,29 @@
-package acme.features.any.item;
+package acme.features.any.toolkitItem;
 
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.Item;
 import acme.entities.Toolkit;
+import acme.entities.ToolkitItem;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
 import acme.framework.roles.Any;
 import acme.framework.services.AbstractListService;
 
 @Service
-public class AnyItemListService implements AbstractListService<Any, Item> {
+public class AnyToolkitItemListService implements AbstractListService<Any, ToolkitItem> {
 
 
 	@Autowired
-	protected AnyItemRepository repository;
+	protected AnyToolkitItemRepository repository;
 
 	// Interface 
 
 
 	@Override
-	public boolean authorise(final Request<Item> request) {
+	public boolean authorise(final Request<ToolkitItem> request) {
 		assert request != null;
 		
 		boolean result;
@@ -38,10 +38,10 @@ public class AnyItemListService implements AbstractListService<Any, Item> {
 	}
 
 	@Override
-	public Collection<Item> findMany(final Request<Item> request) {
+	public Collection<ToolkitItem> findMany(final Request<ToolkitItem> request) {
 		assert request != null;
 
-		Collection<Item> result;
+		Collection<ToolkitItem> result;
 		int toolkitId;
 		
 		toolkitId = request.getModel().getInteger("toolkitId");
@@ -51,12 +51,12 @@ public class AnyItemListService implements AbstractListService<Any, Item> {
 	}
 	
 	@Override
-	public void unbind(final Request<Item> request, final Item entity, final Model model) {
+	public void unbind(final Request<ToolkitItem> request, final ToolkitItem entity, final Model model) {
 		assert request != null;
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "name", "code", "type");
+		request.unbind(entity, model, "item.name", "item.code", "item.type","units");
 	}
 
 }
