@@ -1,0 +1,6 @@
+recordIndex,name,surname,email,roles,username,company,statement,moreInfo
+0,Inventor1,Inventor,inventor1@inventor.com,Inventor,inventor1,9,"Lorem ipsum dolor sit amet,consectetur adipiscing elit. Ut ultrices dui sit amet turpis aliquet,at finibus sem gravida.",http://example.com/
+1,Inventor2,Inventor,inventor2@inventor.com,Inventor,inventor2,10,"Lorem ipsum dolor sit amet,consectetur adipiscing elit. Ut ultrices dui sit amet turpis aliquet,at finibus sem gravida.",http://example.com/
+2,Inventor3,Inventor,inventor3@inventor.com,Inventor,inventor3,A,"Lorem ipsum dolor sit amet,consectetur adipiscing elit. Ut ultrices dui sit amet turpis aliquet,at finibus sem gravida.",http://example.com/
+3,Patron1,Patron,patron1@patron.com,Patron,patron1,9,"Lorem ipsum dolor sit amet,consectetur adipiscing elit. Ut ultrices dui sit amet turpis aliquet,at finibus sem gravida.",http://example.com/
+4,Patron2,Patron,patron2@patron.com,Patron,patron2,10,"Lorem ipsum dolor sit amet,consectetur adipiscing elit. Ut ultrices dui sit amet turpis aliquet,at finibus sem gravida.",http://example.com/
