@@ -25,11 +25,37 @@ public class AnyChirpListTest extends TestHarness{
 
 	// Test cases -------------------------------------------------------------
 
-
 	@ParameterizedTest	
 	@CsvFileSource(resources = "/any/chirp/list-chirp.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)
+	public void positiveTestAnonyChirp(final int recordIndex, final String creationMoment, final String title, final String author, final String body, final String email) {
+
+		super.clickOnMenu("Anonymous", "List Chirps");
+		super.checkColumnHasValue(recordIndex, 0, creationMoment);
+		super.checkColumnHasValue(recordIndex, 1, title);
+		super.checkColumnHasValue(recordIndex, 2, author);
+		super.checkColumnHasValue(recordIndex, 3, body);
+		super.checkColumnHasValue(recordIndex, 4, email);
+		
+	}
+	@ParameterizedTest	
+	@CsvFileSource(resources = "/any/chirp/list-chirp.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@Order(20)
 	public void positiveTestAdministratorChirp(final int recordIndex, final String creationMoment, final String title, final String author, final String body, final String email) {
+
+		super.signIn("administrator", "administrator");
+		super.clickOnMenu("Administrator", "List Chirps");
+		super.checkColumnHasValue(recordIndex, 0, creationMoment);
+		super.checkColumnHasValue(recordIndex, 1, title);
+		super.checkColumnHasValue(recordIndex, 2, author);
+		super.checkColumnHasValue(recordIndex, 3, body);
+		super.checkColumnHasValue(recordIndex, 4, email);
+		super.signOut();
+	}
+	@ParameterizedTest	
+	@CsvFileSource(resources = "/any/chirp/list-chirp.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@Order(30)
+	public void positiveTestAnyChirp(final int recordIndex, final String creationMoment, final String title, final String author, final String body, final String email) {
 
 		super.signIn("administrator", "administrator");
 		super.clickOnMenu("Any", "List Chirps");
@@ -41,13 +67,30 @@ public class AnyChirpListTest extends TestHarness{
 		super.signOut();
 	}
 	
+	
 	@ParameterizedTest	
 	@CsvFileSource(resources = "/any/chirp/list-chirp.csv", encoding = "utf-8", numLinesToSkip = 1)
-	@Order(20)
+	@Order(40)
 	public void positiveTestInventorChirp(final int recordIndex, final String creationMoment, final String title, final String author, final String body, final String email) {
 
 		super.signIn("inventor1", "inventor1");
-		super.clickOnMenu("Any", "List Chirps");
+		super.clickOnMenu("Inventor", "List Chirps");
+		super.checkColumnHasValue(recordIndex, 0, creationMoment);
+		super.checkColumnHasValue(recordIndex, 1, title);
+		super.checkColumnHasValue(recordIndex, 2, author);
+		super.checkColumnHasValue(recordIndex, 3, body);
+		super.checkColumnHasValue(recordIndex, 4, email);
+		super.signOut();
+	}
+	
+
+	@ParameterizedTest	
+	@CsvFileSource(resources = "/any/chirp/list-chirp.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@Order(50)
+	public void positiveTestpatronChirp(final int recordIndex, final String creationMoment, final String title, final String author, final String body, final String email) {
+
+		super.signIn("patron1", "patron1");
+		super.clickOnMenu("Patron", "List Chirps");
 		super.checkColumnHasValue(recordIndex, 0, creationMoment);
 		super.checkColumnHasValue(recordIndex, 1, title);
 		super.checkColumnHasValue(recordIndex, 2, author);
