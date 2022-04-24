@@ -20,18 +20,13 @@
 	<acme:menu-left>
 		
 		<acme:menu-option code="master.menu.anonymous" access="isAnonymous()">
-			<acme:menu-suboption code="master.menu.anonymous.favourite-link" action="http://www.example.com/"/>
-			<acme:menu-suboption code="master.menu.anonymous.favourite-link-pedparbas" action="https://www.keybr.com/"/>
-			<acme:menu-suboption code="master.menu.anonymous.favourite-link-marsamber" action="https://open.spotify.com/"/>		
-			<acme:menu-suboption code="master.menu.anonymous.favourite-link-alvvazort" action="http://www.twitter.com/"/>
-			<acme:menu-suboption code="master.menu.anonymous.favourite-link-alvmirpoz" action="https://www.wordreference.com/"/>
-			<acme:menu-suboption code="master.menu.anonymous.favourite-link-gonmarmar5" action="https://www.chess.com/"/>	
-			<acme:menu-suboption code="master.menu.anonymous.favourite-link-marcasbon" action="https://www.wikipedia.org/"/>
+			<acme:menu-suboption code="master.menu.anonymous.user-account.list-all-user-accounts" action="/any/user-account/list-all-user-accounts"/>
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.any" access="hasRole('Any')">
 			<acme:menu-suboption code="master.menu.any.inventor.list-all-inventors" action="/any/inventor/list-all-inventors"/>
 			<acme:menu-suboption code="master.menu.any.patron.list-all-patrons" action="/any/patron/list-all-patrons"/>
+			<acme:menu-suboption code="master.menu.any.user-account.list-all-user-accounts" action="/any/user-account/list-all-user-accounts"/>
 			<acme:menu-suboption code="master.menu.any.item.list-all-tools" action="/any/item/list-all-tools"/>
 			<acme:menu-suboption code="master.menu.any.item.list-all-components" action="/any/item/list-all-components"/>
 			<acme:menu-suboption code="master.menu.any.toolkit.list-all-toolkits" action="/any/toolkit/list-all-toolkits"/>
