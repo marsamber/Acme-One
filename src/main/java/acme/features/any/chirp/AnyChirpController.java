@@ -1,4 +1,3 @@
-
 package acme.features.any.chirp;
 
 import javax.annotation.PostConstruct;
@@ -14,18 +13,11 @@ import acme.framework.roles.Any;
 public class AnyChirpController extends AbstractController<Any, Chirp> {
 
 	@Autowired
-	protected AnyChirpListAllService	listAllService;
-
-	@Autowired
-	protected AnyChirpShowService		showService;
-
-	// Constructors -----------------------------------------------------------
+	protected AnyChirpListService listService;
 
 
 	@PostConstruct
 	protected void initialise() {
-		super.addCommand("list", this.listAllService);
-		super.addCommand("show", this.showService);
+		super.addCommand("list", this.listService);
 	}
-
 }

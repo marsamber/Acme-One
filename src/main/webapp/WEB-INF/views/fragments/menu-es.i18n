@@ -55,12 +55,16 @@ master.menu.patron.dashboard = Panel de indicadores
 master.menu.inventor = Inventor
 master.menu.inventor.favourite-link = Enlace favorito
 master.menu.inventor.toolkit.list-my-toolkits = Listar mis cajas de herramientas
-
+master.menu.inventor.item.list-all-mine-components = Listar mis componentes
+master.menu.inventor.item.list-all-mine-tools = Listar mis herramientas
+master.menu.inventor.patronage.list-all-my-patronages = Listar mis Patrocinios
+master.menu.inventor.patronageReport.list-mine = Listar mis informes de patrocinios
 
 # master.menu.user-account ####################################################
 
 master.menu.user-account = Cuenta
 master.menu.user-account.general-data = Datos generales
+master.menu.user-account.announcements = Listar anuncios recientes
 master.menu.user-account.patron = Datos de patrocinador
 master.menu.user-account.become-patron = Hazte patrocinador
 master.menu.user-account.inventor = Datos de inventor

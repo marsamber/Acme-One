@@ -41,6 +41,10 @@ public class AnyItemListAllComponentsService implements AbstractListService<Any,
 		return result;
 	}
 	
+	public Collection<Item> findItemsByType(Type type) {
+		return this.repository.findAllItemsByType(type);
+	}
+	
 	@Override
 	public void unbind(final Request<Item> request, final Item entity, final Model model) {
 		assert request != null;

@@ -1,4 +1,3 @@
-
 package acme.features.any.chirp;
 
 import java.util.Calendar;
@@ -15,30 +14,32 @@ import acme.framework.roles.Any;
 import acme.framework.services.AbstractListService;
 
 @Service
-public class AnyChirpListAllService implements AbstractListService<Any, Chirp> {
+public class AnyChirpListService implements AbstractListService<Any, Chirp> {
 
 	@Autowired
 	protected AnyChirpRepository repository;
 
-	// Interface 
 
 	@Override
 	public boolean authorise(final Request<Chirp> request) {
 		assert request != null;
-
 		return true;
 	}
 
 	@Override
 	public Collection<Chirp> findMany(final Request<Chirp> request) {
 		assert request != null;
+
 		Collection<Chirp> result;
 		Calendar calendar;
 		Date deadline;
+
 		calendar = Calendar.getInstance();
 		calendar.add(Calendar.MONTH, -1);
 		deadline = calendar.getTime();
+
 		result = this.repository.findLastMonthChirps(deadline);
+
 		return result;
 	}
 
@@ -47,8 +48,8 @@ public class AnyChirpListAllService implements AbstractListService<Any, Chirp> {
 		assert request != null;
 		assert entity != null;
 		assert model != null;
-
 		request.unbind(entity, model, "creationMoment", "title", "author", "body", "email");
 
 	}
+
 }

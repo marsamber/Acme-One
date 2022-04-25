@@ -12,7 +12,7 @@ patron.dashboard.proposed = Propuestos
 patron.dashboard.accepted = Aceptados
 patron.dashboard.denied = Denegados
 
-patron.dashboard.patronage = Patroncinios 
+patron.dashboard.patronage = Patrocinios 
 patron.dashboard.average = Presupuesto Medio
 patron.dashboard.deviation = Desviación
 patron.dashboard.max = Máximo
