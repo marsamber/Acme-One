@@ -15,7 +15,7 @@ public class AnyItemByToolTest extends TestHarness {
 		
 		super.signIn("inventor1", "inventor1");
 
-		super.clickOnMenu("Any", "List All Tools");
+		super.clickOnMenu("Inventor", "List All Tools");
 		super.checkListingExists();
 		super.sortListing(0, "asc");
 		

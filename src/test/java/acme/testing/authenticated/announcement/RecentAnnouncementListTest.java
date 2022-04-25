@@ -16,7 +16,7 @@ public class RecentAnnouncementListTest extends TestHarness {
 		
 		super.signIn("inventor1", "inventor1");
 
-		super.clickOnMenu("Account", "List recent announcements");
+		super.clickOnMenu("Inventor", "List Recent Announcements");
 		super.checkListingExists();
 		super.sortListing(0, "asc");
 		
