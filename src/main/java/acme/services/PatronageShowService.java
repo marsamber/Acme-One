@@ -44,34 +44,25 @@ public class PatronageShowService implements AbstractListService<Authenticated, 
 		return true;
 	}
 
-	
-	
 	public Collection<Patronage> findPatronagesByPatron(final Patron patron) {
 		return this.repository.findPatronageByPatron(patron);
 	}
-	public Collection<Patronage> findPatronagesByPatronAndStatus(Patron patron,final Status status) {
-		return this.repository.findPatronageByPatronAndStatus(patron,status);
+	public Collection<Patronage> findPatronagesByPatronAndStatus(final Patron patron, final Status status) {
+		return this.repository.findPatronageByPatronAndStatus(patron, status);
 	}
 	public Collection<Patronage> findPatronagesByStatus(final Status status) {
 		return this.repository.findPatronageByStatus(status);
 	}
 
-
-
 	@Override
-	public Collection<Patronage> findMany(Request<Patronage> request) {
+	public Collection<Patronage> findMany(final Request<Patronage> request) {
 
 		return this.repository.findAllPatronage();
 	}
 
-
-
 	@Override
-	public void unbind(Request<Patronage> request, Patronage entity, Model model) {
-		// TODO Auto-generated method stub
-		
+	public void unbind(final Request<Patronage> request, final Patronage entity, final Model model) {
+		// this method has to be empty
 	}
-
-
 
 }
