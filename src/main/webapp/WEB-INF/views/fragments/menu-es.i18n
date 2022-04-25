@@ -43,13 +43,15 @@ master.menu.any.toolkit.list-all-toolkits = Listar todas las cajas de herramient
 
 master.menu.patron = Patrocinador
 master.menu.patron.dashboard = Panel de indicadores
+master.menu.patron.patronageReport.list-mine = Listar mis informes de patrocinios
+
 master.menu.patron.patronages = Listar mis patrocinios
+
 
 
 # master.menu.inventor ########################################################
 
 master.menu.inventor = Inventor
-master.menu.inventor.favourite-link = Enlace favorito
 master.menu.inventor.toolkit.list-my-toolkits = Listar mis cajas de herramientas
 master.menu.inventor.item.list-all-mine-components = Listar mis componentes
 master.menu.inventor.item.list-all-mine-tools = Listar mis herramientas
