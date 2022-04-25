@@ -51,33 +51,32 @@ public class AdministratorAcmeController extends AbstractController<Authenticate
 
 	private AdministratorDashboard createAdministratorDashboard() {
 		
-		Collection<Patronage> patronagesProposed=this.patronageService.findPatronagesByStatus(Status.PROPOSED); 
-		Collection<Patronage> patronagesAccepted=this.patronageService.findPatronagesByStatus(Status.ACCEPTED);
-		Collection<Patronage> patronagesDenied=this.patronageService.findPatronagesByStatus(Status.DENIED);;
+		final Collection<Patronage> patronagesProposed=this.patronageService.findPatronagesByStatus(Status.PROPOSED); 
+		final Collection<Patronage> patronagesAccepted=this.patronageService.findPatronagesByStatus(Status.ACCEPTED);
+		final Collection<Patronage> patronagesDenied=this.patronageService.findPatronagesByStatus(Status.DENIED);;
 		
-		List<Collection<Patronage>> patronages= new ArrayList<Collection<Patronage>>();
+		final List<Collection<Patronage>> patronages= new ArrayList<Collection<Patronage>>();
 		
 		patronages.add(patronagesProposed);
 		patronages.add(patronagesAccepted);
 		patronages.add(patronagesDenied);
 		
-		Collection<Item> components =this.componentsService.findItemsByType(Type.COMPONENT);
-		Collection<Item> tools =this.componentsService.findItemsByType(Type.TOOL);
-		AdministratorDashboard patronDashboard= new AdministratorDashboard(patronages, tools, components);
+		final Collection<Item> components =this.componentsService.findItemsByType(Type.COMPONENT);
+		final Collection<Item> tools =this.componentsService.findItemsByType(Type.TOOL);
 		
-		return patronDashboard;
+		return new AdministratorDashboard(patronages, tools, components);
 	}
 	
 	@GetMapping("/dashboard")
 	public ModelAndView patronDashboardController() {
 		final ModelAndView result = new ModelAndView();
 		result.setViewName("authenticated/administrator/administrator-dashboard");
-		AdministratorDashboard administratorDashboard= this.createAdministratorDashboard();
+		final AdministratorDashboard administratorDashboard= this.createAdministratorDashboard();
 		
 		this.addStatsToModel(result,administratorDashboard);
 		return result;
 	}
-	private void addStatsToModel(ModelAndView result,AdministratorDashboard administratorDashboard) {
+	private void addStatsToModel(final ModelAndView result,final AdministratorDashboard administratorDashboard) {
 		result.addObject("dashboard", administratorDashboard);
 		this.addPatronagesStats(result, administratorDashboard);
 		this.addToolsStats(result, administratorDashboard);
@@ -85,7 +84,7 @@ public class AdministratorAcmeController extends AbstractController<Authenticate
 		
 	}
 	
-	private void addToolsStats(ModelAndView result, AdministratorDashboard administratorDashboard) {
+	private void addToolsStats(final ModelAndView result, final AdministratorDashboard administratorDashboard) {
 		// Average
 		result.addObject("toolsAverageEUR",administratorDashboard.getRetailPriceToolsAverage().get("EUR"));
 		result.addObject("toolsAverageUSD",administratorDashboard.getRetailPriceToolsAverage().get("USD"));
@@ -108,14 +107,14 @@ public class AdministratorAcmeController extends AbstractController<Authenticate
 		
 	}
 
-	private void addComponentsStats(ModelAndView result, AdministratorDashboard administratorDashboard) {
+	private void addComponentsStats(final ModelAndView result, final AdministratorDashboard administratorDashboard) {
 		//Average
-		Double[][] componentsAverage= new Double[administratorDashboard.getTechnologiesOfComponents().length][3];
-		Double[][] componentsDeviation= new Double[administratorDashboard.getTechnologiesOfComponents().length][3];
-		Double[][] componentsMax= new Double[administratorDashboard.getTechnologiesOfComponents().length][3];
-		Double[][] componentsMin= new Double[administratorDashboard.getTechnologiesOfComponents().length][3];
-		String[] technologies=administratorDashboard.getTechnologiesOfComponents();
-		String[] currencies= new String[] {"EUR","USD","GBP"};
+		final Double[][] componentsAverage= new Double[administratorDashboard.getTechnologiesOfComponents().length][3];
+		final Double[][] componentsDeviation= new Double[administratorDashboard.getTechnologiesOfComponents().length][3];
+		final Double[][] componentsMax= new Double[administratorDashboard.getTechnologiesOfComponents().length][3];
+		final Double[][] componentsMin= new Double[administratorDashboard.getTechnologiesOfComponents().length][3];
+		final String[] technologies=administratorDashboard.getTechnologiesOfComponents();
+		final String[] currencies= new String[] {"EUR","USD","GBP"};
 		for(int i=0; i<technologies.length; i++) {
 			for(int j=0; j<currencies.length;j++) {
 				componentsAverage[i][j]=administratorDashboard.getRetailPriceComponentsAverage().get(Pair.of(technologies[i],currencies[j]));
@@ -131,7 +130,7 @@ public class AdministratorAcmeController extends AbstractController<Authenticate
 		result.addObject("componentsMin",componentsMin);
 	}
 
-	private void addPatronagesStats(ModelAndView result,AdministratorDashboard administratorDashboard) {
+	private void addPatronagesStats(final ModelAndView result,final AdministratorDashboard administratorDashboard) {
 		
 		//Average
 		result.addObject("patronagesAverageAcceptedEUR",administratorDashboard.getPatronagesAverage().get(Pair.of(Status.ACCEPTED,"EUR")));

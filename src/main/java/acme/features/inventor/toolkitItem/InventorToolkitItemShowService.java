@@ -1,5 +1,7 @@
 package acme.features.inventor.toolkitItem;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,8 +24,24 @@ public class InventorToolkitItemShowService implements AbstractShowService<Inven
 	@Override
 	public boolean authorise(final Request<ToolkitItem> request) {
 		assert request != null;
+		
+		final int id;
+		int principalId;
+		Collection<ToolkitItem> toolkitItems;
+		boolean result = false;
 
-		return true;
+		final int idToolkitItem = request.getModel().getInteger("id");
+		final ToolkitItem tI = this.repository.findById(idToolkitItem);
+		id = tI.getToolkit().getId();
+		toolkitItems = this.repository.findManyItemsByToolkitId(id);
+
+		principalId = request.getPrincipal().getActiveRoleId();
+		for(final ToolkitItem toolkitItem: toolkitItems) {
+			result = toolkitItems != null && toolkitItem.getItem().getInventor().getId() == principalId;
+			if(result) return true;
+		}
+
+		return result;
 	}
 
 	@Override

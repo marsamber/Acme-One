@@ -15,7 +15,7 @@ public class AnyItemByComponentTest extends TestHarness {
 		
 		super.signIn("inventor1", "inventor1");
 
-		super.clickOnMenu("Any", "List All Components");
+		super.clickOnMenu("Inventor", "List All Components");
 		super.checkListingExists();
 		super.sortListing(0, "asc");
 		

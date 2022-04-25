@@ -55,23 +55,21 @@ public class AuthenticatedPatronController extends AbstractController<Authentica
 		super.addCommand("update", this.updateService);
 	}
 	*/
-	private PatronDashboard createPatronDashboard(Patron patron) {
+	private PatronDashboard createPatronDashboard(final Patron patron) {
 		
-		Collection<Patronage> patronagesByPatronAndProposed=this.patronageService.findPatronagesByPatronAndStatus(patron, Status.PROPOSED); // TODO Llamada a la funcion servicio que recoja los patrocinios propuestos de este patrocinador
-		Collection<Patronage> patronagesByPatronAndAccepted=this.patronageService.findPatronagesByPatronAndStatus(patron, Status.ACCEPTED);; // TODO Llamada a la funcion servicio que recoja los patrocinios aceptados de este patrocinador
-		Collection<Patronage> patronagesByPatronAndDenied=this.patronageService.findPatronagesByPatronAndStatus(patron, Status.DENIED);;
+		final Collection<Patronage> patronagesByPatronAndProposed=this.patronageService.findPatronagesByPatronAndStatus(patron, Status.PROPOSED); 
+		final Collection<Patronage> patronagesByPatronAndAccepted=this.patronageService.findPatronagesByPatronAndStatus(patron, Status.ACCEPTED);;
+		final Collection<Patronage> patronagesByPatronAndDenied=this.patronageService.findPatronagesByPatronAndStatus(patron, Status.DENIED);;
 		
-		List<Collection<Patronage>> patronages= new ArrayList<Collection<Patronage>>();
+		final List<Collection<Patronage>> patronages= new ArrayList<Collection<Patronage>>();
 		
 		patronages.add(patronagesByPatronAndProposed);
 		patronages.add(patronagesByPatronAndAccepted);
 		patronages.add(patronagesByPatronAndDenied);
-		PatronDashboard patronDashboard= new PatronDashboard(patronages);
-		
-		return patronDashboard;
+		return new PatronDashboard(patronages);
 	}
 	
-	private void addStatsToModel(ModelAndView result,PatronDashboard patronDashboard) {
+	private void addStatsToModel(final ModelAndView result,final PatronDashboard patronDashboard) {
 		
 		result.addObject("dashboard", patronDashboard);
 		//Average
@@ -124,8 +122,8 @@ public class AuthenticatedPatronController extends AbstractController<Authentica
 		result.setViewName("authenticated/patron/patron-dashboard");
 		
 		
-		Patron patron=this.patronShowService.findOnePatronByUserAccountId(PrincipalHelper.get().getAccountId());
-		PatronDashboard patronDashboard= this.createPatronDashboard(patron);
+		final Patron patron=this.patronShowService.findOnePatronByUserAccountId(PrincipalHelper.get().getAccountId());
+		final PatronDashboard patronDashboard= this.createPatronDashboard(patron);
 		
 		this.addStatsToModel(result, patronDashboard);
 		
