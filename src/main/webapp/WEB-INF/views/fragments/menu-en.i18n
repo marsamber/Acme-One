@@ -35,9 +35,13 @@ master.menu.administrator.populate-initial = Populate DB (initial)
 master.menu.administrator.populate-sample = Populate DB (samples)
 master.menu.administrator.shut-down = Shut down
 
+
+
 # master.menu.any ############################################################
 
 master.menu.any = Any
+master.menu.any.chirps = Chirps
+master.menu.any.list-chirps = List Chirps
 master.menu.any.inventor.list-all-inventors = List All Inventors
 master.menu.any.patron.list-all-patrons = List All Patrons
 master.menu.any.toolkit.list-all-toolkits = List All Toolkits
