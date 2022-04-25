@@ -66,6 +66,7 @@ master.menu.inventor.patronageReport.list-mine = Listar mis informes de patrocin
 master.menu.user-account = Cuenta
 master.menu.user-account.general-data = Datos generales
 master.menu.user-account.announcements = Listar anuncios recientes
+master.menu.user-account.systemConfiguration = Configuración del sistema
 master.menu.user-account.patron = Datos de patrocinador
 master.menu.user-account.become-patron = Hazte patrocinador
 master.menu.user-account.inventor = Datos de inventor

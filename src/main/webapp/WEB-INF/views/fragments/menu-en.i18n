@@ -67,6 +67,7 @@ master.menu.inventor.patronageReport.list-mine = List My Patronage Reports
 master.menu.user-account = Account
 master.menu.user-account.general-data = General data
 master.menu.user-account.announcements = List recent announcements
+master.menu.user-account.systemConfiguration = System Configuration 
 master.menu.user-account.patron = Patron data
 master.menu.user-account.become-patron = Become a patron
 master.menu.user-account.inventor = Inventor data
