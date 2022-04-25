@@ -6,8 +6,8 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.Item;
 import acme.entities.Toolkit;
+import acme.entities.ToolkitItem;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
 import acme.framework.datatypes.Money;
@@ -48,12 +48,12 @@ public class AnyToolkitShowService implements AbstractShowService<Any, Toolkit> 
 		id = request.getModel().getInteger("id");
 		result = this.repository.findById(id);
 
-		final Collection<Item> items = this.repository.findItemsByToolkit(result.getId());
+		final Collection<ToolkitItem> toolkitItems = this.repository.findItemsByToolkit(result.getId());
 		double price = 0;
 		String currency = "";
-		for (final Item item : items) {
-			currency = item.getRetailPrice().getCurrency();
-			price = price + item.getRetailPrice().getAmount();
+		for (final ToolkitItem toolkitItem : toolkitItems) {
+			currency = toolkitItem.getItem().getRetailPrice().getCurrency();
+			price = price + toolkitItem.getItem().getRetailPrice().getAmount()*toolkitItem.getUnits();
 		}
 		final Money totalPrice = new Money();
 		totalPrice.setAmount(price);

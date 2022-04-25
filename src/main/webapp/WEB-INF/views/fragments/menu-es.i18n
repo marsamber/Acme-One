@@ -18,18 +18,13 @@ master.menu.sign-out = Salir
 # master.menu.anonymous #######################################################
 
 master.menu.anonymous = Anónimo
-master.menu.anonymous.favourite-link = Enlace favorito
-master.menu.anonymous.favourite-link-pedparbas = 77927669N: Parrilla Bascón, Pedro
-master.menu.anonymous.favourite-link-marsamber = 78999568L: Sampedro Bernal, Marta
-master.menu.anonymous.favourite-link-alvvazort = 07257681P: Vázquez Ortiz, Álvaro
-master.menu.anonymous.favourite-link-alvmirpoz = 53354676N: Miranda Pozo, Álvaro
-master.menu.anonymous.favourite-link-gonmarmar5 = 77928283M: Martínez Martínez, Gonzalo
-master.menu.anonymous.favourite-link-marcasbon = 49167536K: Castro Bonilla, María
+master.menu.anonymous.user-account.list-all-user-accounts = Listar todos los usuarios
 
 # master.menu.administrator ###################################################
 
 master.menu.administrator = Administrador
 master.menu.administrator.dashboard = Panel de indicadores
+master.menu.administrator.systemConfiguration = Configuración del sistema
 master.menu.administrator.user-accounts = Cuentas de usuario
 master.menu.administrator.populate-initial = Poblar BD (inicial)
 master.menu.administrator.populate-sample = Poblar BD (ejemplos)
@@ -38,6 +33,8 @@ master.menu.administrator.shut-down = Parar el sistema
 # master.menu.any ############################################################
 
 master.menu.any = Cualquiera
+master.menu.any.chirps = Chirps
+master.menu.any.list-chirps = Listar Chirps
 master.menu.any.inventor.list-all-inventors = Listar todos los inventores
 master.menu.any.patron.list-all-patrons = Listar todos los patrones
 master.menu.any.toolkit.list-all-toolkits = Listar todas las cajas de herramientas
@@ -46,6 +43,7 @@ master.menu.any.toolkit.list-all-toolkits = Listar todas las cajas de herramient
 
 master.menu.patron = Patrocinador
 master.menu.patron.dashboard = Panel de indicadores
+master.menu.patron.patronages = Listar mis patrocinios
 
 
 # master.menu.inventor ########################################################
@@ -63,6 +61,7 @@ master.menu.inventor.patronageReport.list-mine = Listar mis informes de patrocin
 master.menu.user-account = Cuenta
 master.menu.user-account.general-data = Datos generales
 master.menu.user-account.announcements = Listar anuncios recientes
+master.menu.user-account.systemConfiguration = Configuración del sistema
 master.menu.user-account.patron = Datos de patrocinador
 master.menu.user-account.become-patron = Hazte patrocinador
 master.menu.user-account.inventor = Datos de inventor
@@ -72,3 +71,6 @@ master.menu.user-account.become-inventor = Hazte inventor
 
 master.menu.any.item.list-all-tools = Listar todas las herramientas
 master.menu.any.item.list-all-components = Listar todos los componentes
+
+
+
