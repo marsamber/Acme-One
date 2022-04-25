@@ -25,12 +25,14 @@ public class InventorToolkitItemShowService implements AbstractShowService<Inven
 	public boolean authorise(final Request<ToolkitItem> request) {
 		assert request != null;
 		
-		int id;
+		final int id;
 		int principalId;
 		Collection<ToolkitItem> toolkitItems;
 		boolean result = false;
 
-		id = request.getModel().getInteger("id");
+		final int idToolkitItem = request.getModel().getInteger("id");
+		final ToolkitItem tI = this.repository.findById(idToolkitItem);
+		id = tI.getToolkit().getId();
 		toolkitItems = this.repository.findManyItemsByToolkitId(id);
 
 		principalId = request.getPrincipal().getActiveRoleId();
