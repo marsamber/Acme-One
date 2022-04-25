@@ -45,12 +45,15 @@ master.menu.any.toolkit.list-all-toolkits = List All Toolkits
 
 master.menu.patron = Patron
 master.menu.patron.dashboard = Dashboard
+
+master.menu.patron.patronageReport.list-mine = List My Patronage Reports
+
 master.menu.patron.patronages = List my Patronages
+
 
 # master.menu.inventor ########################################################
 
 master.menu.inventor = Inventor
-master.menu.inventor.favourite-link = Favourite link
 master.menu.inventor.toolkit.list-my-toolkits = List My Toolkits
 master.menu.inventor.item.list-all-mine-components = List My Components
 master.menu.inventor.item.list-all-mine-tools = List My Tools

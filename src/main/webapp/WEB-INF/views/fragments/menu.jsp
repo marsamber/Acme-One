@@ -61,22 +61,21 @@
 		<acme:menu-option code="master.menu.patron" access="hasRole('Patron')">
 			<acme:menu-suboption code="master.menu.any.list-chirps" action="/any/chirp/list"/>	
 			<acme:menu-suboption code="master.menu.patron.dashboard" action="/authenticated/patron/dashboard"/>
-			<acme:menu-suboption code="master.menu.anonymous.user-account.list-all-user-accounts" action="/any/user-account/list-all-user-accounts"/>
+      <acme:menu-suboption code="master.menu.patron.patronageReport.list-mine" action="/patron/patronage-report/list-mine"/>
+      <acme:menu-suboption code="master.menu.anonymous.user-account.list-all-user-accounts" action="/any/user-account/list-all-user-accounts"/>
 			<acme:menu-suboption code="master.menu.patron.patronages" action="/patron/patronage/list"/>
 			<acme:menu-suboption code="master.menu.any.toolkit.list-all-toolkits" action="/any/toolkit/list-all-toolkits"/>
 		</acme:menu-option>
-		
-		<acme:menu-option code="master.menu.inventor" access="hasRole('Inventor')">
+    
+    <acme:menu-option code="master.menu.inventor" access="hasRole('Inventor')">
 			<acme:menu-suboption code="master.menu.any.list-chirps" action="/any/chirp/list"/>	
-			<acme:menu-suboption code="master.menu.inventor.favourite-link" action="http://www.wikipedia.com/"/>
-			<acme:menu-separator/>
-				<acme:menu-suboption code="master.menu.anonymous.user-account.list-all-user-accounts" action="/any/user-account/list-all-user-accounts"/>
-				<acme:menu-suboption code="master.menu.any.toolkit.list-all-toolkits" action="/any/toolkit/list-all-toolkits"/>
-				<acme:menu-suboption code="master.menu.inventor.toolkit.list-my-toolkits" action="/inventor/toolkit/list-mine"/>
-				<acme:menu-suboption code="master.menu.inventor.item.list-all-mine-components" action="/inventor/item/list-all-mine-components"/>		
-				<acme:menu-suboption code="master.menu.inventor.item.list-all-mine-tools" action="/inventor/item/list-all-mine-tools"/>
-				<acme:menu-suboption code="master.menu.inventor.patronage.list-all-my-patronages" action="/inventor/patronage/list"/>
-				<acme:menu-suboption code="master.menu.inventor.patronageReport.list-mine" action="/inventor/patronage-report/list-mine"/>
+      <acme:menu-suboption code="master.menu.anonymous.user-account.list-all-user-accounts" action="/any/user-account/list-all-user-accounts"/>
+      <acme:menu-suboption code="master.menu.any.toolkit.list-all-toolkits" action="/any/toolkit/list-all-toolkits"/>
+      <acme:menu-suboption code="master.menu.inventor.toolkit.list-my-toolkits" action="/inventor/toolkit/list-mine"/>
+      <acme:menu-suboption code="master.menu.inventor.item.list-all-mine-components" action="/inventor/item/list-all-mine-components"/>		
+      <acme:menu-suboption code="master.menu.inventor.item.list-all-mine-tools" action="/inventor/item/list-all-mine-tools"/>
+      <acme:menu-suboption code="master.menu.inventor.patronage.list-all-my-patronages" action="/inventor/patronage/list"/>
+      <acme:menu-suboption code="master.menu.inventor.patronageReport.list-mine" action="/inventor/patronage-report/list-mine"/>
 		</acme:menu-option>
 		
 	</acme:menu-left>
