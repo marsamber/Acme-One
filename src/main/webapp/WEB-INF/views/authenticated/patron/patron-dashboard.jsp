@@ -29,7 +29,7 @@
 		</div>
 	</div>
 
-	<div class="dashboard">
+	<div class="dashboard es">
 		<ul class="statistics">
 			<li style="list-style: none;"><strong><acme:message
 						code="patron.dashboard.patronage" /></strong></li>
@@ -115,6 +115,95 @@
 					type="number" maxFractionDigits="2" value="${minDeniedUSD}" /> $ /
 				<fmt:formatNumber type="number" maxFractionDigits="2"
 					value="${minDeniedGBP}" /> &#163;</li>
+		</ul>
+	</div>
+	
+	<div class="dashboard en">
+		<ul class="statistics">
+			<li style="list-style: none;"><strong><acme:message
+						code="patron.dashboard.patronage" /></strong></li>
+			<li><acme:message code="patron.dashboard.proposed" />: <acme:print
+					value="${dashboard.getPatronagesProposed()}" /></li>
+			<li><acme:message code="patron.dashboard.accepted" />: <acme:print
+					value="${dashboard.getPatronagesAccepted()}" /></li>
+			<li><acme:message code="patron.dashboard.denied" />: <acme:print
+					value="${dashboard.getPatronagesDenied()}" /></li>
+		</ul>
+		<ul class="statistics">
+			<li style="list-style: none;"><strong><acme:message
+						code="patron.dashboard.average" /></strong></li>
+			<li>&euro; <fmt:formatNumber type="number" maxFractionDigits="2"
+					value="${averageProposedEUR}" />  / $ <fmt:formatNumber
+					type="number" maxFractionDigits="2" value="${averageProposedUSD}" />
+				 / &#163; <fmt:formatNumber type="number" maxFractionDigits="2"
+					value="${averageProposedGBP}" /> </li>
+			<li>&euro; <fmt:formatNumber type="number" maxFractionDigits="2"
+					value="${averageAcceptedEUR}" />  / $ <fmt:formatNumber
+					type="number" maxFractionDigits="2" value="${averageAcceptedUSD}" />
+				 / &#163; <fmt:formatNumber type="number" maxFractionDigits="2"
+					value="${averageAcceptedGBP}" /> </li>
+			<li>&euro; <fmt:formatNumber type="number" maxFractionDigits="2"
+					value="${averageDeniedEUR}" />  / $ <fmt:formatNumber
+					type="number" maxFractionDigits="2" value="${averageDeniedUSD}" />
+				 / &#163; <fmt:formatNumber type="number" maxFractionDigits="2"
+					value="${averageDeniedGBP}" /> </li>
+		</ul>
+		<ul class="statistics">
+			<li style="list-style: none;"><strong><acme:message
+						code="patron.dashboard.deviation" /></strong></li>
+			<li>&euro; <fmt:formatNumber type="number" maxFractionDigits="2"
+					value="${deviationProposedEUR}" />  / $ <fmt:formatNumber
+					type="number" maxFractionDigits="2" value="${deviationProposedUSD}" />
+				 / &#163; <fmt:formatNumber type="number" maxFractionDigits="2"
+					value="${deviationProposedGBP}" /> </li>
+			<li>&euro; <fmt:formatNumber type="number" maxFractionDigits="2"
+					value="${deviationAcceptedEUR}" />  / $ <fmt:formatNumber
+					type="number" maxFractionDigits="2" value="${deviationAcceptedUSD}" />
+				 / &#163; <fmt:formatNumber type="number" maxFractionDigits="2"
+					value="${deviationAcceptedGBP}" /> </li>
+			<li>&euro; <fmt:formatNumber type="number" maxFractionDigits="2"
+					value="${deviationDeniedEUR}" />  / $ <fmt:formatNumber
+					type="number" maxFractionDigits="2" value="${deviationDeniedUSD}" />
+				 / &#163; <fmt:formatNumber type="number" maxFractionDigits="2"
+					value="${deviationDeniedGBP}" /> </li>
+		</ul>
+		<ul class="statistics">
+			<li style="list-style: none;"><strong><acme:message
+						code="patron.dashboard.max" /></strong></li>
+			<li>&euro; <fmt:formatNumber type="number" maxFractionDigits="2"
+					value="${maxProposedEUR}" />  / $ <fmt:formatNumber
+					type="number" maxFractionDigits="2" value="${maxProposedUSD}" /> 
+				/ &#163; <fmt:formatNumber type="number" maxFractionDigits="2"
+					value="${maxProposedGBP}" /> </li>
+			<li>&euro; <fmt:formatNumber type="number" maxFractionDigits="2"
+					value="${maxAcceptedEUR}" />  / $ <fmt:formatNumber
+					type="number" maxFractionDigits="2" value="${maxAcceptedUSD}" /> 
+				/ &#163; <fmt:formatNumber type="number" maxFractionDigits="2"
+					value="${maxAcceptedGBP}" /> </li>
+			<li> &euro; <fmt:formatNumber type="number" maxFractionDigits="2"
+					value="${maxDeniedEUR}" />  / $ <fmt:formatNumber
+					type="number" maxFractionDigits="2" value="${maxDeniedUSD}" />  /
+				&#163; <fmt:formatNumber type="number" maxFractionDigits="2"
+					value="${maxDeniedGBP}" /> </li>
+		</ul>
+		<ul class="statistics">
+			<li style="list-style: none;"><strong><acme:message
+						code="patron.dashboard.min" /></strong></li>
+			<li>&euro; <fmt:formatNumber type="number" maxFractionDigits="2"
+					value="${minProposedEUR}" />  / $ <fmt:formatNumber
+					type="number" maxFractionDigits="2" value="${minProposedUSD}" /> 
+				/ &#163; <fmt:formatNumber type="number" maxFractionDigits="2"
+					value="${minProposedGBP}" /> </li>
+			<li>&euro; <fmt:formatNumber type="number" maxFractionDigits="2"
+					value="${minAcceptedEUR}" />  / $ <fmt:formatNumber
+					type="number" maxFractionDigits="2" value="${minAcceptedUSD}" /> 
+				/ &#163; <fmt:formatNumber type="number" maxFractionDigits="2"
+					value="${minAcceptedGBP}" /> </li>
+			<li>&euro; <fmt:formatNumber type="number" maxFractionDigits="2"
+					value="${minDeniedEUR}" />  / $ <fmt:formatNumber
+					type="number" maxFractionDigits="2" value="${minDeniedUSD}" />  /
+				&#163; <fmt:formatNumber type="number" maxFractionDigits="2"
+					value="${minDeniedGBP}" /> </li>
 		</ul>
 	</div>
 </acme:form>
@@ -228,4 +317,31 @@
 		   	data : minimumValues,
 		   });
 	}
+	function getCookie(key) {
+	    var cookieArr = document.cookie.split(";");
+	    for(var i = 0; i < cookieArr.length; i++) {
+	        var cookiePair = cookieArr[i].split("=");
+	        if(key == cookiePair[0].trim()) {
+	            return decodeURIComponent(cookiePair[1]);
+	        }
+	    }
+	    return null;
+	}
+	
+
+	function displayByLanguage(language){
+		
+		const spanishDivs = document.getElementsByClassName("es");
+		const englishDivs = document.getElementsByClassName("en");
+		var divsToHide= spanishDivs;
+		
+		if(language=="es"){
+			divsToHide= englishDivs;
+		}
+		
+		for (let i = 0; i < divsToHide.length; i++) {
+			divsToHide[i].style.display = "none";
+		}
+	}
+	displayByLanguage(getCookie("language"));
 </script>
