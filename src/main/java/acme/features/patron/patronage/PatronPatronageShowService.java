@@ -4,8 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.Patronage;
+import acme.features.authenticated.moneyExchange.AuthenticatedMoneyExchangePerformService;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
+import acme.framework.datatypes.Money;
 import acme.framework.services.AbstractShowService;
 import acme.roles.Inventor;
 import acme.roles.Patron;
@@ -47,6 +49,16 @@ public class PatronPatronageShowService implements AbstractShowService<Patron, P
 			"startedAt", "finishedAt", "patron", "inventor");
 		request.unbind(inventor, model, "company", "statement");
 		request.unbind(inventor.getUserAccount(), model, "username");
+		AuthenticatedMoneyExchangePerformService moneyExchange= new AuthenticatedMoneyExchangePerformService();
+		
+		Money money =entity.getBudget();
+		Money moneyEUR = moneyExchange.computeMoneyExchange(money, "EUR").getTarget();
+		Money moneyUSD = moneyExchange.computeMoneyExchange(money, "USD").getTarget();
+		Money moneyGBP = moneyExchange.computeMoneyExchange(money, "GBP").getTarget();
+		
+		model.setAttribute("budgetEUR", moneyEUR);
+		model.setAttribute("budgetUSD", moneyUSD);
+		model.setAttribute("budgetGBP", moneyGBP);
 		model.setAttribute("inventorLink", inventor.getMoreInfo());
 		
 	}
