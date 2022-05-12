@@ -32,10 +32,11 @@ public class SpamDetector {
 	}
 	
 	public boolean detectSpam(String text) {
-		Double weakSpam=0.; // Falta hacer los ratios, la cuenta de cuantas palabras de spam ya está
-		Double strongSpam=0.;
-		Integer weakWordsNumber=0;
-		Integer strongWordsNumber=0;
+		Double weakSpam; 
+		Double strongSpam;
+		Double weakWordsNumber=0.;
+		Double strongWordsNumber=0.;
+		Integer numberOfWords=text.split(" ").length;
 		
 		String[] textSplitted= text.split(" ");
 		String word1;
@@ -60,10 +61,12 @@ public class SpamDetector {
 					weakWordsNumber++;
 			}
 		}
+		weakSpam= weakWordsNumber/numberOfWords;
+		strongSpam= strongWordsNumber/numberOfWords;
 		
-		if(weakSpam>this.weakSpamThreshold)
+		if(weakSpam > (this.weakSpamThreshold/100))
 			return true;
-		if(strongSpam>this.strongSpamThreshold)
+		if(strongSpam > (this.strongSpamThreshold))
 			return true;
 		
 		return false;
