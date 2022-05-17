@@ -13,6 +13,18 @@ import acme.roles.Inventor;
 public class InventorToolkitController extends AbstractController<Inventor, Toolkit> {
 
 	@Autowired
+	protected InventorToolkitCreateService 		createService;
+	
+	@Autowired
+	protected InventorToolkitUpdateService		updateService;
+	
+	@Autowired
+	protected InventorToolkitDeleteService		deleteService;
+	
+	@Autowired
+	protected InventorToolkitPublishService		publishService;
+	
+	@Autowired
 	protected InventorToolkitListMineService	listMineService;
 
 	@Autowired
@@ -24,6 +36,10 @@ public class InventorToolkitController extends AbstractController<Inventor, Tool
 
 	@PostConstruct
 	protected void initialise() {
+		super.addCommand("create", this.createService);
+		super.addCommand("update", this.updateService);
+		super.addCommand("delete", this.deleteService);
+		super.addCommand("publish", this.publishService);
 		super.addCommand("show", this.showService);
 		super.addCommand("list-mine", "list", this.listMineService);
 	}
