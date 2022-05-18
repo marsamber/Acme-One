@@ -16,4 +16,21 @@
 		<acme:input-option code="COMPONENT" value="COMPONENT" selected="${type == 'COMPONENT'}"/>
 	</acme:input-select>
 	
+	<jstl:choose>
+		<jstl:when test="${acme:anyOf(command, 'show, update, delete, publish') && published == false }">
+			<h2><acme:message code="inventor.item.form.label.info"/></h2> 
+	 		<acme:input-textbox readonly="true" code="inventor.item.form.label.fullName" path="inventorFullName"/>
+    		<acme:input-textbox readonly="true" code="inventor.item.form.label.name" path="inventorName"/>
+    		<acme:input-textbox readonly="true" code="inventor.item.form.label.surname" path="inventorSurname"/>
+    		<acme:input-email readonly="true" code="inventor.item.form.label.email" path="inventorEmail"/>
+		
+			<acme:submit code="inventor.item.form.button.update" action="/inventor/item/update?id=${id}"/>
+			<acme:submit code="inventor.item.form.button.delete" action="/inventor/item/delete"/>
+			<acme:submit code="inventor.item.form.button.publish" action="/inventor/item/publish"/>
+		</jstl:when>
+		<jstl:when test="${command == 'create'}">
+			<acme:submit code="inventor.item.form.button.create" action="/inventor/item/create"/>
+		</jstl:when>
+	</jstl:choose> 
+	
 </acme:form>

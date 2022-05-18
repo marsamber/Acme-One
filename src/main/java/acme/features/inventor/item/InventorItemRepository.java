@@ -32,7 +32,7 @@ public interface InventorItemRepository extends AbstractRepository {
 	@Query("SELECT acceptedCurrencies FROM SystemConfiguration")
 	String getAcceptedCurrencies();
 	
-	@Query("SELECT c FROM Item where c.code =:code")
+	@Query("SELECT i FROM Item i WHERE i.code = :code")
 	Item findComponentByCode(String code);
 
 }

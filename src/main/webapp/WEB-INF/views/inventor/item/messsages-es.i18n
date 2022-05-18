@@ -21,3 +21,14 @@ inventor.item.form.label.type = Tipo:
 inventor.item.list.label.name = Nombre
 inventor.item.list.label.code = Código
 inventor.item.list.label.type = Tipo
+
+inventor.item.form.button.create = Crear
+inventor.item.form.button.update = Actualizar
+inventor.item.form.button.delete = Borrar
+inventor.item.form.button.publish = Publicar
+
+
+inventor.item.form.error.code.existingItem = Este código no está disponible
+inventor.item.form.error.negative = El presupuesto debe ser positivo
+inventor.item.form.error.invalidCurrency = Divisa no valida
+

@@ -17,7 +17,12 @@ inventor.item.form.label.retailPrice = RetailPrice:
 inventor.item.form.label.link = Link:
 inventor.item.form.label.type = Type:
 
+inventor.item.form.button.create = Create
+inventor.item.form.button.update = Update
+inventor.item.form.button.delete = Delete
+inventor.item.form.button.publish = Publish
 
-inventor.item.list.label.name = Name
-inventor.item.list.label.code = Code
-inventor.item.list.label.type = Type
+
+inventor.item.form.error.code.existingItem = This code is occupated
+inventor.item.form.error.negative = Money must be positive
+inventor.item.form.error.invalidCurrency = Invalid currency
