@@ -14,22 +14,23 @@ import acme.framework.services.AbstractUpdateService;
 import acme.roles.Inventor;
 
 @Service
-public class InventorItemPublishedService implements AbstractUpdateService<Inventor, Item> {
-
+public class InventorItemUpdateService implements AbstractUpdateService<Inventor, Item> {
+	
 	@Autowired
 	protected InventorItemRepository repository;
 
 
 	@Override
 	public boolean authorise(final Request<Item> request) {
+		assert request != null;
 
-		final boolean result;
-		int itemId;
+		boolean result;
+		int masterId;
 		Item item;
 		Inventor inventor;
 
-		itemId = request.getModel().getInteger("id");
-		item = this.repository.findById(itemId);
+		masterId = request.getModel().getInteger("id");
+		item = this.repository.findById(masterId);
 		inventor = item.getInventor();
 		result = !item.isPublished() && request.isPrincipal(inventor);
 		return result;
@@ -49,7 +50,6 @@ public class InventorItemPublishedService implements AbstractUpdateService<Inven
 		assert entity != null;
 		assert model != null;
 		request.unbind(entity, model, "name", "code", "technology", "description", "price", "type", "link","isPublished");
-
 	}
 
 	@Override
@@ -63,6 +63,7 @@ public class InventorItemPublishedService implements AbstractUpdateService<Inven
 		result = this.repository.findById(id);
 
 		return result;
+
 	}
 
 	@Override
@@ -86,7 +87,6 @@ public class InventorItemPublishedService implements AbstractUpdateService<Inven
 			errors.state(request, acceptedCurrencies.contains(entity.getRetailPrice().getCurrency()), "price", "inventor.item.form.error.invalidCurrency");
 		}
 
-
 	}
 
 	@Override
@@ -94,7 +94,6 @@ public class InventorItemPublishedService implements AbstractUpdateService<Inven
 		assert request != null;
 		assert entity != null;
 
-		entity.setPublished(true);
 		this.repository.save(entity);
 	}
 
