@@ -36,6 +36,7 @@ inventor.item.form.button.publish = Publicar
 inventor.item.form.error.code.existingItem = Este código no está disponible
 inventor.item.form.error.negative = El presupuesto debe ser positivo
 inventor.item.form.error.invalidCurrency = Divisa no valida
+inventor.item.form.error.spam = Este componente o herramienta es considerado como spam
 
 
 inventor.item.list.label.name = Nombre

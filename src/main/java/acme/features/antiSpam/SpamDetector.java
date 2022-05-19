@@ -18,12 +18,21 @@ public class SpamDetector {
 	private Double weakSpamThreshold;
 	
 	public SpamDetector(){
+
 		SystemConfiguration sysConfiguration= this.repository.findTheSystemConfiguration();
 		this.strongSpamWords= this.getListOfWords(sysConfiguration.getStrongSpamTerms());
 		this.weakSpamWords= this.getListOfWords(sysConfiguration.getWeakSpamTerms());
 		this.strongSpamThreshold= sysConfiguration.getStrongSpamThreshold();
 		this.weakSpamThreshold= sysConfiguration.getWeakSpamThreshold();
-	
+		
+	}
+	public SpamDetector(SystemConfiguration sysConfiguration){
+		
+		this.strongSpamWords= this.getListOfWords(sysConfiguration.getStrongSpamTerms());
+		this.weakSpamWords= this.getListOfWords(sysConfiguration.getWeakSpamTerms());
+		this.strongSpamThreshold= sysConfiguration.getStrongSpamThreshold();
+		this.weakSpamThreshold= sysConfiguration.getWeakSpamThreshold();
+		
 	}
 	
 	private List<String> getListOfWords(String words) {
@@ -36,6 +45,7 @@ public class SpamDetector {
 		Double strongSpam;
 		Double weakWordsNumber=0.;
 		Double strongWordsNumber=0.;
+		text = text.replaceAll("\\s{2,}", " ").trim();
 		Integer numberOfWords=text.split(" ").length;
 		
 		String[] textSplitted= text.split(" ");
@@ -45,8 +55,8 @@ public class SpamDetector {
 		for(int i=0; i<(textSplitted.length-1); i++) {
 			word1=textSplitted[i].trim();
 			word2=textSplitted[i+1].trim();
-			word1And2=(word1+word2).trim();
-			
+			word1And2=(word1+word2).replaceAll("\\s+","");
+			System.out.println(word1And2);
 			
 			if(this.checkWord(word1, this.strongSpamWords) || this.checkWord(word1And2, this.strongSpamWords)) {
 				strongWordsNumber++;
@@ -64,9 +74,10 @@ public class SpamDetector {
 		weakSpam= weakWordsNumber/numberOfWords;
 		strongSpam= strongWordsNumber/numberOfWords;
 		
+		
 		if(weakSpam > (this.weakSpamThreshold/100))
 			return true;
-		if(strongSpam > (this.strongSpamThreshold))
+		if(strongSpam > (this.strongSpamThreshold/100))
 			return true;
 		
 		return false;
@@ -74,7 +85,7 @@ public class SpamDetector {
 	
 	private boolean checkWord(String word, List<String> terms) {
 		for(int i=0; i<terms.size(); i++) {
-			if(terms.get(i).trim().equals(word))
+			if(terms.get(i).replaceAll("\\s+","").equals(word))
 				return true;
 		}
 		return false;

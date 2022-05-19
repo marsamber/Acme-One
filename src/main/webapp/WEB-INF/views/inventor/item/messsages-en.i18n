@@ -32,6 +32,7 @@ inventor.item.form.button.publish = Publish
 inventor.item.form.error.code.existingItem = This code is occupated
 inventor.item.form.error.negative = Money must be positive
 inventor.item.form.error.invalidCurrency = Invalid currency
+inventor.item.form.error.spam = This tool or component is considered as spam
 
 
 inventor.item.list.label.name = Name
