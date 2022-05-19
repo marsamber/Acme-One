@@ -12,7 +12,9 @@
 	</acme:input-select>
 	<acme:input-textbox code="patron.patronage.form.label.code" path="code"/>		
 	<acme:input-textarea code="patron.patronage.form.label.legalStuff" path="legalStuff"/>	
-	<acme:input-money code="patron.patronage.form.label.budget" path="budget"/>
+	<acme:input-money code="patron.patronage.form.label.budget" path="budgetEUR"/>
+	<acme:input-money code="" path="budgetUSD"/>
+	<acme:input-money code="" path="budgetGBP"/>
 	<acme:input-url code="patron.patronage.form.label.link" path="link"/>	
 	<acme:input-moment code="patron.patronage.form.label.createdAt" path="createdAt"/>
 	<acme:input-moment code="patron.patronage.form.label.startedAt" path="startedAt"/>

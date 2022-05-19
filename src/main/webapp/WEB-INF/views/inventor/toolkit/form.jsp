@@ -8,7 +8,9 @@
 
 	<acme:input-textbox code="inventor.toolkit.form.label.title" path="title"/>
 	<acme:input-textbox code="inventor.toolkit.form.label.code" path="code"/>		
-	<acme:input-money code="inventor.toolkit.form.label.totalPrice" path="totalPrice"/>		
+	<acme:input-money code="inventor.toolkit.form.label.totalPrice" path="totalPriceEUR"/>		
+	<acme:input-money code="" path="totalPriceUSD"/>	
+	<acme:input-money code="" path="totalPriceGBP"/>
 	<acme:input-textarea code="inventor.toolkit.form.label.description" path="description"/>>
 	<acme:input-textarea code="inventor.toolkit.form.label.assemblyNotes" path="assemblyNotes"/>
 	<acme:input-url code="inventor.toolkit.form.label.link" path="link"/>	
