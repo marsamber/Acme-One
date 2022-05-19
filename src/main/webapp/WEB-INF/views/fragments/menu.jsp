@@ -34,6 +34,7 @@
 			<acme:menu-suboption code="master.menu.any.item.list-all-components" action="/any/item/list-all-components"/>
 			<acme:menu-suboption code="master.menu.any.list-chirps" action="/any/chirp/list"/>	
 			<acme:menu-suboption code="master.menu.user-account.announcements" action="/authenticated/announcement/list-recent"/>
+			<acme:menu-suboption code="master.menu.administrator.announcements" action="/administrator/announcement/create"/>
 			<acme:menu-suboption code="master.menu.administrator.user-accounts" action="/administrator/user-account/list"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.populate-initial" action="/administrator/populate-initial"/>
