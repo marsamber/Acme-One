@@ -14,6 +14,9 @@ inventor.item.form.label.code = Código:
 inventor.item.form.label.technology = Tecnología:
 inventor.item.form.label.description = Descripción:
 inventor.item.form.label.retailPrice = Precio al por menor:
+inventor.item.form.label.retailPriceEUR = Precio en EUR: 
+inventor.item.form.label.retailPriceUSD = Precio en USD: 
+inventor.item.form.label.retailPriceGBP = Precio en GBP: 
 inventor.item.form.label.link = Link:
 inventor.item.form.label.type = Tipo:
 inventor.item.form.label.published = ¿Publicado?
@@ -41,6 +44,9 @@ inventor.item.list.label.code = Código
 inventor.item.list.label.technology = Tecnología
 inventor.item.list.label.description = Descripción
 inventor.item.list.label.retailPrice = Precio
+inventor.item.list.label.retailPriceEUR = Precio en EUR: 
+inventor.item.list.label.retailPriceUSD = Precio en USD: 
+inventor.item.list.label.retailPriceGBP = Precio en GBP: 
 inventor.item.list.label.type = Tipo
 
 

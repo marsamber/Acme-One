@@ -16,6 +16,9 @@ any.toolkit.form.label.description = Description:
 any.toolkit.form.label.assemblyNotes = Assembly Notes:
 any.toolkit.form.label.link = Link:
 any.toolkit.form.label.totalPrice = Total Price:
+any.toolkit.form.label.totalPriceEUR = Total Price in EUR: 
+any.toolkit.form.label.totalPriceUSD = Total Price in USD: 
+any.toolkit.form.label.totalPriceGBP = Total Price in GBP: 
 any.toolkit.form.button.items = Items
 
 

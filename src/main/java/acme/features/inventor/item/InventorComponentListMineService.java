@@ -7,8 +7,10 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.Item;
 import acme.entities.Item.Type;
+import acme.features.authenticated.moneyExchange.AuthenticatedMoneyExchangePerformService;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
+import acme.framework.datatypes.Money;
 import acme.framework.entities.Principal;
 import acme.framework.services.AbstractListService;
 import acme.roles.Inventor;
@@ -57,6 +59,17 @@ public class InventorComponentListMineService implements AbstractListService<Inv
 		assert model != null;
 
 		request.unbind(entity, model, "name", "code", "technology", "description", "retailPrice", "type", "published", "link");
+		
+		final AuthenticatedMoneyExchangePerformService moneyExchange= new AuthenticatedMoneyExchangePerformService();
+		
+		final Money money =entity.getRetailPrice();
+		final Money moneyEUR = moneyExchange.computeMoneyExchange(money, "EUR").getTarget();
+		final Money moneyUSD = moneyExchange.computeMoneyExchange(money, "USD").getTarget();
+		final Money moneyGBP = moneyExchange.computeMoneyExchange(money, "GBP").getTarget();
+		
+		model.setAttribute("retailPriceEUR", moneyEUR);
+		model.setAttribute("retailPriceUSD", moneyUSD);
+		model.setAttribute("retailPriceGBP", moneyGBP);
 	}
 
 }

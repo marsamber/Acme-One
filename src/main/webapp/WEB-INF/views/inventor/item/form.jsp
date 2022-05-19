@@ -8,8 +8,11 @@
 	<acme:input-textbox code="inventor.item.form.label.name" path="name"/>
 	<acme:input-textbox code="inventor.item.form.label.code" path="code"/>		
 	<acme:input-textbox code="inventor.item.form.label.technology" path="technology"/>	
-	<acme:input-textbox  code="inventor.item.form.label.description" path="description"/>
+	<acme:input-textbox code="inventor.item.form.label.description" path="description"/>
 	<acme:input-money code="inventor.item.form.label.retailPrice" path="retailPrice"/>
+	<acme:input-money readonly="true" code="inventor.item.form.label.retailPriceEUR" path="retailPriceEUR"/>
+	<acme:input-money readonly="true" code="inventor.item.form.label.retailPriceUSD" path="retailPriceUSD"/>
+	<acme:input-money readonly="true" code="inventor.item.form.label.retailPriceGBP" path="retailPriceGBP"/>
 	<acme:input-url code="inventor.item.form.label.link" path="link"/>	
 	<acme:input-select readonly="true" code="inventor.item.form.label.type" path="type">
 		<acme:input-option code="TOOL" value="TOOL" selected="${type == 'TOOL'}"/>
