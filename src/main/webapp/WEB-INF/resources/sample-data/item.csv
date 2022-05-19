@@ -1,4 +1,4 @@
-key,name,code,technology,description,retailPrice,link,type,key:inventor,isPublished
+key,name,code,technology,description,retailPrice,link,type,key:inventor,published
 item-01,1,LDU-395-A,Medical,"Lorem ipsum dolor sit amet,consectetur adipiscing elit. Ut ultrices dui sit amet turpis aliquet,at finibus sem gravida. Integer dolor augue,bibendum nec arcu in,blandit sodales elit. Phasellus suscipit eleifend ante.",EUR 5,http://example.com/,TOOL,inventor-01,false
 item-02,02,TRC-487-G,Electrical,"Lorem ipsum dolor sit amet,consectetur adipiscing elit. Ut ultrices dui sit amet turpis aliquet,at finibus sem gravida. Integer dolor augue,bibendum nec arcu in,blandit sodales elit. Phasellus suscipit eleifend ante.",EUR 20,null,TOOL,inventor-02,false
 item-03,A,JDJ-369-X,Energy,"Lorem ipsum dolor sit amet,consectetur adipiscing elit. Ut ultrices dui sit amet turpis aliquet,at finibus sem gravida. Integer dolor augue,bibendum nec arcu in,blandit sodales elit. Phasellus suscipit eleifend ante.",EUR 17.75,http://example.com/,COMPONENT,inventor-03,false

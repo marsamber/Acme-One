@@ -40,14 +40,14 @@ public class InventorItemPublishedService implements AbstractUpdateService<Inven
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
-		request.bind(entity, errors, "name", "code", "technology", "description", "retailPrice", "type", "link","isPublished");
+		request.bind(entity, errors, "name", "code", "technology", "description", "retailPrice", "type", "link");
 	}
 	@Override
 	public void unbind(final Request<Item> request, final Item entity, final Model model) {
 		assert request != null;
 		assert entity != null;
 		assert model != null;
-		request.unbind(entity, model, "name", "code", "technology", "description", "retailPrice", "type", "link","isPublished");
+		request.unbind(entity, model, "name", "code", "technology", "description", "retailPrice", "type", "link");
 	}
 
 

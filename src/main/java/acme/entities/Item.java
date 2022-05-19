@@ -60,7 +60,7 @@ public class Item extends AbstractEntity {
 	@ManyToOne
 	protected Inventor inventor;
 	
-	protected boolean isPublished;
+	protected boolean published;
 		
 	@AssertTrue(message="Retail price must be positive")
 	private boolean isMoneyPositive() {

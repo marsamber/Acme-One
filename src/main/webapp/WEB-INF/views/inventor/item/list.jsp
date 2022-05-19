@@ -5,7 +5,7 @@
 
 <acme:list>
 	<acme:list-column code="inventor.item.list.label.name" path="name"/>
-	<acme:list-column code="inventor.item.list.label.published" path="isPublished" />
+	<acme:list-column code="inventor.item.list.label.published" path="published" />
 	<acme:list-column code="inventor.item.list.label.code" path="code"/>
 	<acme:list-column code="inventor.item.list.label.technology" path="technology"/>
 	<acme:list-column code="inventor.item.list.label.description" path="description"/>
