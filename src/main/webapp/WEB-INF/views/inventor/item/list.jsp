@@ -9,7 +9,10 @@
 	<acme:list-column code="inventor.item.list.label.code" path="code"/>
 	<acme:list-column code="inventor.item.list.label.technology" path="technology"/>
 	<acme:list-column code="inventor.item.list.label.description" path="description"/>
-	<acme:list-column code="inventor.item.list.label.retailPrice" path="retailPrice"/>
+	<acme:list-column code="inventor.item.list.label.retailPriceEUR" path="retailPriceEUR"/>
+	<acme:list-column code="inventor.item.list.label.retailPriceUSD" path="retailPriceUSD"/>
+	<acme:list-column code="inventor.item.list.label.retailPriceGBP" path="retailPriceGBP"/>
+	
 	<acme:list-column code="inventor.item.list.label.link" path="link"/>
 </acme:list>
 <acme:button code="inventor.item.form.button.create" action="/inventor/item/create"/>

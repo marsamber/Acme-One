@@ -20,6 +20,7 @@ inventor.item.form.label.published = Published?
 inventor.item.form.label.false = No
 inventor.item.form.label.true = Yes
 
+
 inventor.item.form.button.create = Create
 inventor.item.form.button.update = Update
 inventor.item.form.button.delete = Delete
@@ -35,6 +36,6 @@ inventor.item.list.label.published = Published
 inventor.item.list.label.code = Code
 inventor.item.list.label.technology = Technology
 inventor.item.list.label.description = Description
-inventor.item.list.label.price = Price
+inventor.item.list.label.retailPrice = Price
 inventor.item.list.label.type = Type
 inventor.item.list.label.link = Link
