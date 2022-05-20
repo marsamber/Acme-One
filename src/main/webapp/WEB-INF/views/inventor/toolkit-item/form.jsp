@@ -8,7 +8,7 @@
 	<acme:input-textbox code="inventor.toolkit-item.form.label.name"
 		path="item.name" />
 	<acme:input-textbox code="inventor.toolkit-item.form.label.code"
-		path="item.code" />
+		path="item.code"  placeholder="XXX-000-X" />
 	<acme:input-textbox code="inventor.toolkit-item.form.label.technology"
 		path="item.technology" />
 	<acme:input-textbox code="inventor.toolkit-item.form.label.description"

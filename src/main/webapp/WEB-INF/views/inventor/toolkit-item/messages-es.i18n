@@ -22,6 +22,11 @@ inventor.toolkit-item.form.button.delete = Eliminar
 inventor.toolkit-item.form.button.publish = Publicar
 inventor.toolkit-item.form.button.create = Crear
 
+inventor.toolkit-item.form.error.code.invalid = Código inválido
+inventor.toolkit-item.form.error.code.existingItem = Código duplicado
+inventor.toolkit-item.form.error.negative = El precio debe ser positivo
+inventor.toolkit-item.form.error.invalidCurrency = Divisa inválida
+
 anonymous.toolkit-item.list.label.name = Nombre
 anonymous.toolkit-item.list.label.code = Código
 anonymous.toolkit-item.list.label.type = Tipo

@@ -64,6 +64,13 @@ public class InventorToolkitCreateService implements AbstractCreateService<Inven
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
+		
+		if (!errors.hasErrors("code")) {
+			Toolkit existing;
+
+			existing = this.repository.findToolkitByCode(entity.getCode());
+			errors.state(request, existing == null || existing.getId() == entity.getId(), "code", "inventor.toolkit.form.error.code.existingItem");
+		}
 
 	}
 

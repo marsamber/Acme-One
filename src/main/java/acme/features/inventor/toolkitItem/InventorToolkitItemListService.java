@@ -39,7 +39,7 @@ assert request != null;
 		principalId = request.getPrincipal().getActiveRoleId();
 		for(final ToolkitItem toolkitItem: toolkitItems) {
 			result = toolkitItems != null && toolkitItem.getItem().getInventor().getId() == principalId;
-			if(result && toolkit != null && Boolean.FALSE.equals(toolkit.getDraftMode())) return true;
+			if(result && toolkit != null && Boolean.TRUE.equals(toolkit.getDraftMode())) return true;
 		}
 		
 		if( toolkitItems == null || toolkitItems.isEmpty()) return true;
