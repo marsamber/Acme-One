@@ -91,7 +91,7 @@ public class InventorToolkitItemUpdateService implements AbstractUpdateService<I
 		assert entity != null;
 		assert errors != null;
 		
-		errors.state(request, !entity.getItem().getCode().matches("^[A-Z]{3}-[0-9]{3}(-[A-Z])?$"), "item.code", "inventor.toolkit-item.form.error.code.invalid");
+		errors.state(request, entity.getItem().getCode().matches("^[A-Z]{3}-[0-9]{3}(-[A-Z])?$"), "item.code", "inventor.toolkit-item.form.error.code.invalid");
 		
 		if (!errors.hasErrors("item.code")) {
 			Item existing;
