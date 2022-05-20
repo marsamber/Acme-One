@@ -18,7 +18,7 @@
 		<acme:input-option code="TOOL" value="TOOL" selected="${type == 'TOOL'}"/>
 		<acme:input-option code="COMPONENT" value="COMPONENT" selected="${type == 'COMPONENT'}"/>
 	</acme:input-select>
-	<acme:input-textbox readonly="true" code="inventor.item.form.label.published" path="published"/>
+	
 	
 	
 	<jstl:choose>	 
