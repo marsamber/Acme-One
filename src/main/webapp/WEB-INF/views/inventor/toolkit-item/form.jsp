@@ -31,8 +31,6 @@
 				path="item.link" readonly="true" />
 		</jstl:when>
 		<jstl:when test="${command == 'create' }">
-		<!--<acme:input-textbox code="inventor.toolkit-item.form.label.code"
-				path="item.code" placeholder="XXX-000-X" />-->
 			<acme:input-select code="inventor.toolkit-item.form.label.items"
 				path="item.code">
 				<c:forEach var="code" items="${codes}">
