@@ -61,8 +61,7 @@ public class InventorToolkitCreateTest extends TestHarness{
 			super.signIn("inventor1", "inventor1");
 
 			super.clickOnMenu("Inventor", "List My Toolkits");
-			super.clickOnButton("Create");
-			super.checkFormExists();
+			super.checkListingExists();
 
 			super.clickOnButton("Create");
 			super.fillInputBoxIn("code", code);
