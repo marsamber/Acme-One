@@ -12,9 +12,10 @@
 	</acme:input-select>
 	<acme:input-textbox code="inventor.patronage.form.label.code" path="code"/>		
 	<acme:input-textarea code="inventor.patronage.form.label.legalStuff" path="legalStuff"/>	
-	<acme:input-money code="inventor.patronage.form.label.budget" path="budgetEUR"/>
-	<acme:input-money code="" path="budgetUSD"/>
-	<acme:input-money code="" path="budgetGBP"/>
+	<acme:input-money code="inventor.patronage.form.label.budget" path="budget"/>
+	<acme:input-money readonly="true" code="inventor.patronage.form.label.budgetEUR" path="budgetEUR"/>
+	<acme:input-money readonly="true" code="inventor.patronage.form.label.budgetUSD" path="budgetUSD"/>
+	<acme:input-money readonly="true" code="inventor.patronage.form.label.budgetGBP" path="budgetGBP"/>
 	<acme:input-url code="inventor.patronage.form.label.link" path="link"/>	
 	<acme:input-moment code="inventor.patronage.form.label.createdAt" path="createdAt"/>
 	<acme:input-moment code="inventor.patronage.form.label.startedAt" path="startedAt"/>
