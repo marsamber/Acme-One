@@ -2,6 +2,7 @@
 
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="acme" uri="urn:jsptagdir:/WEB-INF/tags"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <acme:form>
 
@@ -30,15 +31,15 @@
 				path="item.link" readonly="true" />
 		</jstl:when>
 		<jstl:when test="${command == 'create' }">
-		<acme:input-textbox code="inventor.toolkit-item.form.label.code"
-				path="item.code" placeholder="XXX-000-X" />
-			<!--<acme:input-select code="inventor.toolkit-item.form.label.items"
-				path="item">
-				<acme:input-option code="TOOL" value="TOOL"
-					selected="${status == 'TOOL'}" />
-				<acme:input-option code="COMPONENT" value="COMPONENT"
-					selected="${status == 'COMPONENT'}" />
-			</acme:input-select>-->
+		<!--<acme:input-textbox code="inventor.toolkit-item.form.label.code"
+				path="item.code" placeholder="XXX-000-X" />-->
+			<acme:input-select code="inventor.toolkit-item.form.label.items"
+				path="item.code">
+				<c:forEach var="code" items="${codes}">
+				<acme:input-option code="${code}" value="${code}"
+					selected="${status == code}" />
+				</c:forEach>
+			</acme:input-select>
 		</jstl:when>
 	</jstl:choose>
 	<acme:input-url code="inventor.toolkit-item.form.label.units"

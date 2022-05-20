@@ -1,7 +1,9 @@
 
 package acme.features.inventor.toolkitItem;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -88,12 +90,12 @@ public class InventorToolkitItemCreateService implements AbstractCreateService<I
 
 		String code;
 		Item item;
-
+		
 		code = request.getModel().getString("item.code");
 		item = this.repository.findItemByCode(code);
 
 		entity.setItem(item);
-
+		
 		request.bind(entity, errors, "item.code", "units");
 	}
 
@@ -121,9 +123,14 @@ public class InventorToolkitItemCreateService implements AbstractCreateService<I
 		assert entity != null;
 		assert model != null;
 
+
+		final List<String> codes = new ArrayList<>();
+		this.itemRepository.findAllItems().stream().forEach(x->codes.add(x.getCode()));
+		
 		request.unbind(entity, model, "item.code", "units");
 		model.setAttribute("toolkitId", request.getModel().getAttribute("toolkitId"));
 		model.setAttribute("draftMode", entity.getToolkit().getDraftMode());
+		model.setAttribute("codes", codes);
 
 	}
 
