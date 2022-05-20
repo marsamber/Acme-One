@@ -70,11 +70,13 @@ public class InventorItemDeleteService implements AbstractDeleteService<Inventor
 		assert errors != null;
 		
 		if (!errors.hasErrors()){
-			List<Toolkit> toolkits = this.repository.findAllToolkits();
-			for(int i = 0;i<toolkits.size();i++){
-				List<Item> itemToolkit = toolkits.get(i).getItems();
-				for(int j=0; j<itemToolkit.size();j++)
-				errors.state(request, itemToolkit.get(j).getId() == entity.getId(), "code", "inventor.item.form.error.code.itemToolkit");
+			Collection<Toolkit> toolkits = this.repository.findAllToolkits();
+			Iterator<Toolkit> it = toolkits.iterator();
+			
+			while(it.hasNext()){
+				Collection<Item> itemToolkit = this.repository.findAllItemsToolkit(it.next().getId());
+				while(itemToolkit.hasNext())
+					errors.state(request, itemToolkit.next().getId() == entity.getId(), "code", "inventor.item.form.error.code.itemToolkit");
 			}
 		}
 	}
