@@ -17,9 +17,18 @@ inventor.toolkit-item.form.label.retailPrice = RetailPrice:
 inventor.toolkit-item.form.label.link = Link:
 inventor.toolkit-item.form.label.type = Type:
 inventor.toolkit-item.form.label.units = Units:
+inventor.toolkit-item.form.button.update = Update
+inventor.toolkit-item.form.button.delete = Delete
+inventor.toolkit-item.form.button.publish = Publish
+inventor.toolkit-item.form.button.create = Create
 
+inventor.toolkit-item.form.error.code.invalid = Code invalid
+inventor.toolkit-item.form.error.code.existingItem = This code is occupated
+inventor.toolkit-item.form.error.negative = Money must be positive
+inventor.toolkit-item.form.error.invalidCurrency = Invalid currency
 
 inventor.toolkit-item.list.label.name = Name
 inventor.toolkit-item.list.label.code = Code
 inventor.toolkit-item.list.label.type = Type
 inventor.toolkit-item.list.label.units = Units
+inventor.toolkit-item.list.button.create = Create

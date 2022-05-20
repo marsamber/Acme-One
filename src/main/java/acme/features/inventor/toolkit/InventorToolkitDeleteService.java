@@ -1,4 +1,3 @@
-
 package acme.features.inventor.toolkit;
 
 import java.util.Collection;
@@ -8,21 +7,18 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.Toolkit;
 import acme.entities.ToolkitItem;
-import acme.features.authenticated.moneyExchange.AuthenticatedMoneyExchangePerformService;
 import acme.framework.components.models.Model;
+import acme.framework.controllers.Errors;
 import acme.framework.controllers.Request;
 import acme.framework.datatypes.Money;
-import acme.framework.services.AbstractShowService;
+import acme.framework.services.AbstractDeleteService;
 import acme.roles.Inventor;
 
 @Service
-public class InventorToolkitShowService implements AbstractShowService<Inventor, Toolkit> {
-
+public class InventorToolkitDeleteService implements AbstractDeleteService<Inventor, Toolkit>{
+	
 	@Autowired
 	protected InventorToolkitRepository repository;
-
-	// Interface 
-
 
 	@Override
 	public boolean authorise(final Request<Toolkit> request) {
@@ -73,23 +69,35 @@ public class InventorToolkitShowService implements AbstractShowService<Inventor,
 	}
 
 	@Override
+	public void delete(final Request<Toolkit> request, final Toolkit entity) {
+		assert request != null;
+		
+		this.repository.delete(entity);
+	}
+
+	@Override
+	public void bind(final Request<Toolkit> request, final Toolkit entity, final Errors errors) {
+		assert request != null;
+		assert entity != null;
+		assert errors != null;
+
+		request.bind(entity, errors, "title", "code", "description", "assemblyNotes", "link", "totalPrice");
+	}
+	
+	@Override
+	public void validate(final Request<Toolkit> request, final Toolkit entity, final Errors errors) {
+		assert request != null;
+		assert entity != null;
+		assert errors != null;		
+	}
+
+	@Override
 	public void unbind(final Request<Toolkit> request, final Toolkit entity, final Model model) {
 		assert request != null;
 		assert entity != null;
 		assert model != null;
-
+		
 		request.unbind(entity, model, "title", "code", "description", "assemblyNotes", "link", "totalPrice");
-		model.setAttribute("draftMode", entity.getDraftMode());
-		AuthenticatedMoneyExchangePerformService moneyExchange= new AuthenticatedMoneyExchangePerformService();
-		
-		Money money =entity.getTotalPrice();
-		Money moneyEUR = moneyExchange.computeMoneyExchange(money, "EUR").getTarget();
-		Money moneyUSD = moneyExchange.computeMoneyExchange(money, "USD").getTarget();
-		Money moneyGBP = moneyExchange.computeMoneyExchange(money, "GBP").getTarget();
-		
-		model.setAttribute("totalPriceEUR", moneyEUR);
-		model.setAttribute("totalPriceUSD", moneyUSD);
-		model.setAttribute("totalPriceGBP", moneyGBP);
 		
 	}
 
