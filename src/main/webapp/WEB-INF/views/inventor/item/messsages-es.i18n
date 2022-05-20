@@ -14,10 +14,40 @@ inventor.item.form.label.code = Código:
 inventor.item.form.label.technology = Tecnología:
 inventor.item.form.label.description = Descripción:
 inventor.item.form.label.retailPrice = Precio al por menor:
+inventor.item.form.label.retailPriceEUR = Precio en EUR: 
+inventor.item.form.label.retailPriceUSD = Precio en USD: 
+inventor.item.form.label.retailPriceGBP = Precio en GBP: 
 inventor.item.form.label.link = Link:
 inventor.item.form.label.type = Tipo:
-
+inventor.item.form.label.published = ¿Publicado?
+inventor.item.form.label.false = No
+inventor.item.form.label.true = Si
 
 inventor.item.list.label.name = Nombre
 inventor.item.list.label.code = Código
 inventor.item.list.label.type = Tipo
+
+inventor.item.form.button.create = Crear
+inventor.item.form.button.update = Actualizar
+inventor.item.form.button.delete = Borrar
+inventor.item.form.button.publish = Publicar
+
+
+inventor.item.form.error.code.existingItem = Este código no está disponible
+inventor.item.form.error.negative = El presupuesto debe ser positivo
+inventor.item.form.error.invalidCurrency = Divisa no valida
+inventor.item.form.error.spam = Este componente o herramienta es considerado como spam
+
+
+inventor.item.list.label.name = Nombre
+inventor.item.list.label.published = Publicado
+inventor.item.list.label.code = Código
+inventor.item.list.label.technology = Tecnología
+inventor.item.list.label.description = Descripción
+inventor.item.list.label.retailPrice = Precio
+inventor.item.list.label.retailPriceEUR = Precio en EUR: 
+inventor.item.list.label.retailPriceUSD = Precio en USD: 
+inventor.item.list.label.retailPriceGBP = Precio en GBP: 
+inventor.item.list.label.type = Tipo
+
+
