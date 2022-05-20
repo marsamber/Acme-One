@@ -17,7 +17,7 @@ any.toolkit.form.label.totalPrice = Precio total:
 any.toolkit.form.label.totalPriceEUR = Precio total en EUR: 
 any.toolkit.form.label.totalPriceUSD = Precio total en USD: 
 any.toolkit.form.label.totalPriceGBP = Precio total en GBP: 
-any.toolkit.form.button.items = Elementos
+any.toolkit.form.button.items = Componentes y herramientas
 
 any.toolkit.list.label.title = Título
 any.toolkit.list.label.code = Código

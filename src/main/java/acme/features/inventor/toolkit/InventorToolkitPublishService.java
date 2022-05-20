@@ -6,6 +6,7 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.Item.Type;
 import acme.entities.Toolkit;
 import acme.entities.ToolkitItem;
 import acme.framework.components.models.Model;
@@ -65,7 +66,7 @@ public class InventorToolkitPublishService implements AbstractUpdateService<Inve
 		assert entity != null;
 		assert errors != null;
 
-		request.bind(entity, errors, "title", "code", "description", "assemblyNotes", "link", "totalPrice");
+		request.bind(entity, errors, "title", "code", "description", "assemblyNotes", "link");
 
 	}
 	
@@ -74,6 +75,19 @@ public class InventorToolkitPublishService implements AbstractUpdateService<Inve
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
+		
+		Collection<ToolkitItem> toolkitItems;
+		boolean itemsPublished;
+		boolean containsTool;
+		
+		toolkitItems = this.repository.findItemsByToolkit(entity.getId());
+		itemsPublished = toolkitItems.stream().allMatch(x->x.getItem().isPublished());
+		containsTool = toolkitItems.stream().anyMatch(x->x.getItem().getType() == Type.TOOL);
+		
+		errors.state(request, !toolkitItems.isEmpty(), "*", "inventor.toolkit.form.error.no-items");
+		errors.state(request, itemsPublished, "*", "inventor.toolkit.form.error.not-all-published");
+		errors.state(request, containsTool, "*", "inventor.toolkit.form.error.no-tools");
+		
 
 	}
 
@@ -83,7 +97,7 @@ public class InventorToolkitPublishService implements AbstractUpdateService<Inve
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "title", "code", "description", "assemblyNotes", "link", "totalPrice");
+		request.unbind(entity, model, "title", "code", "description", "assemblyNotes", "link");
 
 	}
 
