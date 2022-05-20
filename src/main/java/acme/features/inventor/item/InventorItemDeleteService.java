@@ -68,7 +68,15 @@ public class InventorItemDeleteService implements AbstractDeleteService<Inventor
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
-
+		
+		if (!errors.hasErrors()){
+			List<Toolkit> toolkits = this.repository.findAllToolkits();
+			for(int i = 0;i<toolkits.size();i++){
+				List<Item> itemToolkit = toolkits.get(i).getItems();
+				for(int j=0; j<itemToolkit.size();j++)
+				errors.state(request, itemToolkit.get(j).getId() == entity.getId(), "code", "inventor.item.form.error.code.itemToolkit");
+			}
+		}
 	}
 
 	@Override
