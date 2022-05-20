@@ -5,7 +5,6 @@
 
 <acme:form readonly="${readonly}">
 
-	<acme:input-moment code="administrator.announcement.form.label.creationMoment" path="creationMoment"/>
 	<acme:input-textbox code="administrator.announcement.form.label.title" path="title"/>		
 	<acme:input-textarea code="administrator.announcement.form.label.body" path="body"/>
 	<acme:input-select code="administrator.announcement.form.label.criticalFlag" path="criticalFlag">
