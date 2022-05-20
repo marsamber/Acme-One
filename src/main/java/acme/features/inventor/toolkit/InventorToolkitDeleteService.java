@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.Toolkit;
 import acme.entities.ToolkitItem;
+import acme.features.inventor.toolkitItem.InventorToolkitItemRepository;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
 import acme.framework.controllers.Request;
@@ -19,6 +20,9 @@ public class InventorToolkitDeleteService implements AbstractDeleteService<Inven
 	
 	@Autowired
 	protected InventorToolkitRepository repository;
+	
+	@Autowired
+	protected InventorToolkitItemRepository toolkitItemRepository;
 
 	@Override
 	public boolean authorise(final Request<Toolkit> request) {
@@ -71,6 +75,9 @@ public class InventorToolkitDeleteService implements AbstractDeleteService<Inven
 	@Override
 	public void delete(final Request<Toolkit> request, final Toolkit entity) {
 		assert request != null;
+		
+		final Collection<ToolkitItem> toolkitItems = this.repository.findItemsByToolkit(entity.getId());
+		toolkitItems.stream().forEach(x->this.toolkitItemRepository.delete(x));
 		
 		this.repository.delete(entity);
 	}

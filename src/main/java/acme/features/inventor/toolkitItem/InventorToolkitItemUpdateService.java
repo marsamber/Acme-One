@@ -1,9 +1,7 @@
 
 package acme.features.inventor.toolkitItem;
 
-import java.util.Arrays;
 import java.util.Collection;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -91,22 +89,6 @@ public class InventorToolkitItemUpdateService implements AbstractUpdateService<I
 		assert entity != null;
 		assert errors != null;
 		
-		errors.state(request, entity.getItem().getCode().matches("^[A-Z]{3}-[0-9]{3}(-[A-Z])?$"), "item.code", "inventor.toolkit-item.form.error.code.invalid");
-		
-		if (!errors.hasErrors("item.code")) {
-			Item existing;
-
-			existing = this.repository.findItemByCode(entity.getItem().getCode());
-			errors.state(request, existing == null || existing.getId() == entity.getId(), "item.code", "inventor.toolkit-item.form.error.code.existingItem");
-		}
-		
-		if (!errors.hasErrors("item.retailPrice")) {
-			final List<String> acceptedCurrencies = Arrays.asList(this.repository.getAcceptedCurrencies().split(","));
-			
-			errors.state(request, entity.getItem().getRetailPrice().getAmount() > 0, "item.retailPrice", "inventor.toolkit-item.form.error.negative");
-			
-			errors.state(request, acceptedCurrencies.contains(entity.getItem().getRetailPrice().getCurrency()), "item.retailPrice", "inventor.toolkit-item.form.error.invalidCurrency");
-		}
 	}
 
 	@Override
