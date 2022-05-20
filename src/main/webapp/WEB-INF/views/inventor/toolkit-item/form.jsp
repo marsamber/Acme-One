@@ -3,7 +3,7 @@
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="acme" uri="urn:jsptagdir:/WEB-INF/tags"%>
 
-<acme:form">
+<acme:form>
 
 	<acme:input-textbox code="inventor.toolkit-item.form.label.name"
 		path="item.name" />
@@ -30,14 +30,13 @@
 	<jstl:choose>
 		<jstl:when
 			test="${acme:anyOf(command, 'show, update, delete') && draftMode == true}">
-			<acme:submit code="inventor.toolkit-item.form.update"
+			<acme:submit code="inventor.toolkit-item.form.button.update"
 				action="/inventor/toolkit-item/update" />
-			<acme:submit code="inventor.toolkit-item.form.delete"
+			<acme:submit code="inventor.toolkit-item.form.button.delete"
 				action="/inventor/toolkit-item/delete" />
 		</jstl:when>
-		<jstl:when test="${command == 'create' }">
-			<acme:submit code="inventor.toolkit-item.form.button.create"
-				action="/inventor/toolkit-item/create?masterId=${masterId}" />
+		<jstl:when test="${command == 'create'}">
+			<acme:submit code="inventor.toolkit-item.form.button.create" action="/inventor/toolkit-item/create?toolkitId=${toolkitId}"/>
 		</jstl:when>
 	</jstl:choose>
 

@@ -39,7 +39,7 @@ public class InventorToolkitController extends AbstractController<Inventor, Tool
 		super.addCommand("create", this.createService);
 		super.addCommand("update", this.updateService);
 		super.addCommand("delete", this.deleteService);
-		super.addCommand("publish", this.publishService);
+		super.addCommand("publish", "update", this.publishService);
 		super.addCommand("show", this.showService);
 		super.addCommand("list-mine", "list", this.listMineService);
 	}

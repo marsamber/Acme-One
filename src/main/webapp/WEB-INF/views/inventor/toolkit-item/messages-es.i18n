@@ -17,9 +17,13 @@ anonymous.toolkit-item.form.label.retailPrice = Precio al por menor:
 anonymous.toolkit-item.form.label.link = Link:
 anonymous.toolkit-item.form.label.type = Tipo:
 anonymous.toolkit-item.form.label.units = Unidades:
-
+inventor.toolkit-item.form.button.update = Actualizar
+inventor.toolkit-item.form.button.delete = Eliminar
+inventor.toolkit-item.form.button.publish = Publicar
+inventor.toolkit-item.form.button.create = Crear
 
 anonymous.toolkit-item.list.label.name = Nombre
 anonymous.toolkit-item.list.label.code = Código
 anonymous.toolkit-item.list.label.type = Tipo
 anonymous.toolkit-item.list.label.units = Unidades
+inventor.toolkit-item.list.button.create = Crear

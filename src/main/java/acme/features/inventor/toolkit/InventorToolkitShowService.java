@@ -40,6 +40,8 @@ public class InventorToolkitShowService implements AbstractShowService<Inventor,
 			result = toolkitItems != null && toolkitItem.getItem().getInventor().getId() == principalId;
 			if(result) return true;
 		}
+		
+		if( toolkitItems == null || toolkitItems.isEmpty()) return true;
 
 		return result;
 	}
@@ -76,7 +78,7 @@ public class InventorToolkitShowService implements AbstractShowService<Inventor,
 		assert model != null;
 
 		request.unbind(entity, model, "title", "code", "description", "assemblyNotes", "link", "totalPrice");
-		model.setAttribute("readonly", true);
+		model.setAttribute("draftMode", entity.getDraftMode());
 	}
 
 }

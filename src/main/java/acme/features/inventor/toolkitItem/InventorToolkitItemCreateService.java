@@ -6,9 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.Item;
-import acme.entities.Item.Type;
 import acme.entities.Toolkit;
 import acme.entities.ToolkitItem;
+import acme.features.any.userAccount.AnyUserAccountRepository;
+import acme.features.inventor.item.InventorItemRepository;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
 import acme.framework.controllers.Request;
@@ -22,6 +23,12 @@ public class InventorToolkitItemCreateService implements AbstractCreateService<I
 	@Autowired
 	protected InventorToolkitItemRepository repository;
 	
+	@Autowired
+	protected InventorItemRepository itemRepository;
+	
+	@Autowired
+	protected AnyUserAccountRepository inventorRepository;
+	
 	@Override
 	public boolean authorise(final Request<ToolkitItem> request) {
 		assert request != null;
@@ -32,15 +39,17 @@ public class InventorToolkitItemCreateService implements AbstractCreateService<I
 		Collection<ToolkitItem> toolkitItems;
 		int principalId;
 		
-		masterId = request.getModel().getInteger("masterId");
+		masterId = request.getModel().getInteger("toolkitId");
 		toolkit = this.repository.findOneToolkitById(masterId);
 		toolkitItems = this.repository.findManyItemsByToolkitId(masterId);
 
 		principalId = request.getPrincipal().getActiveRoleId();
 		for(final ToolkitItem toolkitItem: toolkitItems) {
 			result = toolkitItems != null && toolkitItem.getItem().getInventor().getId() == principalId;
-			if(result && toolkit != null && toolkit.getDraftMode()) return true;
+			if(result && toolkit != null && Boolean.FALSE.equals(toolkit.getDraftMode())) return true;
 		}
+		
+		if( toolkitItems == null || toolkitItems.isEmpty()) return true;
 		
 		return result;
 	}
@@ -56,7 +65,7 @@ public class InventorToolkitItemCreateService implements AbstractCreateService<I
 		Item item;
 		Money money;
 		
-		masterId = request.getModel().getInteger("masterId");
+		masterId = request.getModel().getInteger("toolkitId");
 		toolkit = this.repository.findOneToolkitById(masterId);
 		
 		money = new Money();
@@ -64,13 +73,6 @@ public class InventorToolkitItemCreateService implements AbstractCreateService<I
 		money.setCurrency("EUR");
 		
 		item = new Item();
-		item.setCode("");
-		item.setDescription("");
-		item.setLink("");
-		item.setName("");
-		item.setRetailPrice(money);
-		item.setTechnology("");
-		item.setType(Type.COMPONENT);
 		
 		result = new ToolkitItem();
 		result.setToolkit(toolkit);
@@ -104,7 +106,7 @@ public class InventorToolkitItemCreateService implements AbstractCreateService<I
 		assert model != null;
 		
 		request.unbind(entity, model, "item.name", "item.code", "item.technology", "item.description", "item.retailPrice", "item.link","item.type","units");
-		model.setAttribute("masterId", request.getModel().getAttribute("masterId"));
+		model.setAttribute("toolkitId", request.getModel().getAttribute("toolkitId"));
 		model.setAttribute("draftMode", entity.getToolkit().getDraftMode());
 		
 	}
@@ -116,6 +118,10 @@ public class InventorToolkitItemCreateService implements AbstractCreateService<I
 	public void create(final Request<ToolkitItem> request, final ToolkitItem entity) {
 		assert request != null;
 		assert entity != null;
+		
+		final Item item = entity.getItem();
+		item.setInventor(this.inventorRepository.findInventorByUserAccount(request.getPrincipal().getAccountId()).iterator().next());
+		this.itemRepository.save(item);
 		
 		this.repository.save(entity);
 		

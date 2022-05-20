@@ -15,8 +15,13 @@ inventor.toolkit.form.label.assemblyNotes = Instrucciones de montaje:
 inventor.toolkit.form.label.link = Link:
 inventor.toolkit.form.label.totalPrice = Precio total:
 inventor.toolkit.form.button.items = Elementos
+inventor.toolkit.form.label.item = Buscar por el nombre del elemento
+inventor.toolkit.form.button.update = Actualizar
+inventor.toolkit.form.button.delete = Eliminar
+inventor.toolkit.form.button.publish = Publicar
+inventor.toolkit.form.button.create = Crear
 
 inventor.toolkit.list.label.title = Título
 inventor.toolkit.list.label.code = Código
 inventor.toolkit.list.label.description = Descripción
-inventor.toolkit.form.label.item = Buscar por el nombre del elemento
+inventor.toolkit.list.button.create = Crear
