@@ -34,7 +34,7 @@ public class AdministratorAnnouncementCreateService implements AbstractCreateSer
 		assert entity != null;
 		assert errors != null;
 
-		request.bind(entity, errors, "title", "body", "criticalFlag", "link", "creationMoment");
+		request.bind(entity, errors, "title", "body", "criticalFlag", "link");
 	}
 
 	@Override
@@ -43,7 +43,7 @@ public class AdministratorAnnouncementCreateService implements AbstractCreateSer
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "title", "body", "criticalFlag", "link", "creationMoment");
+		request.unbind(entity, model, "title", "body", "criticalFlag", "link");
 		model.setAttribute("confirmation", false);
 		model.setAttribute("readonly", false);
 	}
