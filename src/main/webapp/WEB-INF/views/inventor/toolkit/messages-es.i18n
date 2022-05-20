@@ -29,6 +29,7 @@ inventor.toolkit.form.error.code.existingItem = Código duplicado
 inventor.toolkit.form.error.no-items = Esta caja de herramientas no tiene ni componentes ni herramientas
 inventor.toolkit.form.error.not-all-published = Esta caja de herramientas no tiene todos sus componentes o herramientas publicadas
 inventor.toolkit.form.error.no-tools = Esta caja de herramientas no tiene herramientas
+inventor.toolkit.form.error.spam = Esta caja de herramientas está considerada como spam
 
 inventor.toolkit.list.label.title = Título
 inventor.toolkit.list.label.code = Código
