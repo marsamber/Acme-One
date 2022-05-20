@@ -19,6 +19,8 @@
 		<acme:input-option code="COMPONENT" value="COMPONENT" selected="${type == 'COMPONENT'}"/>
 	</acme:input-select>
 	
+	
+	
 	<jstl:choose>	 
 		<jstl:when test="${acme:anyOf(command, 'show, update, delete, publish') && published == false}">
 			<acme:submit code="inventor.item.form.button.update" action="/inventor/item/update"/>
