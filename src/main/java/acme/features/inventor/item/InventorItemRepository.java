@@ -34,5 +34,8 @@ public interface InventorItemRepository extends AbstractRepository {
 	
 	@Query("SELECT i FROM Item i WHERE i.code = :code")
 	Item findComponentByCode(String code);
+	
+	@Query("SELECT t FROM Toolkit t)
+	Collection<Item> findAllToolkits();
 
 }
