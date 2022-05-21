@@ -1,0 +1,4 @@
+recordIndex,title,author,body,email,confirmation
+0, chirp0,author0,This is a body,chirp0@gmail.com,true
+1, chirp1,author1,This is a body,chirp1@gmail.com,true
+2, chirp2,author2,This is a body,chirp2@gmail.com,true
