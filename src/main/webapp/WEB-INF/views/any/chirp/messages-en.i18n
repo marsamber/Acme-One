@@ -14,7 +14,7 @@ any.chirp.list.label.author = Author
 any.chirp.list.label.body = Body
 any.chirp.list.label.email = Email
 
-any.chirp.list.button.create = Create
+any.chirp.list.button.create = Create Chirp
 
 any.chirp.form.label.creation-moment = Creation Moment
 any.chirp.form.label.title = Title
@@ -22,4 +22,7 @@ any.chirp.form.label.author = Author
 any.chirp.form.label.body = Body
 any.chirp.form.label.email = Email
 
-any.chirp.form.button.create = Create
+
+any.chirp.form.label.confirmation= Confirm the creation
+any.chirp.form.button.create = Create Chirp
+
