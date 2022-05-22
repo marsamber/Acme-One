@@ -1,10 +1,14 @@
 package acme.features.inventor.item;
 
 
+import java.util.Collection;
+import java.util.Iterator;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.Item;
+import acme.entities.Toolkit;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
 import acme.framework.controllers.Request;
@@ -70,13 +74,15 @@ public class InventorItemDeleteService implements AbstractDeleteService<Inventor
 		assert errors != null;
 		
 		if (!errors.hasErrors()){
-			Collection<Toolkit> toolkits = this.repository.findAllToolkits();
-			Iterator<Toolkit> it = toolkits.iterator();
-			
-			while(it.hasNext()){
-				Collection<Item> itemToolkit = this.repository.findAllItemsToolkit(it.next());
-				while(itemToolkit.hasNext())
-					errors.state(request, itemToolkit.next().getId() == entity.getId(), "code", "inventor.item.form.error.code.itemToolkit");
+			final Collection<Toolkit> toolkits = this.repository.findAllToolkits();
+			final Iterator<Toolkit> it = toolkits.iterator();
+			while(it.hasNext() && !errors.hasErrors()){
+				final Toolkit toolkit = it.next();
+				final Collection<Item> itemToolkit = this.repository.findManyItemsByToolkitId(toolkit.getId());
+				final Iterator<Item> itItemToolkit = itemToolkit.iterator();
+				while(itItemToolkit.hasNext() && !errors.hasErrors()) { 
+					errors.state(request, itItemToolkit.next().getId() == entity.getId(), "*", "inventor.item.form.error.code.itemToolkit");
+				}
 			}
 		}
 	}
