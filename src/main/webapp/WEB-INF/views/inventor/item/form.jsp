@@ -5,7 +5,7 @@
 
 <acme:form  >
 
-	<acme:input-textbox placeholder="Item1" code="inventor.item.form.label.name" path="name"/>
+	<acme:input-textbox placeholder="Item X" code="inventor.item.form.label.name" path="name"/>
 	<acme:input-textbox placeholder="XXX-000-X" code="inventor.item.form.label.code" path="code"/>		
 	<acme:input-textbox placeholder="Technology" code="inventor.item.form.label.technology" path="technology"/>	
 	<acme:input-textbox placeholder="Example of a description" code="inventor.item.form.label.description" path="description"/>
