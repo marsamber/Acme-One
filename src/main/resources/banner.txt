@@ -1,12 +1,14 @@
-      .o.                                                    .oooooo.                         
-     .888.                                                  d8P'  `Y8b                        
-    .8"888.      .ooooo.  ooo. .oo.  .oo.    .ooooo.       888      888 ooo. .oo.    .ooooo.  
-   .8' `888.    d88' `"Y8 `888P"Y88bP"Y88b  d88' `88b      888      888 `888P"Y88b  d88' `88b 
-  .88ooo8888.   888        888   888   888  888ooo888      888      888  888   888  888ooo888 
- .8'     `888.  888   .o8  888   888   888  888    .o      `88b    d88'  888   888  888    .o 
-o88o     o8888o `Y8bod8P' o888o o888o o888o `Y8bod8P'       `Y8bood8P'  o888o o888o `Y8bod8P' 
-                                                                                              
-                                                                                                                                                                                       
+                                                                                                                                          
+       db                                                       888888888888                       88  88         88                      
+      d88b                                                           88                            88  88         ""    ,d                
+     d8'`8b                                                          88                            88  88               88                
+    d8'  `8b      ,adPPYba,  88,dPYba,,adPYba,    ,adPPYba,          88   ,adPPYba,    ,adPPYba,   88  88   ,d8   88  MM88MMM  ,adPPYba,  
+   d8YaaaaY8b    a8"     ""  88P'   "88"    "8a  a8P_____88          88  a8"     "8a  a8"     "8a  88  88 ,a8"    88    88     I8[    ""  
+  d8""""""""8b   8b          88      88      88  8PP"""""""          88  8b       d8  8b       d8  88  8888[      88    88      `"Y8ba,   
+ d8'        `8b  "8a,   ,aa  88      88      88  "8b,   ,aa          88  "8a,   ,a8"  "8a,   ,a8"  88  88`"Yba,   88    88,    aa    ]8I  
+d8'          `8b  `"Ybbd8"'  88      88      88   `"Ybbd8"'          88   `"YbbdP"'    `"YbbdP"'   88  88   `Y8a  88    "Y888  `"YbbdP"'  
+                                                                                                                                          
+                                                                                                                                                                                                                            
 Application:          ${acme.application-name}
 Application endpoint: http://localhost:${server.port}${server.servlet.contextPath}
 Database endpoint:    ${spring.datasource.url}

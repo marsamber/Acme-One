@@ -31,6 +31,7 @@ inventor.toolkit.form.error.code.existingItem = This code is occupated
 inventor.toolkit.form.error.no-items = This toolkit has no components or tools
 inventor.toolkit.form.error.not-all-published = This toolkit has components or tools not published
 inventor.toolkit.form.error.no-tools = This toolkit has no tools
+inventor.toolkit.form.error.spam = This toolkit is considered as spam
 
 inventor.toolkit.list.label.title = Title
 inventor.toolkit.list.label.code = Code

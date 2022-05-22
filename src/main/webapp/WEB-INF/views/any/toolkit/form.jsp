@@ -7,7 +7,6 @@
 
 	<acme:input-textbox code="any.toolkit.form.label.title" path="title"/>
 	<acme:input-textbox code="any.toolkit.form.label.code" path="code"/>		
-	<acme:input-money code="any.toolkit.form.label.totalPrice" path="totalPrice"/>
 	<acme:input-money readonly="true" code="any.toolkit.form.label.totalPriceEUR" path="totalPriceEUR"/>
 	<acme:input-money readonly="true" code="any.toolkit.form.label.totalPriceUSD" path="totalPriceUSD"/>
 	<acme:input-money readonly="true" code="any.toolkit.form.label.totalPriceGBP" path="totalPriceGBP"/>		

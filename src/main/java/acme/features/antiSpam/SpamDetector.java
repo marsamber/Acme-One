@@ -45,8 +45,12 @@ public class SpamDetector {
 		Double strongSpam;
 		Double weakWordsNumber=0.;
 		Double strongWordsNumber=0.;
-		text = text.replaceAll("\\s{2,}", " ").trim();
+		text = text.replaceAll("\\s{2,}", " ").replaceAll("\\n", "").trim();
 		Integer numberOfWords=text.split(" ").length;
+		
+		if(this.checkWord(text.trim(), this.strongSpamWords)||this.checkWord(text.trim(), this.weakSpamWords)) {
+			return true;
+		}
 		
 		String[] textSplitted= text.split(" ");
 		String word1;
@@ -56,7 +60,6 @@ public class SpamDetector {
 			word1=textSplitted[i].trim();
 			word2=textSplitted[i+1].trim();
 			word1And2=(word1+word2).replaceAll("\\s+","");
-			System.out.println(word1And2);
 			
 			if(this.checkWord(word1, this.strongSpamWords) || this.checkWord(word1And2, this.strongSpamWords)) {
 				strongWordsNumber++;
@@ -85,7 +88,7 @@ public class SpamDetector {
 	
 	private boolean checkWord(String word, List<String> terms) {
 		for(int i=0; i<terms.size(); i++) {
-			if(terms.get(i).replaceAll("\\s+","").equals(word))
+			if(terms.get(i).replaceAll("\\s+","").toLowerCase().equals(word.toLowerCase()))
 				return true;
 		}
 		return false;
