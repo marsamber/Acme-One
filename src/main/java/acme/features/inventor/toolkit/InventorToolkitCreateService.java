@@ -4,7 +4,10 @@ package acme.features.inventor.toolkit;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.SystemConfiguration;
 import acme.entities.Toolkit;
+import acme.features.antiSpam.SpamDetector;
+import acme.features.antiSpam.SpamDetectorRepository;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
 import acme.framework.controllers.Request;
@@ -17,6 +20,9 @@ public class InventorToolkitCreateService implements AbstractCreateService<Inven
 
 	@Autowired
 	protected InventorToolkitRepository repository;
+	
+	@Autowired
+	protected SpamDetectorRepository repositorySpam; 
 
 
 	@Override
@@ -71,6 +77,15 @@ public class InventorToolkitCreateService implements AbstractCreateService<Inven
 			existing = this.repository.findToolkitByCode(entity.getCode());
 			errors.state(request, existing == null || existing.getId() == entity.getId(), "code", "inventor.toolkit.form.error.code.existingItem");
 		}
+		
+		final SystemConfiguration systemConfiguration= this.repositorySpam.findTheSystemConfiguration();
+        final SpamDetector spamDetector= new SpamDetector(systemConfiguration);
+
+        errors.state(request, !spamDetector.detectSpam(entity.getAssemblyNotes()), "assemblyNotes", "inventor.toolkit.form.error.spam");
+        
+        errors.state(request, !spamDetector.detectSpam(entity.getTitle()), "title", "inventor.toolkit.form.error.spam");
+
+        errors.state(request, !spamDetector.detectSpam(entity.getDescription()), "description", "inventor.toolkit.form.error.spam");
 
 	}
 
