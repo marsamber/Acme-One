@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.Patronage;
+import acme.features.antiSpam.SpamDetectorRepository;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
 import acme.framework.controllers.Request;
@@ -16,6 +17,9 @@ public class InventorPatronageUpdateService implements AbstractUpdateService<Inv
 	@Autowired
 	protected InventorPatronageRepository repo;
 	
+	@Autowired
+	protected SpamDetectorRepository repositorySpam;
+	
 	@Override
 	public boolean authorise(final Request<Patronage> request) {
 		assert request != null;
@@ -23,8 +27,8 @@ public class InventorPatronageUpdateService implements AbstractUpdateService<Inv
 		final int id = request.getModel().getInteger("id");
 		final Patronage p = this.repo.findById(id);
 
-		//return p != null && p.getInventor().getId() == request.getPrincipal().getActiveRoleId();
-		return true;
+		return p != null && p.getInventor().getId() == request.getPrincipal().getActiveRoleId();
+		//return true;
 	}
 
 	@Override
@@ -43,8 +47,6 @@ public class InventorPatronageUpdateService implements AbstractUpdateService<Inv
 		assert model != null;
 		
 		request.unbind(entity, model, "status", "code", "legalStuff", "budget", "link", "createdAt", "startedAt", "finishedAt", "patron.userAccount.username", "patron.company", "patron.statement", "patron.link");
-		
-		model.setAttribute("confirmation", true);
 		
 	}
 

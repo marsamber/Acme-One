@@ -24,8 +24,8 @@ public class InventorPatronageShowService implements AbstractShowService<Invento
 		
 		final int id = request.getModel().getInteger("id");
 		final Patronage p = this.repo.findById(id);
-		
-		return p != null && p.getInventor().getId() == request.getPrincipal().getActiveRoleId();
+		return true;
+		//return p != null && p.getInventor().getId() == request.getPrincipal().getActiveRoleId();
 	}
 
 	@Override
@@ -49,12 +49,12 @@ public class InventorPatronageShowService implements AbstractShowService<Invento
 		request.unbind(patron, model, "company", "statement");
 		request.unbind(patron.getUserAccount(), model, "username");
 		
-		AuthenticatedMoneyExchangePerformService moneyExchange= new AuthenticatedMoneyExchangePerformService();
+		final AuthenticatedMoneyExchangePerformService moneyExchange= new AuthenticatedMoneyExchangePerformService();
 		
-		Money money =entity.getBudget();
-		Money moneyEUR = moneyExchange.computeMoneyExchange(money, "EUR").getTarget();
-		Money moneyUSD = moneyExchange.computeMoneyExchange(money, "USD").getTarget();
-		Money moneyGBP = moneyExchange.computeMoneyExchange(money, "GBP").getTarget();
+		final Money money =entity.getBudget();
+		final Money moneyEUR = moneyExchange.computeMoneyExchange(money, "EUR").getTarget();
+		final Money moneyUSD = moneyExchange.computeMoneyExchange(money, "USD").getTarget();
+		final Money moneyGBP = moneyExchange.computeMoneyExchange(money, "GBP").getTarget();
 		
 		model.setAttribute("budgetEUR", moneyEUR);
 		model.setAttribute("budgetUSD", moneyUSD);
