@@ -1,8 +1,9 @@
 recordIndex,title,author,body,email,confirmation
 0,,,chirpsintituloautot@gmail.com,,false
-0,chirp 0,,This is a body,chirp0@gmail.com,true
 1,,author1,This is a body,chirp1@gmail.com,false
-2,chirp1,author2,,chirp2@gmail.com,true
-3,chirp2,author3,This is a body,,false
-4,,,,,false
-5,,author0,This is a body,,false
+2,chirp2,author3,This is a body,,false
+3,,,,,false
+4,,author0,This is a body,,false
+5,,author2,This is a body,chirp3@gmail.com,false
+6,chirp1,author2,,chirp2@gmail.com,true
+7,chirp 0,,This is a body,chirp0@gmail.com,true
