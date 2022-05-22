@@ -1,0 +1,7 @@
+recordIndex,name,code,technology,description,retail_price,link,type
+0,sex,XXS-341-B,prueba,descripcion,EUR 5.00,http://example.com/,TOOL
+1,hard         core,WXC-541-B,prueba,descripcion,EUR 5.00,http://example.com/,TOOL
+2,HARD core,WXL-343-B,prueba,descripcion,EUR 5.00,http://example.com/,TOOL
+3,one million,WXN-342-B,prueba,descripcion,EUR 5.00,http://example.com/,TOOL
+4,Prueba,WVN-348-C,prueba,sex,EUR 5.00,http://example.com/,TOOL
+5,Prueba,WXN-322-A,prueba,hard       core,EUR 5.00,http://example.com/,TOOL
