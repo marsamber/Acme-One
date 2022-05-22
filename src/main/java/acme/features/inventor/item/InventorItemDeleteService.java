@@ -81,7 +81,7 @@ public class InventorItemDeleteService implements AbstractDeleteService<Inventor
 				final Collection<Item> itemToolkit = this.repository.findManyItemsByToolkitId(toolkit.getId());
 				final Iterator<Item> itItemToolkit = itemToolkit.iterator();
 				while(itItemToolkit.hasNext() && !errors.hasErrors()) { 
-					errors.state(request, itItemToolkit.next().getId() == entity.getId(), "*", "inventor.item.form.error.code.itemToolkit");
+					errors.state(request, itItemToolkit.next().getId() != entity.getId(), "*", "inventor.item.form.error.code.itemToolkit");
 				}
 			}
 		}
