@@ -12,7 +12,7 @@ public class InventorToolkitListAllTest extends TestHarness {
 	@ParameterizedTest
 	@CsvFileSource(resources = "/inventor/toolkit/list-all.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)
-	public void positiveTest(final int recordIndex, final String code, final String title, final String description, final String assemblyNotes, final String link, final String draftMode, final String totalPriceEUR, final String totalPriceUSD, final String totalPriceGBP) {
+	public void positiveTest(final int recordIndex, final String code, final String title, final String description, final String assemblyNotes, final String link, final String draftMode) {
 		
 		super.signIn("inventor1", "inventor1");
 
@@ -31,9 +31,6 @@ public class InventorToolkitListAllTest extends TestHarness {
 		super.checkInputBoxHasValue("description", description);
 		super.checkInputBoxHasValue("assemblyNotes", assemblyNotes);
 		super.checkInputBoxHasValue("link", link);
-		super.checkInputBoxHasValue("totalPriceEUR", totalPriceEUR);
-		super.checkInputBoxHasValue("totalPriceUSD", totalPriceUSD);
-		super.checkInputBoxHasValue("totalPriceGBP", totalPriceGBP);
 		
 		super.signOut();
 		
