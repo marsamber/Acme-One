@@ -8,7 +8,7 @@
 	<acme:input-textbox placeholder="Item X" code="inventor.item.form.label.name" path="name"/>
 	<acme:input-textbox placeholder="XXX-000-X" code="inventor.item.form.label.code" path="code"/>		
 	<acme:input-textbox placeholder="Technology" code="inventor.item.form.label.technology" path="technology"/>	
-	<acme:input-textbox placeholder="Example of a description" code="inventor.item.form.label.description" path="description"/>
+	<acme:input-textarea placeholder="Example of a description" code="inventor.item.form.label.description" path="description"/>
 	<acme:input-money placeholder="10 EUR" code="inventor.item.form.label.retailPrice" path="retailPrice"/>
 	<acme:input-money readonly="true" code="inventor.item.form.label.retailPriceEUR" path="retailPriceEUR"/>
 	<acme:input-money readonly="true" code="inventor.item.form.label.retailPriceUSD" path="retailPriceUSD"/>
