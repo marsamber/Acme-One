@@ -62,7 +62,6 @@
 		</acme:menu-option>
     
     	<acme:menu-option code="master.menu.inventor" access="hasRole('Inventor')">
-			<acme:menu-suboption code="master.menu.any.list-chirps" action="/any/chirp/list"/>	
 	     	<acme:menu-suboption code="master.menu.anonymous.user-account.list-all-user-accounts" action="/any/user-account/list-all-user-accounts"/>
 	    	<acme:menu-suboption code="master.menu.any.toolkit.list-all-toolkits" action="/any/toolkit/list-all-toolkits"/>
 	    	<acme:menu-suboption code="master.menu.any.item.list-all-tools" action="/any/item/list-all-tools"/>
