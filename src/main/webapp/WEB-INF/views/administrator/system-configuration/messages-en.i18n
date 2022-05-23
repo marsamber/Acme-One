@@ -5,3 +5,7 @@ administrator.systemConfiguration.form.label.strongSpamTerms = Strong Spam Terms
 administrator.systemConfiguration.form.label.strongSpamThreshold = Strong Spam Threshold (%):
 administrator.systemConfiguration.form.label.weakSpamTerms = Weak Spam Terms:
 administrator.systemConfiguration.form.label.weakSpamThreshold = Weak Spam Threshold (%):
+
+administrator.systemConfiguration.form.label.update = Update
+
+administrator.systemConfiguration.form.label.invalidSystemCurrency = System currency must be allowed
