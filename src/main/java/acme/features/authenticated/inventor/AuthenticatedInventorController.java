@@ -21,7 +21,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import acme.framework.controllers.AbstractController;
 import acme.framework.roles.Authenticated;
 import acme.roles.Inventor;
-import acme.roles.Patron;
 
 @Controller
 @RequestMapping("/authenticated/patron")
