@@ -26,4 +26,5 @@ any.chirp.form.label.email = Correo
 
 any.chirp.form.label.confirmation= Confirma la creación
 any.chirp.form.button.create = Crear
+any.Chirp.confirmation.error = Marcala
 
