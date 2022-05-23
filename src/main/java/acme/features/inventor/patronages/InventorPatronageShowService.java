@@ -24,8 +24,8 @@ public class InventorPatronageShowService implements AbstractShowService<Invento
 		
 		final int id = request.getModel().getInteger("id");
 		final Patronage p = this.repo.findById(id);
-		return true;
-		//return p != null && p.getInventor().getId() == request.getPrincipal().getActiveRoleId();
+		//return true;
+		return p != null && p.getInventor().getId() == request.getPrincipal().getActiveRoleId();
 	}
 
 	@Override

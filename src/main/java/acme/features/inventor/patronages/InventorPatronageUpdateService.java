@@ -25,9 +25,11 @@ public class InventorPatronageUpdateService implements AbstractUpdateService<Inv
 		assert request != null;
 		
 		final int id = request.getModel().getInteger("id");
+		System.out.println(id);
 		final Patronage p = this.repo.findById(id);
-
-		return p != null && p.getInventor().getId() == request.getPrincipal().getActiveRoleId();
+		System.out.println(p.getId());
+		
+		return p.getInventor().getId() == request.getPrincipal().getActiveRoleId();
 		//return true;
 	}
 

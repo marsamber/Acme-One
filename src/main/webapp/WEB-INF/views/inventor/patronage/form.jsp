@@ -14,33 +14,33 @@
 		<acme:input-option code="DENIED" value="DENIED"
 			selected="${status == 'DENIED' }" />
 	</acme:input-select>
-	<acme:input-textbox code="inventor.patronage.form.label.code"
+	<acme:input-textbox readonly="true" code="inventor.patronage.form.label.code"
 		path="code" />
-	<acme:input-textarea code="inventor.patronage.form.label.legalStuff"
+	<acme:input-textarea readonly="true" code="inventor.patronage.form.label.legalStuff"
 		path="legalStuff" />
-	<acme:input-money code="inventor.patronage.form.label.budget"
+	<acme:input-money readonly="true" code="inventor.patronage.form.label.budget"
 		path="budgetEUR" />
-	<acme:input-money code="" path="budgetUSD" />
-	<acme:input-money code="" path="budgetGBP" />
-	<acme:input-url code="inventor.patronage.form.label.link" path="link" />
-	<acme:input-moment code="inventor.patronage.form.label.createdAt"
+	<acme:input-money readonly="true" code="" path="budgetUSD" />
+	<acme:input-money readonly="true" code="" path="budgetGBP" />
+	<acme:input-url readonly="true" code="inventor.patronage.form.label.link" path="link" />
+	<acme:input-moment readonly="true" code="inventor.patronage.form.label.createdAt"
 		path="createdAt" />
-	<acme:input-moment code="inventor.patronage.form.label.startedAt"
+	<acme:input-moment readonly="true" code="inventor.patronage.form.label.startedAt"
 		path="startedAt" />
-	<acme:input-moment code="inventor.patronage.form.label.finishedAt"
+	<acme:input-moment readonly="true" code="inventor.patronage.form.label.finishedAt"
 		path="finishedAt" />
-
+	
 	<h2>
 		<acme:message code="inventor.patronage.section.patron" />
 	</h2>
-	<acme:input-textbox
+	<acme:input-textbox readonly="true"
 		code="inventor.patronage.form.label.patron.username" path="username" />
-	<acme:input-textbox code="inventor.patronage.form.label.patron.company"
+	<acme:input-textbox readonly="true" code="inventor.patronage.form.label.patron.company"
 		path="company" />
-	<acme:input-textarea
+	<acme:input-textarea readonly="true"
 		code="inventor.patronage.form.label.patron.statement" path="statement" />
-	<acme:input-url code="inventor.patronage.form.label.patron.info"
-		path="patronLink" />
+	<acme:input-url readonly="true" 
+		code="inventor.patronage.form.label.patron.info" path="patronLink" />
 
 	<acme:submit test="${command == 'show' && status == 'PROPOSED'}" code="inventor.patronage.form.update" action="/inventor/patronage/update"/>
 </acme:form>
