@@ -139,10 +139,6 @@ public class InventorToolkitItemCreateService implements AbstractCreateService<I
 		assert request != null;
 		assert entity != null;
 
-		final Item item = entity.getItem();
-		item.setInventor(this.inventorRepository.findInventorByUserAccount(request.getPrincipal().getAccountId()).iterator().next());
-		this.itemRepository.save(item);
-
 		this.repository.save(entity);
 
 	}
