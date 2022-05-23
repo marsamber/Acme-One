@@ -23,6 +23,7 @@ patron.patronage.form.label.startedAt = Started at:
 patron.patronage.form.label.finishedAt = Finished at:
 
 patron.patronage.section.inventor = Inventor Details:
+patron.patronage.form.label.inventor = Inventor:
 patron.patronage.form.label.inventor.username = Inventor:
 patron.patronage.form.label.inventor.company = Company:
 patron.patronage.form.label.inventor.statement = Statement:
@@ -31,3 +32,16 @@ patron.patronage.form.label.inventor.info = More Info:
 patron.patronage.list.label.status = Status
 patron.patronage.list.label.code = Code
 patron.patronage.list.label.link = Link
+
+patron.patronage.list.button.create = Create
+
+patron.patronage.form.button.create = Create
+patron.patronage.form.button.update = Edit
+patron.patronage.form.button.delete = Delete
+patron.patronage.form.button.publish = Publish
+
+patron.patronage.form.error.code.existingPatronage = Code already exists
+patron.patronage.form.error.spam = Spam
+patron.patronage.form.error.startDate.tooClose = Start date must be 1 month after the patronage creation
+patron.patronage.form.error.negative = Budget cannot be negative
+patron.patronage.form.error.invalidCurrency = Wrong currency
