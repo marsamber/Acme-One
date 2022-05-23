@@ -10,3 +10,6 @@ administrator.announcement.form.label.false = No
 
 administrator.announcement.form.label.confirmation = Confirme que el anuncio es correcto
 administrator.announcement.form.label.create = Crear
+
+administrator.announcement.form.error.spam.title = Este título contiene spam
+administrator.announcement.form.error.spam.body = Este cuerpo de mensaje contiene spam
