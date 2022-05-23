@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.Toolkit;
 import acme.entities.ToolkitItem;
+import acme.features.authenticated.moneyExchange.AuthenticatedMoneyExchangePerformService;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
 import acme.framework.datatypes.Money;
@@ -68,8 +69,18 @@ public class AnyToolkitShowService implements AbstractShowService<Any, Toolkit> 
 		assert request != null;
 		assert entity != null;
 		assert model != null;
+		AuthenticatedMoneyExchangePerformService moneyExchange= new AuthenticatedMoneyExchangePerformService();
 
 		request.unbind(entity, model, "title", "code", "description", "assemblyNotes", "link", "totalPrice");
+		
+		Money money =entity.getTotalPrice();
+		Money moneyEUR = moneyExchange.computeMoneyExchange(money, "EUR").getTarget();
+		Money moneyUSD = moneyExchange.computeMoneyExchange(money, "USD").getTarget();
+		Money moneyGBP = moneyExchange.computeMoneyExchange(money, "GBP").getTarget();
+		
+		model.setAttribute("totalPriceEUR", moneyEUR);
+		model.setAttribute("totalPriceUSD", moneyUSD);
+		model.setAttribute("totalPriceGBP", moneyGBP);
 		model.setAttribute("readonly", true);
 	}
 

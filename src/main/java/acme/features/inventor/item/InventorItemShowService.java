@@ -4,8 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.Item;
+import acme.features.authenticated.moneyExchange.AuthenticatedMoneyExchangePerformService;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
+import acme.framework.datatypes.Money;
 import acme.framework.services.AbstractShowService;
 import acme.roles.Inventor;
 
@@ -56,8 +58,17 @@ public class InventorItemShowService implements AbstractShowService<Inventor, It
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model,"name", "code", "technology", "description", "retailPrice", "link","type");
-		model.setAttribute("readonly", true);
+		request.unbind(entity, model,"name", "code", "technology", "description", "retailPrice","published", "link","type");
+		final AuthenticatedMoneyExchangePerformService moneyExchange= new AuthenticatedMoneyExchangePerformService();
+		
+		final Money money =entity.getRetailPrice();
+		final Money moneyEUR = moneyExchange.computeMoneyExchange(money, "EUR").getTarget();
+		final Money moneyUSD = moneyExchange.computeMoneyExchange(money, "USD").getTarget();
+		final Money moneyGBP = moneyExchange.computeMoneyExchange(money, "GBP").getTarget();
+		
+		model.setAttribute("retailPriceEUR", moneyEUR);
+		model.setAttribute("retailPriceUSD", moneyUSD);
+		model.setAttribute("retailPriceGBP", moneyGBP);
 	}
 	
 }

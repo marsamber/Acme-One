@@ -13,6 +13,9 @@
 	<acme:input-textbox code="patron.patronage.form.label.code" path="code"/>		
 	<acme:input-textarea code="patron.patronage.form.label.legalStuff" path="legalStuff"/>	
 	<acme:input-money code="patron.patronage.form.label.budget" path="budget"/>
+	<acme:input-money readonly="true" code="patron.patronage.form.label.budgetEUR" path="budgetEUR"/>
+	<acme:input-money readonly="true" code="patron.patronage.form.label.budgetUSD" path="budgetUSD"/>
+	<acme:input-money readonly="true" code="patron.patronage.form.label.budgetGBP" path="budgetGBP"/>
 	<acme:input-url code="patron.patronage.form.label.link" path="link"/>	
 	<acme:input-moment code="patron.patronage.form.label.createdAt" path="createdAt"/>
 	<acme:input-moment code="patron.patronage.form.label.startedAt" path="startedAt"/>
