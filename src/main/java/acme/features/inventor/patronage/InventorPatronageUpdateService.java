@@ -1,4 +1,4 @@
-package acme.features.inventor.patronages;
+package acme.features.inventor.patronage;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,12 +25,9 @@ public class InventorPatronageUpdateService implements AbstractUpdateService<Inv
 		assert request != null;
 		
 		final int id = request.getModel().getInteger("id");
-		System.out.println(id);
 		final Patronage p = this.repo.findById(id);
-		System.out.println(p.getId());
 		
 		return p.getInventor().getId() == request.getPrincipal().getActiveRoleId();
-		//return true;
 	}
 
 	@Override
@@ -39,7 +36,7 @@ public class InventorPatronageUpdateService implements AbstractUpdateService<Inv
 		assert entity != null;
 		assert errors != null;
 		
-		request.bind(entity, errors, "status", "code", "legalStuff", "budget", "link", "createdAt", "startedAt", "finishedAt", "patron.userAccount.username", "patron.company", "patron.statement", "patron.link");
+		request.bind(entity, errors, "status", "code", "legalStuff", "budgetEUR", "link", "createdAt", "startedAt", "finishedAt", "username", "company", "statement", "link");
 	}
 
 	@Override
@@ -48,7 +45,7 @@ public class InventorPatronageUpdateService implements AbstractUpdateService<Inv
 		assert entity != null;
 		assert model != null;
 		
-		request.unbind(entity, model, "status", "code", "legalStuff", "budget", "link", "createdAt", "startedAt", "finishedAt", "patron.userAccount.username", "patron.company", "patron.statement", "patron.link");
+		request.unbind(entity, model, "status", "code", "legalStuff", "budget", "link", "createdAt", "startedAt", "finishedAt", "username", "company", "statement", "link");
 		
 	}
 

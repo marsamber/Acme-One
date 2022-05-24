@@ -41,6 +41,9 @@
 		code="inventor.patronage.form.label.patron.statement" path="statement" />
 	<acme:input-url readonly="true" 
 		code="inventor.patronage.form.label.patron.info" path="patronLink" />
-
-	<acme:submit test="${command == 'show' && status == 'PROPOSED'}" code="inventor.patronage.form.update" action="/inventor/patronage/update"/>
+	
+	<jstl:if test="${command == 'show' && status == 'PROPOSED' }">
+		<acme:submit code="inventor.patronage.form.update" action="/inventor/patronage/update"/>
+	</jstl:if>
+	
 </acme:form>

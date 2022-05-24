@@ -1,4 +1,4 @@
-package acme.features.inventor.patronages;
+package acme.features.inventor.patronage;
 
 import java.util.Collection;
 
