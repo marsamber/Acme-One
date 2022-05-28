@@ -40,7 +40,6 @@ public class PatronPatronageController extends AbstractController<Patron, Patron
 		super.addCommand("delete", this.deleteService);
 		super.addCommand("update", this.updateService);
 		super.addCommand("publish", "update", this.publishService);
-
 	}
 	
 	

@@ -12,10 +12,14 @@
 
 package acme.features.patron.patronage;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.Patronage;
+import acme.entities.PatronageReport;
+import acme.features.patron.patronageReport.PatronPatronageReportRepository;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
 import acme.framework.controllers.Request;
@@ -29,25 +33,17 @@ public class PatronPatronageDeleteService implements AbstractDeleteService<Patro
 
 	@Autowired
 	protected PatronPatronageRepository repository;
-
-	// AbstractDeleteService<Employer, Job> interface -------------------------
-
+	
+	@Autowired 
+	protected PatronPatronageReportRepository patronageReportRepository;
 
 	@Override
 	public boolean authorise(final Request<Patronage> request) {
 		assert request != null;
 
-		final boolean result;
-		int patronageId;
-		Patronage patronage;
-		Patron patron;
-
-		patronageId = request.getModel().getInteger("id");
-		patronage = this.repository.findById(patronageId);
-		patron = patronage.getPatron();
-		result = request.isPrincipal(patron);
-
-		return result;
+		final int id = request.getModel().getInteger("id");
+		final Patronage p = this.repository.findById(id);		
+		return p.getPatron().getId() == request.getPrincipal().getActiveRoleId();
 	}
 
 	@Override
@@ -56,7 +52,7 @@ public class PatronPatronageDeleteService implements AbstractDeleteService<Patro
 		assert entity != null;
 		assert errors != null;
 
-		request.bind(entity, errors, "code", "legalStuff", "budget", "link", "startedAt", "finishedAt");
+		request.bind(entity, errors, "code", "legalStuff", "budget", "link", "createdAt", "startedAt", "finishedAt");
 	}
 
 	@Override
@@ -92,6 +88,12 @@ public class PatronPatronageDeleteService implements AbstractDeleteService<Patro
 	public void delete(final Request<Patronage> request, final Patronage entity) {
 		assert request != null;
 		assert entity != null;
+		final Collection<PatronageReport> prs = this.patronageReportRepository.findPatronageReportByPatronage(entity);
+		if (!prs.isEmpty()) {
+			for (final PatronageReport pr : prs) {
+				this.patronageReportRepository.delete(pr);
+			}
+		}
 
 		this.repository.delete(entity);
 	}

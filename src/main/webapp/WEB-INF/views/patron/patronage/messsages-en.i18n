@@ -43,5 +43,6 @@ patron.patronage.form.button.publish = Publish
 patron.patronage.form.error.code.existingPatronage = Code already exists
 patron.patronage.form.error.spam = Spam
 patron.patronage.form.error.startDate.tooClose = Start date must be 1 month after the patronage creation
+patron.patronage.form.error.finishDate.tooClose = Finish date must be 1 month after the patronage creation
 patron.patronage.form.error.negative = Budget cannot be negative
 patron.patronage.form.error.invalidCurrency = Wrong currency

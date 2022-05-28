@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.Patronage;
+import acme.entities.Patronage.Status;
 import acme.entities.SystemConfiguration;
 import acme.features.antiSpam.SpamDetector;
 import acme.features.antiSpam.SpamDetectorRepository;
@@ -37,9 +38,6 @@ public class PatronPatronageCreateService implements AbstractCreateService<Patro
 	@Autowired
 	protected SpamDetectorRepository repositorySpam; 
 
-	// AbstractCreateService<Patron, Patronage> interface -------------------------
-
-
 	@Override
 	public boolean authorise(final Request<Patronage> request) {
 		assert request != null;
@@ -50,13 +48,13 @@ public class PatronPatronageCreateService implements AbstractCreateService<Patro
 	@Override
 	public Patronage instantiate(final Request<Patronage> request) {
 		assert request != null;
-
+		
 		Patronage patronage;
 		Patron patron;
-
-		patron = this.roleRepository.findPatronById(request.getPrincipal().getActiveRoleId());
+		
 		patronage = new Patronage();
-		patronage.setPatron(patron);
+		
+		patron = this.roleRepository.findPatronById(request.getPrincipal().getActiveRoleId());
 		
 		Date createdAt, startedAt, finishedAt;
 		
@@ -68,11 +66,16 @@ public class PatronPatronageCreateService implements AbstractCreateService<Patro
 		money.setAmount(0.);
 		money.setCurrency("EUR");
 		
+		patronage.setStatus(Status.PROPOSED);
+		patronage.setPatron(patron);
+		patronage.setBudget(money);
 		patronage.setCreatedAt(createdAt);
 		patronage.setStartedAt(startedAt);
 		patronage.setFinishedAt(finishedAt);
 		patronage.setLink("");
 		patronage.setLegalStuff("");
+		patronage.setCode("");
+		patronage.setPublished(false);
 		
 		return patronage;
 	}
@@ -82,7 +85,7 @@ public class PatronPatronageCreateService implements AbstractCreateService<Patro
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
-		
+
 		String username;
 		Inventor inventor;
 		
@@ -91,7 +94,7 @@ public class PatronPatronageCreateService implements AbstractCreateService<Patro
 		
 		entity.setInventor(inventor);
 
-		request.bind(entity, errors, "code", "legalStuff", "budget", "link", "startedAt", "finishedAt", "inventor.username");
+		request.bind(entity, errors, "code", "legalStuff", "budget", "link", "startedAt", "finishedAt");
 	}
 
 	@Override
@@ -99,30 +102,40 @@ public class PatronPatronageCreateService implements AbstractCreateService<Patro
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
-		
-		if (errors.hasErrors("code")) {
+
+		if (!errors.hasErrors("code")) {
 			Patronage existing;
 
 			existing = this.repository.findByCode(entity.getCode());
-			errors.state(request, existing == null || existing.getId() == entity.getId(), "code", "patron.patronage.form.error.code.existingPatronage");
+			errors.state(request, existing == null, "code", "patron.patronage.form.error.code.existingPatronage");
 		}
 		
-		if (errors.hasErrors("startedAt")) {
+		if (!errors.hasErrors("startedAt")) {
 			final Date minStartedAt = DateUtils.addMonths(entity.getCreatedAt(), 1);
-			errors.state(request, entity.getStartedAt().after(minStartedAt), "startedAt", "patron.patronage.form.error.startDate.tooClose");
+			DateUtils.truncate(minStartedAt, 5);
+			DateUtils.truncate(entity.getStartedAt(), 5);
+			
+			errors.state(request, entity.getStartedAt().after(minStartedAt) || DateUtils.truncatedEquals(entity.getStartedAt(), minStartedAt, 5), "startedAt", "patron.patronage.form.error.startDate.tooClose");
 		}
 		
-		if (errors.hasErrors("budget")) {
+		if (!errors.hasErrors("finishedAt")) {
+			final Date minFinishedAt = DateUtils.addMonths(entity.getStartedAt(), 1);
+			DateUtils.truncate(minFinishedAt, 5);
+			
+			errors.state(request, entity.getFinishedAt().after(minFinishedAt) || DateUtils.truncatedEquals(entity.getFinishedAt(),minFinishedAt, 5), "finishedAt", "patron.patronage.form.error.finishDate.tooClose");
+		}
+		
+		if (!errors.hasErrors("budget")) {
 			final List<String> acceptedCurrencies = Arrays.asList(this.repository.getAcceptedCurrencies().split(","));
 			
-			errors.state(request, entity.getBudget().getAmount() > 0, "budget", "patron.patronage.form.error.negative");
+			errors.state(request, entity.getBudget().getAmount() >= 0, "budget", "patron.patronage.form.error.negative");
 			
 			errors.state(request, acceptedCurrencies.contains(entity.getBudget().getCurrency()), "budget", "patron.patronage.form.error.invalidCurrency");
 		}
 		
 		final SystemConfiguration systemConfiguration= this.repositorySpam.findTheSystemConfiguration();
         final SpamDetector spamDetector= new SpamDetector(systemConfiguration);
-
+        
         errors.state(request, !spamDetector.detectSpam(entity.getLegalStuff()), "legalStuff", "patron.patronage.form.error.spam");
 	}
 
@@ -131,11 +144,11 @@ public class PatronPatronageCreateService implements AbstractCreateService<Patro
 		assert request != null;
 		assert entity != null;
 		assert model != null;
-
+		
 		final List<String> usernames = new ArrayList<>();
 		this.roleRepository.findAllInventors().stream().forEach(x -> usernames.add(x.getUserAccount().getUsername()));
 		
-		request.unbind(entity, model, "code", "legalStuff", "budget", "link", "createdAt", "startedAt", "finishedAt","inventor.username");
+		request.unbind(entity, model, "code", "legalStuff", "budget", "link", "createdAt", "startedAt", "finishedAt","inventor","published" );
 		model.setAttribute("allInventors", usernames);
 		
 	}

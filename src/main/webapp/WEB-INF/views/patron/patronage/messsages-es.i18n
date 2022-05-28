@@ -41,5 +41,6 @@ patron.patronage.form.button.publish = Publicar
 patron.patronage.form.error.code.existingPatronage = Código duplicado
 patron.patronage.form.error.spam = Spam
 patron.patronage.form.error.startDate.tooClose = La fecha de inicio debe ser 1 mes posterior a la de creación del patrocinio
+patron.patronage.form.error.finishDate.tooClose = La fecha de conclusión debe ser 1 mes posterior a la de inicio del patrocinio
 patron.patronage.form.error.negative = El presupuesto no puede ser negativo
 patron.patronage.form.error.invalidCurrency = Moneda inválida
