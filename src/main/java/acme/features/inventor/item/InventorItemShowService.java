@@ -58,20 +58,17 @@ public class InventorItemShowService implements AbstractShowService<Inventor, It
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model,"name", "code", "technology", "description", "retailPrice", "link","type");
+		request.unbind(entity, model,"name", "code", "technology", "description", "retailPrice","published", "link","type");
+		final AuthenticatedMoneyExchangePerformService moneyExchange= new AuthenticatedMoneyExchangePerformService();
 		
-		AuthenticatedMoneyExchangePerformService moneyExchange= new AuthenticatedMoneyExchangePerformService();
-		
-		Money money =entity.getRetailPrice();
-		Money moneyEUR = moneyExchange.computeMoneyExchange(money, "EUR").getTarget();
-		Money moneyUSD = moneyExchange.computeMoneyExchange(money, "USD").getTarget();
-		Money moneyGBP = moneyExchange.computeMoneyExchange(money, "GBP").getTarget();
+		final Money money =entity.getRetailPrice();
+		final Money moneyEUR = moneyExchange.computeMoneyExchange(money, "EUR").getTarget();
+		final Money moneyUSD = moneyExchange.computeMoneyExchange(money, "USD").getTarget();
+		final Money moneyGBP = moneyExchange.computeMoneyExchange(money, "GBP").getTarget();
 		
 		model.setAttribute("retailPriceEUR", moneyEUR);
 		model.setAttribute("retailPriceUSD", moneyUSD);
 		model.setAttribute("retailPriceGBP", moneyGBP);
-		
-		model.setAttribute("readonly", true);
 	}
 	
 }

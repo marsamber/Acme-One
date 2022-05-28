@@ -76,12 +76,14 @@ public class Patronage extends AbstractEntity {
 	@ManyToOne
 	protected Inventor inventor;
 	
+	@NotNull
+	protected Boolean published;
 	
 	//Complex constraints -------------------------------------
 	
 	@AssertTrue(message="Budget must be positive")
     private boolean isMoneyPositive() {
-        return this.budget.getAmount() > 0.;
+        return this.budget.getAmount() >= 0.;
     }
 	
 	@AssertTrue(message = "The patronage should start a month after the entity is created.")

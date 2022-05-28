@@ -9,6 +9,6 @@ import acme.framework.repositories.AbstractRepository;
 @Repository
 public interface SpamDetectorRepository extends AbstractRepository{
 	
-	@Query("select sc from SystemConfiguration sc")
+	@Query("SELECT sc FROM SystemConfiguration sc")
 	SystemConfiguration findTheSystemConfiguration();
 }

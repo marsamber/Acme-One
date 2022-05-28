@@ -35,6 +35,7 @@ public class InventorToolkitListMineService implements AbstractListService<Inven
 	public Collection<Toolkit> findMany(final Request<Toolkit> request) {
 		assert request != null;
 
+		Collection<Toolkit> toolkits;
 		Collection<Toolkit> result;
 		Principal principal;
 
@@ -54,6 +55,12 @@ public class InventorToolkitListMineService implements AbstractListService<Inven
 			totalPrice.setCurrency(currency);
 			toolkit.setTotalPrice(totalPrice);
 		}
+		
+		toolkits = this.repository.findAllToolkits();
+		for(final Toolkit toolkit: toolkits) {
+			if(this.repository.findItemsByToolkit(toolkit.getId()).isEmpty())
+				result.add(toolkit);
+		}
 
 		return result;
 	}
@@ -64,7 +71,7 @@ public class InventorToolkitListMineService implements AbstractListService<Inven
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "title", "code", "description", "assemblyNotes", "link", "totalPrice");
+		request.unbind(entity, model, "title", "code", "description", "assemblyNotes", "link", "totalPrice","draftMode");
 	}
 
 }
