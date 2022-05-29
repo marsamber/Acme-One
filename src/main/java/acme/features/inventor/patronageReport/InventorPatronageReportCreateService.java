@@ -13,7 +13,7 @@ import acme.entities.PatronageReport;
 import acme.entities.SystemConfiguration;
 import acme.features.antiSpam.SpamDetector;
 import acme.features.antiSpam.SpamDetectorRepository;
-import acme.features.inventor.patronages.InventorPatronageRepository;
+import acme.features.inventor.patronage.InventorPatronageRepository;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
 import acme.framework.controllers.Request;
