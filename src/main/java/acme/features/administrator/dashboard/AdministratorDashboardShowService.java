@@ -38,11 +38,11 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AdministratorDashboardRepository repository;
+	protected AdministratorDashboardRepository	repository;
 	@Autowired
-	protected PatronageShowService	patronageService;
+	protected PatronageShowService				patronageService;
 	@Autowired
-	protected AnyItemListAllComponentsService componentsService;
+	protected AnyItemListAllComponentsService	componentsService;
 
 	// AbstractShowService<Administrator, AdministratorDashboard> interface ----------------
 
@@ -57,33 +57,8 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 	@Override
 	public AdministratorDashboard findOne(final Request<AdministratorDashboard> request) {
 		assert request != null;
-		
-		AdministratorDashboard result = this.createAdministratorDashboard();
-		/*
-		Double averageNumberOfApplicationsPerEmployer;
-		Double averageNumberOfApplicationsPerWorker;
-		Double averageNumberOfJobsPerEmployer;
-		Double ratioOfPendingApplications;
-		Double ratioOfAcceptedApplications;
-		Double ratioOfRejectedApplications;
 
-		averageNumberOfApplicationsPerEmployer = this.repository.averageNumberOfApplicationsPerEmployer();
-		averageNumberOfApplicationsPerWorker = this.repository.averageNumberOfApplicationsPerWorker();
-		averageNumberOfJobsPerEmployer = this.repository.averageNumberOfJobsPerEmployer();
-		ratioOfPendingApplications = this.repository.ratioOfPendingApplications();
-		ratioOfAcceptedApplications = this.repository.ratioOfAcceptedApplications();
-		ratioOfRejectedApplications = this.repository.ratioOfRejectedApplications();
-		
-		result = new AdministratorDashboard();
-		result.setAvegageNumberOfApplicationsPerEmployer(averageNumberOfApplicationsPerEmployer);
-		result.setAverageNumberOfApplicationsPerWorker(averageNumberOfApplicationsPerWorker);
-		result.setAverageNumberOfJobsPerEmployer(averageNumberOfJobsPerEmployer);
-		result.setRatioOfPendingApplications(ratioOfPendingApplications);
-		result.setRatioOfAcceptedApplications(ratioOfAcceptedApplications);
-		result.setRatioOfRejectedApplications(ratioOfRejectedApplications);
-*/
-		
-		return result;
+		return this.createAdministratorDashboard();
 	}
 
 	@Override
@@ -91,124 +66,125 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		assert request != null;
 		assert entity != null;
 		assert model != null;
-		
+
 		model.setAttribute("dashboard", entity);
 		this.addPatronagesStats(model, entity);
 		this.addToolsStats(model, entity);
 		this.addComponentsStats(model, entity);
-		
-		
+
 	}
-	
-	
+
 	// Constructors -----------------------------------------------------------
 
 	private AdministratorDashboard createAdministratorDashboard() {
-		
-		final Collection<Patronage> patronagesProposed=this.patronageService.findPatronagesByStatus(Status.PROPOSED); 
-		final Collection<Patronage> patronagesAccepted=this.patronageService.findPatronagesByStatus(Status.ACCEPTED);
-		final Collection<Patronage> patronagesDenied=this.patronageService.findPatronagesByStatus(Status.DENIED);;
-		
-		final List<Collection<Patronage>> patronages= new ArrayList<Collection<Patronage>>();
-		
+
+		final Collection<Patronage> patronagesProposed = this.patronageService.findPatronagesByStatus(Status.PROPOSED);
+		final Collection<Patronage> patronagesAccepted = this.patronageService.findPatronagesByStatus(Status.ACCEPTED);
+		final Collection<Patronage> patronagesDenied = this.patronageService.findPatronagesByStatus(Status.DENIED);
+		;
+
+		final List<Collection<Patronage>> patronages = new ArrayList<Collection<Patronage>>();
+
 		patronages.add(patronagesProposed);
 		patronages.add(patronagesAccepted);
 		patronages.add(patronagesDenied);
-		
-		final Collection<Item> components =this.componentsService.findItemsByType(Type.COMPONENT);
-		final Collection<Item> tools =this.componentsService.findItemsByType(Type.TOOL);
-		
+
+		final Collection<Item> components = this.componentsService.findItemsByType(Type.COMPONENT);
+		final Collection<Item> tools = this.componentsService.findItemsByType(Type.TOOL);
+
 		return new AdministratorDashboard(patronages, tools, components);
 	}
-	
+
 	private void addToolsStats(final Model result, final AdministratorDashboard administratorDashboard) {
 		// Average
-		result.setAttribute("toolsAverageEUR",administratorDashboard.getRetailPriceToolsAverage().get("EUR"));
-		result.setAttribute("toolsAverageUSD",administratorDashboard.getRetailPriceToolsAverage().get("USD"));
-		result.setAttribute("toolsAverageGBP",administratorDashboard.getRetailPriceToolsAverage().get("GBP"));
+		result.setAttribute("toolsAverageEUR", administratorDashboard.getRetailPriceToolsAverage().get("EUR"));
+		result.setAttribute("toolsAverageUSD", administratorDashboard.getRetailPriceToolsAverage().get("USD"));
+		result.setAttribute("toolsAverageGBP", administratorDashboard.getRetailPriceToolsAverage().get("GBP"));
 
 		// Deviation
-		result.setAttribute("toolsDeviationEUR",administratorDashboard.getRetailPriceToolsDeviation().get("EUR"));
-		result.setAttribute("toolsDeviationUSD",administratorDashboard.getRetailPriceToolsDeviation().get("USD"));
-		result.setAttribute("toolsDeviationGBP",administratorDashboard.getRetailPriceToolsDeviation().get("GBP"));
+		result.setAttribute("toolsDeviationEUR", administratorDashboard.getRetailPriceToolsDeviation().get("EUR"));
+		result.setAttribute("toolsDeviationUSD", administratorDashboard.getRetailPriceToolsDeviation().get("USD"));
+		result.setAttribute("toolsDeviationGBP", administratorDashboard.getRetailPriceToolsDeviation().get("GBP"));
 
 		// Max
-		result.setAttribute("toolsMaxEUR",administratorDashboard.getRetailPriceToolsMaximum().get("EUR"));
-		result.setAttribute("toolsMaxUSD",administratorDashboard.getRetailPriceToolsMaximum().get("USD"));
-		result.setAttribute("toolsMaxGBP",administratorDashboard.getRetailPriceToolsMaximum().get("GBP"));
-		
+		result.setAttribute("toolsMaxEUR", administratorDashboard.getRetailPriceToolsMaximum().get("EUR"));
+		result.setAttribute("toolsMaxUSD", administratorDashboard.getRetailPriceToolsMaximum().get("USD"));
+		result.setAttribute("toolsMaxGBP", administratorDashboard.getRetailPriceToolsMaximum().get("GBP"));
+
 		// Min
-		result.setAttribute("toolsMinEUR",administratorDashboard.getRetailPriceToolsMinimum().get("EUR"));
-		result.setAttribute("toolsMinUSD",administratorDashboard.getRetailPriceToolsMinimum().get("USD"));
-		result.setAttribute("toolsMinGBP",administratorDashboard.getRetailPriceToolsMinimum().get("GBP"));
-		
+		result.setAttribute("toolsMinEUR", administratorDashboard.getRetailPriceToolsMinimum().get("EUR"));
+		result.setAttribute("toolsMinUSD", administratorDashboard.getRetailPriceToolsMinimum().get("USD"));
+		result.setAttribute("toolsMinGBP", administratorDashboard.getRetailPriceToolsMinimum().get("GBP"));
+
 	}
 
 	private void addComponentsStats(final Model result, final AdministratorDashboard administratorDashboard) {
 		//Average
-		final Double[][] componentsAverage= new Double[administratorDashboard.getTechnologiesOfComponents().length][3];
-		final Double[][] componentsDeviation= new Double[administratorDashboard.getTechnologiesOfComponents().length][3];
-		final Double[][] componentsMax= new Double[administratorDashboard.getTechnologiesOfComponents().length][3];
-		final Double[][] componentsMin= new Double[administratorDashboard.getTechnologiesOfComponents().length][3];
-		final String[] technologies=administratorDashboard.getTechnologiesOfComponents();
-		final String[] currencies= new String[] {"EUR","USD","GBP"};
-		for(int i=0; i<technologies.length; i++) {
-			for(int j=0; j<currencies.length;j++) {
-				componentsAverage[i][j]=administratorDashboard.getRetailPriceComponentsAverage().get(Pair.of(technologies[i],currencies[j]));
-				componentsDeviation[i][j]=administratorDashboard.getRetailPriceComponentsDeviation().get(Pair.of(technologies[i],currencies[j]));
-				componentsMax[i][j]=administratorDashboard.getRetailPriceComponentsMaximum().get(Pair.of(technologies[i],currencies[j]));
-				componentsMin[i][j]=administratorDashboard.getRetailPriceComponentsMinimum().get(Pair.of(technologies[i],currencies[j]));
+		final Double[][] componentsAverage = new Double[administratorDashboard.getTechnologiesOfComponents().length][3];
+		final Double[][] componentsDeviation = new Double[administratorDashboard.getTechnologiesOfComponents().length][3];
+		final Double[][] componentsMax = new Double[administratorDashboard.getTechnologiesOfComponents().length][3];
+		final Double[][] componentsMin = new Double[administratorDashboard.getTechnologiesOfComponents().length][3];
+		final String[] technologies = administratorDashboard.getTechnologiesOfComponents();
+		final String[] currencies = new String[] {
+			"EUR", "USD", "GBP"
+		};
+		for (int i = 0; i < technologies.length; i++) {
+			for (int j = 0; j < currencies.length; j++) {
+				componentsAverage[i][j] = administratorDashboard.getRetailPriceComponentsAverage().get(Pair.of(technologies[i], currencies[j]));
+				componentsDeviation[i][j] = administratorDashboard.getRetailPriceComponentsDeviation().get(Pair.of(technologies[i], currencies[j]));
+				componentsMax[i][j] = administratorDashboard.getRetailPriceComponentsMaximum().get(Pair.of(technologies[i], currencies[j]));
+				componentsMin[i][j] = administratorDashboard.getRetailPriceComponentsMinimum().get(Pair.of(technologies[i], currencies[j]));
 			}
 		}
 		result.setAttribute("technologies", technologies);
-		result.setAttribute("componentsAverage",componentsAverage);
-		result.setAttribute("componentsDeviation",componentsDeviation);
-		result.setAttribute("componentsMax",componentsMax);
-		result.setAttribute("componentsMin",componentsMin);
+		result.setAttribute("componentsAverage", componentsAverage);
+		result.setAttribute("componentsDeviation", componentsDeviation);
+		result.setAttribute("componentsMax", componentsMax);
+		result.setAttribute("componentsMin", componentsMin);
 	}
 
-	private void addPatronagesStats(final Model result,final AdministratorDashboard administratorDashboard) {
-		
+	private void addPatronagesStats(final Model result, final AdministratorDashboard administratorDashboard) {
+
 		//Average
-		result.setAttribute("patronagesAverageAcceptedEUR",administratorDashboard.getPatronagesAverage().get(Pair.of(Status.ACCEPTED,"EUR")));
-		result.setAttribute("patronagesAverageAcceptedUSD",administratorDashboard.getPatronagesAverage().get(Pair.of(Status.ACCEPTED,"USD")));
-		result.setAttribute("patronagesAverageAcceptedGBP",administratorDashboard.getPatronagesAverage().get(Pair.of(Status.ACCEPTED,"GBP")));
-		result.setAttribute("patronagesAverageProposedEUR",administratorDashboard.getPatronagesAverage().get(Pair.of(Status.PROPOSED,"EUR")));
-		result.setAttribute("patronagesAverageProposedUSD",administratorDashboard.getPatronagesAverage().get(Pair.of(Status.PROPOSED,"USD")));
-		result.setAttribute("patronagesAverageProposedGBP",administratorDashboard.getPatronagesAverage().get(Pair.of(Status.PROPOSED,"GBP")));
-		result.setAttribute("patronagesAverageDeniedEUR",administratorDashboard.getPatronagesAverage().get(Pair.of(Status.DENIED,"EUR")));
-		result.setAttribute("patronagesAverageDeniedUSD",administratorDashboard.getPatronagesAverage().get(Pair.of(Status.DENIED,"USD")));
-		result.setAttribute("patronagesAverageDeniedGBP",administratorDashboard.getPatronagesAverage().get(Pair.of(Status.DENIED,"GBP")));
+		result.setAttribute("patronagesAverageAcceptedEUR", administratorDashboard.getPatronagesAverage().get(Pair.of(Status.ACCEPTED, "EUR")));
+		result.setAttribute("patronagesAverageAcceptedUSD", administratorDashboard.getPatronagesAverage().get(Pair.of(Status.ACCEPTED, "USD")));
+		result.setAttribute("patronagesAverageAcceptedGBP", administratorDashboard.getPatronagesAverage().get(Pair.of(Status.ACCEPTED, "GBP")));
+		result.setAttribute("patronagesAverageProposedEUR", administratorDashboard.getPatronagesAverage().get(Pair.of(Status.PROPOSED, "EUR")));
+		result.setAttribute("patronagesAverageProposedUSD", administratorDashboard.getPatronagesAverage().get(Pair.of(Status.PROPOSED, "USD")));
+		result.setAttribute("patronagesAverageProposedGBP", administratorDashboard.getPatronagesAverage().get(Pair.of(Status.PROPOSED, "GBP")));
+		result.setAttribute("patronagesAverageDeniedEUR", administratorDashboard.getPatronagesAverage().get(Pair.of(Status.DENIED, "EUR")));
+		result.setAttribute("patronagesAverageDeniedUSD", administratorDashboard.getPatronagesAverage().get(Pair.of(Status.DENIED, "USD")));
+		result.setAttribute("patronagesAverageDeniedGBP", administratorDashboard.getPatronagesAverage().get(Pair.of(Status.DENIED, "GBP")));
 		//Deviation
-		result.setAttribute("patronagesDeviationAcceptedEUR",administratorDashboard.getPatronagesDeviation().get(Pair.of(Status.ACCEPTED,"EUR")));
-		result.setAttribute("patronagesDeviationAcceptedUSD",administratorDashboard.getPatronagesDeviation().get(Pair.of(Status.ACCEPTED,"USD")));
-		result.setAttribute("patronagesDeviationAcceptedGBP",administratorDashboard.getPatronagesDeviation().get(Pair.of(Status.ACCEPTED,"GBP")));
-		result.setAttribute("patronagesDeviationProposedEUR",administratorDashboard.getPatronagesDeviation().get(Pair.of(Status.PROPOSED,"EUR")));
-		result.setAttribute("patronagesDeviationProposedUSD",administratorDashboard.getPatronagesDeviation().get(Pair.of(Status.PROPOSED,"USD")));
-		result.setAttribute("patronagesDeviationProposedGBP",administratorDashboard.getPatronagesDeviation().get(Pair.of(Status.PROPOSED,"GBP")));
-		result.setAttribute("patronagesDeviationDeniedEUR",administratorDashboard.getPatronagesDeviation().get(Pair.of(Status.DENIED,"EUR")));
-		result.setAttribute("patronagesDeviationDeniedUSD",administratorDashboard.getPatronagesDeviation().get(Pair.of(Status.DENIED,"USD")));
-		result.setAttribute("patronagesDeviationDeniedGBP",administratorDashboard.getPatronagesDeviation().get(Pair.of(Status.DENIED,"GBP")));
+		result.setAttribute("patronagesDeviationAcceptedEUR", administratorDashboard.getPatronagesDeviation().get(Pair.of(Status.ACCEPTED, "EUR")));
+		result.setAttribute("patronagesDeviationAcceptedUSD", administratorDashboard.getPatronagesDeviation().get(Pair.of(Status.ACCEPTED, "USD")));
+		result.setAttribute("patronagesDeviationAcceptedGBP", administratorDashboard.getPatronagesDeviation().get(Pair.of(Status.ACCEPTED, "GBP")));
+		result.setAttribute("patronagesDeviationProposedEUR", administratorDashboard.getPatronagesDeviation().get(Pair.of(Status.PROPOSED, "EUR")));
+		result.setAttribute("patronagesDeviationProposedUSD", administratorDashboard.getPatronagesDeviation().get(Pair.of(Status.PROPOSED, "USD")));
+		result.setAttribute("patronagesDeviationProposedGBP", administratorDashboard.getPatronagesDeviation().get(Pair.of(Status.PROPOSED, "GBP")));
+		result.setAttribute("patronagesDeviationDeniedEUR", administratorDashboard.getPatronagesDeviation().get(Pair.of(Status.DENIED, "EUR")));
+		result.setAttribute("patronagesDeviationDeniedUSD", administratorDashboard.getPatronagesDeviation().get(Pair.of(Status.DENIED, "USD")));
+		result.setAttribute("patronagesDeviationDeniedGBP", administratorDashboard.getPatronagesDeviation().get(Pair.of(Status.DENIED, "GBP")));
 		//Max
-		result.setAttribute("patronagesMaxAcceptedEUR",administratorDashboard.getPatronagesMaximum().get(Pair.of(Status.ACCEPTED,"EUR")));
-		result.setAttribute("patronagesMaxAcceptedUSD",administratorDashboard.getPatronagesMaximum().get(Pair.of(Status.ACCEPTED,"USD")));
-		result.setAttribute("patronagesMaxAcceptedGBP",administratorDashboard.getPatronagesMaximum().get(Pair.of(Status.ACCEPTED,"GBP")));
-		result.setAttribute("patronagesMaxProposedEUR",administratorDashboard.getPatronagesMaximum().get(Pair.of(Status.PROPOSED,"EUR")));
-		result.setAttribute("patronagesMaxProposedUSD",administratorDashboard.getPatronagesMaximum().get(Pair.of(Status.PROPOSED,"USD")));
-		result.setAttribute("patronagesMaxProposedGBP",administratorDashboard.getPatronagesMaximum().get(Pair.of(Status.PROPOSED,"GBP")));
-		result.setAttribute("patronagesMaxDeniedEUR",administratorDashboard.getPatronagesMaximum().get(Pair.of(Status.DENIED,"EUR")));
-		result.setAttribute("patronagesMaxDeniedUSD",administratorDashboard.getPatronagesMaximum().get(Pair.of(Status.DENIED,"USD")));
-		result.setAttribute("patronagesMaxDeniedGBP",administratorDashboard.getPatronagesMaximum().get(Pair.of(Status.DENIED,"GBP")));
+		result.setAttribute("patronagesMaxAcceptedEUR", administratorDashboard.getPatronagesMaximum().get(Pair.of(Status.ACCEPTED, "EUR")));
+		result.setAttribute("patronagesMaxAcceptedUSD", administratorDashboard.getPatronagesMaximum().get(Pair.of(Status.ACCEPTED, "USD")));
+		result.setAttribute("patronagesMaxAcceptedGBP", administratorDashboard.getPatronagesMaximum().get(Pair.of(Status.ACCEPTED, "GBP")));
+		result.setAttribute("patronagesMaxProposedEUR", administratorDashboard.getPatronagesMaximum().get(Pair.of(Status.PROPOSED, "EUR")));
+		result.setAttribute("patronagesMaxProposedUSD", administratorDashboard.getPatronagesMaximum().get(Pair.of(Status.PROPOSED, "USD")));
+		result.setAttribute("patronagesMaxProposedGBP", administratorDashboard.getPatronagesMaximum().get(Pair.of(Status.PROPOSED, "GBP")));
+		result.setAttribute("patronagesMaxDeniedEUR", administratorDashboard.getPatronagesMaximum().get(Pair.of(Status.DENIED, "EUR")));
+		result.setAttribute("patronagesMaxDeniedUSD", administratorDashboard.getPatronagesMaximum().get(Pair.of(Status.DENIED, "USD")));
+		result.setAttribute("patronagesMaxDeniedGBP", administratorDashboard.getPatronagesMaximum().get(Pair.of(Status.DENIED, "GBP")));
 		//Min
-		result.setAttribute("patronagesMinAcceptedEUR",administratorDashboard.getPatronagesMinimum().get(Pair.of(Status.ACCEPTED,"EUR")));
-		result.setAttribute("patronagesMinAcceptedUSD",administratorDashboard.getPatronagesMinimum().get(Pair.of(Status.ACCEPTED,"USD")));
-		result.setAttribute("patronagesMinAcceptedGBP",administratorDashboard.getPatronagesMinimum().get(Pair.of(Status.ACCEPTED,"GBP")));
-		result.setAttribute("patronagesMinProposedEUR",administratorDashboard.getPatronagesMinimum().get(Pair.of(Status.PROPOSED,"EUR")));
-		result.setAttribute("patronagesMinProposedUSD",administratorDashboard.getPatronagesMinimum().get(Pair.of(Status.PROPOSED,"USD")));
-		result.setAttribute("patronagesMinProposedGBP",administratorDashboard.getPatronagesMinimum().get(Pair.of(Status.PROPOSED,"GBP")));
-		result.setAttribute("patronagesMinDeniedEUR",administratorDashboard.getPatronagesMinimum().get(Pair.of(Status.DENIED,"EUR")));
-		result.setAttribute("patronagesMinDeniedUSD",administratorDashboard.getPatronagesMinimum().get(Pair.of(Status.DENIED,"USD")));
-		result.setAttribute("patronagesMinDeniedGBP",administratorDashboard.getPatronagesMinimum().get(Pair.of(Status.DENIED,"GBP")));
+		result.setAttribute("patronagesMinAcceptedEUR", administratorDashboard.getPatronagesMinimum().get(Pair.of(Status.ACCEPTED, "EUR")));
+		result.setAttribute("patronagesMinAcceptedUSD", administratorDashboard.getPatronagesMinimum().get(Pair.of(Status.ACCEPTED, "USD")));
+		result.setAttribute("patronagesMinAcceptedGBP", administratorDashboard.getPatronagesMinimum().get(Pair.of(Status.ACCEPTED, "GBP")));
+		result.setAttribute("patronagesMinProposedEUR", administratorDashboard.getPatronagesMinimum().get(Pair.of(Status.PROPOSED, "EUR")));
+		result.setAttribute("patronagesMinProposedUSD", administratorDashboard.getPatronagesMinimum().get(Pair.of(Status.PROPOSED, "USD")));
+		result.setAttribute("patronagesMinProposedGBP", administratorDashboard.getPatronagesMinimum().get(Pair.of(Status.PROPOSED, "GBP")));
+		result.setAttribute("patronagesMinDeniedEUR", administratorDashboard.getPatronagesMinimum().get(Pair.of(Status.DENIED, "EUR")));
+		result.setAttribute("patronagesMinDeniedUSD", administratorDashboard.getPatronagesMinimum().get(Pair.of(Status.DENIED, "USD")));
+		result.setAttribute("patronagesMinDeniedGBP", administratorDashboard.getPatronagesMinimum().get(Pair.of(Status.DENIED, "GBP")));
 
 	}
 }
