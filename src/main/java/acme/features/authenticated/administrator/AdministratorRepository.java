@@ -1,5 +1,5 @@
 /*
- * AdministratorDashboardRepository.java
+ * AuthenticatedProviderRepository.java
  *
  * Copyright (C) 2012-2022 Rafael Corchuelo.
  *
@@ -10,7 +10,7 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.administrator.dashboard;
+package acme.features.authenticated.administrator;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -20,13 +20,14 @@ import acme.framework.repositories.AbstractRepository;
 import acme.framework.roles.Administrator;
 
 @Repository
-public interface AdministratorDashboardRepository extends AbstractRepository {
-
+public interface AdministratorRepository extends AbstractRepository {
 
 	@Query("select a from Administrator a where a.userAccount.id = :id")
 	Administrator findOneProviderByUserAccountId(int id);
 
 	@Query("select ua from UserAccount ua where ua.id = :id")
 	UserAccount findOneUserAccountById(int id);
+	
+	
 
 }

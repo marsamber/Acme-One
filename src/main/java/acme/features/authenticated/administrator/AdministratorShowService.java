@@ -1,5 +1,5 @@
 /*
- * AdministratorDashboardController.java
+ * AuthenticatedProviderCreateService.java
  *
  * Copyright (C) 2012-2022 Rafael Corchuelo.
  *
@@ -10,31 +10,32 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.administrator.dashboard;
-
-import javax.annotation.PostConstruct;
+package acme.features.authenticated.administrator;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Service;
 
-import acme.forms.AdministratorDashboard;
-import acme.framework.controllers.AbstractController;
 import acme.framework.roles.Administrator;
+import acme.framework.roles.Authenticated;
+import acme.framework.services.AbstractService;
 
-@Controller
-public class AdministratorDashboardController extends AbstractController<Administrator, AdministratorDashboard> {
+@Service
+public class AdministratorShowService implements AbstractService<Authenticated, Administrator> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AdministratorDashboardShowService showService;
-
-	// Constructors -----------------------------------------------------------
+	protected AdministratorRepository repository;
 
 
-	@PostConstruct
-	protected void initialise() {
-		super.addCommand("show", this.showService);
+	/*
+	public Collection<Patronage> findPatronageByStatus(Status status){
+		return this.repository.findPatronageByStatus(status);
 	}
+
+	public int NumberOfPatronageByStatus(Status status){
+		return this.repository.findPatronageByStatus(status).size();
+	}
+	*/
 
 }
