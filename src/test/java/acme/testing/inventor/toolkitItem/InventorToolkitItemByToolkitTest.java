@@ -21,7 +21,7 @@ public class InventorToolkitItemByToolkitTest extends TestHarness {
 		super.sortListing(0, "asc");
 		
 		super.clickOnListingRecord(0);
-		super.clickOnButton("Items");
+		super.clickOnButton("Components and Tools");
 		super.checkListingExists();
 		super.sortListing(0, "asc");
 

@@ -19,10 +19,14 @@
 		path="code" />
 	<acme:input-textarea readonly="true" code="inventor.patronage.form.label.legalStuff"
 		path="legalStuff" />
-	<acme:input-money readonly="true" code="inventor.patronage.form.label.budget"
-		path="budgetEUR" />
-	<acme:input-money readonly="true" code="" path="budgetUSD" />
-	<acme:input-money readonly="true" code="" path="budgetGBP" />
+	<acme:input-money code="inventor.patronage.form.label.budget" path="budget"/>
+	<jstl:choose>
+		<jstl:when test="${!(command == 'create')}">
+			<acme:input-money readonly="true" code="inventor.patronage.form.label.budgetEUR" path="budgetEUR"/>
+			<acme:input-money readonly="true" code="inventor.patronage.form.label.budgetUSD" path="budgetUSD"/>
+			<acme:input-money readonly="true" code="inventor.patronage.form.label.budgetGBP" path="budgetGBP"/>
+		</jstl:when>
+	</jstl:choose>
 	<acme:input-url readonly="true" code="inventor.patronage.form.label.link" path="link" />
 	<acme:input-moment readonly="true" code="inventor.patronage.form.label.createdAt"
 		path="createdAt" />
