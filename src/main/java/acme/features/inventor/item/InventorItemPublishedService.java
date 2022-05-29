@@ -7,6 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.Item;
+import acme.entities.SystemConfiguration;
+import acme.features.antiSpam.SpamDetector;
+import acme.features.antiSpam.SpamDetectorRepository;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
 import acme.framework.controllers.Request;
@@ -19,6 +22,8 @@ public class InventorItemPublishedService implements AbstractUpdateService<Inven
 	@Autowired
 	protected InventorItemRepository repository;
 
+	@Autowired
+	protected SpamDetectorRepository repositorySpam;
 
 	@Override
 	public boolean authorise(final Request<Item> request) {
@@ -84,6 +89,16 @@ public class InventorItemPublishedService implements AbstractUpdateService<Inven
 			
 			errors.state(request, acceptedCurrencies.contains(entity.getRetailPrice().getCurrency()), "price", "inventor.item.form.error.invalidCurrency");
 		}
+		
+		final SystemConfiguration systemConfiguration= this.repositorySpam.findTheSystemConfiguration();
+		final SpamDetector spamDetector= new SpamDetector(systemConfiguration);
+
+		errors.state(request, !spamDetector.detectSpam(entity.getName()), "name", "inventor.item.form.error.spam");
+		
+		errors.state(request, !spamDetector.detectSpam(entity.getTechnology()), "technology", "inventor.item.form.error.spam");
+		
+		errors.state(request, !spamDetector.detectSpam(entity.getDescription()), "description", "inventor.item.form.error.spam");
+
 
 
 	}

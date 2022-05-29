@@ -8,9 +8,22 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-any.chirp.list.label.creationMoment = Momento de Creación
+any.chirp.list.label.creationMoment = Fecha Creación
 any.chirp.list.label.title = Título
 any.chirp.list.label.author = Autor
 any.chirp.list.label.body = Cuerpo
-any.chirp.list.label.email = Dirección de Correo
+any.chirp.list.label.email = Correo
+
+any.chirp.list.button.create = Crear
+
+any.chirp.form.label.creation-moment = Momento de creacion
+any.chirp.form.label.title = Titulo
+any.chirp.form.label.author = Autor
+any.chirp.form.label.body = Cuerpo	
+any.chirp.form.label.email = Correo
+
+any.chirp.form.label.confirmation= Confirma la creación
+any.chirp.form.button.create = Crear
+any.Chirp.confirmation.error = Marcala
+any.chirp.form.error.spam = Este chirp está considerado como spam
 

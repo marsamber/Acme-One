@@ -21,9 +21,13 @@
 			
 	<acme:input-textarea code="patron.patronage.form.label.legalStuff" path="legalStuff"/>	
 	<acme:input-money code="patron.patronage.form.label.budget" path="budget"/>
-	<acme:input-money readonly="true" code="patron.patronage.form.label.budgetEUR" path="budgetEUR"/>
-	<acme:input-money readonly="true" code="patron.patronage.form.label.budgetUSD" path="budgetUSD"/>
-	<acme:input-money readonly="true" code="patron.patronage.form.label.budgetGBP" path="budgetGBP"/>
+	<jstl:choose>
+		<jstl:when test="${!(command == 'create')}">
+			<acme:input-money readonly="true" code="patron.patronage.form.label.budgetEUR" path="budgetEUR"/>
+			<acme:input-money readonly="true" code="patron.patronage.form.label.budgetUSD" path="budgetUSD"/>
+			<acme:input-money readonly="true" code="patron.patronage.form.label.budgetGBP" path="budgetGBP"/>
+		</jstl:when>
+	</jstl:choose>
 	<acme:input-url code="patron.patronage.form.label.link" path="link"/>	
 	<acme:input-moment readonly="true" code="patron.patronage.form.label.createdAt" path="createdAt"/>
 	<acme:input-moment code="patron.patronage.form.label.startedAt" path="startedAt"/>

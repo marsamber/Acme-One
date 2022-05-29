@@ -1,10 +1,14 @@
 package acme.features.inventor.item;
 
 
+import java.util.Collection;
+import java.util.Iterator;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.Item;
+import acme.entities.Toolkit;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
 import acme.framework.controllers.Request;
@@ -68,7 +72,19 @@ public class InventorItemDeleteService implements AbstractDeleteService<Inventor
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
-
+		
+		if (!errors.hasErrors()){
+			final Collection<Toolkit> toolkits = this.repository.findAllToolkits();
+			final Iterator<Toolkit> it = toolkits.iterator();
+			while(it.hasNext() && !errors.hasErrors()){
+				final Toolkit toolkit = it.next();
+				final Collection<Item> itemToolkit = this.repository.findManyItemsByToolkitId(toolkit.getId());
+				final Iterator<Item> itItemToolkit = itemToolkit.iterator();
+				while(itItemToolkit.hasNext() && !errors.hasErrors()) { 
+					errors.state(request, itItemToolkit.next().getId() != entity.getId(), "*", "inventor.item.form.error.code.itemToolkit");
+				}
+			}
+		}
 	}
 
 	@Override

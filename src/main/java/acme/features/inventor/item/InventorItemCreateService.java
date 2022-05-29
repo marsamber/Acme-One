@@ -88,12 +88,15 @@ public class InventorItemCreateService implements AbstractCreateService<Inventor
 			errors.state(request, acceptedCurrencies.contains(entity.getRetailPrice().getCurrency()), "price", "inventor.item.form.error.invalidCurrency");
 		}
 		
-		Boolean isSpam;
 		SystemConfiguration systemConfiguration= this.repositorySpam.findTheSystemConfiguration();
 		SpamDetector spamDetector= new SpamDetector(systemConfiguration);
-		isSpam = (spamDetector.detectSpam(entity.getName()) ||spamDetector.detectSpam(entity.getDescription()));
+
+		errors.state(request, !spamDetector.detectSpam(entity.getName()), "name", "inventor.item.form.error.spam");
 		
-		errors.state(request, !isSpam, "*", "inventor.item.form.error.spam");
+		errors.state(request, !spamDetector.detectSpam(entity.getTechnology()), "technology", "inventor.item.form.error.spam");
+		
+		errors.state(request, !spamDetector.detectSpam(entity.getDescription()), "description", "inventor.item.form.error.spam");
+
 		
 
 	}

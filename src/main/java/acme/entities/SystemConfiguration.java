@@ -1,6 +1,8 @@
 package acme.entities;
 
 import javax.persistence.Entity;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
@@ -29,11 +31,15 @@ public class SystemConfiguration extends AbstractEntity {
 	protected String strongSpamTerms;
 	
 	@NotNull
+	@Min(0)
+	@Max(100)
 	protected Double strongSpamThreshold;
 	
 	@NotBlank
 	protected String weakSpamTerms;
 	
 	@NotNull
+	@Min(0)
+	@Max(100)
 	protected Double weakSpamThreshold;
 }

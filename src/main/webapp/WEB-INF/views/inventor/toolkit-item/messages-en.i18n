@@ -22,10 +22,8 @@ inventor.toolkit-item.form.button.delete = Delete
 inventor.toolkit-item.form.button.publish = Publish
 inventor.toolkit-item.form.button.create = Create
 
-inventor.toolkit-item.form.error.code.invalid = Code invalid
-inventor.toolkit-item.form.error.code.existingItem = This code is occupated
-inventor.toolkit-item.form.error.negative = Money must be positive
-inventor.toolkit-item.form.error.invalidCurrency = Invalid currency
+inventor.toolkit-item.form.error.code.notExistingItem = This code doesn't belong to any component or tool
+inventor.toolkit-item.form.error.units.more-units = There may not be more than one unit of the same tool
 
 inventor.toolkit-item.list.label.name = Name
 inventor.toolkit-item.list.label.code = Code

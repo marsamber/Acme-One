@@ -6,3 +6,9 @@ inventor.patronageReport.form.label.link = Link:
 
 inventor.patronageReport.list.label.seqNumber = Número de Secuencia:
 inventor.patronageReport.list.label.creationMoment = Momento de Creación:
+
+inventor.patronageReport.form.button.create = Crear
+inventor.patronageReport.form.button.confirmation = Confirmo
+inventor.patronageReport.form.label.patronage = Seleccionar Patrocinio:
+
+inventor.patronageReport.form.error.spam = Este memorandum contiene spam

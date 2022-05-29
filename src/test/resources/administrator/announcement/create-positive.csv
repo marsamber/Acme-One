@@ -1,0 +1,5 @@
+recordIndex,title,body,criticalFlag,link
+0,AAAA´·ñ^*`><,AAAAáéíóúü,true,http://example.es/ddddd
+1,BBBBB´·ñ^*`><,BBBBBáéíóúü,false,http://example.es/cccc
+2,CCC´·ñ^*`><,áéíóúüCCCCCC,true,http://example.es/bbbb
+3,DD´·ñ^*`DDD><,DDDDDáDéíóúDü,false,http://example.es/aaa
