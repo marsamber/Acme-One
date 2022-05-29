@@ -16,6 +16,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.util.Pair;
 import org.springframework.stereotype.Controller;
@@ -40,21 +42,25 @@ public class AuthenticatedPatronController extends AbstractController<Authentica
 
 	@Autowired
 	protected PatronageShowService	patronageService;
+	
 	@Autowired
 	protected AuthenticatedPatronShowService	patronShowService;
+	
+	@Autowired
+	protected AuthenticatedPatronCreateService		createService;
 
 	//@Autowired
 	//protected AuthenticatedPatronUpdateService	updateService;
 
 	// Constructors -----------------------------------------------------------
 
-	/*
+	
 	@PostConstruct
 	protected void initialise() {
 		super.addCommand("create", this.createService);
-		super.addCommand("update", this.updateService);
+		/*super.addCommand("update", this.updateService);*/
 	}
-	*/
+	
 	private PatronDashboard createPatronDashboard(final Patron patron) {
 		
 		final Collection<Patronage> patronagesByPatronAndProposed=this.patronageService.findPatronagesByPatronAndStatus(patron, Status.PROPOSED); 

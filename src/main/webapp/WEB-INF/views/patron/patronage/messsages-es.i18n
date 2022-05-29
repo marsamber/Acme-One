@@ -12,12 +12,16 @@ patron.patronage.form.label.status = Estatus:
 patron.patronage.form.label.code = Código:
 patron.patronage.form.label.legalStuff = Detalles legales:
 patron.patronage.form.label.budget = Presupuesto:
+patron.patronage.form.label.budgetEUR = Presupuesto en EUR:
+patron.patronage.form.label.budgetUSD = Presupuesto en USD:
+patron.patronage.form.label.budgetGBP = Presupuesto en GBP:
 patron.patronage.form.label.link = Enlace:
 patron.patronage.form.label.createdAt = Fecha de creación:
 patron.patronage.form.label.startedAt = Fecha de comienzo:
 patron.patronage.form.label.finishedAt = Fecha de finalización:
 
 patron.patronage.section.inventor = Detalles del Inventor:
+patron.patronage.form.label.inventor = Inventor:
 patron.patronage.form.label.inventor.username = Inventor:
 patron.patronage.form.label.inventor.company = Compañía:
 patron.patronage.form.label.inventor.statement = Declaración:
@@ -26,3 +30,17 @@ patron.patronage.form.label.inventor.info = Más información:
 patron.patronage.list.label.status = Estatus
 patron.patronage.list.label.code = Código
 patron.patronage.list.label.link = Enlace
+
+patron.patronage.list.button.create = Crear
+
+patron.patronage.from.button.create = Crear
+patron.patronage.form.button.update = Editar
+patron.patronage.form.button.delete = Borrar
+patron.patronage.form.button.publish = Publicar
+
+patron.patronage.form.error.code.existingPatronage = Código duplicado
+patron.patronage.form.error.spam = Spam
+patron.patronage.form.error.startDate.tooClose = La fecha de inicio debe ser 1 mes posterior a la de creación del patrocinio
+patron.patronage.form.error.finishDate.tooClose = La fecha de conclusión debe ser 1 mes posterior a la de inicio del patrocinio
+patron.patronage.form.error.negative = El presupuesto no puede ser negativo
+patron.patronage.form.error.invalidCurrency = Moneda inválida

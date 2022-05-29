@@ -64,7 +64,7 @@ public class InventorToolkitItemShowService implements AbstractShowService<Inven
 		assert model != null;
 
 		request.unbind(entity, model,"item.name", "item.code", "item.technology", "item.description", "item.retailPrice", "item.link","item.type","units");
-		model.setAttribute("readonly", true);
+		model.setAttribute("draftMode", entity.getToolkit().getDraftMode());
 	}
 	
 }

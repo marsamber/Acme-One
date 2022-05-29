@@ -29,6 +29,7 @@ master.menu.administrator.user-accounts = User accounts
 master.menu.administrator.populate-initial = Populate DB (initial)
 master.menu.administrator.populate-sample = Populate DB (samples)
 master.menu.administrator.shut-down = Shut down
+master.menu.administrator.announcements = Create announcement
 
 
 
@@ -76,3 +77,4 @@ master.menu.user-account.become-inventor = Become a inventor
 master.menu.any.item.list-all-tools = List All Tools
 master.menu.any.item.list-all-components = List All Components
 
+master.menu.authenticated.money-exchage = Money exchange

@@ -12,6 +12,9 @@ inventor.patronage.form.label.status = Status:
 inventor.patronage.form.label.code = Code:
 inventor.patronage.form.label.legalStuff = Legal Stuff:
 inventor.patronage.form.label.budget = Budget:
+inventor.patronage.form.label.budgetEUR = Budget in EUR:
+inventor.patronage.form.label.budgetUSD = Budget in USD:
+inventor.patronage.form.label.budgetGBP = Budget in GBP:
 inventor.patronage.form.label.link = Link:
 inventor.patronage.form.label.createdAt = Created at:
 inventor.patronage.form.label.startedAt = Started at:
@@ -26,3 +29,5 @@ inventor.patronage.form.label.patron.info = More Info:
 inventor.patronage.list.label.status = Status
 inventor.patronage.list.label.code = Code
 inventor.patronage.list.label.link = Link
+
+inventor.patronage.form.update = Update

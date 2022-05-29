@@ -7,3 +7,4 @@
 	<acme:list-column code="inventor.patronageReport.list.label.seqNumber" path="seqNumber" width="60%"/>
 	<acme:list-column code="inventor.patronageReport.list.label.creationMoment" path="creationMoment" width="40%"/>	
 </acme:list>
+<acme:button code="inventor.patronageReport.form.button.create" action="/inventor/patronage-report/create"/>

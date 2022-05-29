@@ -14,6 +14,13 @@
 		<acme:input-option code="COMPONENT" value="COMPONENT" selected="${type == 'COMPONENT'}"/>
 	</acme:input-select>
 	<acme:input-money code="any.item.form.label.retailPrice" path="retailPrice"/>
+	<jstl:choose>
+		<jstl:when test="${!(command == 'create')}">
+	<acme:input-money code="any.item.form.label.retailPriceEUR" path="retailPriceEUR"/>
+	<acme:input-money code="any.item.form.label.retailPriceUSD" path="retailPriceUSD"/>
+	<acme:input-money code="any.item.form.label.retailPriceGBP" path="retailPriceGBP"/>
+		</jstl:when>
+	</jstl:choose>
 	<acme:input-url code="any.item.form.label.link" path="link"/>	
 	
 </acme:form>

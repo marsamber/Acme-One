@@ -15,6 +15,9 @@ any.item.form.label.code = Código:
 any.item.form.label.technology = Tecnología:
 any.item.form.label.description = Descripción:
 any.item.form.label.retailPrice = Precio al por menor:
+any.item.form.label.retailPriceEUR = Precio al por menor en EUR:
+any.item.form.label.retailPriceUSD = Precio al por menor en USD:
+any.item.form.label.retailPriceGBP = Precio al por menor en GBP:
 any.item.form.label.link = Link:
 any.item.form.label.type = Tipo:
 

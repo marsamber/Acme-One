@@ -1,5 +1,5 @@
 /*
- * AuthenticatedProviderCreateService.java
+ * AdministratorDashboardController.java
  *
  * Copyright (C) 2012-2022 Rafael Corchuelo.
  *
@@ -10,32 +10,31 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.authenticated.administrator;
+package acme.features.authenticated.moneyExchange;
+
+import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Controller;
 
-import acme.framework.roles.Administrator;
+import acme.forms.MoneyExchange;
+import acme.framework.controllers.AbstractController;
 import acme.framework.roles.Authenticated;
-import acme.framework.services.AbstractService;
 
-@Service
-public class AdministratorShowService implements AbstractService<Authenticated, Administrator> {
+@Controller
+public class AuthenticatedMoneyExchangeController extends AbstractController<Authenticated, MoneyExchange> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AdministratorRepository repository;
+	protected AuthenticatedMoneyExchangePerformService exchangeService;
+
+	// Constructors -----------------------------------------------------------
 
 
-	/*
-	public Collection<Patronage> findPatronageByStatus(Status status){
-		return this.repository.findPatronageByStatus(status);
+	@PostConstruct
+	protected void initialise() {
+		super.addCommand("perform", this.exchangeService);
 	}
-
-	public int NumberOfPatronageByStatus(Status status){
-		return this.repository.findPatronageByStatus(status).size();
-	}
-	*/
 
 }

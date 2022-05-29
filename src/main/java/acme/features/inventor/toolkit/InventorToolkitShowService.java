@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.Toolkit;
 import acme.entities.ToolkitItem;
+import acme.features.authenticated.moneyExchange.AuthenticatedMoneyExchangePerformService;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
 import acme.framework.datatypes.Money;
@@ -40,6 +41,8 @@ public class InventorToolkitShowService implements AbstractShowService<Inventor,
 			result = toolkitItems != null && toolkitItem.getItem().getInventor().getId() == principalId;
 			if(result) return true;
 		}
+		
+		if( toolkitItems == null || toolkitItems.isEmpty()) return true;
 
 		return result;
 	}
@@ -76,7 +79,18 @@ public class InventorToolkitShowService implements AbstractShowService<Inventor,
 		assert model != null;
 
 		request.unbind(entity, model, "title", "code", "description", "assemblyNotes", "link", "totalPrice");
-		model.setAttribute("readonly", true);
+		model.setAttribute("draftMode", entity.getDraftMode());
+		AuthenticatedMoneyExchangePerformService moneyExchange= new AuthenticatedMoneyExchangePerformService();
+		
+		Money money =entity.getTotalPrice();
+		Money moneyEUR = moneyExchange.computeMoneyExchange(money, "EUR").getTarget();
+		Money moneyUSD = moneyExchange.computeMoneyExchange(money, "USD").getTarget();
+		Money moneyGBP = moneyExchange.computeMoneyExchange(money, "GBP").getTarget();
+		
+		model.setAttribute("totalPriceEUR", moneyEUR);
+		model.setAttribute("totalPriceUSD", moneyUSD);
+		model.setAttribute("totalPriceGBP", moneyGBP);
+		
 	}
 
 }
