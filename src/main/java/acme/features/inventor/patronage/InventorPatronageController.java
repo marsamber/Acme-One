@@ -1,4 +1,4 @@
-package acme.features.inventor.patronages;
+package acme.features.inventor.patronage;
 
 import javax.annotation.PostConstruct;
 
@@ -20,6 +20,9 @@ public class InventorPatronageController extends AbstractController<Inventor, Pa
 	@Autowired
 	protected InventorPatronageShowService showService;
 	
+	@Autowired 
+	protected InventorPatronageUpdateService updateService;
+	
 	
 	// Constructors --------------------------------------------
 	
@@ -27,6 +30,7 @@ public class InventorPatronageController extends AbstractController<Inventor, Pa
 	protected void initialise() {
 		super.addCommand("list", this.listService);
 		super.addCommand("show", this.showService);
+		super.addCommand("update", this.updateService);
 	}
 	
 }

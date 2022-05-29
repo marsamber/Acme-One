@@ -1,4 +1,5 @@
-package acme.features.inventor.patronages;
+
+package acme.features.inventor.patronage;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,13 +19,14 @@ public class InventorPatronageShowService implements AbstractShowService<Invento
 	@Autowired
 	protected InventorPatronageRepository repo;
 
+
 	@Override
 	public boolean authorise(final Request<Patronage> request) {
 		assert request != null;
-		
+
 		final int id = request.getModel().getInteger("id");
 		final Patronage p = this.repo.findById(id);
-		
+		//return true;
 		return p != null && p.getInventor().getId() == request.getPrincipal().getActiveRoleId();
 	}
 
@@ -40,29 +42,29 @@ public class InventorPatronageShowService implements AbstractShowService<Invento
 		assert request != null;
 		assert request != null;
 		assert request != null;
-		
+
 		final Patron patron = entity.getPatron();
+
+		request.unbind(entity, model, "status", "code", "legalStuff", "budget", "link", "createdAt", "startedAt", "finishedAt", "patron", "inventor");
 		
-		request.unbind(entity, model, "status", "code",
-			"legalStuff", "budget", "link", "createdAt",
-			"startedAt", "finishedAt", "patron", "inventor");
-		request.unbind(patron, model, "company", "statement");
-		request.unbind(patron.getUserAccount(), model, "username");
+		model.setAttribute("company", patron.getCompany());
+		model.setAttribute("statement", patron.getStatement());
+		model.setAttribute("username", patron.getUserAccount().getUsername());
 		
-		AuthenticatedMoneyExchangePerformService moneyExchange= new AuthenticatedMoneyExchangePerformService();
 		
-		Money money =entity.getBudget();
-		Money moneyEUR = moneyExchange.computeMoneyExchange(money, "EUR").getTarget();
-		Money moneyUSD = moneyExchange.computeMoneyExchange(money, "USD").getTarget();
-		Money moneyGBP = moneyExchange.computeMoneyExchange(money, "GBP").getTarget();
-		
+		final AuthenticatedMoneyExchangePerformService moneyExchange = new AuthenticatedMoneyExchangePerformService();
+
+		final Money money = entity.getBudget();
+		final Money moneyEUR = moneyExchange.computeMoneyExchange(money, "EUR").getTarget();
+		final Money moneyUSD = moneyExchange.computeMoneyExchange(money, "USD").getTarget();
+		final Money moneyGBP = moneyExchange.computeMoneyExchange(money, "GBP").getTarget();
+
 		model.setAttribute("budgetEUR", moneyEUR);
 		model.setAttribute("budgetUSD", moneyUSD);
 		model.setAttribute("budgetGBP", moneyGBP);
-		
+
 		model.setAttribute("patronLink", patron.getMoreInfo());
-		
-		
+
 	}
-	
+
 }

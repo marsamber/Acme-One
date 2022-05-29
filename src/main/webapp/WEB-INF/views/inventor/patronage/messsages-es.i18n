@@ -29,3 +29,5 @@ inventor.patronage.form.label.patron.info = Más información:
 inventor.patronage.list.label.status = Estatus
 inventor.patronage.list.label.code = Código
 inventor.patronage.list.label.link = Enlace
+
+inventor.patronage.form.update = Editar
