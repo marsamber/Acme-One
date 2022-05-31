@@ -4,6 +4,7 @@ package acme.features.inventor.toolkitItem;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -90,13 +91,13 @@ public class InventorToolkitItemCreateService implements AbstractCreateService<I
 
 		String code;
 		Item item;
-		
-		code = request.getModel().getString("item.code");
+
+		code = request.getModel().getString("item.codeProxy");
 		item = this.repository.findItemByCode(code);
 
 		entity.setItem(item);
-		
-		request.bind(entity, errors, "item.code", "units");
+
+		request.bind(entity, errors, "item.codeProxy", "units");
 	}
 
 	@Override
@@ -113,6 +114,9 @@ public class InventorToolkitItemCreateService implements AbstractCreateService<I
 		if (existing != null && existing.getType() == Type.TOOL) {
 			errors.state(request, entity.getUnits() == 1, "units", "inventor.toolkit-item.form.error.units.more-units");
 
+			final Collection<ToolkitItem> toolkitItems = this.repository.findManyItemsByToolkitId(entity.getToolkit().getId());
+			final List<Item> items = toolkitItems.stream().map(ti->ti.getItem()).collect(Collectors.toList());
+			errors.state(request, !items.contains(existing), "item.code", "inventor.toolkit-item.form.error.units.more-units");
 		}
 
 	}
@@ -123,10 +127,9 @@ public class InventorToolkitItemCreateService implements AbstractCreateService<I
 		assert entity != null;
 		assert model != null;
 
-
 		final List<String> codes = new ArrayList<>();
-		this.itemRepository.findAllItems().stream().forEach(x->codes.add(x.getCode()));
-		
+		this.itemRepository.findAllItems().stream().forEach(x -> codes.add(x.getCode()));
+
 		request.unbind(entity, model, "item.code", "units");
 		model.setAttribute("toolkitId", request.getModel().getAttribute("toolkitId"));
 		model.setAttribute("draftMode", entity.getToolkit().getDraftMode());

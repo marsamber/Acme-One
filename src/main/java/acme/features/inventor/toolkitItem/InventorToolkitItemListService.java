@@ -37,12 +37,12 @@ assert request != null;
 		toolkitItems = this.repository.findManyItemsByToolkitId(masterId);
 
 		principalId = request.getPrincipal().getActiveRoleId();
-		for(final ToolkitItem toolkitItem: toolkitItems) {
-			result = toolkitItems != null && toolkitItem.getItem().getInventor().getId() == principalId;
-			if(result && toolkit != null && Boolean.TRUE.equals(toolkit.getDraftMode())) return true;
-		}
-		
 		if( toolkitItems == null || toolkitItems.isEmpty()) return true;
+		
+		for(final ToolkitItem toolkitItem: toolkitItems) {
+			result = toolkitItem.getItem().getInventor().getId() == principalId;
+			if(result && Boolean.TRUE.equals(toolkit.getDraftMode())) return true;
+		}
 		
 		return result;
 	}
@@ -69,6 +69,8 @@ assert request != null;
 		toolkitId = request.getModel().getInteger("toolkitId");
 		
 		model.setAttribute("toolkitId", toolkitId);
+		final Boolean draftMode = entities.iterator().next().getToolkit().getDraftMode();
+		model.setAttribute("draftMode", draftMode);
 	}
 	
 	@Override
@@ -78,8 +80,6 @@ assert request != null;
 		assert model != null;
 
 		request.unbind(entity, model, "item.name", "item.code", "item.type","units");
-		model.setAttribute("showCommandCreate", true);
-//		model.setAttribute("toolkitId", request.getModel().getInteger("toolkitId"));
 
 	}
 

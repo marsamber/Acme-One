@@ -14,4 +14,4 @@
 		path="units" width="40%" />
 </acme:list>
 
-<acme:button test="${showCommandCreate}" code="inventor.toolkit-item.list.button.create" action="/inventor/toolkit-item/create?toolkitId=${toolkitId}"/>
+<acme:button test="${draftMode == true}" code="inventor.toolkit-item.list.button.create" action="/inventor/toolkit-item/create?toolkitId=${toolkitId}"/>
