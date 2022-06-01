@@ -69,7 +69,7 @@ assert request != null;
 		toolkitId = request.getModel().getInteger("toolkitId");
 		
 		model.setAttribute("toolkitId", toolkitId);
-		final Boolean draftMode = entities.iterator().next().getToolkit().getDraftMode();
+		final Boolean draftMode = this.repository.findOneToolkitById(toolkitId).getDraftMode();
 		model.setAttribute("draftMode", draftMode);
 	}
 	
