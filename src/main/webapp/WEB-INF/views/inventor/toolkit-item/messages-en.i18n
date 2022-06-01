@@ -30,3 +30,5 @@ inventor.toolkit-item.list.label.code = Code
 inventor.toolkit-item.list.label.type = Type
 inventor.toolkit-item.list.label.units = Units
 inventor.toolkit-item.list.button.create = Create
+
+inventor.toolkit-item.form.label.items = Components and Tools

@@ -30,3 +30,5 @@ anonymous.toolkit-item.list.label.code = Código
 anonymous.toolkit-item.list.label.type = Tipo
 anonymous.toolkit-item.list.label.units = Unidades
 inventor.toolkit-item.list.button.create = Crear
+
+inventor.toolkit-item.form.label.items = Componentes y herramientas
